@@ -8,6 +8,7 @@ import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { SERVICES, getService } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
+import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, waHref } from "@/components/constants";
 
 export function generateStaticParams() {
@@ -88,6 +89,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="cta-row">
             <a className="btn-green" href={waHref(`Hello, I'd like a quote for ${s.name}.`)} target="_blank" rel="noopener">Get a free quote →</a>
             <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+            <RequestCall className="btn-outline" />
           </div>
         </section>
 

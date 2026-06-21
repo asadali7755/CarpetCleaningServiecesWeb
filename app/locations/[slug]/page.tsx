@@ -7,6 +7,7 @@ import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { LOCATIONS, getLocation } from "@/lib/locationsData";
 import { SERVICES } from "@/lib/servicesData";
+import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, waHref } from "@/components/constants";
 
 export function generateStaticParams() {
@@ -88,6 +89,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <div className="cta-row">
             <a className="btn-green" href={waHref(`Hi Al Haya, I need carpet cleaning in ${l.name}.`)} target="_blank" rel="noopener">Book in {l.name} →</a>
             <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+            <RequestCall className="btn-outline" />
           </div>
           <div className="area-stats">
             <div className="s"><b>{l.resp}</b><span>Avg. response</span></div>

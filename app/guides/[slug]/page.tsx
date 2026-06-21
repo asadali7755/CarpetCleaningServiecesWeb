@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { GUIDES, getGuide } from "@/lib/guidesData";
+import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 export function generateStaticParams() {
@@ -83,6 +84,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <div className="cta-row">
             <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a free quote →</a>
             <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+            <RequestCall className="btn-outline" />
           </div>
         </section>
 

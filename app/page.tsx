@@ -7,6 +7,7 @@ import RevealInit from "@/components/RevealInit";
 import InfiniteGallery from "@/components/InfiniteGallery";
 import { ContainerScroll, CardSticky } from "@/components/ui/container-scroll";
 import { Icon } from "@/components/Icons";
+import RequestCall from "@/components/RequestCall";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL, BRAND, EMAIL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
@@ -91,6 +92,7 @@ export default function Home() {
           <div className="hero-cta">
             <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote via WhatsApp →</a>
             <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+            <RequestCall className="btn-outline" />
           </div>
           <div className="hero-stats">
             <div><div className="stat-num">7</div><div className="stat-label">Emirates served</div></div>
