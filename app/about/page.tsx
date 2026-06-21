@@ -35,7 +35,7 @@ export default function About() {
           <p className="lead">Al Haya Carpet Services is an on-demand carpet, rug, sofa and mattress cleaning company built on one promise — spotless results and healthier homes, delivered fast and done right.</p>
           <div className="cta-row">
             <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
           </div>
         </section>
 

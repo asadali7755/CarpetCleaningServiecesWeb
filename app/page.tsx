@@ -104,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* PROCESS */}
-      <section id="process" className="sec-process">
+      <section className="sec-process">
         <div className="inner">
           <div className="proc-head" data-reveal>
             <div>
@@ -115,7 +115,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="proc-gallery-wrap" data-reveal>
+        <div id="process" className="proc-gallery-wrap" data-reveal>
           <InfiniteGallery images={GALLERY_IMAGES} visibleCount={14} speed={1.2} className="proc-gallery" />
           <div className="proc-gallery-cap"><span className="dot" /> DEEP-CLEANED CARPETS · DUBAI · SHARJAH · AJMAN · UAE</div>
         </div>

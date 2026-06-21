@@ -28,7 +28,7 @@ export default function ServicesHub() {
           <p className="lead">From deep carpet steam cleaning to delicate rugs, sofas, mattresses, office floors and curtains — one trusted team for your whole home or business, across all 7 emirates.</p>
           <div className="cta-row">
             <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Book a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
           </div>
         </section>
 

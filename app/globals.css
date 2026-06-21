@@ -215,7 +215,7 @@ img { max-width: 100%; display: block; }
 .proc-card p { font-size: 13px; line-height: 1.55; color: rgba(255, 255, 255, 0.66); }
 
 /* 3D carpet gallery band — dark stage in both themes */
-.proc-gallery-wrap { position: relative; width: 100%; margin: 8px 0 64px; }
+.proc-gallery-wrap { position: relative; width: 100%; margin: 8px 0 64px; scroll-margin-top: 0; }
 .proc-gallery { height: 100vh; height: 100svh; width: calc(100% - 64px); margin-left: 0; overflow: hidden; background: radial-gradient(1000px 600px at 45% 45%, rgba(45, 212, 108, 0.07), transparent 70%), #060a08; pointer-events: none; }
 .proc-gallery-cap { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; background: rgba(6, 10, 8, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; padding: 8px 15px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: rgba(255, 255, 255, 0.75); pointer-events: none; white-space: nowrap; }
 

@@ -25,6 +25,10 @@ export default function Contact() {
           </nav>
           <h1>Book your free inspection</h1>
           <p className="lead">Call, WhatsApp or send us a message — we&apos;ll get back with a no-obligation quote within the hour. Same-day service available across Dubai, Sharjah and Ajman.</p>
+          <div className="cta-row">
+            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote via WhatsApp →</a>
+            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+          </div>
         </section>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>

@@ -85,15 +85,15 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </nav>
           <h1>{l.h1}</h1>
           <p className="lead">{l.intro}</p>
+          <div className="cta-row">
+            <a className="btn-green" href={waHref(`Hi Al Haya, I need carpet cleaning in ${l.name}.`)} target="_blank" rel="noopener">Book in {l.name} →</a>
+            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+          </div>
           <div className="area-stats">
             <div className="s"><b>{l.resp}</b><span>Avg. response</span></div>
             <div className="s"><b>{l.cityCount}+</b><span>Areas covered</span></div>
             <div className="s"><b>7 days</b><span>8 AM – 10 PM</span></div>
             <div className="s"><b>100%</b><span>Guarantee</span></div>
-          </div>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref(`Hi Al Haya, I need carpet cleaning in ${l.name}.`)} target="_blank" rel="noopener">Book in {l.name} →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
           </div>
         </section>
 

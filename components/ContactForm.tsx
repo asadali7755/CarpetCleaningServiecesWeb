@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Icon } from "./Icons";
 import { waHref } from "./constants";
 import { SERVICES } from "@/lib/servicesData";
 
@@ -41,8 +40,8 @@ export default function ContactForm() {
         <label htmlFor="cf-msg">Message</label>
         <textarea id="cf-msg" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Tell us about your carpets, rugs or sofas…" />
       </div>
-      <button type="submit" className="btn-green" style={{ justifyContent: "center" }}>
-        <Icon name="whatsapp" /> Send via WhatsApp
+      <button type="submit" className="btn-green" style={{ alignSelf: "flex-start" }}>
+        Send via WhatsApp →
       </button>
     </form>
   );

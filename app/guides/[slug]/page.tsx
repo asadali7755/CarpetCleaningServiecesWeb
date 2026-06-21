@@ -82,7 +82,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <p className="lead">{g.description}</p>
           <div className="cta-row">
             <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
           </div>
         </section>
 
@@ -126,7 +126,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               <p>Book a free inspection and get a no-obligation quote. Same-day service available across Dubai, Sharjah, and Ajman.</p>
               <div className="row">
                 <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp us →</a>
-                <a className="btn-outline" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>
+                <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
               </div>
             </div>
           </div>

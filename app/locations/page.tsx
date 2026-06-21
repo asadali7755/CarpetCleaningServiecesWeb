@@ -27,7 +27,7 @@ export default function LocationsHub() {
           <p className="lead">Daily coverage in Dubai, Sharjah and Ajman, plus scheduled routes to Abu Dhabi, Ras Al Khaimah, Umm Al Quwain and Fujairah. Pickup, clean and return — anywhere in the UAE.</p>
           <div className="cta-row">
             <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Book a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
           </div>
         </section>
 
