@@ -50,6 +50,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     areaServed: LOCATIONS.map((l) => ({ "@type": "City", name: l.name })),
     offers: { "@type": "Offer", priceCurrency: "AED", availability: "https://schema.org/InStock" },
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: s.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -63,6 +72,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   return (
     <div className="page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav />
 
@@ -96,6 +106,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* FAQ */}
+        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
+          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Frequently Asked Questions</h2>
+          {s.faqs.map((f) => (
+            <details className="faq-item" key={f.q}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
         </section>
 
         {/* Areas */}
