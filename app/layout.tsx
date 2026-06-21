@@ -53,6 +53,10 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   alternates: { canonical: SITE_URL },
+  other: {
+    "theme-color": "#c8a84e",
+    "msapplication-TileColor": "#0a0a0a",
+  },
   openGraph: {
     type: "website",
     locale: "en_AE",
@@ -61,6 +65,21 @@ export const metadata: Metadata = {
     title: "Professional Carpet Deep Cleaning Services UAE | Alhaya Cleaning Services",
     description:
       "Residential and commercial carpet deep shampoo cleaning with 2-4 hours dry time. Erase stubborn stains and eliminate odors across all UAE Emirates.",
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Alhaya Cleaning Services - Professional Carpet Deep Cleaning UAE",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Professional Carpet Deep Cleaning Services UAE | Alhaya Cleaning Services",
+    description:
+      "Carpet deep shampoo cleaning with 2-4 hours dry time. Stubborn stain removal across all UAE Emirates.",
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -96,6 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${manrope.variable} ${jetbrains.variable}`}>
       <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site info" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='dark';}})();`,
