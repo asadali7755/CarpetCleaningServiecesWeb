@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -82,8 +83,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
           <div className="svc-shot">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={s.img} alt={`${s.name} — ${BRAND} Dubai UAE`} width={1280} height={720} loading="lazy" />
+            <Image src={s.img} alt={`${s.name} — ${BRAND} Dubai UAE`} width={1280} height={720} loading="lazy" style={{ width: "100%", height: "auto" }} />
           </div>
           <div className="prose">
             {s.body.map((p, i) => <p key={i}>{p}</p>)}
