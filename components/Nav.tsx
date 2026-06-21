@@ -13,6 +13,7 @@ const LINKS = [
   { href: "/locations", label: "Service Areas" },
   { href: "/#process", label: "Process" },
   { href: "/guides", label: "Guides" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

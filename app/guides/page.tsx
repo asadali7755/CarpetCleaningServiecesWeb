@@ -7,6 +7,7 @@ import { Icon } from "@/components/Icons";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, HOURS, waHref } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
+import { GUIDES } from "@/lib/guidesData";
 
 /* ---------- Data ---------- */
 
@@ -368,6 +369,26 @@ export default function GuidesPage() {
             </div>
           </section>
         ))}
+
+        {/* Deep-dive guide articles */}
+        <section className="guide-section" style={{ borderTop: "1px solid var(--border)" }}>
+          <div className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "60px var(--pad)" }}>
+            <div className="eyebrow teal">/ DEEP DIVE GUIDES</div>
+            <h2 className="sec-title" style={{ marginBottom: 8 }}>In-Depth Carpet Cleaning Articles</h2>
+            <p style={{ color: "var(--text-2)", fontSize: 16, marginBottom: 28, maxWidth: "60ch" }}>
+              Detailed expert guides covering specific carpet cleaning topics — pricing, methods, stain removal, rug care, and more.
+            </p>
+            <div className="rel-grid">
+              {GUIDES.map((g) => (
+                <Link className="rel-card" key={g.slug} href={`/guides/${g.slug}`}>
+                  <div className="ic"><Icon name="arrow" /></div>
+                  <h3>{g.title.split("—")[0].trim()}</h3>
+                  <p>{g.description.slice(0, 120)}…</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Services quick links */}
         <section className="guide-section" style={{ borderTop: "1px solid var(--border)" }}>

@@ -59,11 +59,21 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       { "@type": "ListItem", position: 3, name: l.name, item: url },
     ],
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: l.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   return (
     <div className="page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Nav />
 
       <main>
@@ -93,6 +103,17 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <div className="chips-row">
             {l.areas.map((a) => <span key={a} className="chip-link"><Icon name="pin" /> {a}</span>)}
           </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
+          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Frequently Asked Questions — {l.name}</h2>
+          {l.faqs.map((f) => (
+            <details className="faq-item" key={f.q}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
         </section>
 
         {/* Services offered here */}

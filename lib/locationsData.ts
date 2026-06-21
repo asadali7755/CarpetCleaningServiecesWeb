@@ -1,6 +1,8 @@
 // Single source of truth for emirate coverage — used by /locations hub,
 // /locations/[slug] pages, homepage coverage strip and sitemap.
 
+export interface Faq { q: string; a: string }
+
 export interface Location {
   slug: string;
   name: string;
@@ -11,6 +13,7 @@ export interface Location {
   areas: string[];
   resp: string;        // response-time line
   cityCount: number;
+  faqs: Faq[];
 }
 
 export const LOCATIONS: Location[] = [
@@ -28,6 +31,13 @@ export const LOCATIONS: Location[] = [
     ],
     areas: ["Dubai Marina", "Downtown Dubai", "Jumeirah", "Business Bay", "Deira", "Al Barsha", "JBR", "Palm Jumeirah", "Arabian Ranches", "Al Qusais", "Bur Dubai", "DIFC", "Motor City", "Silicon Oasis", "JVC", "Springs"],
     resp: "30 – 60 mins", cityCount: 16,
+    faqs: [
+      { q: "How quickly can Al Haya reach my location in Dubai?", a: "We reach most central Dubai areas — Marina, Downtown, Jumeirah, Business Bay, Deira, Al Barsha — within 30 to 60 minutes of booking confirmation. Same-day service is available across all Dubai communities." },
+      { q: "Do you offer carpet cleaning for Dubai Marina apartments?", a: "Yes. Our technicians bring all equipment in portable units designed for high-rise buildings. We work efficiently in compact apartment spaces and handle building access logistics including parking and elevator coordination." },
+      { q: "Is same-day carpet cleaning available in Dubai?", a: "Yes. Book in the morning and have your carpets cleaned the same day. Same-day availability covers all Dubai areas. For large villa jobs or commercial spaces, we recommend booking a day ahead to ensure a dedicated time block." },
+      { q: "Do you clean office carpets in Business Bay and DIFC?", a: "Yes. We provide after-hours and weekend commercial carpet cleaning for offices in Business Bay, DIFC, Downtown, and all Dubai business districts. Regular maintenance contracts are available with monthly or quarterly scheduling." },
+      { q: "Can you clean Persian rugs in Jumeirah villas?", a: "Yes. We offer specialised Persian and Oriental rug cleaning with pickup and delivery across Jumeirah, Arabian Ranches, and all Dubai villa communities. Each rug is inspected, tested for dye fastness, and cleaned using low-moisture pH-neutral methods." },
+    ],
   },
   {
     slug: "sharjah", name: "Sharjah", ar: "الشارقة",
@@ -43,6 +53,12 @@ export const LOCATIONS: Location[] = [
     ],
     areas: ["Al Nahda", "Al Majaz", "Al Qasimia", "Muwaileh", "Al Taawun", "University City", "Al Khan", "Khor Fakkan", "Al Mamzar", "Al Gharb", "Al Ramla", "Industrial Area"],
     resp: "30 – 45 mins", cityCount: 12,
+    faqs: [
+      { q: "Does Al Haya offer same-day carpet cleaning in Sharjah?", a: "Yes. Same-day appointments are available across Sharjah with response times of 30 to 45 minutes. Our team is based close to the Sharjah-Dubai border, giving us rapid access to Al Nahda, Al Taawun, Al Khan, Al Majaz, and surrounding areas." },
+      { q: "Do you clean majlis carpets and seating in Sharjah?", a: "Yes. We clean majlis cushions and seating on-site using low-moisture methods that protect decorative fabrics. Handmade and Persian rugs from Sharjah homes can be picked up for off-site cleaning and returned cleaned and dried." },
+      { q: "Are your products safe for children in Sharjah apartments?", a: "Yes. All our cleaning products are non-toxic, biodegradable, child-safe, and pet-safe. Once the carpet is fully dry (2 to 4 hours), it is completely safe for children to play on. We never use harsh chemicals that could leave harmful residues." },
+      { q: "Do you serve Muwaileh and University City in Sharjah?", a: "Yes. We serve all Sharjah communities including Muwaileh, University City, Al Nahda, Al Majaz, Al Qasimia, Al Taawun, Al Khan, Khor Fakkan, and surrounding areas. Light-coloured carpets common in newer buildings receive targeted stain removal combined with full deep cleaning." },
+    ],
   },
   {
     slug: "ajman", name: "Ajman", ar: "عجمان",
@@ -57,6 +73,12 @@ export const LOCATIONS: Location[] = [
     ],
     areas: ["Ajman City", "Al Nuaimiya", "Al Rashidiya", "Al Jurf", "Al Hamidiya", "Al Rumailah", "Al Mowaihat", "Emirates City", "Al Tallah"],
     resp: "30 – 45 mins", cityCount: 9,
+    faqs: [
+      { q: "Is carpet cleaning available in Al Nuaimiya and Al Rashidiya?", a: "Yes. We serve all Ajman communities including Al Nuaimiya, Al Rashidiya, Al Jurf, Al Hamidiya, Al Rumailah, Al Mowaihat, Emirates City, and Al Tallah. Our portable extraction equipment is designed for wall-to-wall fitted carpets common in Ajman apartments." },
+      { q: "Is there a minimum job size for carpet cleaning in Ajman?", a: "No. Whether you need a single rug cleaned or an entire villa, we quote the same fair, fixed pricing. There is no minimum job size or surcharge for smaller appointments in Ajman." },
+      { q: "Can I combine carpet and sofa cleaning in one visit?", a: "Yes. Combining carpet cleaning with sofa, mattress, or curtain cleaning in a single appointment is more cost-effective than booking separate visits. Many Ajman families book a complete home refresh combining all services." },
+      { q: "How long does carpet cleaning take in an Ajman apartment?", a: "A standard 1-2 bedroom apartment carpet cleaning takes approximately 1 to 2 hours. The carpets are then walkable within 2 to 4 hours of drying time. Villa appointments with multiple rooms and rugs are scheduled with longer dedicated time blocks." },
+    ],
   },
   {
     slug: "abu-dhabi", name: "Abu Dhabi", ar: "أبوظبي",
@@ -71,6 +93,12 @@ export const LOCATIONS: Location[] = [
     ],
     areas: ["Abu Dhabi City", "Khalifa City", "Al Ain", "Mussafah", "Saadiyat Island", "Yas Island", "Al Reem Island", "Corniche", "Al Wahda", "Mohamed Bin Zayed City"],
     resp: "35 – 55 mins", cityCount: 10,
+    faqs: [
+      { q: "How far in advance should I book carpet cleaning in Abu Dhabi?", a: "We run regular Abu Dhabi routes. Bookings are typically scheduled within 48 hours, with priority slots available for urgent requests. For large commercial spaces, booking 3 to 5 days ahead ensures a dedicated team and time block." },
+      { q: "Do you serve Khalifa City and Saadiyat Island?", a: "Yes. We serve all Abu Dhabi areas including Khalifa City, Saadiyat Island, Yas Island, Al Reem Island, Corniche, Al Wahda, Mohamed Bin Zayed City, Mussafah, and Abu Dhabi City centre. Al Ain is also covered on dedicated routes." },
+      { q: "Is commercial carpet cleaning available in Mussafah?", a: "Yes. We offer flexible commercial scheduling for Abu Dhabi businesses in Mussafah and the industrial areas, including after-hours and weekend appointments. Offices, warehouses with carpeted sections, and worker accommodation all receive the same professional service." },
+      { q: "Do you offer carpet cleaning in Al Ain?", a: "Yes. Al Ain is covered on dedicated routes. The hotter, drier climate means carpets accumulate desert dust faster than in coastal Abu Dhabi. We schedule Al Ain visits regularly to provide consistent service to this important inland area." },
+    ],
   },
   {
     slug: "ras-al-khaimah", name: "Ras Al Khaimah", ar: "رأس الخيمة",
@@ -85,6 +113,11 @@ export const LOCATIONS: Location[] = [
     ],
     areas: ["RAK City", "Al Hamra", "Mina Al Arab", "Al Nakheel", "Al Marjan Island", "Khuzam", "Julfar", "Al Dhait"],
     resp: "45 – 65 mins", cityCount: 8,
+    faqs: [
+      { q: "How often does Al Haya visit Ras Al Khaimah?", a: "We run weekly scheduled routes to RAK. Booking lead time is rarely more than a few days. Hotels and resorts with ongoing maintenance contracts receive priority scheduling that works around guest occupancy patterns." },
+      { q: "Do you clean hotel carpets in RAK?", a: "Yes. We offer regular maintenance contracts for hotels and resorts along the RAK coast and near Jebel Jais. Our scheduling works around guest check-in and check-out patterns to ensure zero disruption to hospitality operations." },
+      { q: "Is the pricing the same as in Dubai?", a: "Yes. Our pricing is based on carpet size, fabric type, and condition — not location. RAK customers receive the same fair, transparent pricing as our Dubai and Sharjah clients. We combine RAK visits with northern emirate routes to keep travel costs out of your quote." },
+    ],
   },
   {
     slug: "umm-al-quwain", name: "Umm Al Quwain", ar: "أم القيوين",
@@ -99,6 +132,11 @@ export const LOCATIONS: Location[] = [
     ],
     areas: ["UAQ City", "Al Salamah", "Al Raas", "Al Haditha", "UAQ Marina", "Al Riqqah", "Old Town", "Al Abraq"],
     resp: "40 – 60 mins", cityCount: 8,
+    faqs: [
+      { q: "Does Al Haya serve Umm Al Quwain regularly?", a: "Yes. We combine UAQ visits with our Ajman and RAK routes, maintaining regular service to Umm Al Quwain. Travel costs are absorbed into our routing — they do not appear on your quote." },
+      { q: "Is there a minimum order for carpet cleaning in UAQ?", a: "No. Whether you need a single rug or an entire villa cleaned, we provide the same service and pricing. There is no minimum job size or surcharge for UAQ appointments." },
+      { q: "Are the same products and equipment used as in Dubai?", a: "Yes. UAQ residents receive the same quality of service, equipment, products, and trained technicians as our Dubai and Abu Dhabi customers. There are no compromises on product quality or cleaning thoroughness regardless of location." },
+    ],
   },
   {
     slug: "fujairah", name: "Fujairah", ar: "الفجيرة",
@@ -113,6 +151,11 @@ export const LOCATIONS: Location[] = [
     ],
     areas: ["Fujairah City", "Dibba", "Al Faseel", "Sakamkam", "Khor Fakkan", "Kalba", "Masafi", "Bidiyah"],
     resp: "50 – 70 mins", cityCount: 8,
+    faqs: [
+      { q: "Does Al Haya cover the Fujairah east coast?", a: "Yes. We serve all east coast locations including Fujairah City, Dibba, Al Faseel, Sakamkam, and Bidiyah. Khor Fakkan and Kalba, while technically in Sharjah emirate, are also covered on our Fujairah route with no additional travel surcharges." },
+      { q: "How does east coast humidity affect carpet cleaning?", a: "Fujairah's higher humidity from the Indian Ocean can cause musty odors and mildew growth in carpet fibres. Our antimicrobial treatment addresses this specific east coast challenge, neutralising mildew at the source rather than masking it with fragrances." },
+      { q: "Do you offer carpet cleaning for east coast resorts?", a: "Yes. We provide regular maintenance contracts for hospitality properties across the east coast. Scheduling works around guest occupancy patterns, covering lobby, corridor, and room carpets under our commercial service agreements." },
+    ],
   },
 ];
 
