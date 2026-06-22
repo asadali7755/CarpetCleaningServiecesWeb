@@ -1,0 +1,14 @@
+"use client";
+
+import dynamic from "next/dynamic";
+
+export const Globe = dynamic(() => import("./Globe"), { ssr: false });
+export const InfiniteGallery = dynamic(() => import("./InfiniteGallery"), { ssr: false });
+export const ContainerScroll = dynamic(
+  () => import("./ui/container-scroll").then((m) => ({ default: m.ContainerScroll })),
+  { ssr: false }
+);
+export const CardSticky = dynamic(
+  () => import("./ui/container-scroll").then((m) => ({ default: m.CardSticky })),
+  { ssr: false }
+);
