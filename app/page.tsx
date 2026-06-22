@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -169,9 +170,17 @@ export default function Home() {
             <div className="eyebrow">/ COVERAGE</div>
             <h2 className="sec-title">Carpet cleaning across all 7 emirates.</h2>
           </div>
-          <div className="chips-row" data-reveal style={{ justifyContent: "center" }}>
+          <div className="coverage-grid" data-reveal>
             {LOCATIONS.map((l) => (
-              <Link key={l.slug} href={`/locations/${l.slug}`} className="chip-link"><Icon name="pin" /> Carpet Cleaning {l.name}</Link>
+              <Link key={l.slug} href={`/locations/${l.slug}`} className="coverage-card">
+                <div className="coverage-card-img">
+                  <Image src={l.image} alt={`Carpet Cleaning ${l.name}`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
+                <div className="coverage-card-body">
+                  <h3>Carpet Cleaning {l.name}</h3>
+                  <span className="coverage-card-meta"><Icon name="pin" /> {l.resp} response · {l.cityCount}+ areas</span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

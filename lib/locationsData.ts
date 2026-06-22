@@ -7,6 +7,7 @@ export interface Location {
   slug: string;
   name: string;
   ar: string;
+  image: string;
   h1: string;
   intro: string;
   body: string[];
@@ -18,7 +19,7 @@ export interface Location {
 
 export const LOCATIONS: Location[] = [
   {
-    slug: "dubai", name: "Dubai", ar: "دبي",
+    slug: "dubai", name: "Dubai", ar: "دبي", image: "/emirates/dubai.webp",
     h1: "Carpet Cleaning Dubai — Homes, Villas & Offices",
     intro: "Al Haya is Dubai's trusted on-demand carpet cleaning service. From Marina towers to Jumeirah villas and Business Bay offices, we deep-clean, steam-sanitise and restore carpets, rugs, sofas and mattresses — with same-day pickup, clean and return anywhere in the city.",
     body: [
@@ -40,7 +41,7 @@ export const LOCATIONS: Location[] = [
     ],
   },
   {
-    slug: "sharjah", name: "Sharjah", ar: "الشارقة",
+    slug: "sharjah", name: "Sharjah", ar: "الشارقة", image: "/emirates/sharjah.webp",
     h1: "Carpet Cleaning Sharjah — Fast, Trusted Service",
     intro: "Professional carpet, rug, sofa and mattress cleaning across Sharjah. From Al Majaz apartments to Muwaileh villas, our trained crew delivers deep steam cleaning and same-day service with eco-friendly products.",
     body: [
@@ -61,7 +62,7 @@ export const LOCATIONS: Location[] = [
     ],
   },
   {
-    slug: "ajman", name: "Ajman", ar: "عجمان",
+    slug: "ajman", name: "Ajman", ar: "عجمان", image: "/emirates/ajman.webp",
     h1: "Carpet Cleaning Ajman — Homes & Apartments",
     intro: "Reliable carpet and upholstery cleaning across Ajman. We deep-clean carpets, rugs, sofas and mattresses for apartments and villas — same-day service, eco-friendly products and fair, fixed pricing.",
     body: [
@@ -81,7 +82,7 @@ export const LOCATIONS: Location[] = [
     ],
   },
   {
-    slug: "abu-dhabi", name: "Abu Dhabi", ar: "أبوظبي",
+    slug: "abu-dhabi", name: "Abu Dhabi", ar: "أبوظبي", image: "/emirates/abu-dhabi.webp",
     h1: "Carpet Cleaning Abu Dhabi — Capital Service",
     intro: "Deep carpet, rug, sofa and mattress cleaning across Abu Dhabi — from Khalifa City villas to Corniche apartments and Mussafah commercial spaces. Eco-friendly products and reliable, scheduled service.",
     body: [
@@ -101,7 +102,7 @@ export const LOCATIONS: Location[] = [
     ],
   },
   {
-    slug: "ras-al-khaimah", name: "Ras Al Khaimah", ar: "رأس الخيمة",
+    slug: "ras-al-khaimah", name: "Ras Al Khaimah", ar: "رأس الخيمة", image: "/emirates/ras-al-khaimah2.webp",
     h1: "Carpet Cleaning Ras Al Khaimah (RAK)",
     intro: "Carpet, rug and upholstery cleaning across Ras Al Khaimah — villas, apartments and resorts. Deep steam cleaning with eco-friendly products on a regular weekly RAK route.",
     body: [
@@ -120,7 +121,7 @@ export const LOCATIONS: Location[] = [
     ],
   },
   {
-    slug: "umm-al-quwain", name: "Umm Al Quwain", ar: "أم القيوين",
+    slug: "umm-al-quwain", name: "Umm Al Quwain", ar: "أم القيوين", image: "/emirates/umm-al-quwain.webp",
     h1: "Carpet Cleaning Umm Al Quwain (UAQ)",
     intro: "Professional carpet and upholstery cleaning across Umm Al Quwain. Deep steam cleaning for carpets, rugs, sofas and mattresses with eco-friendly products and fair pricing.",
     body: [
@@ -139,7 +140,7 @@ export const LOCATIONS: Location[] = [
     ],
   },
   {
-    slug: "fujairah", name: "Fujairah", ar: "الفجيرة",
+    slug: "fujairah", name: "Fujairah", ar: "الفجيرة", image: "/emirates/fujairah.webp",
     h1: "Carpet Cleaning Fujairah — East Coast Service",
     intro: "Carpet, rug, sofa and mattress cleaning across Fujairah and the east coast — homes, villas and resorts. Deep steam cleaning with eco-friendly products on a regular Fujairah route.",
     body: [

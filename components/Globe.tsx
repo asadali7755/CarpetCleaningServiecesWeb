@@ -112,15 +112,14 @@ function vec(lon: number, lat: number) {
   return { x: cl * Math.sin(lo), y: Math.sin(la), z: cl * Math.cos(lo) };
 }
 
-// Placeholder city thumbnails (swap for real per-city photos later).
 const POOL_IMGS = [
-  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=160&q=60",
-  "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=160&q=60",
-  "https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=160&q=60",
-  "https://images.unsplash.com/photo-1582672060674-bc2bd808a8f5?auto=format&fit=crop&w=160&q=60",
-  "https://images.unsplash.com/photo-1528702748617-c64d49f918af?auto=format&fit=crop&w=160&q=60",
-  "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=160&q=60",
-  "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=160&q=60",
+  "/emirates/abu-dhabi.webp",
+  "/emirates/dubai.webp",
+  "/emirates/sharjah.webp",
+  "/emirates/ajman.webp",
+  "/emirates/umm-al-quwain.webp",
+  "/emirates/ras-al-khaimah2.webp",
+  "/emirates/fujairah.webp",
 ];
 
 // Draws a small circular thumbnail with a green ring; falls back to a tinted
@@ -269,7 +268,7 @@ export default function Globe() {
         if (c.zoomable) { ctx.beginPath(); ctx.strokeStyle = "rgba(45,212,108," + (0.5 * (0.5 + 0.5 * Math.sin(t * 3))) + ")"; ctx.lineWidth = 1.4; ctx.arc(px, py, ring + 6, 0, 7); ctx.stroke(); }
         const fImg = Math.sin(t * 1.5 + i * 0.9) * 4.5;
         drawThumb(ctx, imgEls[i % imgEls.length], px, tcy + fImg, tSize, eA);
-        ctx.font = '600 11px "JetBrains Mono", monospace'; ctx.textAlign = "center"; ctx.fillStyle = "rgba(45,212,108," + (hot ? 0.98 : 0.74) + ")"; ctx.fillText(c.name, px, py + (hot ? 15 : 13) + 11);
+        ctx.font = '700 14px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "rgba(45,212,108," + (hot ? 0.98 : 0.74) + ")"; ctx.fillText(c.name, px, py + (hot ? 17 : 15) + 12);
         ctx.restore();
       });
 
@@ -292,7 +291,7 @@ export default function Globe() {
           ctx.beginPath(); ctx.fillStyle = "#34E37D"; ctx.shadowColor = "rgba(45,212,108,0.95)"; ctx.shadowBlur = 13; ctx.arc(px, py, hot ? 4 : 3, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
           const dfImg = Math.sin(t * 1.5 + i * 0.9) * 4;
           drawThumb(ctx, imgEls[i % imgEls.length], px, tcy + dfImg, tSize, dA);
-          ctx.font = '600 11px "JetBrains Mono", monospace'; ctx.textAlign = "center"; ctx.fillStyle = "rgba(45,212,108," + (hot ? 0.98 : 0.78) + ")"; ctx.fillText(d.name, px, py + (hot ? 13 : 11) + 12); });
+          ctx.font = '600 12px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "rgba(45,212,108," + (hot ? 0.98 : 0.78) + ")"; ctx.fillText(d.name, px, py + (hot ? 13 : 11) + 12); });
         ctx.beginPath(); ctx.fillStyle = "rgba(45,212,108,0.12)"; ctx.arc(dc[0], dc[1], 16, 0, 7); ctx.fill();
         ctx.beginPath(); ctx.fillStyle = "#34E37D"; ctx.shadowColor = "rgba(45,212,108,0.95)"; ctx.shadowBlur = 18; ctx.arc(dc[0], dc[1], 6, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
         ctx.font = '700 13px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "#34E37D"; ctx.fillText(fc.name.toUpperCase(), dc[0], dc[1] - 24);

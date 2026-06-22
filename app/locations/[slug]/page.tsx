@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description,
     keywords: `carpet cleaning ${l.name}, rug cleaning ${l.name}, sofa cleaning ${l.name}, mattress cleaning ${l.name}`,
     alternates: { canonical: url },
-    openGraph: { title, description, url, images: [{ url: "/images/carpet/carpet-6.jpg", width: 1200, height: 630, alt: `Carpet cleaning ${l.name}` }] },
+    openGraph: { title, description, url, images: [{ url: l.image, width: 1200, height: 630, alt: `Carpet cleaning ${l.name}` }] },
   };
 }
 
@@ -78,26 +79,30 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <Nav />
 
       <main>
-        <section className="sub-hero">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <Link href="/locations">Service Areas</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>{l.name}</span>
-          </nav>
-          <h1>{l.h1}</h1>
-          <p className="lead">{l.intro}</p>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref(`Hi Al Haya, I need carpet cleaning in ${l.name}.`)} target="_blank" rel="noopener">Book in {l.name} →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
-          </div>
-          <div className="area-stats">
-            <div className="s"><b>{l.resp}</b><span>Avg. response</span></div>
-            <div className="s"><b>{l.cityCount}+</b><span>Areas covered</span></div>
-            <div className="s"><b>7 days</b><span>8 AM – 10 PM</span></div>
-            <div className="s"><b>100%</b><span>Guarantee</span></div>
-          </div>
-        </section>
+        <div className="loc-hero">
+          <Image src={l.image} alt={`Carpet cleaning in ${l.name}`} fill sizes="100vw" priority className="loc-hero-bg" />
+          <div className="loc-hero-overlay" />
+          <section className="sub-hero">
+            <nav className="crumbs" aria-label="Breadcrumb">
+              <Link href="/">Home</Link><span className="sep">/</span>
+              <Link href="/locations">Service Areas</Link><span className="sep">/</span>
+              <span style={{ color: "var(--green)" }}>{l.name}</span>
+            </nav>
+            <h1>{l.h1}</h1>
+            <p className="lead">{l.intro}</p>
+            <div className="cta-row">
+              <a className="btn-green" href={waHref(`Hi Al Haya, I need carpet cleaning in ${l.name}.`)} target="_blank" rel="noopener">Book in {l.name} →</a>
+              <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+              <RequestCall className="btn-outline" />
+            </div>
+            <div className="area-stats">
+              <div className="s"><b>{l.resp}</b><span>Avg. response</span></div>
+              <div className="s"><b>{l.cityCount}+</b><span>Areas covered</span></div>
+              <div className="s"><b>7 days</b><span>8 AM – 10 PM</span></div>
+              <div className="s"><b>100%</b><span>Guarantee</span></div>
+            </div>
+          </section>
+        </div>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
           <div className="prose">{l.body.map((p, i) => <p key={i}>{p}</p>)}</div>
