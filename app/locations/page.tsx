@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -34,12 +35,17 @@ export default function LocationsHub() {
         </section>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
-          <div className="rel-grid">
+          <div className="rel-grid rel-grid--img">
             {LOCATIONS.map((l) => (
-              <Link key={l.slug} href={`/locations/${l.slug}`} className="rel-card">
-                <div className="ic"><Icon name="pin" /></div>
-                <h3>Carpet Cleaning {l.name}</h3>
-                <p>{l.intro.slice(0, 110)}…</p>
+              <Link key={l.slug} href={`/locations/${l.slug}`} className="rel-card rel-card--img">
+                <div className="rel-card-img">
+                  <Image src={l.image} alt={`Carpet Cleaning ${l.name}`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
+                <div className="rel-card-content">
+                  <div className="ic"><Icon name="pin" /></div>
+                  <h3>Carpet Cleaning {l.name}</h3>
+                  <p>{l.intro.slice(0, 110)}…</p>
+                </div>
               </Link>
             ))}
           </div>

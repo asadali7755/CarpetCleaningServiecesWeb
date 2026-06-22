@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -7,6 +8,18 @@ import { Icon } from "@/components/Icons";
 import { POSTS } from "@/lib/blogData";
 import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
+
+const BLOG_THUMBS = [
+  "/images/services/carpet-service-6.jpeg",
+  "/images/services/carpet-service-7.jpeg",
+  "/images/services/carpet-service-10.jpeg",
+  "/images/services/carpet-service-4.jpeg",
+  "/images/gallery/action-1.jpeg",
+  "/images/services/carpet-service-8.jpeg",
+  "/images/gallery/carpet-shampoo-cleaning.webp",
+  "/images/gallery/deep-carpet-cleaning-process.webp",
+  "/images/gallery/carpet-steam-extraction.jpeg",
+];
 
 export const metadata: Metadata = {
   title: "Carpet Cleaning Blog — Tips, Guides & Expert Advice | Al Haya",
@@ -59,13 +72,17 @@ export default function BlogPage() {
         </section>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
-          <div className="rel-grid">
-            {POSTS.map((p) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="rel-card">
-                <div className="ic"><Icon name="arrow" /></div>
-                <h2 style={{ fontSize: "clamp(16px,2vw,20px)", margin: "8px 0 6px" }}>{p.title}</h2>
-                <p style={{ fontSize: 14, color: "var(--text-2)", marginBottom: 6 }}>{p.description.slice(0, 140)}…</p>
-                <span style={{ fontSize: 13, color: "var(--green)" }}>{p.date}</span>
+          <div className="rel-grid rel-grid--img">
+            {POSTS.map((p, i) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="rel-card rel-card--img">
+                <div className="rel-card-img">
+                  <Image src={BLOG_THUMBS[i % BLOG_THUMBS.length]} alt={`${p.title} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
+                <div className="rel-card-content">
+                  <h2 style={{ fontSize: "clamp(16px,2vw,20px)", margin: "8px 0 6px", fontFamily: "var(--display)", fontWeight: 600, color: "var(--text)" }}>{p.title}</h2>
+                  <p style={{ fontSize: 14, color: "var(--text-2)", marginBottom: 6 }}>{p.description.slice(0, 140)}…</p>
+                  <span style={{ fontSize: 13, color: "var(--green)" }}>{p.date}</span>
+                </div>
               </Link>
             ))}
           </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -8,6 +9,18 @@ import { Icon } from "@/components/Icons";
 import { POSTS, getPost } from "@/lib/blogData";
 import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
+
+const BLOG_IMAGES = [
+  "/images/services/carpet-service-6.jpeg",
+  "/images/services/carpet-service-7.jpeg",
+  "/images/services/carpet-service-10.jpeg",
+  "/images/services/carpet-service-4.jpeg",
+  "/images/gallery/action-1.jpeg",
+  "/images/services/carpet-service-8.jpeg",
+  "/images/gallery/carpet-shampoo-cleaning.webp",
+  "/images/gallery/deep-carpet-cleaning-process.webp",
+  "/images/gallery/carpet-steam-extraction.jpeg",
+];
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -75,6 +88,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
+          <div className="about-hero-img" style={{ marginBottom: 28 }}>
+            <Image src={BLOG_IMAGES[POSTS.findIndex((x) => x.slug === p.slug) % BLOG_IMAGES.length]} alt={`${p.title} — Al Haya Carpet Cleaning Dubai`} width={1280} height={520} loading="lazy" style={{ width: "100%", height: "auto" }} />
+          </div>
           <div className="prose">
             {p.body.map((para, i) => <p key={i}>{para}</p>)}
           </div>

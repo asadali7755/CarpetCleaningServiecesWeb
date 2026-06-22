@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -42,9 +43,20 @@ export default function About() {
         </section>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
+          <div className="about-hero-img">
+            <Image src="/images/services/carpet-service-6.jpeg" alt="Al Haya technician deep cleaning an oriental rug with extraction equipment in Dubai" width={1280} height={720} priority style={{ width: "100%", height: "auto" }} />
+          </div>
           <div className="prose">
             <p>Carpets, rugs and upholstery trap dust, allergens and bacteria that ordinary vacuuming never reaches. We combine deep shampoo extraction, high-temperature steam sanitisation and careful stain treatment to restore your soft furnishings to a fresh, hygienic, like-new condition.</p>
             <p>From a single rug to a full villa or a multi-floor office, our trained crew brings commercial-grade equipment and eco-friendly products to every job — with pickup-and-return for rugs and curtains, and convenient on-site service for carpets, sofas and mattresses.</p>
+          </div>
+          <div className="about-split">
+            <div className="about-split-img">
+              <Image src="/images/gallery/professional-carpet-cleaning-team.jpeg" alt="Professional carpet cleaning team at Al Haya Cleaning Services Dubai" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
+            </div>
+            <div className="about-split-img">
+              <Image src="/images/services/carpet-service-7.jpeg" alt="Industrial carpet cleaning machine in action — rug deep shampoo UAE" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
+            </div>
           </div>
           <ul className="feat-list" style={{ gridTemplateColumns: "repeat(2,1fr)" }}>
             {WHY.map((w) => (

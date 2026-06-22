@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -267,12 +268,10 @@ const breadcrumbSchema = {
 export default function GuidesPage() {
   return (
     <div className="page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav />
-      <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      </head>
 
       <main>
         {/* Hero */}
@@ -400,12 +399,17 @@ export default function GuidesPage() {
             <p style={{ color: "var(--text-2)", fontSize: 16, marginBottom: 28, maxWidth: "60ch" }}>
               Learn more about each specialized carpet cleaning service we offer across the UAE.
             </p>
-            <div className="rel-grid">
+            <div className="rel-grid rel-grid--img">
               {SERVICES.map((s) => (
-                <Link className="rel-card" key={s.slug} href={`/services/${s.slug}`}>
-                  <div className="ic"><Icon name={s.icon} /></div>
-                  <h3>{s.name}</h3>
-                  <p>{s.intro.slice(0, 120)}…</p>
+                <Link className="rel-card rel-card--img" key={s.slug} href={`/services/${s.slug}`}>
+                  <div className="rel-card-img">
+                    <Image src={s.cardImg} alt={`${s.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                  </div>
+                  <div className="rel-card-content">
+                    <div className="ic"><Icon name={s.icon} /></div>
+                    <h3>{s.name}</h3>
+                    <p>{s.intro.slice(0, 120)}…</p>
+                  </div>
                 </Link>
               ))}
             </div>

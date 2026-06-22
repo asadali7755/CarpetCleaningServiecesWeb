@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -34,6 +35,9 @@ export default function Contact() {
         </section>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
+          <div className="about-hero-img" style={{ marginBottom: 28 }}>
+            <Image src="/images/services/carpet-service-10.jpeg" alt="Al Haya carpet cleaning technician performing deep extraction cleaning in a Dubai home" width={1280} height={520} loading="lazy" style={{ width: "100%", height: "auto" }} />
+          </div>
           <div className="contact-grid">
             <div className="contact-card">
               <h3>Get in touch</h3>

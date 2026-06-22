@@ -153,10 +153,15 @@ export default function Home() {
           <div className="svc-grid">
             {SERVICES.map((s) => (
               <Link className="svc-card" data-reveal key={s.slug} href={`/services/${s.slug}`}>
-                <div className="svc-icon"><Icon name={s.icon} /></div>
-                <h3>{s.name}</h3>
-                <p>{s.intro.slice(0, 110)}…</p>
-                <span className="svc-more">Learn more <Icon name="arrow" /></span>
+                <div className="svc-card-img">
+                  <Image src={s.cardImg} alt={`${s.name} service — Al Haya Carpet Cleaning Dubai`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
+                <div className="svc-card-body">
+                  <div className="svc-icon"><Icon name={s.icon} /></div>
+                  <h3>{s.name}</h3>
+                  <p>{s.intro.slice(0, 110)}…</p>
+                  <span className="svc-more">Learn more <Icon name="arrow" /></span>
+                </div>
               </Link>
             ))}
           </div>

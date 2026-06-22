@@ -105,7 +105,18 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <div className="prose">{l.body.map((p, i) => <p key={i}>{p}</p>)}</div>
+          <div className="prose">
+            {l.body.map((p, i) => (
+              <div key={i}>
+                <p>{p}</p>
+                {i === 0 && (
+                  <div className="prose-img">
+                    <Image src="/images/services/carpet-service-6.jpeg" alt={`Professional carpet cleaning service in ${l.name}`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
           <h2 className="sec-title" style={{ fontSize: "clamp(20px,2.6vw,28px)", marginTop: 18 }}>Neighbourhoods we cover in {l.name}</h2>
           <div className="chips-row">
             {l.areas.map((a) => <span key={a} className="chip-link"><Icon name="pin" /> {a}</span>)}
@@ -126,12 +137,17 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         {/* Services offered here */}
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
           <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Our services in {l.name}</h2>
-          <div className="rel-grid">
+          <div className="rel-grid rel-grid--img">
             {SERVICES.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="rel-card">
-                <div className="ic"><Icon name={s.icon} /></div>
-                <h3>{s.name}</h3>
-                <p>{s.intro.slice(0, 100)}…</p>
+              <Link key={s.slug} href={`/services/${s.slug}`} className="rel-card rel-card--img">
+                <div className="rel-card-img">
+                  <Image src={s.cardImg} alt={`${s.name} in ${l.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
+                <div className="rel-card-content">
+                  <div className="ic"><Icon name={s.icon} /></div>
+                  <h3>{s.name}</h3>
+                  <p>{s.intro.slice(0, 100)}…</p>
+                </div>
               </Link>
             ))}
           </div>

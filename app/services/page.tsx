@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -35,12 +36,17 @@ export default function ServicesHub() {
         </section>
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 40px" }}>
-          <div className="rel-grid">
+          <div className="rel-grid rel-grid--img">
             {SERVICES.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="rel-card">
-                <div className="ic"><Icon name={s.icon} /></div>
-                <h3>{s.name}</h3>
-                <p>{s.intro.slice(0, 120)}…</p>
+              <Link key={s.slug} href={`/services/${s.slug}`} className="rel-card rel-card--img">
+                <div className="rel-card-img">
+                  <Image src={s.cardImg} alt={`${s.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
+                <div className="rel-card-content">
+                  <div className="ic"><Icon name={s.icon} /></div>
+                  <h3>{s.name}</h3>
+                  <p>{s.intro.slice(0, 120)}…</p>
+                </div>
               </Link>
             ))}
           </div>

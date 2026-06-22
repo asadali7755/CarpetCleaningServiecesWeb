@@ -98,7 +98,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <Image src={s.img} alt={`${s.name} — ${BRAND} Dubai UAE`} width={1280} height={720} loading="lazy" style={{ width: "100%", height: "auto" }} />
           </div>
           <div className="prose">
-            {s.body.map((p, i) => <p key={i}>{p}</p>)}
+            {s.body.map((p, i) => (
+              <div key={i}>
+                <p>{p}</p>
+                {i === 1 && s.images[0] && (
+                  <div className="prose-img">
+                    <Image src={s.images[0]} alt={`${s.name} process — professional carpet cleaning UAE`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
+                  </div>
+                )}
+                {i === 4 && s.images[1] && (
+                  <div className="prose-img">
+                    <Image src={s.images[1]} alt={`${s.name} results — Al Haya Carpet Cleaning Dubai`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
           <ul className="feat-list">
             {s.feat.map((f) => (
@@ -134,12 +148,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         {/* Related */}
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
           <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Other services</h2>
-          <div className="rel-grid">
+          <div className="rel-grid rel-grid--img">
             {related.map((r) => (
-              <Link key={r.slug} href={`/services/${r.slug}`} className="rel-card">
-                <div className="ic"><Icon name={r.icon} /></div>
-                <h3>{r.name}</h3>
-                <p>{r.intro.slice(0, 100)}…</p>
+              <Link key={r.slug} href={`/services/${r.slug}`} className="rel-card rel-card--img">
+                <div className="rel-card-img">
+                  <Image src={r.cardImg} alt={`${r.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
+                <div className="rel-card-content">
+                  <div className="ic"><Icon name={r.icon} /></div>
+                  <h3>{r.name}</h3>
+                  <p>{r.intro.slice(0, 100)}…</p>
+                </div>
               </Link>
             ))}
           </div>
