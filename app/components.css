@@ -131,14 +131,11 @@
 .loc-hero .sub-hero h1,
 .loc-hero .sub-hero .lead,
 .loc-hero .sub-hero .crumbs,
-.loc-hero .sub-hero .area-stats { text-shadow: 0 2px 12px rgba(0,0,0,0.7); }
 .loc-hero .sub-hero .crumbs a,
+.loc-hero .sub-hero .crumbs .sep,
+.loc-hero .sub-hero .area-stats,
 .loc-hero .sub-hero .area-stats b,
-.loc-hero .sub-hero .area-stats span { text-shadow: 0 2px 12px rgba(0,0,0,0.7); }
-[data-theme="light"] .loc-hero .sub-hero h1,
-[data-theme="light"] .loc-hero .sub-hero .lead,
-[data-theme="light"] .loc-hero .sub-hero .crumbs,
-[data-theme="light"] .loc-hero .sub-hero .area-stats { text-shadow: 0 2px 12px rgba(255,255,255,0.8); }
+.loc-hero .sub-hero .area-stats span { color: #000; text-shadow: 0 1px 6px rgba(255,255,255,0.5); }
 .sec-faq { position: relative; z-index: 10; background: var(--proc-sec-bg); }
 .sec-faq .inner { margin: 0 auto; padding: 70px var(--pad); }
 .faq-item { background: var(--svc-card-grad); border: 1px solid var(--svc-card-border); border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; }
