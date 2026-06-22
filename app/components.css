@@ -125,9 +125,20 @@
 /* ---- Location hero image ---- */
 .loc-hero { position: relative; overflow: hidden; }
 .loc-hero-bg { object-fit: cover; z-index: 0; }
-.loc-hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(6,10,8,0.78) 0%, rgba(6,10,8,0.92) 100%); }
-[data-theme="light"] .loc-hero-overlay { background: linear-gradient(180deg, rgba(250,249,247,0.82) 0%, rgba(250,249,247,0.95) 100%); }
+.loc-hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 0%, rgba(6,10,8,0.55) 100%); }
+[data-theme="light"] .loc-hero-overlay { background: linear-gradient(180deg, transparent 0%, rgba(250,249,247,0.6) 100%); }
 .loc-hero .sub-hero { position: relative; z-index: 2; }
+.loc-hero .sub-hero h1,
+.loc-hero .sub-hero .lead,
+.loc-hero .sub-hero .crumbs,
+.loc-hero .sub-hero .area-stats { text-shadow: 0 2px 12px rgba(0,0,0,0.7); }
+.loc-hero .sub-hero .crumbs a,
+.loc-hero .sub-hero .area-stats b,
+.loc-hero .sub-hero .area-stats span { text-shadow: 0 2px 12px rgba(0,0,0,0.7); }
+[data-theme="light"] .loc-hero .sub-hero h1,
+[data-theme="light"] .loc-hero .sub-hero .lead,
+[data-theme="light"] .loc-hero .sub-hero .crumbs,
+[data-theme="light"] .loc-hero .sub-hero .area-stats { text-shadow: 0 2px 12px rgba(255,255,255,0.8); }
 .sec-faq { position: relative; z-index: 10; background: var(--proc-sec-bg); }
 .sec-faq .inner { margin: 0 auto; padding: 70px var(--pad); }
 .faq-item { background: var(--svc-card-grad); border: 1px solid var(--svc-card-border); border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; }
