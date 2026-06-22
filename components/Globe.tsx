@@ -166,8 +166,7 @@ export default function Globe() {
 
     const imgEls = POOL_IMGS.map((src) => { const im = new Image(); im.src = src; return im; });
 
-    // coarser point grid on small screens → fewer per-frame projections
-    const step = typeof window !== "undefined" && window.innerWidth < 760 ? 2.4 : 1.8;
+    const step = typeof window !== "undefined" && window.innerWidth < 760 ? 3.5 : 2.4;
     const landPts = (() => {
       const pts: { x: number; y: number; z: number }[] = [];
       for (let lat = -58; lat <= 82; lat += step)
