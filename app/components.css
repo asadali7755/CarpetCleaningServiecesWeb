@@ -135,6 +135,15 @@
 .loc-hero .sub-hero .area-stats,
 .loc-hero .sub-hero .area-stats b,
 .loc-hero .sub-hero .area-stats span { color: #000; text-shadow: 0 1px 6px rgba(255,255,255,0.5); }
+.loc-hero .sub-hero h1 { font-weight: 800; }
+.loc-hero .sub-hero .lead { font-weight: 600; }
+.loc-hero .sub-hero .area-stats b { font-weight: 800; }
+.loc-hero .sub-hero .btn-outline {
+  background: linear-gradient(180deg, #34e37d, #16a34a);
+  color: #06351b; font-weight: 700; border: 0;
+  box-shadow: 0 8px 28px rgba(45,212,108,0.3);
+}
+.loc-hero .sub-hero .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(45,212,108,0.4); }
 .sec-faq { position: relative; z-index: 10; background: var(--proc-sec-bg); }
 .sec-faq .inner { margin: 0 auto; padding: 70px var(--pad); }
 .faq-item { background: var(--svc-card-grad); border: 1px solid var(--svc-card-border); border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; }
