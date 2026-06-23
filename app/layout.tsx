@@ -3,6 +3,7 @@ import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./components.css";
 import { Analytics } from "@vercel/analytics/next";
+import DemoPicker from "@/components/DemoPicker";
 import {
   BRAND,
   SITE_URL,
@@ -117,6 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${manrope.variable} ${jetbrains.variable}`}>
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site info" />
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem("demo-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
@@ -124,6 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <DemoPicker />
         <Analytics />
       </body>
     </html>

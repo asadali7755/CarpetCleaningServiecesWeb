@@ -122,6 +122,8 @@ const POOL_IMGS = [
   "/emirates/fujairah.webp",
 ];
 
+const accentColor = { hex: "#0EA5E9", rgb: "14,165,233" };
+
 // Draws a small circular thumbnail with a green ring; falls back to a tinted
 // disc until the image loads (or if it fails), so the globe never shows a gap.
 function drawThumb(ctx: CanvasRenderingContext2D, img: HTMLImageElement | undefined, cx: number, cy: number, size: number, alpha: number) {
@@ -137,10 +139,10 @@ function drawThumb(ctx: CanvasRenderingContext2D, img: HTMLImageElement | undefi
     if (ar > 1) { dh = size; dw = size * ar; ox = (size - dw) / 2; } else { dw = size; dh = size / ar; oy = (size - dh) / 2; }
     ctx.drawImage(img, cx - r + ox, cy - r + oy, dw, dh);
   } else {
-    ctx.fillStyle = "rgba(59,130,246,0.16)"; ctx.fillRect(cx - r, cy - r, size, size);
+    ctx.fillStyle = `rgba(${accentColor.rgb},0.16)`; ctx.fillRect(cx - r, cy - r, size, size);
   }
   ctx.restore();
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.lineWidth = 1.5; ctx.strokeStyle = "rgba(59,130,246,0.65)"; ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.lineWidth = 1.5; ctx.strokeStyle = `rgba(${accentColor.rgb},0.65)`; ctx.stroke();
   ctx.restore();
 }
 
@@ -163,6 +165,16 @@ export default function Globe() {
   useEffect(() => {
     const cv = canvasRef.current;
     if (!cv) return;
+
+    const readAccent = () => {
+      const s = getComputedStyle(document.documentElement);
+      const h = s.getPropertyValue("--teal").trim() || "#0EA5E9";
+      const r = s.getPropertyValue("--accent-rgb").trim() || "14,165,233";
+      accentColor.hex = h; accentColor.rgb = r;
+    };
+    readAccent();
+    const obs = new MutationObserver(readAccent);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
     const imgEls = POOL_IMGS.map((src) => { const im = new Image(); im.src = src; return im; });
 
@@ -231,12 +243,12 @@ export default function Globe() {
       const g = ctx.createRadialGradient(gx - R * 0.32, gy - R * 0.36, R * 0.08, gx, gy, R);
       g.addColorStop(0, "rgba(44,44,48,0.6)"); g.addColorStop(0.6, "rgba(20,20,22,0.5)"); g.addColorStop(1, "rgba(8,8,10,0.18)");
       ctx.save(); ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.clip(); ctx.fillStyle = g; ctx.fillRect(gx - R, gy - R, R * 2, R * 2);
-      ctx.strokeStyle = "rgba(59,130,246,0.05)"; ctx.lineWidth = 1 / scale;
+      ctx.strokeStyle = `rgba(${accentColor.rgb},0.05)`; ctx.lineWidth = 1 / scale;
       for (let lonG = -180; lonG < 180; lonG += 15) { ctx.beginPath(); let st = false; for (let latG = -85; latG <= 85; latG += 3) { const p = Pr(vec(lonG, latG)); if (p.z > 0) { if (!st) { ctx.moveTo(p.sx, p.sy); st = true; } else ctx.lineTo(p.sx, p.sy); } else st = false; } ctx.stroke(); }
       for (let latG = -75; latG <= 75; latG += 15) { ctx.beginPath(); let st = false; for (let lonG = -180; lonG <= 180; lonG += 3) { const p = Pr(vec(lonG, latG)); if (p.z > 0) { if (!st) { ctx.moveTo(p.sx, p.sy); st = true; } else ctx.lineTo(p.sx, p.sy); } else st = false; } ctx.stroke(); }
-      for (const v of landPts) { const p = Pr(v); if (p.z <= 0.02) continue; const a = 0.10 + 0.42 * p.z; ctx.fillStyle = "rgba(59,130,246," + a.toFixed(3) + ")"; const s = (1.1 + 0.8 * p.z) / Math.sqrt(scale); ctx.fillRect(p.sx - s / 2, p.sy - s / 2, s, s); }
+      for (const v of landPts) { const p = Pr(v); if (p.z <= 0.02) continue; const a = 0.10 + 0.42 * p.z; ctx.fillStyle = `rgba(${accentColor.rgb},${a.toFixed(3)})`; const s = (1.1 + 0.8 * p.z) / Math.sqrt(scale); ctx.fillRect(p.sx - s / 2, p.sy - s / 2, s, s); }
       ctx.restore();
-      ctx.lineWidth = 1.2 / scale; ctx.strokeStyle = "rgba(59,130,246,0.16)"; ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.stroke();
+      ctx.lineWidth = 1.2 / scale; ctx.strokeStyle = `rgba(${accentColor.rgb},0.16)`; ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.stroke();
       ctx.restore();
 
       const cpos = CITIES.map(c => T(c.x * w, c.y * h));
@@ -244,9 +256,9 @@ export default function Globe() {
         ctx.save(); ctx.globalAlpha = eA;
         const ctrl = (a: number[], b: number[]) => { const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1; return [mx - dy / len * len * 0.16, my + dx / len * len * 0.16]; };
         arcCtrl = ROUTES.map(([a, b]) => ctrl(cpos[a], cpos[b]));
-        ROUTES.forEach(([a, b], ri) => { const A = cpos[a], B = cpos[b], C = arcCtrl[ri]; ctx.strokeStyle = "rgba(59,130,246,0.30)"; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.quadraticCurveTo(C[0], C[1], B[0], B[1]); ctx.stroke(); });
-        ctx.shadowColor = "rgba(59,130,246,0.95)";
-        parts.forEach(p => { p.t += p.sp * fs; if (p.t > 1) p.t -= 1; const [a, b] = ROUTES[p.ri]; const A = cpos[a], B = cpos[b], C = arcCtrl[p.ri]; const u = 1 - p.t; const px = u * u * A[0] + 2 * u * p.t * C[0] + p.t * p.t * B[0]; const py = u * u * A[1] + 2 * u * p.t * C[1] + p.t * p.t * B[1]; ctx.fillStyle = "#3B82F6"; ctx.shadowBlur = 10; ctx.beginPath(); ctx.arc(px, py, 2.3, 0, 7); ctx.fill(); });
+        ROUTES.forEach(([a, b], ri) => { const A = cpos[a], B = cpos[b], C = arcCtrl[ri]; ctx.strokeStyle = `rgba(${accentColor.rgb},0.30)`; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.quadraticCurveTo(C[0], C[1], B[0], B[1]); ctx.stroke(); });
+        ctx.shadowColor = `rgba(${accentColor.rgb},0.95)`;
+        parts.forEach(p => { p.t += p.sp * fs; if (p.t > 1) p.t -= 1; const [a, b] = ROUTES[p.ri]; const A = cpos[a], B = cpos[b], C = arcCtrl[p.ri]; const u = 1 - p.t; const px = u * u * A[0] + 2 * u * p.t * C[0] + p.t * p.t * B[0]; const py = u * u * A[1] + 2 * u * p.t * C[1] + p.t * p.t * B[1]; ctx.fillStyle = accentColor.hex; ctx.shadowBlur = 10; ctx.beginPath(); ctx.arc(px, py, 2.3, 0, 7); ctx.fill(); });
         ctx.shadowBlur = 0;
         ctx.restore();
       }
@@ -261,13 +273,13 @@ export default function Globe() {
         if (eA <= 0.01) return;
         ctx.save(); ctx.globalAlpha = eA;
         const ring = (hot ? 15 : 11) + 2.2 * Math.sin(t * 2.2 + i * 0.7);
-        ctx.beginPath(); ctx.strokeStyle = "rgba(59,130,246," + (hot ? 0.55 : 0.32) + ")"; ctx.lineWidth = 1; ctx.arc(px, py, ring, 0, 7); ctx.stroke();
-        ctx.beginPath(); ctx.fillStyle = "rgba(59,130,246,0.10)"; ctx.arc(px, py, hot ? 11 : 8, 0, 7); ctx.fill();
-        ctx.beginPath(); ctx.fillStyle = "#3B82F6"; ctx.shadowColor = "rgba(59,130,246,0.95)"; ctx.shadowBlur = 14; ctx.arc(px, py, hot ? 4.4 : 3.3, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
-        if (c.zoomable) { ctx.beginPath(); ctx.strokeStyle = "rgba(59,130,246," + (0.5 * (0.5 + 0.5 * Math.sin(t * 3))) + ")"; ctx.lineWidth = 1.4; ctx.arc(px, py, ring + 6, 0, 7); ctx.stroke(); }
+        ctx.beginPath(); ctx.strokeStyle = `rgba(${accentColor.rgb},${hot ? 0.55 : 0.32})`; ctx.lineWidth = 1; ctx.arc(px, py, ring, 0, 7); ctx.stroke();
+        ctx.beginPath(); ctx.fillStyle = `rgba(${accentColor.rgb},0.10)`; ctx.arc(px, py, hot ? 11 : 8, 0, 7); ctx.fill();
+        ctx.beginPath(); ctx.fillStyle = accentColor.hex; ctx.shadowColor = `rgba(${accentColor.rgb},0.95)`; ctx.shadowBlur = 14; ctx.arc(px, py, hot ? 4.4 : 3.3, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
+        if (c.zoomable) { ctx.beginPath(); ctx.strokeStyle = `rgba(${accentColor.rgb},${0.5 * (0.5 + 0.5 * Math.sin(t * 3))})`; ctx.lineWidth = 1.4; ctx.arc(px, py, ring + 6, 0, 7); ctx.stroke(); }
         const fImg = Math.sin(t * 1.5 + i * 0.9) * 4.5;
         drawThumb(ctx, imgEls[i % imgEls.length], px, tcy + fImg, tSize, eA);
-        ctx.font = '700 14px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "rgba(59,130,246," + (hot ? 0.98 : 0.74) + ")"; ctx.fillText(c.name, px, py + (hot ? 17 : 15) + 12);
+        ctx.font = '700 14px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = `rgba(${accentColor.rgb},${hot ? 0.98 : 0.74})`; ctx.fillText(c.name, px, py + (hot ? 17 : 15) + 12);
         ctx.restore();
       });
 
@@ -276,31 +288,31 @@ export default function Globe() {
       if (dA > 0.01 && dlist.length) {
         ctx.save(); ctx.globalAlpha = dA;
         const dc = T(fx, fy); const rD = md * 0.30;
-        dlist.forEach((_, i) => { const ang = -Math.PI / 2 + i * (Math.PI * 2 / dlist.length); const px = dc[0] + Math.cos(ang) * rD, py = dc[1] + Math.sin(ang) * rD; ctx.strokeStyle = "rgba(59,130,246,0.28)"; ctx.lineWidth = 1.3; ctx.beginPath(); ctx.moveTo(dc[0], dc[1]); ctx.lineTo(px, py); ctx.stroke(); });
-        ctx.shadowColor = "rgba(59,130,246,0.95)";
+        dlist.forEach((_, i) => { const ang = -Math.PI / 2 + i * (Math.PI * 2 / dlist.length); const px = dc[0] + Math.cos(ang) * rD, py = dc[1] + Math.sin(ang) * rD; ctx.strokeStyle = `rgba(${accentColor.rgb},0.28)`; ctx.lineWidth = 1.3; ctx.beginPath(); ctx.moveTo(dc[0], dc[1]); ctx.lineTo(px, py); ctx.stroke(); });
+        ctx.shadowColor = `rgba(${accentColor.rgb},0.95)`;
         if (dpartsFor !== fc.id) { dparts = dlist.map((_, i) => ({ i, t: Math.random(), sp: 0.005 + Math.random() * 0.003 })); dpartsFor = fc.id; }
-        dparts.forEach(p => { if (p.i >= dlist.length) return; p.t += p.sp * fs; if (p.t > 1) p.t -= 1; const ang = -Math.PI / 2 + p.i * (Math.PI * 2 / dlist.length); const px = dc[0] + Math.cos(ang) * rD * p.t, py = dc[1] + Math.sin(ang) * rD * p.t; ctx.fillStyle = "#3B82F6"; ctx.shadowBlur = 9; ctx.beginPath(); ctx.arc(px, py, 2.1, 0, 7); ctx.fill(); });
+        dparts.forEach(p => { if (p.i >= dlist.length) return; p.t += p.sp * fs; if (p.t > 1) p.t -= 1; const ang = -Math.PI / 2 + p.i * (Math.PI * 2 / dlist.length); const px = dc[0] + Math.cos(ang) * rD * p.t, py = dc[1] + Math.sin(ang) * rD * p.t; ctx.fillStyle = accentColor.hex; ctx.shadowBlur = 9; ctx.beginPath(); ctx.arc(px, py, 2.1, 0, 7); ctx.fill(); });
         ctx.shadowBlur = 0;
         dlist.forEach((d, i) => { const ang = -Math.PI / 2 + i * (Math.PI * 2 / dlist.length); const px = dc[0] + Math.cos(ang) * rD, py = dc[1] + Math.sin(ang) * rD;
           const hot = hoverRef.current === d.id;
           const tSize = (hot ? 52 : 46) * uiScale; const tcy = py - 44 * uiScale;
           distScreen.current.push({ id: d.id, sx: px, sy: py, ix: px, iy: tcy, hitR: tSize / 2 + 9 });
-          ctx.beginPath(); ctx.strokeStyle = "rgba(59,130,246," + (hot ? 0.55 : 0.3) + ")"; ctx.lineWidth = 1; ctx.arc(px, py, hot ? 13 : 10, 0, 7); ctx.stroke();
-          ctx.beginPath(); ctx.fillStyle = "rgba(59,130,246,0.10)"; ctx.arc(px, py, hot ? 10 : 7, 0, 7); ctx.fill();
-          ctx.beginPath(); ctx.fillStyle = "#3B82F6"; ctx.shadowColor = "rgba(59,130,246,0.95)"; ctx.shadowBlur = 13; ctx.arc(px, py, hot ? 4 : 3, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
+          ctx.beginPath(); ctx.strokeStyle = `rgba(${accentColor.rgb},${hot ? 0.55 : 0.3})`; ctx.lineWidth = 1; ctx.arc(px, py, hot ? 13 : 10, 0, 7); ctx.stroke();
+          ctx.beginPath(); ctx.fillStyle = `rgba(${accentColor.rgb},0.10)`; ctx.arc(px, py, hot ? 10 : 7, 0, 7); ctx.fill();
+          ctx.beginPath(); ctx.fillStyle = accentColor.hex; ctx.shadowColor = `rgba(${accentColor.rgb},0.95)`; ctx.shadowBlur = 13; ctx.arc(px, py, hot ? 4 : 3, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
           const dfImg = Math.sin(t * 1.5 + i * 0.9) * 4;
           drawThumb(ctx, imgEls[i % imgEls.length], px, tcy + dfImg, tSize, dA);
-          ctx.font = '600 12px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "rgba(59,130,246," + (hot ? 0.98 : 0.78) + ")"; ctx.fillText(d.name, px, py + (hot ? 13 : 11) + 12); });
-        ctx.beginPath(); ctx.fillStyle = "rgba(59,130,246,0.12)"; ctx.arc(dc[0], dc[1], 16, 0, 7); ctx.fill();
-        ctx.beginPath(); ctx.fillStyle = "#3B82F6"; ctx.shadowColor = "rgba(59,130,246,0.95)"; ctx.shadowBlur = 18; ctx.arc(dc[0], dc[1], 6, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
-        ctx.font = '700 13px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "#3B82F6"; ctx.fillText(fc.name.toUpperCase(), dc[0], dc[1] - 24);
+          ctx.font = '600 12px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = `rgba(${accentColor.rgb},${hot ? 0.98 : 0.78})`; ctx.fillText(d.name, px, py + (hot ? 13 : 11) + 12); });
+        ctx.beginPath(); ctx.fillStyle = `rgba(${accentColor.rgb},0.12)`; ctx.arc(dc[0], dc[1], 16, 0, 7); ctx.fill();
+        ctx.beginPath(); ctx.fillStyle = accentColor.hex; ctx.shadowColor = `rgba(${accentColor.rgb},0.95)`; ctx.shadowBlur = 18; ctx.arc(dc[0], dc[1], 6, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
+        ctx.font = '700 13px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = accentColor.hex; ctx.fillText(fc.name.toUpperCase(), dc[0], dc[1] - 24);
         ctx.restore();
       }
 
       raf = requestAnimationFrame(draw);
     };
     raf = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(raf); io.disconnect(); };
+    return () => { cancelAnimationFrame(raf); io.disconnect(); obs.disconnect(); };
   }, []);
 
   const nearest = (e: React.MouseEvent) => {
