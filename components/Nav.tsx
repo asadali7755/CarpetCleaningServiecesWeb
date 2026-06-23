@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "./Icons";
-import ThemeToggle from "./ThemeToggle";
 import RequestCall from "./RequestCall";
 import { PHONE_DISPLAY, PHONE_TEL, waHref } from "./constants";
 
@@ -44,7 +43,6 @@ export default function Nav() {
           {LINKS.map((l) => <Link key={l.href} className="nav-link" href={l.href}>{l.label}</Link>)}
           <a className="nav-phone-pill" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>
           <RequestCall />
-          <ThemeToggle />
           <button className="nav-burger" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
             <Icon name={open ? "x" : "menu"} />
           </button>
