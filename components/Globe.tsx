@@ -131,7 +131,7 @@ function drawThumb(ctx: CanvasRenderingContext2D, img: HTMLImageElement | undefi
   ctx.save();
   ctx.globalAlpha = alpha;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.closePath();
-  ctx.fillStyle = "rgba(240,247,255,0.95)"; ctx.fill();
+  ctx.fillStyle = "rgba(10,16,13,0.92)"; ctx.fill();
   ctx.save(); ctx.clip();
   if (img && img.complete && img.naturalWidth) {
     const ar = img.naturalWidth / img.naturalHeight;
@@ -235,7 +235,7 @@ export default function Globe() {
       ctx.globalAlpha = 1 - z * 0.62;
       ctx.translate(tgtX, tgtY); ctx.scale(scale, scale); ctx.translate(-fx, -fy);
       const g = ctx.createRadialGradient(gx - R * 0.32, gy - R * 0.36, R * 0.08, gx, gy, R);
-      g.addColorStop(0, "rgba(219,234,254,0.7)"); g.addColorStop(0.6, "rgba(191,219,254,0.5)"); g.addColorStop(1, "rgba(224,242,254,0.25)");
+      g.addColorStop(0, "rgba(255,255,255,0.6)"); g.addColorStop(0.6, "rgba(230,240,255,0.4)"); g.addColorStop(1, "rgba(200,220,245,0.15)");
       ctx.save(); ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.clip(); ctx.fillStyle = g; ctx.fillRect(gx - R, gy - R, R * 2, R * 2);
       ctx.strokeStyle = `rgba(${accentColor.rgb},0.05)`; ctx.lineWidth = 1 / scale;
       for (let lonG = -180; lonG < 180; lonG += 15) { ctx.beginPath(); let st = false; for (let latG = -85; latG <= 85; latG += 3) { const p = Pr(vec(lonG, latG)); if (p.z > 0) { if (!st) { ctx.moveTo(p.sx, p.sy); st = true; } else ctx.lineTo(p.sx, p.sy); } else st = false; } ctx.stroke(); }
