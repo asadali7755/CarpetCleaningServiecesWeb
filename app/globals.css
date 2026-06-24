@@ -1,61 +1,21 @@
 /* ============================================================
-   Al Haya Carpet Services — Multi-theme demo
-   3 accent palettes: Sky Blue / Purple / Maroon.
-   All share a white base. Dark-navy panels for Globe & 3D gallery.
+   Al Haya Carpet Services — White + Blue theme
    Space Grotesk / Manrope / JetBrains Mono.
    ============================================================ */
 
-/* ---- Sky Blue (default) ---- */
-:root,
-[data-theme="skyblue"] {
-  --accent: #0EA5E9;
-  --green: #0EA5E9;
-  --green-2: #0284C7;
-  --teal: #38BDF8;
-  --accent-light: #7DD3FC;
-  --accent-rgb: 14, 165, 233;
-  --page-glow-1: rgba(14, 165, 233, 0.07);
-  --page-glow-2: rgba(14, 165, 233, 0.04);
-  --proc-sec-bg: linear-gradient(180deg, #ffffff, #f0f9ff 16%, #f0f9ff 84%, #ffffff);
-  --svc-sec-bg: linear-gradient(180deg, #ffffff, #f0f9ff 16%, #f0f9ff 84%, #ffffff);
-  --cta-bg: linear-gradient(135deg, rgba(14, 165, 233, 0.10), rgba(14, 165, 233, 0.03));
-  --ft-bg: #0c4a6e;
-}
-
-/* ---- Purple ---- */
-[data-theme="purple"] {
-  --accent: #8B5CF6;
-  --green: #8B5CF6;
-  --green-2: #7C3AED;
-  --teal: #A78BFA;
-  --accent-light: #C4B5FD;
-  --accent-rgb: 139, 92, 246;
-  --page-glow-1: rgba(139, 92, 246, 0.07);
-  --page-glow-2: rgba(139, 92, 246, 0.04);
-  --proc-sec-bg: linear-gradient(180deg, #ffffff, #f5f3ff 16%, #f5f3ff 84%, #ffffff);
-  --svc-sec-bg: linear-gradient(180deg, #ffffff, #faf5ff 16%, #faf5ff 84%, #ffffff);
-  --cta-bg: linear-gradient(135deg, rgba(139, 92, 246, 0.10), rgba(139, 92, 246, 0.03));
-  --ft-bg: #3b0764;
-}
-
-/* ---- Maroon ---- */
-[data-theme="maroon"] {
-  --accent: #BE123C;
-  --green: #BE123C;
-  --green-2: #9F1239;
-  --teal: #E11D48;
-  --accent-light: #FB7185;
-  --accent-rgb: 190, 18, 60;
-  --page-glow-1: rgba(190, 18, 60, 0.06);
-  --page-glow-2: rgba(190, 18, 60, 0.03);
-  --proc-sec-bg: linear-gradient(180deg, #ffffff, #fff1f2 16%, #fff1f2 84%, #ffffff);
-  --svc-sec-bg: linear-gradient(180deg, #ffffff, #fff1f2 16%, #fff1f2 84%, #ffffff);
-  --cta-bg: linear-gradient(135deg, rgba(190, 18, 60, 0.08), rgba(190, 18, 60, 0.03));
-  --ft-bg: #4c0519;
-}
-
-/* ---- Shared base tokens ---- */
 :root {
+  --accent: #2563EB;
+  --green: #2563EB;
+  --green-2: #1D4ED8;
+  --teal: #3B82F6;
+  --accent-light: #60A5FA;
+  --accent-rgb: 37, 99, 235;
+  --page-glow-1: rgba(37, 99, 235, 0.07);
+  --page-glow-2: rgba(37, 99, 235, 0.04);
+  --proc-sec-bg: linear-gradient(180deg, #ffffff, #eff6ff 16%, #eff6ff 84%, #ffffff);
+  --svc-sec-bg: linear-gradient(180deg, #ffffff, #eff6ff 16%, #eff6ff 84%, #ffffff);
+  --cta-bg: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(37, 99, 235, 0.03));
+  --ft-bg: #1e3a5f;
   --bg: #ffffff;
   --text: #0f172a;
   --text-2: #475569;
@@ -182,28 +142,28 @@ img { max-width: 100%; display: block; }
 .stat-label { font-size: 12.5px; color: var(--text-3); margin-top: 2px; }
 .stat-div { width: 1px; background: var(--border); }
 
-/* ---------- Globe (dark navy panel for contrast) ---------- */
+/* ---------- Globe (light panel) ---------- */
 .globe-stage {
   position: relative; width: 100%; aspect-ratio: 1 / 0.92; min-height: 440px;
-  background: radial-gradient(700px 520px at 55% 45%, rgba(var(--accent-rgb), 0.10), transparent 70%), #0f172a;
-  border-radius: 22px; border: 1px solid #1e3a5f; overflow: hidden;
+  background: radial-gradient(700px 520px at 55% 45%, rgba(var(--accent-rgb), 0.08), transparent 70%), #f0f7ff;
+  border-radius: 22px; border: 1px solid #dbeafe; overflow: hidden;
 }
 .globe-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: pointer; }
-/* globe overlays stay dark (they sit over the dark globe) */
+/* globe overlays — light theme */
 .globe-back { position: absolute; top: 14px; left: 14px; z-index: 32; display: flex; align-items: center; gap: 12px; animation: floatUp 0.25s ease-out; }
-.globe-back-btn { display: inline-flex; align-items: center; gap: 7px; background: rgba(14, 14, 16, 0.82); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.22); color: #fff; font-size: 13px; font-weight: 600; padding: 9px 15px; border-radius: 11px; cursor: pointer; }
-.globe-back-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: rgba(255, 255, 255, 0.66); }
-.globe-hint { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); z-index: 31; display: inline-flex; align-items: center; gap: 8px; background: rgba(14, 14, 16, 0.62); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.14); color: rgba(255, 255, 255, 0.8); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; padding: 7px 13px; border-radius: 999px; pointer-events: none; }
+.globe-back-btn { display: inline-flex; align-items: center; gap: 7px; background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(12px); border: 1px solid #dbeafe; color: #1e3a5f; font-size: 13px; font-weight: 600; padding: 9px 15px; border-radius: 11px; cursor: pointer; }
+.globe-back-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: #64748b; }
+.globe-hint { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); z-index: 31; display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); border: 1px solid #dbeafe; color: #475569; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; padding: 7px 13px; border-radius: 999px; pointer-events: none; }
 .globe-tip { position: absolute; z-index: 30; transform: translate(-50%, calc(-100% - 18px)); width: 248px; pointer-events: none; animation: floatUp 0.2s ease-out; }
-.globe-tip-card { background: rgba(14, 14, 16, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.24); border-radius: 16px; padding: 16px 17px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); }
+.globe-tip-card { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(16px); border: 1px solid #dbeafe; border-radius: 16px; padding: 16px 17px; box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12); }
 .globe-tip-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; }
-.globe-tip-name { font-family: var(--display); font-weight: 700; font-size: 16px; color: #fff; }
-.globe-tip-avail { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: #fff; background: rgba(255, 255, 255, 0.1); padding: 4px 9px; border-radius: 999px; }
+.globe-tip-name { font-family: var(--display); font-weight: 700; font-size: 16px; color: #0f172a; }
+.globe-tip-avail { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: #1e3a5f; background: rgba(37, 99, 235, 0.08); padding: 4px 9px; border-radius: 999px; }
 .globe-tip-avail .dot { width: 6px; height: 6px; box-shadow: 0 0 8px var(--teal); }
-.globe-tip-desc { font-size: 12.5px; line-height: 1.5; color: rgba(255, 255, 255, 0.6); margin-bottom: 12px; }
-.globe-tip-foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 11px; font-size: 11px; color: rgba(255, 255, 255, 0.5); }
-.globe-tip-resp { font-family: var(--mono); font-weight: 600; font-size: 13px; color: #fff; }
-.globe-tip-arrow { position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%) rotate(45deg); width: 12px; height: 12px; background: rgba(14, 14, 16, 0.85); border-right: 1px solid rgba(255, 255, 255, 0.24); border-bottom: 1px solid rgba(255, 255, 255, 0.24); }
+.globe-tip-desc { font-size: 12.5px; line-height: 1.5; color: #64748b; margin-bottom: 12px; }
+.globe-tip-foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e2e8f0; padding-top: 11px; font-size: 11px; color: #94a3b8; }
+.globe-tip-resp { font-family: var(--mono); font-weight: 600; font-size: 13px; color: #0f172a; }
+.globe-tip-arrow { position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%) rotate(45deg); width: 12px; height: 12px; background: rgba(255, 255, 255, 0.92); border-right: 1px solid #dbeafe; border-bottom: 1px solid #dbeafe; }
 
 /* ---------- Sections ---------- */
 .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; color: var(--accent); margin-bottom: 16px; }

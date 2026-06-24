@@ -122,7 +122,7 @@ const POOL_IMGS = [
   "/emirates/fujairah.webp",
 ];
 
-const accentColor = { hex: "#0EA5E9", rgb: "14,165,233" };
+const accentColor = { hex: "#2563EB", rgb: "37,99,235" };
 
 // Draws a small circular thumbnail with a green ring; falls back to a tinted
 // disc until the image loads (or if it fails), so the globe never shows a gap.
@@ -131,7 +131,7 @@ function drawThumb(ctx: CanvasRenderingContext2D, img: HTMLImageElement | undefi
   ctx.save();
   ctx.globalAlpha = alpha;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.closePath();
-  ctx.fillStyle = "rgba(10,16,13,0.92)"; ctx.fill();
+  ctx.fillStyle = "rgba(240,247,255,0.95)"; ctx.fill();
   ctx.save(); ctx.clip();
   if (img && img.complete && img.naturalWidth) {
     const ar = img.naturalWidth / img.naturalHeight;
@@ -166,15 +166,9 @@ export default function Globe() {
     const cv = canvasRef.current;
     if (!cv) return;
 
-    const readAccent = () => {
-      const s = getComputedStyle(document.documentElement);
-      const h = s.getPropertyValue("--teal").trim() || "#0EA5E9";
-      const r = s.getPropertyValue("--accent-rgb").trim() || "14,165,233";
-      accentColor.hex = h; accentColor.rgb = r;
-    };
-    readAccent();
-    const obs = new MutationObserver(readAccent);
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    const s = getComputedStyle(document.documentElement);
+    accentColor.hex = s.getPropertyValue("--teal").trim() || "#3B82F6";
+    accentColor.rgb = s.getPropertyValue("--accent-rgb").trim() || "37,99,235";
 
     const imgEls = POOL_IMGS.map((src) => { const im = new Image(); im.src = src; return im; });
 
@@ -241,7 +235,7 @@ export default function Globe() {
       ctx.globalAlpha = 1 - z * 0.62;
       ctx.translate(tgtX, tgtY); ctx.scale(scale, scale); ctx.translate(-fx, -fy);
       const g = ctx.createRadialGradient(gx - R * 0.32, gy - R * 0.36, R * 0.08, gx, gy, R);
-      g.addColorStop(0, "rgba(44,44,48,0.6)"); g.addColorStop(0.6, "rgba(20,20,22,0.5)"); g.addColorStop(1, "rgba(8,8,10,0.18)");
+      g.addColorStop(0, "rgba(219,234,254,0.7)"); g.addColorStop(0.6, "rgba(191,219,254,0.5)"); g.addColorStop(1, "rgba(224,242,254,0.25)");
       ctx.save(); ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.clip(); ctx.fillStyle = g; ctx.fillRect(gx - R, gy - R, R * 2, R * 2);
       ctx.strokeStyle = `rgba(${accentColor.rgb},0.05)`; ctx.lineWidth = 1 / scale;
       for (let lonG = -180; lonG < 180; lonG += 15) { ctx.beginPath(); let st = false; for (let latG = -85; latG <= 85; latG += 3) { const p = Pr(vec(lonG, latG)); if (p.z > 0) { if (!st) { ctx.moveTo(p.sx, p.sy); st = true; } else ctx.lineTo(p.sx, p.sy); } else st = false; } ctx.stroke(); }
@@ -312,7 +306,7 @@ export default function Globe() {
       raf = requestAnimationFrame(draw);
     };
     raf = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(raf); io.disconnect(); obs.disconnect(); };
+    return () => { cancelAnimationFrame(raf); io.disconnect(); };
   }, []);
 
   const nearest = (e: React.MouseEvent) => {
