@@ -55,8 +55,8 @@ export const metadata: Metadata = {
   verification: { google: "_-vQKQOsCp1OneIzFkRapkrepu__SWvH520xZMzyi7k" },
   alternates: { canonical: SITE_URL },
   other: {
-    "theme-color": "#2563EB",
-    "msapplication-TileColor": "#2563EB",
+    "theme-color": "#16a34a",
+    "msapplication-TileColor": "#16a34a",
   },
   openGraph: {
     type: "website",

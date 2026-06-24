@@ -1,21 +1,21 @@
 /* ============================================================
-   Al Haya Carpet Services — White + Blue theme
+   Al Haya Carpet Services — White + Green theme
    Space Grotesk / Manrope / JetBrains Mono.
    ============================================================ */
 
 :root {
-  --accent: #2563EB;
-  --green: #2563EB;
-  --green-2: #1D4ED8;
-  --teal: #3B82F6;
-  --accent-light: #60A5FA;
-  --accent-rgb: 37, 99, 235;
-  --page-glow-1: rgba(37, 99, 235, 0.07);
-  --page-glow-2: rgba(37, 99, 235, 0.04);
-  --proc-sec-bg: linear-gradient(180deg, #ffffff, #eff6ff 16%, #eff6ff 84%, #ffffff);
-  --svc-sec-bg: linear-gradient(180deg, #ffffff, #eff6ff 16%, #eff6ff 84%, #ffffff);
-  --cta-bg: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(37, 99, 235, 0.03));
-  --ft-bg: #1e3a5f;
+  --accent: #16a34a;
+  --green: #16a34a;
+  --green-2: #15803d;
+  --teal: #22c55e;
+  --accent-light: #4ade80;
+  --accent-rgb: 22, 163, 74;
+  --page-glow-1: rgba(22, 163, 74, 0.07);
+  --page-glow-2: rgba(22, 163, 74, 0.04);
+  --proc-sec-bg: linear-gradient(180deg, #ffffff, #f0fdf4 16%, #f0fdf4 84%, #ffffff);
+  --svc-sec-bg: linear-gradient(180deg, #ffffff, #f0fdf4 16%, #f0fdf4 84%, #ffffff);
+  --cta-bg: linear-gradient(135deg, rgba(22, 163, 74, 0.10), rgba(22, 163, 74, 0.03));
+  --ft-bg: #14532d;
   --bg: #ffffff;
   --text: #0f172a;
   --text-2: #475569;

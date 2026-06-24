@@ -122,7 +122,7 @@ const POOL_IMGS = [
   "/emirates/fujairah.webp",
 ];
 
-const accentColor = { hex: "#2563EB", rgb: "37,99,235" };
+const accentColor = { hex: "#22c55e", rgb: "22,163,74" };
 
 // Draws a small circular thumbnail with a green ring; falls back to a tinted
 // disc until the image loads (or if it fails), so the globe never shows a gap.
@@ -167,8 +167,8 @@ export default function Globe() {
     if (!cv) return;
 
     const s = getComputedStyle(document.documentElement);
-    accentColor.hex = s.getPropertyValue("--teal").trim() || "#3B82F6";
-    accentColor.rgb = s.getPropertyValue("--accent-rgb").trim() || "37,99,235";
+    accentColor.hex = s.getPropertyValue("--teal").trim() || "#22c55e";
+    accentColor.rgb = s.getPropertyValue("--accent-rgb").trim() || "22,163,74";
 
     const imgEls = POOL_IMGS.map((src) => { const im = new Image(); im.src = src; return im; });
 
