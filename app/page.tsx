@@ -124,18 +124,17 @@ export default function Home() {
         <div className="inner">
           <ContainerScroll className="pstack">
             {STEPS.map((s, i) => (
-              <CardSticky key={s.n} index={i} incrementY={48} incrementZ={0} topOffset={84} className="proc-card pstack-card">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="bgimg" src={GALLERY_IMAGES[i % GALLERY_IMAGES.length].src} alt="" loading="lazy" />
-                <div className="veil" />
-                <div className="topline" />
-                <div className="body">
-                  <div className="row">
-                    <div className="proc-num">{s.n}</div>
-                    <span className="step-pill">STEP {s.n}</span>
+              <CardSticky key={s.n} index={i} incrementY={48} incrementZ={0} topOffset={84} className="pstack-card pstack-row">
+                <div className={`pstack-inner${i % 2 === 1 ? " pstack-rev" : ""}`}>
+                  <div className="pstack-img">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={GALLERY_IMAGES[i % GALLERY_IMAGES.length].src} alt={`Step ${s.n} — ${s.title}`} loading="lazy" />
                   </div>
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
+                  <div className="pstack-content">
+                    <div className="pstack-step-badge">STEP {s.n}</div>
+                    <h3>{s.title}</h3>
+                    <p>{s.desc}</p>
+                  </div>
                 </div>
               </CardSticky>
             ))}

@@ -214,14 +214,47 @@
 .relative { position: relative; }
 .w-full { width: 100%; }
 .sticky { position: sticky; }
-.pstack { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; }
-.pstack-card { min-height: 156px; margin-bottom: 16px; background-color: #ffffff; border: 1px solid var(--border); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); will-change: transform; }
-.pstack-card .body { display: flex; flex-direction: column; gap: 6px; }
-.pstack-card .row { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
-.pstack-card .row .proc-num { margin-bottom: 0; }
-.pstack-card .step-pill { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-2); border: 1px solid rgba(var(--accent-rgb), 0.3); border-radius: 999px; padding: 4px 10px; }
-@media (max-width: 560px) {
-  .pstack-card { min-height: 134px; }
+.pstack { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; }
+.pstack-card {
+  margin-bottom: 16px; background-color: #ffffff; border: 1px solid var(--border);
+  border-radius: 18px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  will-change: transform; overflow: hidden;
+}
+.pstack-inner {
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 180px;
+}
+.pstack-rev { direction: rtl; }
+.pstack-rev > * { direction: ltr; }
+.pstack-img {
+  position: relative; overflow: hidden;
+}
+.pstack-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.pstack-content {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 28px 32px; gap: 8px;
+}
+.pstack-step-badge {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.16em; color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  border-radius: 999px; padding: 4px 12px; width: fit-content;
+}
+.pstack-content h3 {
+  font-family: var(--display); font-weight: 700; font-size: 22px;
+  color: var(--text); line-height: 1.2;
+}
+.pstack-content p {
+  font-size: 14.5px; line-height: 1.65; color: var(--text-2);
+}
+@media (max-width: 640px) {
+  .pstack-inner { grid-template-columns: 1fr; }
+  .pstack-rev { direction: ltr; }
+  .pstack-img { aspect-ratio: 16 / 9; }
+  .pstack-content { padding: 20px 22px; }
+  .pstack-content h3 { font-size: 18px; }
 }
 
 @media (max-width: 880px) {
