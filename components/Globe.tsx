@@ -131,7 +131,7 @@ function drawThumb(ctx: CanvasRenderingContext2D, img: HTMLImageElement | undefi
   ctx.save();
   ctx.globalAlpha = alpha;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.closePath();
-  ctx.fillStyle = "rgba(10,16,13,0.92)"; ctx.fill();
+  ctx.fillStyle = "rgba(241,245,249,0.95)"; ctx.fill();
   ctx.save(); ctx.clip();
   if (img && img.complete && img.naturalWidth) {
     const ar = img.naturalWidth / img.naturalHeight;
@@ -235,12 +235,12 @@ export default function Globe() {
       ctx.globalAlpha = 1 - z * 0.62;
       ctx.translate(tgtX, tgtY); ctx.scale(scale, scale); ctx.translate(-fx, -fy);
       const g = ctx.createRadialGradient(gx - R * 0.32, gy - R * 0.36, R * 0.08, gx, gy, R);
-      g.addColorStop(0, "rgba(255,255,255,0.6)"); g.addColorStop(0.6, "rgba(230,240,255,0.4)"); g.addColorStop(1, "rgba(200,220,245,0.15)");
+      g.addColorStop(0, "rgba(240,253,244,0.6)"); g.addColorStop(0.6, "rgba(220,252,231,0.35)"); g.addColorStop(1, "rgba(187,247,208,0.12)");
       ctx.save(); ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.clip(); ctx.fillStyle = g; ctx.fillRect(gx - R, gy - R, R * 2, R * 2);
-      ctx.strokeStyle = "rgba(255,255,255,0.06)"; ctx.lineWidth = 1 / scale;
+      ctx.strokeStyle = "rgba(22,163,74,0.08)"; ctx.lineWidth = 1 / scale;
       for (let lonG = -180; lonG < 180; lonG += 15) { ctx.beginPath(); let st = false; for (let latG = -85; latG <= 85; latG += 3) { const p = Pr(vec(lonG, latG)); if (p.z > 0) { if (!st) { ctx.moveTo(p.sx, p.sy); st = true; } else ctx.lineTo(p.sx, p.sy); } else st = false; } ctx.stroke(); }
       for (let latG = -75; latG <= 75; latG += 15) { ctx.beginPath(); let st = false; for (let lonG = -180; lonG <= 180; lonG += 3) { const p = Pr(vec(lonG, latG)); if (p.z > 0) { if (!st) { ctx.moveTo(p.sx, p.sy); st = true; } else ctx.lineTo(p.sx, p.sy); } else st = false; } ctx.stroke(); }
-      for (const v of landPts) { const p = Pr(v); if (p.z <= 0.02) continue; const a = 0.10 + 0.42 * p.z; ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`; const s = (1.1 + 0.8 * p.z) / Math.sqrt(scale); ctx.fillRect(p.sx - s / 2, p.sy - s / 2, s, s); }
+      for (const v of landPts) { const p = Pr(v); if (p.z <= 0.02) continue; const a = 0.10 + 0.42 * p.z; ctx.fillStyle = `rgba(${accentColor.rgb},${(a * 1.2).toFixed(3)})`; const s = (1.1 + 0.8 * p.z) / Math.sqrt(scale); ctx.fillRect(p.sx - s / 2, p.sy - s / 2, s, s); }
       ctx.restore();
       ctx.lineWidth = 1.2 / scale; ctx.strokeStyle = `rgba(${accentColor.rgb},0.16)`; ctx.beginPath(); ctx.arc(gx, gy, R, 0, 7); ctx.stroke();
       ctx.restore();
@@ -273,7 +273,7 @@ export default function Globe() {
         if (c.zoomable) { ctx.beginPath(); ctx.strokeStyle = `rgba(${accentColor.rgb},${0.5 * (0.5 + 0.5 * Math.sin(t * 3))})`; ctx.lineWidth = 1.4; ctx.arc(px, py, ring + 6, 0, 7); ctx.stroke(); }
         const fImg = Math.sin(t * 1.5 + i * 0.9) * 4.5;
         drawThumb(ctx, imgEls[i % imgEls.length], px, tcy + fImg, tSize, eA);
-        ctx.font = '700 14px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = `rgba(255,255,255,${hot ? 0.98 : 0.82})`; ctx.fillText(c.name, px, py + (hot ? 17 : 15) + 12);
+        ctx.font = '700 14px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = `rgba(15,23,42,${hot ? 0.95 : 0.7})`; ctx.fillText(c.name, px, py + (hot ? 17 : 15) + 12);
         ctx.restore();
       });
 
@@ -296,10 +296,10 @@ export default function Globe() {
           ctx.beginPath(); ctx.fillStyle = accentColor.hex; ctx.shadowColor = `rgba(${accentColor.rgb},0.95)`; ctx.shadowBlur = 13; ctx.arc(px, py, hot ? 4 : 3, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
           const dfImg = Math.sin(t * 1.5 + i * 0.9) * 4;
           drawThumb(ctx, imgEls[i % imgEls.length], px, tcy + dfImg, tSize, dA);
-          ctx.font = '600 12px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = `rgba(255,255,255,${hot ? 0.98 : 0.82})`; ctx.fillText(d.name, px, py + (hot ? 13 : 11) + 12); });
+          ctx.font = '600 12px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = `rgba(15,23,42,${hot ? 0.95 : 0.7})`; ctx.fillText(d.name, px, py + (hot ? 13 : 11) + 12); });
         ctx.beginPath(); ctx.fillStyle = `rgba(${accentColor.rgb},0.12)`; ctx.arc(dc[0], dc[1], 16, 0, 7); ctx.fill();
         ctx.beginPath(); ctx.fillStyle = accentColor.hex; ctx.shadowColor = `rgba(${accentColor.rgb},0.95)`; ctx.shadowBlur = 18; ctx.arc(dc[0], dc[1], 6, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
-        ctx.font = '700 13px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "#ffffff"; ctx.fillText(fc.name.toUpperCase(), dc[0], dc[1] - 24);
+        ctx.font = '700 13px "Space Grotesk", sans-serif'; ctx.textAlign = "center"; ctx.fillStyle = "#0f172a"; ctx.fillText(fc.name.toUpperCase(), dc[0], dc[1] - 24);
         ctx.restore();
       }
 
