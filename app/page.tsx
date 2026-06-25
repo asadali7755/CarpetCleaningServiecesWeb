@@ -150,16 +150,25 @@ export default function Home() {
             <div className="eyebrow teal">/ WHAT WE DO</div>
             <h2 className="sec-title">Specialist carpet care, done right.</h2>
           </div>
-          <div className="svc-grid">
-            {SERVICES.map((s) => (
-              <Link className="svc-card" data-reveal key={s.slug} href={`/services/${s.slug}`}>
-                <div className="svc-card-img">
-                  <Image src={s.cardImg} alt={`${s.name} service — Al Haya Carpet Cleaning Dubai`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+          <div className="svc-list">
+            {SERVICES.map((s, i) => (
+              <Link className={`svc-row${i % 2 === 1 ? " svc-row-rev" : ""}`} data-reveal key={s.slug} href={`/services/${s.slug}`}>
+                <div className="svc-row-img">
+                  <Image src={s.cardImg} alt={`${s.name} service — Al Haya Carpet Cleaning Dubai`} fill sizes="(max-width:768px) 100vw, 45vw" />
                 </div>
-                <div className="svc-card-body">
+                <div className="svc-row-content">
+                  <div className="svc-row-num">{s.num}</div>
                   <div className="svc-icon"><Icon name={s.icon} /></div>
                   <h3>{s.name}</h3>
-                  <p>{s.intro.slice(0, 110)}…</p>
+                  <p className="svc-row-intro">{s.intro}</p>
+                  <div className="svc-row-feats">
+                    {s.feat.slice(0, 3).map((f) => (
+                      <div className="svc-row-feat" key={f.t}>
+                        <span className="svc-row-feat-dot" />
+                        <span>{f.t}</span>
+                      </div>
+                    ))}
+                  </div>
                   <span className="svc-more">Learn more <Icon name="arrow" /></span>
                 </div>
               </Link>
