@@ -11,6 +11,13 @@
 .nav-mobile a { padding: 12px 4px; font-size: 15px; font-weight: 500; color: var(--text-2); border-bottom: 1px solid var(--border); }
 .nav-mobile .btn-book { margin-top: 12px; justify-content: center; border-bottom: 0; color: #ffffff; }
 
+/* ---- Nav social ---- */
+.nav-social { display: flex; gap: 6px; align-items: center; }
+.nav-social-link { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; color: var(--text-2); transition: color 0.15s, background 0.15s; }
+.nav-social-link:hover { color: var(--accent); background: rgba(var(--accent-rgb),0.08); }
+.nav-social-link svg { width: 17px; height: 17px; }
+@media (max-width: 768px) { .nav-social { display: none; } }
+
 /* ---- Footer (dark navy) ---- */
 .ft { background: var(--ft-bg, #0f172a); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 0 24px; }
 .ft-in { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
@@ -24,6 +31,10 @@
 .ft-col a:hover { color: var(--accent-light, #4ade80); }
 .ft-contact li { display: flex; gap: 9px; align-items: flex-start; }
 .ft-contact svg { width: 16px; height: 16px; color: var(--accent-light, #4ade80); flex: none; margin-top: 3px; }
+.ft-social { display: flex; gap: 10px; margin-top: 18px; }
+.ft-social-link { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); transition: all 0.15s; }
+.ft-social-link:hover { background: rgba(var(--accent-rgb),0.15); border-color: var(--accent-light, #4ade80); color: var(--accent-light, #4ade80); }
+.ft-social-link svg { width: 18px; height: 18px; }
 .ft-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 22px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: rgba(255,255,255,0.4); }
 
 /* ---- Floating action button + mobile bar ---- */

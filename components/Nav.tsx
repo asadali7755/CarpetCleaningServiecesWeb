@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "./Icons";
 import RequestCall from "./RequestCall";
-import { PHONE_DISPLAY, PHONE_TEL, waHref } from "./constants";
+import { PHONE_DISPLAY, PHONE_TEL, FACEBOOK_URL, LINKEDIN_URL, waHref } from "./constants";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -41,6 +41,10 @@ export default function Nav() {
 
         <nav className="nav-menu">
           {LINKS.map((l) => <Link key={l.href} className="nav-link" href={l.href}>{l.label}</Link>)}
+          <div className="nav-social">
+            <a href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label="Facebook" className="nav-social-link"><Icon name="facebook" /></a>
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn" className="nav-social-link"><Icon name="linkedin" /></a>
+          </div>
           <a className="nav-phone-pill" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>
           <RequestCall />
           <button className="nav-burger" aria-label="Menu" onClick={() => setOpen((v) => !v)}>

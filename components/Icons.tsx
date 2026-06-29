@@ -47,6 +47,8 @@ const PATHS: Record<string, JSX.Element> = {
   sun: <g><circle {...P} cx="12" cy="12" r="4" /><path {...P} d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5" /></g>,
   moon: <path {...P} d="M21 12.8A8 8 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8z" />,
   quote: <path {...P} fill="currentColor" stroke="none" d="M7 7h4v4c0 3-1.4 5-4 6v-2c1.3-.6 2-1.7 2-3H7zM15 7h4v4c0 3-1.4 5-4 6v-2c1.3-.6 2-1.7 2-3h-2z" />,
+  facebook: <path fill="currentColor" stroke="none" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />,
+  linkedin: <g><path fill="currentColor" stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" /><rect fill="currentColor" stroke="none" x="2" y="9" width="4" height="12" /><circle fill="currentColor" stroke="none" cx="4" cy="4" r="2" /></g>,
 };
 
 export function Icon({ name, className }: { name: string; className?: string }) {

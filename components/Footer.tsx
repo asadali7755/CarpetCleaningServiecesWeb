@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "./Icons";
-import { BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, HOURS } from "./constants";
+import { BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, HOURS, FACEBOOK_URL, LINKEDIN_URL } from "./constants";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
 
@@ -58,6 +58,10 @@ export default function Footer() {
               <li><Icon name="pin" /> <span>Serving all 7 Emirates, UAE</span></li>
               <li><Icon name="star" /> <a href="https://maps.app.goo.gl/Q4Qjx7GFZKZ1DSfz9" target="_blank" rel="noopener">Google Business Profile</a></li>
             </ul>
+            <div className="ft-social">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label="Facebook" className="ft-social-link"><Icon name="facebook" /></a>
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn" className="ft-social-link"><Icon name="linkedin" /></a>
+            </div>
           </div>
         </div>
 

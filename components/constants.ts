@@ -10,6 +10,9 @@ export const WHATSAPP_MSG =
 
 export const HOURS = "Daily 8:00 AM – 10:00 PM";
 
+export const FACEBOOK_URL = "https://www.facebook.com/alhayacleandubai/";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/madinat-al-haya-building-cleaning-services-70a3363b4?originalSubdomain=ae";
+
 export interface Emirate {
   slug: string;
   name: string;
