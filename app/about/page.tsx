@@ -44,7 +44,7 @@ export default function About() {
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
           <div className="about-hero-img">
-            <Image src="/images/services/carpet-service-6.jpeg" alt="Al Haya technician deep cleaning an oriental rug with extraction equipment in Dubai" width={1280} height={720} priority style={{ width: "100%", height: "auto" }} />
+            <Image src="/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp" alt="Al Haya technician deep cleaning an oriental rug with extraction equipment in Dubai" width={1280} height={720} priority style={{ width: "100%", height: "auto" }} />
           </div>
           <div className="prose">
             <p>Carpets, rugs and upholstery trap dust, allergens and bacteria that ordinary vacuuming never reaches. We combine deep shampoo extraction, high-temperature steam sanitisation and careful stain treatment to restore your soft furnishings to a fresh, hygienic, like-new condition.</p>
@@ -52,10 +52,10 @@ export default function About() {
           </div>
           <div className="about-split">
             <div className="about-split-img">
-              <Image src="/images/gallery/professional-carpet-cleaning-team.jpeg" alt="Professional carpet cleaning team at Al Haya Cleaning Services Dubai" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
+              <Image src="/images/gallery/professional-carpet-cleaning-team-dubai.webp" alt="Professional carpet cleaning team at Alhaya Cleaning Services providing residential and commercial cleaning across Dubai UAE" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
             </div>
             <div className="about-split-img">
-              <Image src="/images/services/carpet-service-7.jpeg" alt="Industrial carpet cleaning machine in action — rug deep shampoo UAE" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
+              <Image src="/images/services/carpet-deep-cleaning-process-uae.webp" alt="Industrial carpet deep cleaning machine in action performing rug deep shampoo extraction service across UAE" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
             </div>
           </div>
           <ul className="feat-list" style={{ gridTemplateColumns: "repeat(2,1fr)" }}>

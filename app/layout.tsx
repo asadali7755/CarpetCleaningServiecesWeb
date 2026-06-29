@@ -95,7 +95,7 @@ const localBusiness = {
   email: EMAIL,
   priceRange: "$$",
   logo: `${SITE_URL}/images/alhaya-carpet-cleaning-services-dubai-logo.webp`,
-  image: `${SITE_URL}/images/gallery/action-1.jpeg`,
+  image: `${SITE_URL}/images/gallery/professional-carpet-cleaning-technician-dubai.webp`,
   address: {
     "@type": "PostalAddress",
     addressRegion: "Dubai",

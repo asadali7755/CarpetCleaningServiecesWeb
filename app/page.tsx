@@ -4,44 +4,22 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import RevealInit from "@/components/RevealInit";
-import { Globe, InfiniteGallery, ContainerScroll, CardSticky } from "@/components/lazy";
+import { Globe, InfiniteGallery } from "@/components/lazy";
 import { Icon } from "@/components/Icons";
 import RequestCall from "@/components/RequestCall";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL, BRAND, EMAIL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
 
-const STEPS = [
-  { n: "01", title: "Booking Request", desc: "Book online, by phone or WhatsApp in under a minute." },
-  { n: "02", title: "Free Inspection", desc: "We assess fabric, stains and the best cleaning method — at no cost." },
-  { n: "03", title: "Pickup or On-Site", desc: "Doorstep collection or we clean in place — your choice." },
-  { n: "04", title: "Dust Removal", desc: "High-power vacuum and beating extracts dry dirt and grit." },
-  { n: "05", title: "Deep Shampoo", desc: "Industrial extraction shampoo loosens embedded grime." },
-  { n: "06", title: "Stain Treatment", desc: "Enzyme spot-treatment targets stubborn marks individually." },
-  { n: "07", title: "Steam Sanitization", desc: "High-heat steam kills bacteria, mites and allergens." },
-  { n: "08", title: "Odor Removal", desc: "Neutralizers eliminate odors at the molecular source." },
-  { n: "09", title: "Drying Process", desc: "Controlled air-drying restores loft without shrinkage." },
-  { n: "10", title: "Quality Inspection", desc: "Final check against our 30-point quality standard." },
-  { n: "11", title: "Delivery / Done", desc: "Carpet returned fresh, sanitized and ready to enjoy." },
-];
-
 const GALLERY_IMAGES = [
-  { src: "/images/gallery/before-after-1.jpeg", alt: "Carpet before and after deep cleaning — Alhaya Dubai" },
-  { src: "/images/gallery/before-after-2.jpeg", alt: "Stain removal before and after — carpet cleaning UAE" },
-  { src: "/images/gallery/before-after-3.jpeg", alt: "Professional carpet shampoo results — before and after" },
-  { src: "/images/gallery/before-after-4.jpeg", alt: "Deep carpet stain removal — before and after by Alhaya" },
-  { src: "/images/gallery/before-after-5.jpeg", alt: "Carpet odor and stain removal — before and after" },
-  { src: "/images/gallery/action-1.jpeg", alt: "Alhaya technician deep cleaning oriental rug in Dubai" },
-  { src: "/images/gallery/before-after-6.jpeg", alt: "Wool carpet deep cleaning before and after" },
-  { src: "/images/gallery/before-after-7.jpeg", alt: "Persian rug stain removal before and after — Alhaya" },
-  { src: "/images/gallery/before-after-8.jpeg", alt: "Carpet restoration before and after — UAE" },
-  { src: "/images/gallery/action-2.jpeg", alt: "Professional carpet cleaning technician with equipment" },
-  { src: "/images/gallery/carpet-shampoo-cleaning.webp", alt: "Carpet shampoo deep cleaning service — professional results UAE" },
-  { src: "/images/gallery/carpet-cleaning-machine.webp", alt: "Industrial carpet cleaning machine in action — Alhaya Dubai" },
-  { src: "/images/gallery/deep-carpet-cleaning-process.webp", alt: "Deep carpet cleaning process — stain and odor removal UAE" },
-  { src: "/images/gallery/professional-carpet-cleaning-team.jpeg", alt: "Professional carpet cleaning team — Alhaya Cleaning Services" },
-  { src: "/images/gallery/carpet-steam-extraction.jpeg", alt: "Carpet steam extraction cleaning — hot water extraction UAE" },
-  { src: "/images/gallery/clean-carpet-result.webp", alt: "Clean carpet result after professional deep cleaning by Alhaya" },
+  { src: "/images/gallery/professional-carpet-cleaning-technician-dubai.webp", alt: "Professional carpet cleaning technician deep cleaning oriental rug in Dubai by Alhaya Cleaning Services" },
+  { src: "/images/gallery/commercial-carpet-cleaning-technician-uae.webp", alt: "Commercial carpet cleaning technician with industrial equipment servicing offices across UAE" },
+  { src: "/images/gallery/carpet-shampoo-deep-cleaning-dubai.webp", alt: "Carpet shampoo deep cleaning service showing professional results in Dubai homes and offices" },
+  { src: "/images/gallery/industrial-carpet-cleaning-machine-dubai.webp", alt: "Industrial carpet cleaning machine extracting dirt and stains from residential carpet in Dubai" },
+  { src: "/images/gallery/deep-carpet-cleaning-process-uae.webp", alt: "Deep carpet cleaning process removing embedded stains and odors across UAE Emirates" },
+  { src: "/images/gallery/professional-carpet-cleaning-team-dubai.webp", alt: "Professional carpet cleaning team from Alhaya Cleaning Services ready for residential and commercial jobs in Dubai" },
+  { src: "/images/gallery/carpet-steam-extraction-cleaning-uae.webp", alt: "Carpet steam extraction hot water cleaning method sanitizing carpets across UAE by Alhaya" },
+  { src: "/images/gallery/clean-carpet-after-professional-cleaning-dubai.webp", alt: "Clean fresh carpet result after professional deep shampoo cleaning by Alhaya Dubai" },
 ];
 
 const FAQS = [
@@ -104,41 +82,11 @@ export default function Home() {
         <Globe />
       </section>
 
-      {/* PROCESS */}
+      {/* GALLERY */}
       <section className="sec-process">
-        <div className="inner">
-          <div className="proc-head" data-reveal>
-            <div>
-              <div className="eyebrow">/ HOW IT WORKS</div>
-              <h2 className="sec-title">A meticulous 11-step process, handled end to end.</h2>
-            </div>
-            <p>From the moment you book to the moment we return your carpet — every stage is tracked, inspected and quality-checked.</p>
-          </div>
-        </div>
-
         <div id="process" className="proc-gallery-wrap" data-reveal>
           <InfiniteGallery images={GALLERY_IMAGES} visibleCount={14} speed={1.2} className="proc-gallery" />
-          <div className="proc-gallery-cap"><span className="dot" /> DEEP-CLEANED CARPETS · DUBAI · SHARJAH · AJMAN · UAE</div>
-        </div>
-
-        <div className="inner">
-          <ContainerScroll className="pstack">
-            {STEPS.map((s, i) => (
-              <CardSticky key={s.n} index={i} incrementY={48} incrementZ={0} topOffset={84} className="pstack-card pstack-row">
-                <div className={`pstack-inner${i % 2 === 1 ? " pstack-rev" : ""}`}>
-                  <div className="pstack-img">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={GALLERY_IMAGES[i % GALLERY_IMAGES.length].src} alt={`Step ${s.n} — ${s.title}`} loading="lazy" />
-                  </div>
-                  <div className="pstack-content">
-                    <div className="pstack-step-badge">STEP {s.n}</div>
-                    <h3>{s.title}</h3>
-                    <p>{s.desc}</p>
-                  </div>
-                </div>
-              </CardSticky>
-            ))}
-          </ContainerScroll>
+          <div className="proc-gallery-cap"><span className="dot" /> PROFESSIONAL CARPET CLEANING · DUBAI · SHARJAH · AJMAN · UAE</div>
         </div>
       </section>
 

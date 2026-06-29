@@ -109,6 +109,32 @@
 .contact-list b { display: block; font-size: 15px; color: var(--text); }
 .contact-list span, .contact-list a { font-size: 14px; color: var(--text-2); }
 .contact-list a:hover { color: var(--accent); }
+.c-gmb-section { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+.c-gmb-card { background: var(--svc-card-grad); border: 1px solid var(--border); border-radius: 20px; padding: 28px; }
+.c-gmb-top { display: flex; gap: 14px; align-items: center; }
+.c-gmb-top .g-icon { width: 48px; height: 48px; border-radius: 999px; background: conic-gradient(from 0deg,#4285F4,#34A853,#FBBC05,#EA4335,#4285F4); display: grid; place-items: center; color: white; font-family: var(--display); font-weight: 800; font-size: 22px; flex-shrink: 0; }
+.c-gmb-meta { display: flex; flex-direction: column; gap: 2px; }
+.c-gmb-name { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.1; color: var(--text); }
+.c-gmb-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-2); }
+.c-gmb-rating { display: flex; align-items: baseline; gap: 10px; margin-top: 18px; }
+.c-gmb-rate { font-family: var(--display); font-weight: 700; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
+.c-gmb-stars { color: var(--accent); letter-spacing: 2px; font-size: 18px; }
+.c-gmb-star-half { opacity: 0.3; }
+.c-gmb-rev-count { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-2); margin-top: 4px; }
+.c-gmb-reviews { border-top: 1px solid var(--border); margin-top: 18px; padding-top: 18px; display: grid; gap: 14px; }
+.c-gmb-review-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.c-gmb-review-head strong { font-family: var(--display); font-size: 12px; font-weight: 700; color: var(--text); }
+.c-gmb-review-head span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; color: var(--text-2); text-transform: uppercase; }
+.c-gmb-review p { margin: 4px 0 0; font-family: var(--sans); font-size: 15px; line-height: 1.4; color: var(--text); opacity: 0.85; }
+.c-gmb-cta { display: flex; gap: 8px; margin-top: 22px; flex-wrap: wrap; }
+.c-gmb-cta a { padding: 10px 14px; border: 1px solid var(--text); border-radius: 999px; font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); transition: background 0.2s, color 0.2s; }
+.c-gmb-cta a:hover { background: var(--text); color: var(--bg); }
+.c-map { aspect-ratio: 4/3; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); position: relative; }
+.c-map iframe { width: 100%; height: 100%; border: 0; }
+.c-map-static iframe { pointer-events: none; }
+.c-map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); z-index: 2; pointer-events: none; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.35)); }
+.c-map-pin-shadow { width: 20px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.25); margin: -2px auto 0; filter: blur(2px); }
+.c-map-overlay { position: absolute; inset: 0; z-index: 3; cursor: pointer; }
 .contact-form { display: flex; flex-direction: column; gap: 14px; }
 .contact-form label { font-size: 13px; color: var(--text-2); display: block; margin-bottom: 6px; }
 .contact-form input, .contact-form textarea, .contact-form select { width: 100%; background: var(--surface-soft); border: 1px solid var(--border-2); border-radius: 10px; padding: 12px 14px; color: var(--text); font-family: var(--sans); font-size: 15px; }
@@ -220,17 +246,6 @@
   border-radius: 18px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   will-change: transform; overflow: hidden;
 }
-.pstack-inner {
-  display: grid; grid-template-columns: 1fr 1fr; min-height: 180px;
-}
-.pstack-rev { direction: rtl; }
-.pstack-rev > * { direction: ltr; }
-.pstack-img {
-  position: relative; overflow: hidden;
-}
-.pstack-img img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
 .pstack-content {
   display: flex; flex-direction: column; justify-content: center;
   padding: 28px 32px; gap: 8px;
@@ -250,9 +265,6 @@
   font-size: 14.5px; line-height: 1.65; color: var(--text-2);
 }
 @media (max-width: 640px) {
-  .pstack-inner { grid-template-columns: 1fr; }
-  .pstack-rev { direction: ltr; }
-  .pstack-img { aspect-ratio: 16 / 9; }
   .pstack-content { padding: 20px 22px; }
   .pstack-content h3 { font-size: 18px; }
 }

@@ -11,14 +11,14 @@ import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 const GUIDE_IMAGES = [
-  "/images/services/carpet-service-10.jpeg",
-  "/images/services/carpet-service-7.jpeg",
-  "/images/services/carpet-service-6.jpeg",
-  "/images/gallery/action-2.jpeg",
-  "/images/services/carpet-service-8.jpeg",
-  "/images/gallery/carpet-cleaning-machine.webp",
-  "/images/gallery/professional-carpet-cleaning-team.jpeg",
-  "/images/gallery/carpet-steam-extraction.jpeg",
+  "/images/services/sofa-upholstery-cleaning-card-dubai.webp",
+  "/images/services/carpet-deep-cleaning-process-uae.webp",
+  "/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp",
+  "/images/gallery/commercial-carpet-cleaning-technician-uae.webp",
+  "/images/services/specialized-rug-cleaning-service-dubai.webp",
+  "/images/gallery/industrial-carpet-cleaning-machine-dubai.webp",
+  "/images/gallery/professional-carpet-cleaning-team-dubai.webp",
+  "/images/gallery/carpet-steam-extraction-cleaning-uae.webp",
 ];
 
 export function generateStaticParams() {

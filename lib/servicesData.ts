@@ -25,9 +25,9 @@ export const SERVICES: ServiceDetail[] = [
   {
     num: "01", slug: "carpet-cleaning", name: "Carpet Deep Shampoo", h2: "Carpet Deep Shampoo Cleaning Dubai & UAE",
     icon: "carpet", kw: "carpet deep shampoo cleaning · best carpet shampooing services Dubai · professional carpet cleaning UAE",
-    img: "/images/gallery/action-1.jpeg",
-    cardImg: "/images/services/carpet-service-6.jpeg",
-    images: ["/images/services/carpet-service-7.jpeg", "/images/services/carpet-service-10.jpeg"],
+    img: "/images/gallery/professional-carpet-cleaning-technician-dubai.webp",
+    cardImg: "/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp",
+    images: ["/images/services/carpet-deep-cleaning-process-uae.webp", "/images/gallery/carpet-shampoo-deep-cleaning-dubai.webp"],
     intro: "Our signature carpet deep shampoo cleaning process penetrates deep into the pile to break down compacted grime, dust mites, and allergens — essential for maintaining indoor air quality in the UAE.",
     body: [
       "Our carpet deep shampoo cleaning process penetrates deep into the pile to break down compacted grime, dust mites, and allergens. This service is essential for maintaining indoor air quality in the UAE, where fine sand particles constantly settle into indoor fabrics. We lift the pile, revive fading colors, and leave your carpets feeling soft and thoroughly sanitized.",
@@ -56,9 +56,9 @@ export const SERVICES: ServiceDetail[] = [
   {
     num: "02", slug: "stain-removal", name: "Stain Removal", h2: "Professional Carpet Stain Removal UAE",
     icon: "spray", kw: "stubborn carpet stain removal UAE · carpet stain removing · coffee tea stain removal carpet",
-    img: "/images/gallery/before-after-4.jpeg",
-    cardImg: "/images/services/carpet-service-4.jpeg",
-    images: ["/images/services/carpet-service-3.jpeg", "/images/services/carpet-service-5.jpeg"],
+    img: "/images/services/professional-stain-removal-service-dubai.webp",
+    cardImg: "/images/services/professional-stain-removal-service-dubai.webp",
+    images: ["/images/services/carpet-stain-treatment-process-dubai.webp", "/images/services/carpet-stain-removal-results-uae.webp"],
     intro: "Don't let accidental spills ruin your expensive flooring. We specialize in stubborn carpet stain removal UAE, successfully treating difficult spots such as coffee, tea, Karak, ink, grease, cosmetics, and pet messes.",
     body: [
       "Our technicians analyze the fabric type first, applying specialized, color-safe pre-treatment solutions to dissolve the stain without damaging the delicate underlying fibers. We treat each stain individually with enzyme-based and pH-neutral solutions tailored to the specific type of spill.",
@@ -85,9 +85,9 @@ export const SERVICES: ServiceDetail[] = [
   {
     num: "03", slug: "odor-removal", name: "Odor Removal", h2: "Deep Carpet Odor Removing Services Dubai",
     icon: "wind", kw: "carpet odor removing · carpet smell removal Dubai · musty carpet cleaning UAE",
-    img: "/images/gallery/before-after-5.jpeg",
-    cardImg: "/images/services/carpet-service-9.jpeg",
-    images: ["/images/services/carpet-service-1.jpeg", "/images/services/carpet-service-2.jpeg"],
+    img: "/images/services/carpet-odor-removal-service-dubai.webp",
+    cardImg: "/images/services/carpet-odor-removal-service-dubai.webp",
+    images: ["/images/services/carpet-odor-removal-treatment-dubai.webp", "/images/services/carpet-odor-removal-cleaning-uae.webp"],
     intro: "High indoor humidity combined with continuous AC usage can trap sour, musty smells inside your floor coverings. Our targeted carpet odor removing service neutralizes odor-causing bacteria at a molecular level.",
     body: [
       "Our carpet odor removing service does not just mask unpleasant scents with artificial perfumes. We use advanced antimicrobial and enzyme-based formulas that neutralize odor-causing bacteria at a molecular level, completely eliminating pet odors and staleness.",
@@ -114,9 +114,9 @@ export const SERVICES: ServiceDetail[] = [
   {
     num: "04", slug: "rug-cleaning", name: "Specialized Rug Care", h2: "Specialized Rug Cleaning by Fabric Type — Dubai",
     icon: "rug", kw: "Persian rug cleaning Dubai · wool carpet cleaning · shaggy rug cleaning UAE · oriental rug care",
-    img: "/images/gallery/before-after-7.jpeg",
-    cardImg: "/images/services/carpet-service-8.jpeg",
-    images: ["/images/gallery/before-after-6.jpeg", "/images/gallery/before-after-8.jpeg"],
+    img: "/images/services/specialized-rug-care-service-dubai.webp",
+    cardImg: "/images/services/specialized-rug-care-service-dubai.webp",
+    images: ["/images/gallery/professional-carpet-cleaning-team-dubai.webp", "/images/gallery/carpet-steam-extraction-cleaning-uae.webp"],
     intro: "Different weaves require precise care. We are fully equipped to handle a wide range of specialized fabrics and rug styles safely — from antique Persian to modern synthetic.",
     body: [
       "Persian and Oriental Rugs: Antique and handmade treasures require a low-moisture, pH-neutral hand wash approach to prevent delicate vegetable dyes from bleeding. We inspect the fringe, selvedge edges, and backing for any existing damage before cleaning. Hand-knotted rugs are cleaned flat, never folded or agitated aggressively, to protect the weave structure and preserve the rug's value.",
@@ -143,9 +143,9 @@ export const SERVICES: ServiceDetail[] = [
   {
     num: "05", slug: "commercial-carpet-cleaning", name: "Commercial Cleaning", h2: "Commercial & Office Carpet Cleaning UAE",
     icon: "office", kw: "office carpet cleaning service UAE · commercial carpet cleaning · residential and commercial carpet cleaning",
-    img: "/images/gallery/action-2.jpeg",
-    cardImg: "/images/carpet/carpet-1.jpeg",
-    images: ["/images/gallery/carpet-cleaning-machine.webp", "/images/gallery/carpet-steam-extraction.jpeg"],
+    img: "/images/gallery/commercial-carpet-cleaning-technician-uae.webp",
+    cardImg: "/images/carpet/commercial-office-carpet-cleaning-uae.webp",
+    images: ["/images/gallery/industrial-carpet-cleaning-machine-dubai.webp", "/images/gallery/carpet-steam-extraction-cleaning-uae.webp"],
     intro: "Designed for high-traffic environments including corporate offices, hotel corridors, retail showrooms, clinics, and nurseries. We offer flexible, after-hours or weekend scheduling to ensure zero business downtime.",
     body: [
       "Commercial carpets face a level of wear that residential carpets simply do not experience. Hundreds of shoes crossing the same paths daily grind sand and grit into the fibre base, creating visible traffic lanes and accelerating carpet aging. Our commercial carpet cleaning service is designed to reverse this damage and extend the useful life of your office or commercial carpeting.",
@@ -172,9 +172,9 @@ export const SERVICES: ServiceDetail[] = [
   {
     num: "06", slug: "sofa-upholstery-cleaning", name: "Sofa & Upholstery", h2: "Sofa & Upholstery Cleaning Dubai",
     icon: "sofa", kw: "sofa cleaning Dubai · upholstery cleaning UAE · furniture deep cleaning",
-    img: "/images/gallery/before-after-6.jpeg",
-    cardImg: "/images/services/carpet-service-10.jpeg",
-    images: ["/images/gallery/clean-carpet-result.webp", "/images/gallery/deep-carpet-cleaning-process.webp"],
+    img: "/images/services/sofa-upholstery-cleaning-service-dubai.webp",
+    cardImg: "/images/services/sofa-upholstery-cleaning-service-dubai.webp",
+    images: ["/images/gallery/clean-carpet-after-professional-cleaning-dubai.webp", "/images/gallery/deep-carpet-cleaning-process-uae.webp"],
     intro: "Gentle yet effective deep cleaning for sofas, armchairs, majlis seating, cushions and dining chairs — removing stains, dust and odors for a fresh, sanitized living space.",
     body: [
       "We use fabric-specific methods: low-moisture extraction for delicate upholstery, steam sanitization for synthetic fabrics, and conditioning treatment for leather. Every job removes body oils, food spills, dust and the allergens that build up in soft furnishings over months of daily use.",

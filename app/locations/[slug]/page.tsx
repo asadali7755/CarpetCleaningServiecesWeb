@@ -48,7 +48,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     telephone: PHONE_TEL,
     email: EMAIL,
     priceRange: "$$",
-    image: `${SITE_URL}/images/gallery/action-1.jpeg`,
+    image: `${SITE_URL}/images/gallery/professional-carpet-cleaning-technician-dubai.webp`,
     areaServed: { "@type": "City", name: l.name },
     address: { "@type": "PostalAddress", addressLocality: l.name, addressRegion: l.name, addressCountry: "AE" },
   };
@@ -111,7 +111,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 <p>{p}</p>
                 {i === 0 && (
                   <div className="prose-img">
-                    <Image src="/images/services/carpet-service-6.jpeg" alt={`Professional carpet cleaning service in ${l.name}`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
+                    <Image src="/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp" alt={`Professional carpet cleaning service in ${l.name}`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
                   </div>
                 )}
               </div>

@@ -10,15 +10,15 @@ import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 const BLOG_THUMBS = [
-  "/images/services/carpet-service-6.jpeg",
-  "/images/services/carpet-service-7.jpeg",
-  "/images/services/carpet-service-10.jpeg",
-  "/images/services/carpet-service-4.jpeg",
-  "/images/gallery/action-1.jpeg",
-  "/images/services/carpet-service-8.jpeg",
-  "/images/gallery/carpet-shampoo-cleaning.webp",
-  "/images/gallery/deep-carpet-cleaning-process.webp",
-  "/images/gallery/carpet-steam-extraction.jpeg",
+  "/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp",
+  "/images/services/carpet-deep-cleaning-process-uae.webp",
+  "/images/services/sofa-upholstery-cleaning-card-dubai.webp",
+  "/images/services/professional-stain-removal-service-dubai.webp",
+  "/images/gallery/professional-carpet-cleaning-technician-dubai.webp",
+  "/images/services/specialized-rug-cleaning-service-dubai.webp",
+  "/images/gallery/carpet-shampoo-deep-cleaning-dubai.webp",
+  "/images/gallery/deep-carpet-cleaning-process-uae.webp",
+  "/images/gallery/carpet-steam-extraction-cleaning-uae.webp",
 ];
 
 export const metadata: Metadata = {
