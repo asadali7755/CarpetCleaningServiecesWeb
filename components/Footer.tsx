@@ -42,6 +42,7 @@ export default function Footer() {
           <div className="ft-col">
             <h5>Resources</h5>
             <ul>
+              <li><Link href="/gallery">Gallery</Link></li>
               <li><Link href="/guides">Carpet Cleaning Guide</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/about">About Us</Link></li>
