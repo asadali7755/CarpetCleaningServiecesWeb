@@ -3,7 +3,6 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
-import { Icon } from "@/components/Icons";
 import RequestCall from "@/components/RequestCall";
 import GalleryClient from "@/components/GalleryClient";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
@@ -53,8 +52,8 @@ export default function GalleryPage() {
             stain removal, rug care and sofa cleaning results across Dubai, Abu Dhabi, Sharjah and all UAE Emirates.
           </p>
           <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote <Icon name="arrow" /></a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>
+            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote →</a>
+            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
             <RequestCall className="btn-outline" />
           </div>
         </section>
@@ -72,7 +71,7 @@ export default function GalleryPage() {
               <h2>Want Results Like These?</h2>
               <p>Every photo and video you see is from a real job by our trained professionals. Book your carpet, rug, or sofa cleaning today and see the difference.</p>
               <div className="row">
-                <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Book Now via WhatsApp <Icon name="arrow" /></a>
+                <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote →</a>
                 <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
               </div>
             </div>
