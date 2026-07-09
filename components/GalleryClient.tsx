@@ -90,7 +90,7 @@ export default function GalleryClient() {
     <>
       {/* Stats bar */}
       <div className="gal-stats">
-        <div className="gal-stat"><span className="gal-stat-num">9</span><span className="gal-stat-label">Videos</span></div>
+        <div className="gal-stat"><span className="gal-stat-num">7</span><span className="gal-stat-label">Videos</span></div>
         <div className="gal-stat-div" />
         <div className="gal-stat"><span className="gal-stat-num">25+</span><span className="gal-stat-label">Photos</span></div>
         <div className="gal-stat-div" />
