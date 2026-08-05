@@ -6,9 +6,7 @@ import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { SERVICES } from "@/lib/servicesData";
-import { LOCATIONS } from "@/lib/locationsData";
-import RequestCall from "@/components/RequestCall";
-import { SITE_URL, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
+import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL } from "@/components/constants";
 
 export const metadata: Metadata = {
   title: "Our Services — Carpet, Rug, Sofa & Mattress Cleaning",
@@ -16,29 +14,41 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/services` },
 };
 
+const borderColors = ["var(--teal)", "var(--coral)", "var(--purple)", "var(--green)"];
+
 export default function ServicesHub() {
   return (
     <div className="page">
       <Nav />
       <main>
-        <section className="sub-hero">
+        <section
+          className="sub-hero"
+          style={{ background: "linear-gradient(180deg, #F5F3FF 0%, #FFFFFF 100%)" }}
+        >
           <nav className="crumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>Services</span>
+            <span style={{ color: "var(--teal)" }}>Services</span>
           </nav>
-          <h1>Professional cleaning for every need</h1>
-          <p className="lead">From deep carpet steam cleaning to delicate rugs, sofas, mattresses, office floors and curtains — one trusted team for your whole home or business, across all 7 emirates.</p>
+          <p className="eyebrow teal">Our Services</p>
+          <h1 className="grad-text">Professional Carpet &amp; Upholstery Cleaning</h1>
+          <p className="lead">
+            Industry-leading equipment and eco-friendly solutions for homes and businesses across the UAE.
+          </p>
           <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Book a free quote →</a>
+            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get Free Quote</a>
             <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
           </div>
         </section>
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 40px" }}>
-          <div className="rel-grid rel-grid--img">
-            {SERVICES.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="rel-card rel-card--img">
+        <section className="inner sec-cream" style={{ padding: "60px var(--pad) 70px" }}>
+          <div className="rel-grid rel-grid--img" style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
+            {SERVICES.map((s, i) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="rel-card rel-card--img"
+                style={{ borderTop: `4px solid ${borderColors[i % borderColors.length]}` }}
+              >
                 <div className="rel-card-img">
                   <Image src={s.cardImg} alt={`${s.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
                 </div>
@@ -46,17 +56,9 @@ export default function ServicesHub() {
                   <div className="ic"><Icon name={s.icon} /></div>
                   <h3>{s.name}</h3>
                   <p>{s.intro.slice(0, 120)}…</p>
+                  <span style={{ color: "var(--teal)", fontWeight: 600, fontSize: 14 }}>Learn More →</span>
                 </div>
               </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Areas we serve</h2>
-          <div className="chips-row">
-            {LOCATIONS.map((l) => (
-              <Link key={l.slug} href={`/locations/${l.slug}`} className="chip-link"><Icon name="pin" /> Carpet Cleaning {l.name}</Link>
             ))}
           </div>
         </section>

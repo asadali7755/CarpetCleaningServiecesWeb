@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { POSTS } from "@/lib/blogData";
-import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 const BLOG_THUMBS = [
@@ -20,6 +19,8 @@ const BLOG_THUMBS = [
   "/images/gallery/deep-carpet-cleaning-process-uae.webp",
   "/images/gallery/carpet-steam-extraction-cleaning-uae.webp",
 ];
+
+const BORDER_COLORS = ["#0891B2", "#F97316", "#7C3AED", "#10B981"];
 
 export const metadata: Metadata = {
   title: "Carpet Cleaning Blog — Tips, Guides & Expert Advice | Al Haya",
@@ -55,33 +56,44 @@ export default function BlogPage() {
       <Nav />
 
       <main>
-        <section className="sub-hero">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>Blog</span>
-          </nav>
-          <h1>Carpet Cleaning Blog</h1>
-          <p className="lead">
-            Expert articles, practical tips, and in-depth guides on carpet care, stain removal, and maintaining healthy carpets in the UAE climate.
-          </p>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
+        <section className="sec-lavender" style={{ padding: "60px var(--pad) 70px" }}>
+          <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
+            <nav className="crumbs" aria-label="Breadcrumb">
+              <Link href="/">Home</Link><span className="sep">/</span>
+              <span style={{ color: "#0891B2" }}>Blog</span>
+            </nav>
+            <p style={{ color: "#0891B2", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", fontSize: 13, marginTop: 18 }}>
+              Our Blog
+            </p>
+            <h1 className="grad-text" style={{ fontSize: "clamp(32px,5vw,48px)", margin: "10px 0 16px", fontFamily: "var(--display)", fontWeight: 700 }}>
+              Carpet Cleaning Blog
+            </h1>
+            <p className="lead" style={{ maxWidth: 640 }}>
+              Expert articles, practical tips, and in-depth guides on carpet care, stain removal, and maintaining healthy carpets in the UAE climate.
+            </p>
+            <div className="cta-row" style={{ marginTop: 24 }}>
+              <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get Free Quote →</a>
+              <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+            </div>
           </div>
         </section>
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
+        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "60px var(--pad) 70px", background: "#fff" }}>
           <div className="rel-grid rel-grid--img">
             {POSTS.map((p, i) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="rel-card rel-card--img">
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="rel-card rel-card--img"
+                style={{ borderTop: `4px solid ${BORDER_COLORS[i % BORDER_COLORS.length]}` }}
+              >
                 <div className="rel-card-img">
                   <Image src={BLOG_THUMBS[i % BLOG_THUMBS.length]} alt={`${p.title} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
                 </div>
                 <div className="rel-card-content">
                   <h2 style={{ fontSize: "clamp(16px,2vw,20px)", margin: "8px 0 6px", fontFamily: "var(--display)", fontWeight: 600, color: "var(--text)" }}>{p.title}</h2>
                   <p style={{ fontSize: 14, color: "var(--text-2)", marginBottom: 6 }}>{p.description.slice(0, 140)}…</p>
-                  <span style={{ fontSize: 13, color: "var(--green)" }}>{p.date}</span>
+                  <span style={{ fontSize: 13, color: "#0891B2", fontWeight: 600 }}>{p.date}</span>
                 </div>
               </Link>
             ))}

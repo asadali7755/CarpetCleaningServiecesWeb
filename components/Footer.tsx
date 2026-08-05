@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Icon } from "./Icons";
 import { BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, HOURS, FACEBOOK_URL, LINKEDIN_URL } from "./constants";
 import { SERVICES } from "@/lib/servicesData";
-import { LOCATIONS } from "@/lib/locationsData";
 
 export default function Footer() {
   return (
@@ -23,30 +22,30 @@ export default function Footer() {
               />
               <span>
                 <span className="brand-name">AL HAYA</span>
-                <span className="brand-sub">CARPET CLEANING SERVICES</span>
+                <span className="brand-sub">CARPET CLEANING</span>
               </span>
             </div>
             <p>Professional carpet deep shampoo cleaning with rapid 2-4 hours dry time. Residential and commercial carpet cleaning, stain removal, and odor elimination across Dubai, Abu Dhabi, Sharjah and all UAE Emirates.</p>
+            <div className="ft-social">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label="Facebook" className="ft-social-link"><Icon name="facebook" /></a>
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn" className="ft-social-link"><Icon name="linkedin" /></a>
+            </div>
+          </div>
+
+          <div className="ft-col">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/services">Services</Link></li>
+              <li><Link href="/locations">Locations</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+            </ul>
           </div>
 
           <div className="ft-col">
             <h5>Services</h5>
-            <ul>{SERVICES.map((s) => <li key={s.slug}><Link href={`/services/${s.slug}`}>{s.name}</Link></li>)}</ul>
-          </div>
-
-          <div className="ft-col">
-            <h5>Service Areas</h5>
-            <ul>{LOCATIONS.map((l) => <li key={l.slug}><Link href={`/locations/${l.slug}`}>Carpet Cleaning {l.name}</Link></li>)}</ul>
-          </div>
-
-          <div className="ft-col">
-            <h5>Resources</h5>
             <ul>
-              <li><Link href="/gallery">Gallery</Link></li>
-              <li><Link href="/guides">Carpet Cleaning Guide</Link></li>
-              <li><Link href="/blog">Blog</Link></li>
-              <li><Link href="/about">About Us</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
+              {SERVICES.slice(0, 4).map((s) => <li key={s.slug}><Link href={`/services/${s.slug}`}>{s.name}</Link></li>)}
             </ul>
           </div>
 
@@ -56,19 +55,13 @@ export default function Footer() {
               <li><Icon name="phone" /> <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a></li>
               <li><Icon name="mail" /> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
               <li><Icon name="clock" /> <span>{HOURS}</span></li>
-              <li><Icon name="pin" /> <span>Serving all 7 Emirates, UAE</span></li>
-              <li><Icon name="star" /> <a href="https://maps.app.goo.gl/Q4Qjx7GFZKZ1DSfz9" target="_blank" rel="noopener">Google Business Profile</a></li>
             </ul>
-            <div className="ft-social">
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label="Facebook" className="ft-social-link"><Icon name="facebook" /></a>
-              <a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn" className="ft-social-link"><Icon name="linkedin" /></a>
-            </div>
           </div>
         </div>
 
         <div className="ft-bottom">
           <span>© {new Date().getFullYear()} {BRAND}. All rights reserved.</span>
-          <span>Dubai · Abu Dhabi · Sharjah · Ajman · UAQ · RAK · Fujairah</span>
+          <span>carpetcleaningdubai.com</span>
         </div>
       </div>
     </footer>

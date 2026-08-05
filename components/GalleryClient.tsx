@@ -79,24 +79,51 @@ export default function GalleryClient() {
   const [active, setActive] = useState<GalleryCategory>("all");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const filtered = active === "all" ? GALLERY_ITEMS : GALLERY_ITEMS.filter((i) => i.category === active);
+  const categoryFiltered = active === "all" ? GALLERY_ITEMS : GALLERY_ITEMS.filter((i) => i.category === active);
+  const videos = categoryFiltered.filter((i) => i.type === "video");
+  const images = categoryFiltered.filter((i) => i.type === "image");
+  // Combined order (videos first, then images) drives the lightbox index so
+  // arrow-key / prev-next navigation moves smoothly across both sections.
+  const combined = [...videos, ...images];
 
-  const openLightbox = useCallback((idx: number) => setLightbox(idx), []);
+  const openVideoLightbox = useCallback((idx: number) => setLightbox(idx), []);
+  const openImageLightbox = useCallback((idx: number) => setLightbox(videos.length + idx), [videos.length]);
   const closeLightbox = useCallback(() => setLightbox(null), []);
-  const prevItem = useCallback(() => setLightbox((i) => (i !== null ? (i - 1 + filtered.length) % filtered.length : null)), [filtered.length]);
-  const nextItem = useCallback(() => setLightbox((i) => (i !== null ? (i + 1) % filtered.length : null)), [filtered.length]);
+  const prevItem = useCallback(() => setLightbox((i) => (i !== null ? (i - 1 + combined.length) % combined.length : null)), [combined.length]);
+  const nextItem = useCallback(() => setLightbox((i) => (i !== null ? (i + 1) % combined.length : null)), [combined.length]);
 
   return (
     <>
+      <style>{`
+        .gal-video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gal-video-grid .gal-card { border-top: 4px solid var(--coral); aspect-ratio: 9 / 16; }
+        .gal-photo-grid { columns: 3; column-gap: 14px; }
+        .gal-photo-grid .gal-card { border-top: 4px solid var(--teal); }
+        .gal-section-head { text-align: center; margin-bottom: 28px; }
+        .gal-section-head h2 {
+          font-family: var(--display); font-weight: 700;
+          font-size: clamp(26px, 3.2vw, 38px); letter-spacing: -0.01em; line-height: 1.15;
+        }
+        .gal-video-section { margin-bottom: 64px; }
+        @media (max-width: 900px) {
+          .gal-video-grid { grid-template-columns: repeat(2, 1fr); }
+          .gal-photo-grid { columns: 2; }
+        }
+        @media (max-width: 640px) {
+          .gal-video-grid { grid-template-columns: 1fr; gap: 14px; }
+          .gal-photo-grid { columns: 1; column-gap: 10px; }
+        }
+      `}</style>
+
       {/* Stats bar */}
       <div className="gal-stats">
-        <div className="gal-stat"><span className="gal-stat-num">7</span><span className="gal-stat-label">Videos</span></div>
+        <div className="gal-stat"><span className="gal-stat-num" style={{ color: "var(--teal)" }}>7</span><span className="gal-stat-label">Videos</span></div>
         <div className="gal-stat-div" />
-        <div className="gal-stat"><span className="gal-stat-num">25+</span><span className="gal-stat-label">Photos</span></div>
+        <div className="gal-stat"><span className="gal-stat-num" style={{ color: "var(--teal)" }}>25+</span><span className="gal-stat-label">Photos</span></div>
         <div className="gal-stat-div" />
-        <div className="gal-stat"><span className="gal-stat-num">7</span><span className="gal-stat-label">Emirates</span></div>
+        <div className="gal-stat"><span className="gal-stat-num" style={{ color: "var(--teal)" }}>7</span><span className="gal-stat-label">Emirates</span></div>
         <div className="gal-stat-div" />
-        <div className="gal-stat"><span className="gal-stat-num">100%</span><span className="gal-stat-label">Real Work</span></div>
+        <div className="gal-stat"><span className="gal-stat-num" style={{ color: "var(--teal)" }}>100%</span><span className="gal-stat-label">Real Work</span></div>
       </div>
 
       {/* Filter tabs */}
@@ -117,41 +144,68 @@ export default function GalleryClient() {
         ))}
       </div>
 
-      {/* Masonry grid */}
-      <div className="gal-grid">
-        {filtered.map((item, idx) => (
-          <div
-            key={item.id}
-            className={`gal-card${item.type === "video" ? " gal-card-video" : ""}${item.aspect === "portrait" ? " gal-card-tall" : ""}`}
-            onClick={() => openLightbox(idx)}
-          >
-            {item.type === "video" ? (
-              <>
+      {/* VIDEO SECTION */}
+      {videos.length > 0 && (
+        <div className="gal-video-section">
+          <div className="gal-section-head">
+            <p className="eyebrow purple">Videos</p>
+            <h2 className="grad-text">Cleaning Process Videos</h2>
+          </div>
+          <div className="gal-video-grid">
+            {videos.map((item, idx) => (
+              <div
+                key={item.id}
+                className="gal-card gal-card-video"
+                onClick={() => openVideoLightbox(idx)}
+              >
                 <ScrollVideo src={item.src} poster={item.poster} alt={item.alt} />
                 <div className="gal-play-badge">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><polygon fill="currentColor" points="8,5 20,12 8,19" /></svg>
                 </div>
-              </>
-            ) : (
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw"
-                className="gal-img"
-              />
-            )}
-            <div className="gal-card-overlay">
-              <span className="gal-card-title">{item.title}</span>
-              <span className="gal-card-cat">{GALLERY_CATEGORIES.find((c) => c.key === item.category)?.label}</span>
-            </div>
+                <div className="gal-card-overlay">
+                  <span className="gal-card-title">{item.title}</span>
+                  <span className="gal-card-cat">{GALLERY_CATEGORIES.find((c) => c.key === item.category)?.label}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+
+      {/* IMAGE SECTION */}
+      {images.length > 0 && (
+        <div className="gal-photo-section">
+          <div className="gal-section-head">
+            <p className="eyebrow teal">Photos</p>
+            <h2 className="grad-text">Before &amp; After Results</h2>
+          </div>
+          <div className="gal-photo-grid">
+            {images.map((item, idx) => (
+              <div
+                key={item.id}
+                className={`gal-card${item.aspect === "portrait" ? " gal-card-tall" : ""}`}
+                onClick={() => openImageLightbox(idx)}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw"
+                  className="gal-img"
+                />
+                <div className="gal-card-overlay">
+                  <span className="gal-card-title">{item.title}</span>
+                  <span className="gal-card-cat">{GALLERY_CATEGORIES.find((c) => c.key === item.category)?.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Lightbox */}
-      {lightbox !== null && filtered[lightbox] && (
-        <Lightbox item={filtered[lightbox]} onClose={closeLightbox} onPrev={prevItem} onNext={nextItem} />
+      {lightbox !== null && combined[lightbox] && (
+        <Lightbox item={combined[lightbox]} onClose={closeLightbox} onPrev={prevItem} onNext={nextItem} />
       )}
     </>
   );

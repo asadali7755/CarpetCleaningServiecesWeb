@@ -3,7 +3,6 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
-import RequestCall from "@/components/RequestCall";
 import GalleryClient from "@/components/GalleryClient";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
@@ -40,21 +39,33 @@ export default function GalleryPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />
       <Nav />
       <main>
-        <section className="sub-hero gal-hero">
+        <section
+          className="sub-hero gal-hero"
+          style={{ background: "linear-gradient(180deg, #F5F3FF 0%, #FFFFFF 100%)" }}
+        >
           <nav className="crumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>Gallery</span>
+            <span style={{ color: "var(--teal)" }}>Gallery</span>
           </nav>
-          <h1>Our Work Speaks for Itself</h1>
+          <p className="eyebrow teal">Our Gallery</p>
+          <h1 className="grad-text">Our Work Speaks for Itself</h1>
           <p className="lead">
             Real photos and videos from real jobs — no stock images, no filters. Browse our carpet cleaning,
             stain removal, rug care and sofa cleaning results across Dubai, Abu Dhabi, Sharjah and all UAE Emirates.
           </p>
           <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote →</a>
+            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get Free Quote →</a>
             <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
+          </div>
+        </section>
+
+        <section className="stats-bar">
+          <div className="inner">
+            <div className="stat"><div className="stat-num">7</div><div className="stat-label">Videos</div></div>
+            <div className="stat"><div className="stat-num">25+</div><div className="stat-label">Photos</div></div>
+            <div className="stat"><div className="stat-num">7</div><div className="stat-label">Emirates</div></div>
+            <div className="stat"><div className="stat-num">100%</div><div className="stat-label">Real Work</div></div>
           </div>
         </section>
 

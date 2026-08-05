@@ -7,7 +7,9 @@ export interface BlogPost {
   body: string[];
 }
 
-export const POSTS: BlogPost[] = [
+import generatedPosts from './generated-blog-posts.json'
+
+const handWrittenPosts: BlogPost[] = [
   {
     slug: "why-carpets-get-dirty-fast-uae",
     title: "Why Carpets Get Dirty So Fast in the UAE",
@@ -153,6 +155,11 @@ export const POSTS: BlogPost[] = [
     ],
   },
 ];
+
+export const POSTS: BlogPost[] = [
+  ...handWrittenPosts,
+  ...(generatedPosts as BlogPost[]),
+]
 
 export function getPost(slug: string): BlogPost | undefined {
   return POSTS.find((p) => p.slug === slug);

@@ -4,23 +4,21 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import RevealInit from "@/components/RevealInit";
-import { Globe, InfiniteGallery } from "@/components/lazy";
 import { Icon } from "@/components/Icons";
-import RequestCall from "@/components/RequestCall";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL, BRAND, EMAIL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
 
-const GALLERY_IMAGES = [
-  { src: "/images/gallery/professional-carpet-cleaning-technician-dubai.webp", alt: "Professional carpet cleaning technician deep cleaning oriental rug in Dubai by Alhaya Cleaning Services" },
-  { src: "/images/gallery/commercial-carpet-cleaning-technician-uae.webp", alt: "Commercial carpet cleaning technician with industrial equipment servicing offices across UAE" },
-  { src: "/images/gallery/carpet-shampoo-deep-cleaning-dubai.webp", alt: "Carpet shampoo deep cleaning service showing professional results in Dubai homes and offices" },
-  { src: "/images/gallery/industrial-carpet-cleaning-machine-dubai.webp", alt: "Industrial carpet cleaning machine extracting dirt and stains from residential carpet in Dubai" },
-  { src: "/images/gallery/deep-carpet-cleaning-process-uae.webp", alt: "Deep carpet cleaning process removing embedded stains and odors across UAE Emirates" },
-  { src: "/images/gallery/professional-carpet-cleaning-team-dubai.webp", alt: "Professional carpet cleaning team from Alhaya Cleaning Services ready for residential and commercial jobs in Dubai" },
-  { src: "/images/gallery/carpet-steam-extraction-cleaning-uae.webp", alt: "Carpet steam extraction hot water cleaning method sanitizing carpets across UAE by Alhaya" },
-  { src: "/images/gallery/clean-carpet-after-professional-cleaning-dubai.webp", alt: "Clean fresh carpet result after professional deep shampoo cleaning by Alhaya Dubai" },
-];
+const PRICES: Record<string, string> = {
+  "carpet-cleaning": "25/sq meter",
+  "stain-removal": "100",
+  "odor-removal": "200",
+  "rug-cleaning": "150",
+  "commercial-carpet-cleaning": "15/sq meter",
+  "sofa-upholstery-cleaning": "120",
+};
+
+const ACCENTS = ["teal", "coral", "purple", "green"];
 
 const FAQS = [
   { q: "How long does it take for the carpet to dry?", a: "Our high-power industrial extraction machinery vacuums out the vast majority of moisture instantly. Your carpet will be completely dry, fresh, and ready to walk on within a rapid 2 to 4 hours, depending on your indoor AC settings and room ventilation." },
@@ -58,35 +56,51 @@ export default function Home() {
       <Nav />
 
       {/* HERO */}
-      <section id="coverage" className="hero">
+      <section className="hero">
         <div className="hero-col">
-          <div className="hero-badge"><span className="dot" /> LIVE ACROSS ALL 7 EMIRATES</div>
-          <h1>Professional Carpet Deep<br /><span className="grad">Cleaning Services UAE</span></h1>
+          <div className="hero-badge"><Icon name="star" /> Rated 4.9/5 by 500+ Customers</div>
+          <h1 className="grad-text">Professional Carpet Cleaning Dubai</h1>
           <p className="hero-lead">
-            Residential and commercial carpet deep shampoo cleaning with a rapid 2 to 4 hours dry time.
-            Erase stubborn stains and eliminate odors — serving Dubai, Abu Dhabi, Sharjah and all Emirates.
+            Expert carpet, rug and upholstery cleaning across all 7 UAE Emirates. Deep shampoo extraction,
+            stubborn stain removal, and odor treatment — fast drying, eco-friendly, and fully transparent pricing.
           </p>
           <div className="hero-cta">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote via WhatsApp →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
+            <a className="btn-cta" href={waHref()} target="_blank" rel="noopener">Get Free Quote</a>
+            <a className="btn-outline btn-teal" href={`tel:${PHONE_TEL}`}>Call Now</a>
           </div>
-          <div className="hero-stats">
-            <div><div className="stat-num">7</div><div className="stat-label">Emirates served</div></div>
-            <div className="stat-div" />
-            <div><div className="stat-num">2-4<small>hrs</small></div><div className="stat-label">Dry time</div></div>
-            <div className="stat-div" />
-            <div><div className="stat-num">90%</div><div className="stat-label">Water extraction</div></div>
+          <div className="hero-trust">
+            <span className="trust-green"><Icon name="check" /> Licensed &amp; Insured</span>
+            <span className="trust-green"><Icon name="check" /> Eco-Friendly Products</span>
+            <span className="trust-teal"><Icon name="check" /> Same-Day Available</span>
           </div>
         </div>
-        <Globe />
+        <div className="hero-col hero-img-col">
+          <Image
+            src="/images/gallery/professional-carpet-cleaning-technician-dubai.webp"
+            alt="Professional carpet cleaning technician deep cleaning a carpet in Dubai"
+            fill
+            priority
+            sizes="(max-width:900px) 100vw, 45vw"
+          />
+        </div>
       </section>
 
-      {/* GALLERY */}
-      <section className="sec-process">
-        <div id="process" className="proc-gallery-wrap" data-reveal>
-          <InfiniteGallery images={GALLERY_IMAGES} visibleCount={14} speed={1.2} className="proc-gallery" />
-          <div className="proc-gallery-cap"><span className="dot" /> PROFESSIONAL CARPET CLEANING · DUBAI · SHARJAH · AJMAN · UAE</div>
+      {/* TRUST STRIP */}
+      <section className="trust-strip">
+        <div className="inner">
+          <div className="trust-item"><Icon name="clock" /><span>Same Day Service<small>Book today, cleaned today</small></span></div>
+          <div className="trust-item"><Icon name="leaf" /><span>Eco-Friendly<small>Safe for family &amp; pets</small></span></div>
+          <div className="trust-item"><Icon name="pin" /><span>7 Emirates<small>Complete UAE coverage</small></span></div>
+          <div className="trust-item"><Icon name="check" /><span>Satisfaction Guaranteed<small>100% happiness promise</small></span></div>
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <section className="stats-bar">
+        <div className="inner">
+          <div className="stat"><div className="stat-num">7</div><div className="stat-label">UAE Emirates Covered</div></div>
+          <div className="stat"><div className="stat-num">2-4<small>hrs</small></div><div className="stat-label">Average Dry Time</div></div>
+          <div className="stat"><div className="stat-num">500+</div><div className="stat-label">Happy Customers</div></div>
         </div>
       </section>
 
@@ -94,42 +108,79 @@ export default function Home() {
       <section id="services" className="sec-services">
         <div className="inner">
           <div className="svc-head" data-reveal>
-            <div className="eyebrow teal">/ WHAT WE DO</div>
-            <h2 className="sec-title">Specialist carpet care, done right.</h2>
+            <div className="eyebrow teal">/ OUR SERVICES</div>
+            <h2 className="sec-title grad-text">Specialist carpet care, done right.</h2>
           </div>
-          <div className="svc-list">
+          <div className="svc-grid">
             {SERVICES.map((s, i) => (
-              <Link className={`svc-row${i % 2 === 1 ? " svc-row-rev" : ""}`} data-reveal key={s.slug} href={`/services/${s.slug}`}>
-                <div className="svc-row-img">
-                  <Image src={s.cardImg} alt={`${s.name} service — Al Haya Carpet Cleaning Dubai`} fill sizes="(max-width:768px) 100vw, 45vw" />
-                </div>
-                <div className="svc-row-content">
-                  <div className="svc-row-num">{s.num}</div>
-                  <div className="svc-icon"><Icon name={s.icon} /></div>
-                  <h3>{s.name}</h3>
-                  <p className="svc-row-intro">{s.intro}</p>
-                  <div className="svc-row-feats">
-                    {s.feat.slice(0, 3).map((f) => (
-                      <div className="svc-row-feat" key={f.t}>
-                        <span className="svc-row-feat-dot" />
-                        <span>{f.t}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <span className="svc-more">Learn more <Icon name="arrow" /></span>
-                </div>
+              <Link
+                className={`svc-card svc-card-${ACCENTS[i % ACCENTS.length]}`}
+                data-reveal
+                key={s.slug}
+                href={`/services/${s.slug}`}
+              >
+                <div className="svc-card-icon"><Icon name={s.icon} /></div>
+                <h3>{s.name}</h3>
+                <p>{s.intro}</p>
+                <div className="svc-card-price">Starting from AED {PRICES[s.slug]}</div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AREAS */}
-      <section className="sec-areas">
+      {/* BEFORE / AFTER */}
+      <section className="sec-cream before-after">
         <div className="inner">
           <div className="svc-head" data-reveal>
-            <div className="eyebrow">/ COVERAGE</div>
-            <h2 className="sec-title">Carpet cleaning across all 7 emirates.</h2>
+            <div className="eyebrow coral">/ RESULTS</div>
+            <h2 className="sec-title grad-text">See The Difference</h2>
+          </div>
+          <div className="ba-wrap" data-reveal>
+            <div className="ba-panel ba-before">
+              <span className="ba-label">BEFORE</span>
+            </div>
+            <div className="ba-divider"><Icon name="sparkle" /></div>
+            <div className="ba-panel ba-after">
+              <span className="ba-label">AFTER</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS / WHY CHOOSE US */}
+      <section className="sec-lavender">
+        <div className="inner">
+          <div className="svc-head" data-reveal>
+            <div className="eyebrow purple">/ WHY US</div>
+            <h2 className="sec-title grad-text">Why Choose Al Haya</h2>
+          </div>
+          <div className="process-grid" data-reveal>
+            <div className="process-item">
+              <div className="process-icon"><Icon name="clipboard" /></div>
+              <h3>Transparent Pricing</h3>
+              <p>Fixed, upfront quotes before we start — no hidden charges, no surprise fees after the job is done.</p>
+            </div>
+            <div className="process-item">
+              <div className="process-icon"><Icon name="shield" /></div>
+              <h3>Certified Professionals</h3>
+              <p>Trained, background-checked technicians who follow a consistent, quality-controlled cleaning process on every job.</p>
+            </div>
+            <div className="process-item">
+              <div className="process-icon"><Icon name="leaf" /></div>
+              <h3>Eco-Friendly Products</h3>
+              <p>Non-toxic, biodegradable, child-safe and pet-safe solutions used across every carpet, rug and upholstery service.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COVERAGE */}
+      <section className="sec-areas sec-mint">
+        <div className="inner">
+          <div className="svc-head" data-reveal>
+            <div className="eyebrow teal">/ COVERAGE</div>
+            <h2 className="sec-title grad-text">Serving All 7 Emirates</h2>
           </div>
           <div className="coverage-grid" data-reveal>
             {LOCATIONS.map((l) => (
@@ -151,8 +202,8 @@ export default function Home() {
       <section className="sec-faq">
         <div className="inner" style={{ maxWidth: 820 }}>
           <div className="svc-head" data-reveal>
-            <div className="eyebrow teal">/ FAQ</div>
-            <h2 className="sec-title">Questions, answered.</h2>
+            <div className="eyebrow purple">/ FAQ</div>
+            <h2 className="sec-title grad-text">Frequently Asked Questions</h2>
           </div>
           {FAQS.map((f) => (
             <details className="faq-item" data-reveal key={f.q}>
@@ -168,10 +219,10 @@ export default function Home() {
         <div className="cta-card" data-reveal>
           <div className="glow" />
           <div className="inner">
-            <h2>Ready for a Spotless, Fresh Carpet?</h2>
+            <h2>Ready for a Spotless Carpet?</h2>
             <p>Don&apos;t live with hidden sand, stubborn stains, or musty odors. Book the top-rated residential and commercial carpet cleaning specialists in the Emirates.</p>
             <div className="row">
-              <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote →</a>
+              <a className="btn-cta" href={waHref()} target="_blank" rel="noopener">Get a Free Quote →</a>
               <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
             </div>
           </div>
