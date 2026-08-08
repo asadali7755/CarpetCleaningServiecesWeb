@@ -118,7 +118,9 @@ export default function Home() {
                 key={s.slug}
                 href={`/services/${s.slug}`}
               >
-                <div className="svc-card-icon"><Icon name={s.icon} /></div>
+                <div className="svc-card-img">
+                  <Image src={s.cardImg} alt={`${s.name} service — Al Haya Carpet Cleaning Dubai`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                </div>
                 <h3>{s.name}</h3>
                 <p>{s.intro}</p>
                 <div className="svc-card-price">Starting from AED {PRICES[s.slug]}</div>
