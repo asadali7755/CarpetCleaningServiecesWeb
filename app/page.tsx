@@ -58,7 +58,6 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-col">
-          <div className="hero-badge"><Icon name="star" /> Rated 4.9/5 by 500+ Customers</div>
           <h1 className="grad-text">Professional Carpet Cleaning Dubai</h1>
           <p className="hero-lead">
             Expert carpet, rug and upholstery cleaning across all 7 UAE Emirates. Deep shampoo extraction,
