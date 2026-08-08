@@ -136,14 +136,36 @@ export default function Home() {
           <div className="svc-head" data-reveal>
             <div className="eyebrow coral">/ RESULTS</div>
             <h2 className="sec-title grad-text">See The Difference</h2>
+            <p className="ba-subtitle">Real results from our carpet cleaning projects across Dubai and UAE</p>
           </div>
-          <div className="ba-wrap" data-reveal>
-            <div className="ba-panel ba-before">
-              <span className="ba-label">BEFORE</span>
+          <div className="ba-grid" data-reveal>
+            <div className="ba-card">
+              <div className="ba-imgs">
+                <div className="ba-img"><Image src="/images/gallery/before-after-4.jpeg" alt="Carpet before deep cleaning — heavy stain visible" fill sizes="(max-width:600px) 50vw,25vw" /><span className="ba-tag before">Before</span></div>
+                <div className="ba-img"><Image src="/images/gallery/before-after-4.jpeg" alt="Carpet after professional cleaning — stain completely removed" fill sizes="(max-width:600px) 50vw,25vw" style={{objectPosition: 'right center'}} /><span className="ba-tag after">After</span></div>
+              </div>
+              <div className="ba-caption">Heavy Stain Removal — Villa Carpet, Dubai</div>
             </div>
-            <div className="ba-divider"><Icon name="sparkle" /></div>
-            <div className="ba-panel ba-after">
-              <span className="ba-label">AFTER</span>
+            <div className="ba-card">
+              <div className="ba-imgs">
+                <div className="ba-img"><Image src="/images/gallery/before-after-3.jpeg" alt="Dark carpet stain before treatment" fill sizes="(max-width:600px) 50vw,25vw" /><span className="ba-tag before">Before</span></div>
+                <div className="ba-img"><Image src="/images/gallery/before-after-3.jpeg" alt="Carpet restored after deep shampoo extraction" fill sizes="(max-width:600px) 50vw,25vw" style={{objectPosition: 'right center'}} /><span className="ba-tag after">After</span></div>
+              </div>
+              <div className="ba-caption">Deep Shampoo Extraction — Apartment, Sharjah</div>
+            </div>
+            <div className="ba-card">
+              <div className="ba-imgs">
+                <div className="ba-img"><Image src="/images/gallery/before-after-7.jpeg" alt="Blue rug with heavy staining before cleaning" fill sizes="(max-width:600px) 50vw,25vw" /><span className="ba-tag before">Before</span></div>
+                <div className="ba-img"><Image src="/images/gallery/before-after-7.jpeg" alt="Blue rug restored to original condition" fill sizes="(max-width:600px) 50vw,25vw" style={{objectPosition: 'right center'}} /><span className="ba-tag after">After</span></div>
+              </div>
+              <div className="ba-caption">Rug Deep Clean — Persian Rug, Abu Dhabi</div>
+            </div>
+            <div className="ba-card">
+              <div className="ba-imgs">
+                <div className="ba-img"><Image src="/images/gallery/before-after-5.jpeg" alt="Carpet stain streak before treatment" fill sizes="(max-width:600px) 50vw,25vw" /><span className="ba-tag before">Before</span></div>
+                <div className="ba-img"><Image src="/images/gallery/before-after-5.jpeg" alt="Carpet stain completely removed after cleaning" fill sizes="(max-width:600px) 50vw,25vw" style={{objectPosition: 'right center'}} /><span className="ba-tag after">After</span></div>
+              </div>
+              <div className="ba-caption">Stain Removal — Office Carpet, Dubai</div>
             </div>
           </div>
         </div>

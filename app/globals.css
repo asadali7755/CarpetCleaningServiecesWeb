@@ -281,7 +281,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Before / After ---------- */
 .ba-section { position: relative; z-index: 10; padding: 70px var(--pad); max-width: var(--maxw); margin: 0 auto; }
-.ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+.ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .ba-card { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow); }
 .ba-imgs { display: grid; grid-template-columns: 1fr 1fr; }
 .ba-imgs .ba-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
@@ -358,6 +358,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Before / After (new layout) ---------- */
 .before-after .inner { max-width: var(--maxw); margin: 0 auto; padding: 70px var(--pad); }
+.ba-subtitle { font-size: 16px; line-height: 1.6; color: var(--text-2); margin-top: 10px; }
 .ba-wrap {
   display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center;
 }
@@ -451,4 +452,5 @@ img { max-width: 100%; display: block; }
   .process-grid { grid-template-columns: 1fr; }
   .coverage-grid { grid-template-columns: 1fr; }
   .ba-panel { min-height: 180px; }
+  .ba-grid { grid-template-columns: 1fr; }
 }
