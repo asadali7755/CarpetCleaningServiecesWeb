@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import RevealInit from "@/components/RevealInit";
+import HeroEnquiryCard from "@/components/HeroEnquiryCard";
 import { Icon } from "@/components/Icons";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL, BRAND, EMAIL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
@@ -73,14 +74,8 @@ export default function Home() {
             <span className="trust-teal"><Icon name="check" /> Same-Day Available</span>
           </div>
         </div>
-        <div className="hero-col hero-img-col">
-          <Image
-            src="/images/gallery/professional-carpet-cleaning-technician-dubai.webp"
-            alt="Professional carpet cleaning technician deep cleaning a carpet in Dubai"
-            fill
-            priority
-            sizes="(max-width:900px) 100vw, 45vw"
-          />
+        <div className="hero-col hero-card-col">
+          <HeroEnquiryCard />
         </div>
       </section>
 

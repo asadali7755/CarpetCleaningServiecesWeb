@@ -3,6 +3,7 @@ import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./components.css";
 import { Analytics } from "@vercel/analytics/next";
+import { ClientProviders } from "@/components/ClientProviders";
 import {
   BRAND,
   SITE_URL,
@@ -123,7 +124,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        {children}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
         <Analytics />
       </body>
     </html>

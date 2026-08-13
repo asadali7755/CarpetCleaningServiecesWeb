@@ -44,11 +44,16 @@
 .fab a svg { width: 26px; height: 26px; }
 .fab-wa { background: #25d366; color: #fff; }
 .fab-call { background: linear-gradient(135deg, var(--teal), var(--teal-2)); color: #fff; }
+.fab-req { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 14px 34px rgba(0,0,0,0.4); transition: transform 0.16s; background: linear-gradient(135deg, var(--teal), var(--teal-2)); color: #fff; border: none; cursor: pointer; }
+.fab-req:hover { transform: scale(1.08); }
+.fab-req svg { width: 26px; height: 26px; }
 .mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 59; background: var(--bg); border-top: 1px solid var(--border); padding: 9px 12px; gap: 10px; }
 .mbar a { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 14.5px; padding: 12px; border-radius: 10px; }
 .mbar a svg { width: 17px; height: 17px; }
 .mbar-call { background: var(--surface-soft); color: var(--text); border: 1px solid var(--border-2); }
 .mbar-wa { background: #25d366; color: #fff; }
+.mbar-req { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 14.5px; padding: 12px; border-radius: 10px; background: linear-gradient(135deg, var(--teal), var(--teal-2)); color: #fff; border: none; cursor: pointer; font-family: var(--sans); }
+.mbar-req svg { width: 17px; height: 17px; }
 
 /* ---- Inner page hero ---- */
 .sub-hero { position: relative; z-index: 10; padding: 56px var(--pad) 46px; max-width: var(--maxw); margin: 0 auto; }
@@ -442,4 +447,68 @@
   .lb-next { right: 8px; }
   .lb-close { top: 12px; right: 12px; }
   .gal-card-overlay { opacity: 1; }
+}
+
+/* ---- Nav: Request a Call button ---- */
+.btn-req-call { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 10px; background: transparent; border: 1.5px solid var(--teal); color: var(--teal); font-family: var(--display); font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.18s, color 0.18s; white-space: nowrap; }
+.btn-req-call:hover { background: var(--teal); color: #fff; }
+.btn-req-mob { width: 100%; padding: 14px; border-radius: 12px; background: transparent; border: 1.5px solid var(--teal); color: var(--teal); font-family: var(--display); font-size: 15px; font-weight: 600; cursor: pointer; }
+
+/* ---- Request a Call Modal ---- */
+.modal-back { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); display: grid; place-items: center; padding: 20px; animation: modalFade 0.2s ease; }
+@keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+.modal { position: relative; width: 100%; max-width: 400px; background: var(--bg); border: 1px solid var(--border); border-radius: 22px; padding: 36px 30px 30px; box-shadow: 0 30px 80px rgba(0,0,0,0.4); animation: modalSlide 0.25s ease; }
+@keyframes modalSlide { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.modal-close { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--border-2); background: var(--surface-soft); color: var(--text-2); cursor: pointer; display: grid; place-items: center; transition: background 0.15s, color 0.15s; }
+.modal-close:hover { background: var(--surface-hover); color: var(--text); }
+.modal-label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+.modal h3 { font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--text); line-height: 1.25; margin-bottom: 8px; }
+.modal p { font-size: 14px; color: var(--text-2); line-height: 1.55; margin-bottom: 20px; }
+.modal form { display: flex; flex-direction: column; gap: 12px; }
+.modal input { width: 100%; background: var(--surface-soft); border: 1px solid var(--border-2); border-radius: 11px; padding: 13px 15px; color: var(--text); font-family: var(--sans); font-size: 15px; transition: border-color 0.15s; }
+.modal input:focus { outline: none; border-color: var(--teal); }
+.modal-submit { width: 100%; padding: 14px; border-radius: 12px; background: linear-gradient(135deg, var(--teal), var(--teal-2)); color: #fff; font-family: var(--display); font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: opacity 0.15s; }
+.modal-submit:hover { opacity: 0.9; }
+.modal-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.modal-or { text-align: center; font-size: 12px; color: var(--text-3); margin: 18px 0 12px; text-transform: uppercase; letter-spacing: 0.1em; }
+.modal-alt { display: flex; gap: 12px; }
+.modal-alt a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px; border-radius: 10px; background: var(--surface-soft); border: 1px solid var(--border-2); color: var(--text); font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color 0.15s; }
+.modal-alt a:hover { border-color: var(--teal); }
+
+/* ---- Success Toast ---- */
+.success-toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); z-index: 250; display: flex; align-items: center; gap: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 14px 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.25); animation: toastIn 0.3s ease; max-width: 420px; width: calc(100% - 40px); }
+@keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(16px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+.st-icon { flex: none; width: 32px; height: 32px; border-radius: 50%; background: rgba(16,185,129,0.15); color: var(--green); display: grid; place-items: center; }
+.st-body { flex: 1; }
+.st-title { display: block; font-family: var(--display); font-weight: 600; font-size: 14px; color: var(--text); }
+.st-msg { display: block; font-size: 13px; color: var(--text-2); margin-top: 2px; }
+.st-close { flex: none; width: 28px; height: 28px; border-radius: 8px; border: none; background: transparent; color: var(--text-3); cursor: pointer; display: grid; place-items: center; }
+.st-close:hover { color: var(--text); }
+
+/* ---- Hero Enquiry Card ---- */
+.hero-card-col { position: relative; display: flex; align-items: flex-start; justify-content: center; }
+.hero-enquiry-card { background: var(--bg); border: 1px solid var(--border); border-radius: 22px; padding: 28px 26px 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); width: 100%; max-width: 400px; }
+.heq-label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+.heq-title { font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--text); line-height: 1.25; margin-bottom: 20px; }
+.heq-form { display: flex; flex-direction: column; gap: 12px; }
+.heq-form input { width: 100%; background: var(--surface-soft); border: 1px solid var(--border-2); border-radius: 11px; padding: 13px 15px; color: var(--text); font-family: var(--sans); font-size: 15px; transition: border-color 0.15s; }
+.heq-form input:focus { outline: none; border-color: var(--teal); }
+.heq-form input::placeholder { color: var(--text-3); }
+.heq-err { color: #e53e3e; font-size: 12px; margin-top: -4px; }
+.heq-btns { display: flex; gap: 10px; margin-top: 4px; }
+.heq-wa { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 12px; background: #25d366; color: #fff; font-family: var(--display); font-size: 14.5px; font-weight: 600; border: none; cursor: pointer; transition: opacity 0.15s; }
+.heq-wa:hover { opacity: 0.9; }
+.heq-wa:disabled { opacity: 0.6; cursor: not-allowed; }
+.heq-call { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 13px 18px; border-radius: 12px; background: transparent; border: 1.5px solid var(--teal); color: var(--teal); font-family: var(--display); font-size: 14.5px; font-weight: 600; cursor: pointer; transition: background 0.18s, color 0.18s; }
+.heq-call:hover { background: var(--teal); color: #fff; }
+
+@media (max-width: 880px) {
+  .btn-req-call { display: none; }
+  .hero-card-col { margin-top: 24px; }
+  .hero-enquiry-card { max-width: 100%; }
+}
+@media (max-width: 560px) {
+  .heq-btns { flex-direction: column; }
+  .modal { padding: 28px 22px 22px; }
+  .modal-alt { flex-direction: column; }
 }

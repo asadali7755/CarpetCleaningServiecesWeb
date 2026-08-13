@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "./Icons";
 import { PHONE_DISPLAY, PHONE_TEL, waHref } from "./constants";
+import { useRequestCall } from "./RequestCallModal";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -17,6 +18,7 @@ const LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const { open: openModal } = useRequestCall();
   return (
     <header className="nav">
       <div className="nav-inner">
@@ -39,6 +41,7 @@ export default function Nav() {
         <nav className="nav-menu">
           {LINKS.map((l) => <Link key={l.href} className="nav-link" href={l.href}>{l.label}</Link>)}
           <a className="nav-phone-pill" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>
+          <button className="btn-req-call" onClick={openModal}>Request a Call</button>
           <a className="btn-green" href={waHref()} target="_blank" rel="noopener">GET QUOTE</a>
           <button className="nav-burger" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
             <Icon name={open ? "x" : "menu"} />
@@ -48,6 +51,7 @@ export default function Nav() {
 
       <div className={`nav-mobile${open ? " open" : ""}`}>
         {LINKS.map((l) => <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>)}
+        <button className="btn-req-mob" onClick={() => { setOpen(false); openModal(); }}>Request a Call</button>
         <a className="btn-book" href={waHref()} target="_blank" rel="noopener" onClick={() => setOpen(false)}>Get Quote</a>
       </div>
     </header>
