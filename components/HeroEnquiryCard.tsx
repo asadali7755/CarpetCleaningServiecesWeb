@@ -9,6 +9,7 @@ const onDesktop = () => typeof window !== 'undefined' && window.matchMedia('(hov
 export default function HeroEnquiryCard() {
   const { open } = useRequestCall();
   const showToast = useToast();
+  const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [job, setJob] = useState('');
   const [err, setErr] = useState('');
@@ -19,11 +20,11 @@ export default function HeroEnquiryCard() {
   const submit = async () => {
     if (!number.trim()) { setErr('Please enter your phone number'); return; }
     setErr('');
-    try { await sendEnquiry({ type: 'WhatsApp Quote (Hero)', phone: number, work: job }); } catch (e) { console.error('sendEnquiry:', e); }
+    try { await sendEnquiry({ type: 'WhatsApp Quote (Hero)', phone: number, work: job, name: name || '—' }); } catch (e) { console.error('sendEnquiry:', e); }
     setSent(true);
     showToast('Enquiry sent! We\'ll be in touch shortly.');
     if (!onDesktop()) {
-      const msg = encodeURIComponent(`Hi, I need carpet cleaning services.\nWork: ${job || 'Carpet cleaning'}\nNumber: ${number}`);
+      const msg = encodeURIComponent(`Hi, I need carpet cleaning services.\nWork: ${job || 'Carpet cleaning'}\nName: ${name}\nNumber: ${number}`);
       window.open(`https://wa.me/971551275545?text=${msg}`, '_blank');
     }
   };
@@ -33,6 +34,12 @@ export default function HeroEnquiryCard() {
       <span className="heq-label">Quick Quote - WhatsApp in 60 sec</span>
       <h2 className="heq-title">Tell us the job &amp; your number.<br/>That&apos;s it.</h2>
       <div className="heq-form">
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your Name *"
+          required
+        />
         <input
           value={job}
           onChange={(e) => setJob(e.target.value)}

@@ -65,7 +65,9 @@ export function RequestCallProvider({ children }: { children: ReactNode }) {
 }
 
 function RequestCallModal({ onClose, onSent }: { onClose: () => void; onSent: (msg: string) => void }) {
+  const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [work, setWork] = useState('');
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -76,7 +78,7 @@ function RequestCallModal({ onClose, onSent }: { onClose: () => void; onSent: (m
     if (!phone.trim()) { setErr('Phone number is required'); return; }
     setErr('');
     setLoading(true);
-    try { await sendEnquiry({ type: 'Request a Call', phone }); } catch {}
+    try { await sendEnquiry({ type: 'Request a Call', phone, name: name || '—', work: work || 'Carpet Cleaning' }); } catch {}
     setLoading(false);
     onSent('We got your number! Expect a call back shortly.');
   };
@@ -88,11 +90,18 @@ function RequestCallModal({ onClose, onSent }: { onClose: () => void; onSent: (m
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <span className="modal-label">Request a Call</span>
-        <h3>Drop your number.<br/>We&apos;ll call you back.</h3>
-        <p>One field. No name, no email, no fuss. Free quote on the call.</p>
+        <h3>Get a Free Quote.<br/>We&apos;ll call you back.</h3>
+        <p>Fill in your details. Free quote on the call.</p>
         <form onSubmit={submit}>
           <input
             ref={inputRef}
+            type="text"
+            placeholder="Your Name *"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
             type="tel"
             inputMode="tel"
             placeholder="+971 5X XXX XXXX *"
@@ -101,6 +110,15 @@ function RequestCallModal({ onClose, onSent }: { onClose: () => void; onSent: (m
             style={err ? { borderColor: '#e53e3e' } : {}}
           />
           {err && <span style={{ color: '#e53e3e', fontSize: 12, marginTop: 4, display: 'block' }}>{err}</span>}
+          <select value={work} onChange={(e) => setWork(e.target.value)} style={{ width: '100%', padding: '12px 14px', border: '1.5px solid rgba(12,17,14,0.12)', borderRadius: 10, fontSize: 15, background: '#F3F7F4', color: '#0C110E', fontFamily: 'var(--font-sans)' }}>
+            <option value="">Select Service</option>
+            <option value="Carpet Cleaning">Carpet Cleaning</option>
+            <option value="Rug Cleaning">Rug Cleaning</option>
+            <option value="Sofa Cleaning">Sofa Cleaning</option>
+            <option value="Mattress Cleaning">Mattress Cleaning</option>
+            <option value="Curtain Cleaning">Curtain Cleaning</option>
+            <option value="Deep Cleaning">Deep Cleaning</option>
+          </select>
           <button type="submit" className="modal-submit" disabled={loading}>
             {loading ? 'Sending...' : 'Call me back'}
           </button>
