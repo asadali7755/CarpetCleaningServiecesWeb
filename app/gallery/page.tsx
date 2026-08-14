@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import GalleryClient from "@/components/GalleryClient";
+import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 export const metadata: Metadata = {
@@ -55,8 +56,9 @@ export default function GalleryPage() {
             stain removal, rug care and sofa cleaning results across Dubai, Abu Dhabi, Sharjah and all UAE Emirates.
           </p>
           <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get Free Quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp</a>
+            <RequestCall className="btn-outline" />
+            <Link className="btn-outline" href="/contact">Get a Quote</Link>
           </div>
         </section>
 
@@ -82,8 +84,9 @@ export default function GalleryPage() {
               <h2>Want Results Like These?</h2>
               <p>Every photo and video you see is from a real job by our trained professionals. Book your carpet, rug, or sofa cleaning today and see the difference.</p>
               <div className="row">
-                <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a Free Quote →</a>
-                <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+                <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp</a>
+                <RequestCall className="btn-outline" />
+                <Link className="btn-outline" href="/contact">Get a Quote</Link>
               </div>
             </div>
           </div>

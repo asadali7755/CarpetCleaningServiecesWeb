@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { SERVICES } from "@/lib/servicesData";
+import RequestCall from "@/components/RequestCall";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL } from "@/components/constants";
 import QuoteCallSection from "@/components/QuoteCallSection";
 
@@ -36,8 +37,9 @@ export default function ServicesHub() {
             Industry-leading equipment and eco-friendly solutions for homes and businesses across the UAE.
           </p>
           <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get Free Quote</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
+            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp</a>
+            <RequestCall className="btn-outline" />
+            <Link className="btn-outline" href="/contact">Get a Quote</Link>
           </div>
         </section>
 
