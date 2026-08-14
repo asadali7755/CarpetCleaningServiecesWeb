@@ -7,6 +7,7 @@ import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { SERVICES } from "@/lib/servicesData";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL } from "@/components/constants";
+import QuoteCallSection from "@/components/QuoteCallSection";
 
 export const metadata: Metadata = {
   title: "Our Services — Carpet, Rug, Sofa & Mattress Cleaning",
@@ -62,6 +63,8 @@ export default function ServicesHub() {
             ))}
           </div>
         </section>
+
+        <QuoteCallSection />
       </main>
       <Footer />
       <Fab />

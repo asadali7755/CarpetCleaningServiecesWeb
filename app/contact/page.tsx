@@ -6,6 +6,7 @@ import Fab from "@/components/Fab";
 import ContactForm from "@/components/ContactForm";
 import { Icon } from "@/components/Icons";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL, EMAIL, HOURS } from "@/components/constants";
+import QuoteCallSection from "@/components/QuoteCallSection";
 
 export const metadata: Metadata = {
   title: "Contact — Book Carpet Cleaning in the UAE",
@@ -169,6 +170,8 @@ export default function Contact() {
             </div>
           </div>
         </section>
+
+        <QuoteCallSection />
       </main>
       <Footer />
       <Fab />

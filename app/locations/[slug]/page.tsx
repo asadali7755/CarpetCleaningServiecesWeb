@@ -10,6 +10,7 @@ import { LOCATIONS, getLocation } from "@/lib/locationsData";
 import { SERVICES } from "@/lib/servicesData";
 import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, waHref } from "@/components/constants";
+import QuoteCallSection from "@/components/QuoteCallSection";
 
 export function generateStaticParams() {
   return LOCATIONS.map((l) => ({ slug: l.slug }));
@@ -162,6 +163,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             ))}
           </div>
         </section>
+
+        <QuoteCallSection />
       </main>
 
       <Footer />

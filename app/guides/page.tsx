@@ -7,6 +7,7 @@ import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, HOURS, waHref } from "@/components/constants";
+import QuoteCallSection from "@/components/QuoteCallSection";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
 import { GUIDES } from "@/lib/guidesData";
@@ -448,6 +449,8 @@ export default function GuidesPage() {
             </div>
           </div>
         </section>
+
+        <QuoteCallSection />
       </main>
 
       <Footer />
