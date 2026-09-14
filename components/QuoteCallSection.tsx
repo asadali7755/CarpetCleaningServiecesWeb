@@ -2,7 +2,15 @@
 import { useState } from 'react';
 import { useRequestCall, useToast } from './RequestCallModal';
 import { sendEnquiry } from '@/lib/sendEmail';
+import { Icon } from './Icons';
 import { PHONE_DISPLAY, PHONE_TEL } from './constants';
+
+const BENEFITS = [
+  { icon: 'clipboard', title: 'Free consultation', desc: 'Talk it through with a cleaning expert, no pressure.' },
+  { icon: 'shield', title: 'Honest pricing', desc: 'Transparent quotes — no hidden charges, ever.' },
+  { icon: 'clock', title: 'Fast callback', desc: 'We call you back within 30 minutes, same day.' },
+  { icon: 'calendar', title: '7 days a week', desc: 'Available 8 AM to 10 PM, every day of the week.' },
+];
 
 export default function QuoteCallSection() {
   const { open } = useRequestCall();
@@ -26,69 +34,91 @@ export default function QuoteCallSection() {
   };
 
   return (
-    <section className="section" style={{ borderBottom: '1px solid var(--line)' }}>
-      <div className="container-x">
-        <div className="quote-call-grid">
-          {/* Request a Call Side */}
-          <div>
-            <div className="section-tag">Talk to Us</div>
-            <h2 style={{ fontSize: 'clamp(26px, 3vw, 42px)', marginBottom: 16, lineHeight: 1.15 }}>
-              Prefer a <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400, color: 'var(--accent)' }}>Phone Call?</span>
+    <section className="inner sec-lavender" style={{ padding: '70px var(--pad) 80px' }}>
+      <div style={{ maxWidth: 'var(--maxw)', margin: '0 auto' }}>
+        <div className="contact-grid">
+          {/* Request a Call side */}
+          <div className="contact-card">
+            <p className="eyebrow teal">Talk to Us</p>
+            <h2 className="grad-text" style={{ fontSize: 'clamp(24px, 3vw, 34px)', lineHeight: 1.15, marginBottom: 14 }}>
+              Prefer a Phone Call?
             </h2>
-            <p style={{ color: 'var(--fg-muted)', fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
-              Not sure which service you need? Our cleaning experts are ready to help. Request a call and get personalized advice — no pressure, no obligation. We will assess your requirements and provide a transparent quote over the phone.
+            <p style={{ color: 'var(--text-2)', fontSize: 15, lineHeight: 1.7, marginBottom: 24 }}>
+              Not sure which service you need? Our cleaning experts are ready to help — request
+              a call and get personalized advice, no pressure, no obligation.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }}>
-              {[
-                'Free consultation with cleaning experts',
-                'Honest pricing — no hidden charges',
-                'Same-day callback within 30 minutes',
-                'Available 7 days a week, 8 AM to 10 PM',
-              ].map((item) => (
-                <div key={item} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', color: 'var(--fg-muted)', fontSize: 15 }}>
-                  <span style={{ color: 'var(--accent)', fontWeight: 700, flexShrink: 0 }}>&#10003;</span> {item}
-                </div>
+
+            <ul className="contact-list" style={{ marginBottom: 28 }}>
+              {BENEFITS.map((b) => (
+                <li key={b.title}>
+                  <div className="ic"><Icon name={b.icon} /></div>
+                  <div>
+                    <b>{b.title}</b>
+                    <span>{b.desc}</span>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
+
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <button onClick={open} className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <button
+                onClick={open}
+                className="btn-green"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: 'none', cursor: 'pointer' }}
+              >
+                <span style={{ width: 17, height: 17 }}><Icon name="phone" /></span>
                 Request a Call
               </button>
-              <a href={`tel:${PHONE_TEL}`} className="btn btn-ghost">
+              <a href={`tel:${PHONE_TEL}`} className="btn-outline">
                 Call {PHONE_DISPLAY}
               </a>
             </div>
           </div>
 
-          {/* Get a Free Quote Card */}
-          <div>
-            <div style={{ background: 'var(--bg-elev)', border: '1px solid var(--line-strong)', borderRadius: 20, padding: 'clamp(24px, 4vw, 36px)', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: 'var(--accent)' }} />
-              <div className="section-tag" style={{ marginBottom: 8 }}>Quick Response</div>
-              <h3 style={{ fontSize: 'clamp(22px, 2.5vw, 30px)', marginBottom: 8 }}>Get a Free Quote</h3>
-              <p style={{ color: 'var(--fg-muted)', fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
-                Fill in your details and we will get back to you within 30 minutes with a no-obligation quote.
-              </p>
-              {sent ? (
-                <div style={{ textAlign: 'center', padding: '32px 16px' }}>
-                  <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'color-mix(in oklab, var(--accent) 15%, transparent)', border: '2px solid var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: 24, color: 'var(--accent)' }}>&#10003;</div>
-                  <h4 style={{ marginBottom: 8, fontSize: 18 }}>Quote Request Sent!</h4>
-                  <p style={{ color: 'var(--fg-muted)', fontSize: 14, marginBottom: 20 }}>We will call you back shortly with your quote.</p>
-                  <button onClick={() => setSent(false)} className="btn btn-ghost" style={{ fontSize: 13 }}>Submit Another</button>
+          {/* Get a Free Quote form side */}
+          <div className="contact-card">
+            <p className="eyebrow teal">Quick Response</p>
+            <h3>Get a Free Quote</h3>
+            <p style={{ color: 'var(--text-2)', fontSize: 14, lineHeight: 1.6, marginBottom: 22 }}>
+              Fill in your details and we will get back to you within 30 minutes with a
+              no-obligation quote.
+            </p>
+
+            {sent ? (
+              <div style={{ textAlign: 'center', padding: '28px 12px' }}>
+                <div
+                  className="ic"
+                  style={{ width: 52, height: 52, borderRadius: '50%', margin: '0 auto 16px' }}
+                >
+                  <Icon name="check" />
                 </div>
-              ) : (
-                <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <h4 style={{ fontFamily: 'var(--display)', fontSize: 18, marginBottom: 8, color: 'var(--text)' }}>
+                  Quote Request Sent!
+                </h4>
+                <p style={{ color: 'var(--text-2)', fontSize: 14, marginBottom: 20 }}>
+                  We will call you back shortly with your quote.
+                </p>
+                <button onClick={() => setSent(false)} className="btn-outline" style={{ fontSize: 13 }}>
+                  Submit Another
+                </button>
+              </div>
+            ) : (
+              <form className="contact-form" onSubmit={submit}>
+                <div>
+                  <label htmlFor="qc-name">Your name</label>
                   <input
-                    className="form-input"
+                    id="qc-name"
                     type="text"
-                    placeholder="Your Name *"
+                    placeholder="Your name *"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
                   />
+                </div>
+                <div>
+                  <label htmlFor="qc-phone">Phone / WhatsApp</label>
                   <input
-                    className="form-input"
+                    id="qc-phone"
                     type="tel"
                     inputMode="tel"
                     placeholder="+971 5X XXX XXXX *"
@@ -96,11 +126,10 @@ export default function QuoteCallSection() {
                     onChange={(e) => setPhone(e.target.value)}
                     required
                   />
-                  <select
-                    className="form-input"
-                    value={work}
-                    onChange={(e) => setWork(e.target.value)}
-                  >
+                </div>
+                <div>
+                  <label htmlFor="qc-service">Service needed</label>
+                  <select id="qc-service" value={work} onChange={(e) => setWork(e.target.value)}>
                     <option value="">Select Service</option>
                     <option value="Carpet Cleaning">Carpet Cleaning</option>
                     <option value="Rug Cleaning">Rug Cleaning</option>
@@ -109,15 +138,15 @@ export default function QuoteCallSection() {
                     <option value="Curtain Cleaning">Curtain Cleaning</option>
                     <option value="Deep Cleaning">Deep Cleaning</option>
                   </select>
-                  <button type="submit" className="btn btn-primary" disabled={loading} style={{ width: '100%', justifyContent: 'center', fontSize: 15, padding: '14px 24px' }}>
-                    {loading ? 'Sending...' : 'Get My Free Quote'}
-                  </button>
-                  <p style={{ color: 'var(--fg-dim)', fontSize: 12, textAlign: 'center' }}>
-                    No spam. No obligation. Just a fair quote.
-                  </p>
-                </form>
-              )}
-            </div>
+                </div>
+                <button type="submit" className="btn-green" disabled={loading} style={{ border: 'none', cursor: 'pointer', width: '100%', justifyContent: 'center' }}>
+                  {loading ? 'Sending...' : 'Get My Free Quote'}
+                </button>
+                <p style={{ color: 'var(--text-3)', fontSize: 12, textAlign: 'center', margin: 0 }}>
+                  No spam. No obligation. Just a fair quote.
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </div>
