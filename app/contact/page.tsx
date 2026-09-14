@@ -114,58 +114,30 @@ export default function Contact() {
             </div>
 
             {/* Google Business Profile */}
-            <div className="c-gmb-section" style={{ marginTop: 40 }}>
-              <div className="c-gmb-card">
-                <div className="c-gmb-top">
-                  <div className="g-icon">G</div>
-                  <div className="c-gmb-meta">
-                    <span className="c-gmb-name">Alhaya Cleaning on Google</span>
-                    <span className="c-gmb-lbl">Carpet Cleaning Services Dubai</span>
-                  </div>
-                </div>
-                <div className="c-gmb-rating">
-                  <span className="c-gmb-rate">4.3</span>
-                  <div>
-                    <div className="c-gmb-stars">★★★★<span className="c-gmb-star-half">★</span></div>
-                    <div className="c-gmb-rev-count">Based on Google reviews</div>
-                  </div>
-                </div>
-                <div className="c-gmb-reviews">
-                  <div className="c-gmb-review">
-                    <div className="c-gmb-review-head">
-                      <strong>Sarah M.</strong>
-                      <span>Google · Dubai</span>
-                    </div>
-                    <p>&quot;Best carpet cleaning service in Dubai. My carpets look brand new!&quot;</p>
-                  </div>
-                  <div className="c-gmb-review">
-                    <div className="c-gmb-review-head">
-                      <strong>Ahmed K.</strong>
-                      <span>Google · Sharjah</span>
-                    </div>
-                    <p>&quot;Professional team, on time, and excellent stain removal results.&quot;</p>
-                  </div>
-                  <div className="c-gmb-review">
-                    <div className="c-gmb-review-head">
-                      <strong>Fatima R.</strong>
-                      <span>Google · Ajman</span>
-                    </div>
-                    <p>&quot;Removed years of carpet odor completely. Highly recommend Alhaya.&quot;</p>
-                  </div>
-                </div>
-                <div className="c-gmb-cta">
-                  <a href="https://www.google.com/maps/place/Madinat+Alhaya+Building+Cleaning+Services/@24.749148,55.4692488,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f6dc22e5a8d45:0x5f56211bd03d48bd!8m2!3d24.749148!4d55.4692488!16s%2Fg%2F11fjs0c7kn" target="_blank" rel="noopener">View on Google Maps →</a>
-                  <a href="https://www.google.com/maps/place/Madinat+Alhaya+Building+Cleaning+Services/@24.749148,55.4692488,17z/data=!4m8!3m7!1s0x3e5f6dc22e5a8d45:0x5f56211bd03d48bd!8m2!3d24.749148!4d55.4692488!9m1!1b1!16s%2Fg%2F11fjs0c7kn?hl=en" target="_blank" rel="noopener">Leave a Google Review ★</a>
-                </div>
-              </div>
-              <div className="c-map">
+            <div className="cc-map-section">
+              <h2 className="cc-map-title">Find Us on Google</h2>
+              <p className="cc-map-sub">Check our reviews, location &amp; business hours on Google.</p>
+              <div className="cc-map-frame">
                 <iframe
-                  title="Madinat Alhaya Building Cleaning Services — Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927577.8847531937!2d55.4692488!3d24.74914795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6dc22e5a8d45%3A0x5f56211bd03d48bd!2sMadinat%20Alhaya%20Building%20Cleaning%20Services!5e0!3m2!1sen!2s!4v1780844711725!5m2!1sen!2s"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0, display: "block" }}
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.5!2d55.4692488!3d24.749148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6dc22e5a8d45%3A0x5f56211bd03d48bd!2sMadinat%20Alhaya%20Building%20Cleaning%20Services!5e0!3m2!1sen!2sae!4v1719900000000!5m2!1sen!2sae"
-                  allowFullScreen
+                  title="Madinat Alhaya Building Cleaning Services on Google Maps"
                 />
+              </div>
+              <div className="cc-gbp-wrap">
+                <a
+                  href="https://maps.app.goo.gl/qAog9d6usteD2jsH6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cc-gbp-btn"
+                >
+                  View Our Google Business Profile ↗
+                </a>
               </div>
             </div>
           </div>
