@@ -158,6 +158,24 @@ export const LOCATIONS: Location[] = [
       { q: "Do you offer carpet cleaning for east coast resorts?", a: "Yes. We provide regular maintenance contracts for hospitality properties across the east coast. Scheduling works around guest occupancy patterns, covering lobby, corridor, and room carpets under our commercial service agreements." },
     ],
   },
+  {
+    slug: "dibba", name: "Dibba", ar: "دبا", image: "/emirates/fujairah.webp",
+    h1: "Carpet Cleaning Dibba — East Coast Town, Two Emirates",
+    intro: "Carpet, rug, sofa and mattress cleaning in Dibba — the UAE's east-coast town split across Fujairah and Sharjah. Deep steam cleaning with eco-friendly products, covering both Dibba Al-Fujairah and Dibba Al-Hisn on the same route.",
+    body: [
+      "Every Al Haya service is available in Dibba: carpet deep shampoo cleaning, rug cleaning, sofa and upholstery cleaning, mattress sanitisation and curtain cleaning. Dibba is covered on our regular Fujairah / east-coast route, so smaller jobs combine with nearby bookings and larger villa jobs can be scheduled with a dedicated time block.",
+      "Dibba is unusual among UAE towns in that it sits across three jurisdictions — Dibba Al-Fujairah, Dibba Al-Hisn in Sharjah, and Dibba Bay'ah across the border in Oman's Musandam. We serve the UAE side of town, both Dibba Al-Fujairah and Dibba Al-Hisn, as one combined service area, so residents on either side get the same booking process and pricing.",
+      "Like the rest of the east coast, Dibba's coastal humidity and mountain backdrop mean carpets and upholstery are more prone to trapping moisture and dust than in the drier western emirates. Our deep extraction process removes embedded sand and treats musty odors at the source rather than masking them.",
+      "Dibba's homes range from established villas near the town centre to newer coastal properties and holiday homes along the corniche. We bring the same equipment and trained technicians used across all seven emirates, with a free pre-inspection and transparent fixed pricing on every Dibba job.",
+    ],
+    areas: ["Dibba Al-Fujairah", "Dibba Al-Hisn", "Dibba Port", "Al Aqah"],
+    resp: "55 – 75 mins", cityCount: 4,
+    faqs: [
+      { q: "Do you serve both Dibba Al-Fujairah and Dibba Al-Hisn?", a: "Yes. We cover both sides of Dibba — Dibba Al-Fujairah and Dibba Al-Hisn in Sharjah — as one combined service area on our regular east-coast route, with the same pricing on either side." },
+      { q: "How long does it take Al Haya to reach Dibba?", a: "Dibba is served on our regular Fujairah / east-coast route, typically 55 to 75 minutes from booking confirmation. Larger villa jobs are scheduled with a dedicated time block, so booking a day ahead is recommended where possible." },
+      { q: "Do you clean carpets in Dibba's holiday homes and coastal villas?", a: "Yes. Dibba's coastal properties and holiday homes are prone to trapping moisture from the sea air — our deep extraction and odor-removal process is well suited to this, and we bring all equipment so nothing needs preparing in advance." },
+    ],
+  },
 ];
 
 export function getLocation(slug: string): Location | undefined {

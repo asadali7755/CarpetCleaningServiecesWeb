@@ -9,7 +9,7 @@ import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL } from "@/components/constan
 
 export const metadata: Metadata = {
   title: "Service Areas — Carpet Cleaning Across the UAE",
-  description: "Al Haya provides carpet, rug, sofa and mattress cleaning across all 7 emirates — Dubai, Sharjah, Ajman, Abu Dhabi, RAK, UAQ and Fujairah. Same-day service.",
+  description: "Al Haya provides carpet, rug, sofa and mattress cleaning across all 7 emirates — Dubai, Sharjah, Ajman, Abu Dhabi, RAK, UAQ and Fujairah — plus Dibba on the east coast. Same-day service.",
   alternates: { canonical: `${SITE_URL}/locations` },
 };
 
@@ -29,7 +29,7 @@ export default function LocationsHub() {
             <span style={{ color: "var(--teal)" }}>Locations</span>
           </nav>
           <p className="eyebrow teal">Locations</p>
-          <h1 className="grad-text">Serving All 7 UAE Emirates</h1>
+          <h1 className="grad-text">Serving All 7 Emirates, Including Dibba</h1>
           <p className="lead">
             Professional carpet, rug, sofa and mattress cleaning delivered to your doorstep — anywhere in the UAE.
           </p>
