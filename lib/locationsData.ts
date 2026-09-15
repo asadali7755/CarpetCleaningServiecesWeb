@@ -159,7 +159,7 @@ export const LOCATIONS: Location[] = [
     ],
   },
   {
-    slug: "dibba", name: "Dibba", ar: "دبا", image: "/emirates/fujairah.webp",
+    slug: "dibba", name: "Dibba", ar: "دبا", image: "/emirates/dibba.webp",
     h1: "Carpet Cleaning Dibba — East Coast Town, Two Emirates",
     intro: "Carpet, rug, sofa and mattress cleaning in Dibba — the UAE's east-coast town split across Fujairah and Sharjah. Deep steam cleaning with eco-friendly products, covering both Dibba Al-Fujairah and Dibba Al-Hisn on the same route.",
     body: [
