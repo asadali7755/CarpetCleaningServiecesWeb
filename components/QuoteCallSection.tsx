@@ -1,6 +1,7 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRequestCall, useToast } from './RequestCallModal';
+import { sendEnquiry } from '@/lib/sendEmail';
 import { Icon } from './Icons';
 import { PHONE_DISPLAY, PHONE_TEL } from './constants';
 
@@ -20,48 +21,16 @@ export default function QuoteCallSection() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const quote = params.get('quote');
-    const source = params.get('source');
-    if (source === 'quote_section') {
-      if (quote === 'success') {
-        setSent(true);
-        showToast('Payment received! We will contact you shortly with your quote.');
-      } else if (quote === 'cancelled') {
-        showToast('Payment cancelled. You can try again anytime.');
-      }
-      if (quote) {
-        params.delete('quote');
-        params.delete('source');
-        params.delete('session_id');
-        const query = params.toString();
-        window.history.replaceState({}, '', window.location.pathname + (query ? `?${query}` : ''));
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!phone.trim()) return;
     setLoading(true);
     try {
-      const res = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name || '—', phone, work: work || 'Carpet Cleaning', source: 'quote_section', returnPath: window.location.pathname }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-        return;
-      }
-      showToast('Could not start payment. Please try again.');
-    } catch {
-      showToast('Could not start payment. Please try again.');
-    }
+      await sendEnquiry({ type: 'Free Quote Request', phone, name: name || '—', work: work || 'Carpet Cleaning' });
+    } catch {}
     setLoading(false);
+    setSent(true);
+    showToast('Quote request sent! We will contact you shortly.');
   };
 
   return (
@@ -109,10 +78,10 @@ export default function QuoteCallSection() {
           {/* Get a Free Quote form side */}
           <div className="contact-card">
             <p className="eyebrow teal">Quick Response</p>
-            <h3>Quote Request — AED 50</h3>
+            <h3>Get a Free Quote</h3>
             <p style={{ color: 'var(--text-2)', fontSize: 14, lineHeight: 1.6, marginBottom: 22 }}>
-              Fill in your details and pay AED 50 to confirm — adjustable against your final
-              booking. We will get back to you within 30 minutes.
+              Fill in your details and we will get back to you within 30 minutes with a
+              no-obligation quote.
             </p>
 
             {sent ? (
@@ -124,7 +93,7 @@ export default function QuoteCallSection() {
                   <Icon name="check" />
                 </div>
                 <h4 style={{ fontFamily: 'var(--display)', fontSize: 18, marginBottom: 8, color: 'var(--text)' }}>
-                  Payment Received!
+                  Quote Request Sent!
                 </h4>
                 <p style={{ color: 'var(--text-2)', fontSize: 14, marginBottom: 20 }}>
                   We will call you back shortly with your quote.
@@ -171,10 +140,10 @@ export default function QuoteCallSection() {
                   </select>
                 </div>
                 <button type="submit" className="btn-green" disabled={loading} style={{ border: 'none', cursor: 'pointer', width: '100%', justifyContent: 'center' }}>
-                  {loading ? 'Redirecting...' : 'Pay AED 50 & Get Quote'}
+                  {loading ? 'Sending...' : 'Get My Free Quote'}
                 </button>
                 <p style={{ color: 'var(--text-3)', fontSize: 12, textAlign: 'center', margin: 0 }}>
-                  AED 50 fee — adjustable against your final booking. Secure payment via Stripe.
+                  No spam. No obligation. Just a fair quote.
                 </p>
               </form>
             )}
