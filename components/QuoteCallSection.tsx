@@ -75,13 +75,13 @@ export default function QuoteCallSection() {
             </div>
           </div>
 
-          {/* Get a Free Quote form side */}
+          {/* Get a Free Visit form side */}
           <div className="contact-card">
             <p className="eyebrow teal">Quick Response</p>
-            <h3>Get a Free Quote</h3>
+            <h3>Get a Free Visit</h3>
             <p style={{ color: 'var(--text-2)', fontSize: 14, lineHeight: 1.6, marginBottom: 22 }}>
-              Fill in your details and we will get back to you within 30 minutes with a
-              no-obligation quote.
+              Fill in your details and we will get back to you within 30 minutes to arrange a
+              free visit.
             </p>
 
             {sent ? (
@@ -93,10 +93,10 @@ export default function QuoteCallSection() {
                   <Icon name="check" />
                 </div>
                 <h4 style={{ fontFamily: 'var(--display)', fontSize: 18, marginBottom: 8, color: 'var(--text)' }}>
-                  Quote Request Sent!
+                  Visit Request Sent!
                 </h4>
                 <p style={{ color: 'var(--text-2)', fontSize: 14, marginBottom: 20 }}>
-                  We will call you back shortly with your quote.
+                  We will call you back shortly to arrange your visit.
                 </p>
                 <button onClick={() => setSent(false)} className="btn-outline" style={{ fontSize: 13 }}>
                   Submit Another
@@ -140,10 +140,18 @@ export default function QuoteCallSection() {
                   </select>
                 </div>
                 <button type="submit" className="btn-green" disabled={loading} style={{ border: 'none', cursor: 'pointer', width: '100%', justifyContent: 'center' }}>
-                  {loading ? 'Sending...' : 'Get My Free Quote'}
+                  {loading ? 'Sending...' : 'Request Free Visit'}
                 </button>
                 <p style={{ color: 'var(--text-3)', fontSize: 12, textAlign: 'center', margin: 0 }}>
-                  No spam. No obligation. Just a fair quote.
+                  No spam. No obligation.{' '}
+                  <a
+                    href={`https://wa.me/971551275545?text=${encodeURIComponent("Hi, I'd like a free quote — here are photos of what needs cleaning:")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'inherit', textDecoration: 'underline' }}
+                  >
+                    Prefer to WhatsApp photos instead?
+                  </a>
                 </p>
               </form>
             )}

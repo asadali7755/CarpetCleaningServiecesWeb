@@ -24,7 +24,7 @@ export default function HeroEnquiryCard() {
     setSent(true);
     showToast('Enquiry sent! We\'ll be in touch shortly.');
     if (!onDesktop()) {
-      const msg = encodeURIComponent(`Hi, I need carpet cleaning services.\nWork: ${job || 'Carpet cleaning'}\nName: ${name}\nNumber: ${number}`);
+      const msg = encodeURIComponent(`Hi, I need carpet cleaning services.\nWork: ${job || 'Carpet cleaning'}\nName: ${name}\nNumber: ${number}\n\n(Attaching photos of what needs cleaning for a free quote.)`);
       window.open(`https://wa.me/971551275545?text=${msg}`, '_blank');
     }
   };
