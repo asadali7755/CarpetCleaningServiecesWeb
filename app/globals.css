@@ -117,7 +117,13 @@ img { max-width: 100%; display: block; }
 .brand-mark i { width: 16px; height: 16px; border: 2.5px solid #fff; border-radius: 5px; }
 .brand-name { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.04em; line-height: 1; color: var(--text); }
 .brand-sub { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.34em; color: var(--text-2); margin-top: 3px; }
-.nav-menu { display: flex; align-items: center; gap: 26px; font-size: 14px; }
+.nav-menu { display: flex; align-items: center; gap: 16px; font-size: 14px; }
+
+/* Nav's GET QUOTE reuses the shared .btn-green CTA style, but that class is
+   sized for page content (big hero/section buttons) — too large for a
+   crowded nav bar once the phone pill, Facebook icon and Request a Call
+   button are all on the same row, which pushed items onto a second line. */
+.nav-menu .btn-green { font-size: 12.5px; padding: 9px 16px; border-radius: 10px; gap: 6px; white-space: nowrap; }
 .nav-link { color: var(--text-2); transition: color 0.15s ease; }
 .nav-link:hover, .nav-link.active { color: var(--teal); }
 
