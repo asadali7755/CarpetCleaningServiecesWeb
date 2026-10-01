@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "./Icons";
-import { PHONE_DISPLAY, PHONE_TEL, waHref } from "./constants";
+import { PHONE_DISPLAY, PHONE_TEL, FACEBOOK_URL, waHref } from "./constants";
 import { useRequestCall } from "./RequestCallModal";
 
 const LINKS = [
@@ -41,6 +41,7 @@ export default function Nav() {
         <nav className="nav-menu">
           {LINKS.map((l) => <Link key={l.href} className="nav-link" href={l.href}>{l.label}</Link>)}
           <a className="nav-phone-pill" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>
+          <a className="nav-social-link" href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label="Facebook"><Icon name="facebook" /></a>
           <button className="btn-req-call" onClick={openModal}>Request a Call</button>
           <a className="btn-green" href={waHref()} target="_blank" rel="noopener">GET QUOTE</a>
           <button className="nav-burger" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
@@ -51,6 +52,7 @@ export default function Nav() {
 
       <div className={`nav-mobile${open ? " open" : ""}`}>
         {LINKS.map((l) => <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>)}
+        <a className="nav-social-link-mob" href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label="Facebook" onClick={() => setOpen(false)}><Icon name="facebook" /> Facebook</a>
         <button className="btn-req-mob" onClick={() => { setOpen(false); openModal(); }}>Request a Call</button>
         <a className="btn-book" href={waHref()} target="_blank" rel="noopener" onClick={() => setOpen(false)}>Get Quote</a>
       </div>

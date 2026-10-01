@@ -17,6 +17,8 @@
 .nav-social-link:hover { color: var(--teal); background: rgba(var(--accent-rgb),0.08); }
 .nav-social-link svg { width: 17px; height: 17px; }
 @media (max-width: 768px) { .nav-social { display: none; } }
+.nav-social-link-mob { display: flex; align-items: center; gap: 8px; }
+.nav-social-link-mob svg { width: 16px; height: 16px; color: var(--teal); }
 
 /* ---- Footer (teal-purple gradient) ---- */
 .ft { background: var(--ft-bg, linear-gradient(135deg, #0f172a, #1e1b4b)); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 0 24px; }
