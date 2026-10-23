@@ -19,6 +19,8 @@ export interface ServiceDetail {
   body: string[];
   feat: Feat[];
   faqs: Faq[];
+  /** Contextual link to the sister sofa specialist site (sofa service only). */
+  specialist?: { lead: string; label: string; href: string; links: { label: string; href: string }[] };
 }
 
 export const SERVICES: ServiceDetail[] = [
@@ -190,6 +192,15 @@ export const SERVICES: ServiceDetail[] = [
       { t: "Deep Sanitization", d: "Removes dust mites and bacteria from cushions and seams." },
       { t: "On-Site, Same-Day", d: "We clean in place — ready to use within hours." },
     ],
+    specialist: {
+      lead: "Booking a sofa clean on its own? Our sofa team has a dedicated site with before-and-after photos, short videos and a guide for each sofa type.",
+      label: "Sofa shampooing & cleaning in Dubai",
+      href: "https://sofashampooingdubai.com/",
+      links: [
+        { label: "Leather sofa cleaning", href: "https://sofashampooingdubai.com/leather-sofa-cleaning" },
+        { label: "Sofa steam cleaning", href: "https://sofashampooingdubai.com/sofa-steam-cleaning" },
+      ],
+    },
     faqs: [
       { q: "How long does sofa cleaning take?", a: "A standard three-seater sofa takes approximately 45 to 60 minutes for the cleaning process. Drying time is typically 2 to 4 hours depending on the fabric type and ventilation. Larger sets or heavily soiled pieces may take longer." },
       { q: "Can you clean leather sofas?", a: "Yes. We use pH-balanced leather cleaning solutions that remove dirt and body oils without damaging the protective finish. After cleaning, we apply a conditioning treatment that restores moisture and prevents the cracking and drying that commonly occurs in air-conditioned environments." },

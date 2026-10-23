@@ -122,6 +122,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </li>
             ))}
           </ul>
+          {s.specialist && (
+            <div className="faq-item" style={{ marginTop: 28, padding: "22px 24px" }}>
+              <p style={{ margin: "0 0 14px" }}>{s.specialist.lead}</p>
+              <div className="cta-row">
+                <a className="btn-green" href={s.specialist.href}>{s.specialist.label} →</a>
+                {s.specialist.links.map((l) => (
+                  <a key={l.href} className="btn-outline" href={l.href}>{l.label}</a>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* FAQ */}
