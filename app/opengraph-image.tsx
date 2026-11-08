@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export const dynamic = "force-static";
 export const alt =
   "Alhaya Cleaning Services - Professional Carpet Deep Cleaning UAE";
 export const size = { width: 1200, height: 630 };
