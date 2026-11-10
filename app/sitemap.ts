@@ -1,6 +1,3 @@
-// Generated once at build time (static export for Cloudflare Pages).
-export const dynamic = 'force-static';
-
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";

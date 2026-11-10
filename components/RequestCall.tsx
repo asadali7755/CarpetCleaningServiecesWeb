@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { BRAND } from "./constants";
 import { SERVICES } from "@/lib/servicesData";
 
 type Step = "form" | "sending" | "done";
@@ -30,25 +29,22 @@ export default function RequestCall({ className = "btn-book" }: { className?: st
     if (!name.trim() || !phone.trim()) return;
     setStep("sending");
 
-    const key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-    if (key) {
-      try {
-        await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            access_key: key,
-            subject: `Callback Request — ${service}`,
-            from_name: BRAND,
-            name,
-            phone,
-            service,
-            request_type: "Callback Request",
-          }),
-        });
-      } catch {
-        /* show success anyway — data went to WhatsApp fallback below if needed */
-      }
+    // Same Resend route as the contact form, so callback requests reach the
+    // lead inbox without a separate Web3Forms key.
+    try {
+      await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "Callback Request",
+          name,
+          phone,
+          work: service,
+          time: new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" }),
+        }),
+      });
+    } catch {
+      /* show success anyway; the WhatsApp button stays available */
     }
     setStep("done");
   };

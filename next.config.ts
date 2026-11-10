@@ -9,13 +9,11 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Static export for Cloudflare Pages (Vercel Hobby was paused on 7 Nov 2026).
-  // The enquiry form runs as a Pages Function (functions/api/enquiry.js); the
-  // headers below are mirrored in public/_headers and the non-www -> www
-  // redirect in functions/_middleware.js, since an export cannot run them.
-  output: "export",
   reactCompiler: true,
-  images: { unoptimized: true },
+  // Hostinger shared hosting caps how many processes a build may start, so
+  // keep the build to one worker.
+  experimental: { cpus: 1 },
+  images: {},
   turbopack: {
     root: path.resolve(__dirname),
   },
