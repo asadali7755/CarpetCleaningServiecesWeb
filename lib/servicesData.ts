@@ -114,7 +114,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
   },
   {
-    num: "04", slug: "rug-cleaning", name: "Specialized Rug Care", h2: "Specialized Rug Cleaning by Fabric Type — Dubai",
+    num: "04", slug: "rug-cleaning", name: "Specialized Rug Care", h2: "Rug Cleaning Dubai — Persian, Wool & Silk Rugs",
     icon: "rug", kw: "Persian rug cleaning Dubai · wool carpet cleaning · shaggy rug cleaning UAE · oriental rug care",
     img: "/images/services/specialized-rug-care-service-dubai.webp",
     cardImg: "/images/services/specialized-rug-care-service-dubai.webp",
@@ -135,6 +135,7 @@ export const SERVICES: ServiceDetail[] = [
       { t: "Synthetic (Nylon/Poly)", d: "High-pressure deep shampoo extraction for maximum stain removal." },
     ],
     faqs: [
+      { q: "How much does rug cleaning cost in Dubai?", a: "It depends on the rug's size, its material (wool, silk, Persian or synthetic) and how soiled or stained it is. Send a photo and the rough size on WhatsApp and we reply with a free quote for that rug." },
       { q: "Can you clean antique Persian rugs safely?", a: "Yes. We use a low-moisture, pH-neutral hand wash technique specifically designed for handmade rugs with vegetable dyes. We inspect the fringe, selvedge, and backing for existing damage before cleaning, and we test dye fastness on a hidden area before applying any solution. Our process is gentle enough for antique pieces." },
       { q: "How do you clean a shaggy rug without damaging the pile?", a: "We use specialized tools designed for deep pile that reach the base of the rug without tangling the long fibres. The process involves careful agitation from the base up, loosening trapped sand and dirt, followed by extraction. The result is usually dramatic because shaggy rugs hide a surprising amount of debris." },
       { q: "Do you offer rug pickup and delivery?", a: "Yes. For rugs that benefit from off-site cleaning — such as heavily soiled rugs, delicate handmade pieces, or rugs needing extended drying time — we offer free pickup and delivery across Dubai, Sharjah, and Ajman. We wrap and transport your rug carefully to our cleaning facility and return it cleaned, dried, and ready to use." },

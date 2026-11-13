@@ -33,11 +33,11 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Professional Carpet Deep Cleaning Services UAE | Alhaya Cleaning Services",
+    default: "Carpet Cleaning Dubai & UAE | Carpet Cleaning Services at Home",
     template: "%s | Alhaya Cleaning Services",
   },
   description:
-    "Professional carpet deep shampoo cleaning with 2-4 hours dry time. Residential and commercial carpet cleaning across Dubai, Abu Dhabi, Sharjah & all UAE Emirates. Stubborn stain removal & odor elimination.",
+    "Carpet cleaning services in Dubai, Abu Dhabi, Sharjah and all UAE emirates: deep shampoo at your home or office, stain and odour removal, 2-4 hours dry time. Free quote on WhatsApp.",
   keywords: [
     "carpet deep shampoo cleaning",
     "professional carpet cleaning UAE",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     locale: "en_AE",
     url: SITE_URL,
     siteName: BRAND,
-    title: "Professional Carpet Deep Cleaning Services UAE | Alhaya Cleaning Services",
+    title: "Carpet Cleaning Dubai & UAE | Carpet Cleaning Services at Home",
     description:
       "Residential and commercial carpet deep shampoo cleaning with 2-4 hours dry time. Erase stubborn stains and eliminate odors across all UAE Emirates.",
     images: [
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Professional Carpet Deep Cleaning Services UAE | Alhaya Cleaning Services",
+    title: "Carpet Cleaning Dubai & UAE | Carpet Cleaning Services at Home",
     description:
       "Carpet deep shampoo cleaning with 2-4 hours dry time. Stubborn stain removal across all UAE Emirates.",
     images: [`${SITE_URL}/opengraph-image`],

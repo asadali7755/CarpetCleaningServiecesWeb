@@ -42,7 +42,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "sharjah", name: "Sharjah", ar: "الشارقة", image: "/emirates/sharjah.webp",
-    h1: "Carpet Cleaning Sharjah — Fast, Trusted Service",
+    h1: "Carpet Cleaning Sharjah — Homes, Villas & Offices",
     intro: "Professional carpet, rug, sofa and mattress cleaning across Sharjah. From Al Majaz apartments to Muwaileh villas, our trained crew delivers deep steam cleaning and same-day service with eco-friendly products.",
     body: [
       "We serve all of Sharjah with carpet deep shampoo cleaning, rug cleaning, upholstery and mattress sanitisation, plus office and villa contracts. Pickup-and-return is available for rugs and curtains. Same-day appointments across Sharjah, transparent pricing and a written satisfaction guarantee on every job.",
@@ -83,7 +83,7 @@ export const LOCATIONS: Location[] = [
   },
   {
     slug: "abu-dhabi", name: "Abu Dhabi", ar: "أبوظبي", image: "/emirates/abu-dhabi.webp",
-    h1: "Carpet Cleaning Abu Dhabi — Capital Service",
+    h1: "Carpet Cleaning Abu Dhabi & Mussafah — Homes & Offices",
     intro: "Deep carpet, rug, sofa and mattress cleaning across Abu Dhabi — from Khalifa City villas to Corniche apartments and Mussafah commercial spaces. Eco-friendly products and reliable, scheduled service.",
     body: [
       "We run regular Abu Dhabi routes covering the full service range: carpet deep shampoo cleaning, rug cleaning, upholstery, mattress sanitisation and commercial carpet contracts. Bookings are typically scheduled within 48 hours, with priority slots available for urgent requests. Free on-site quote across the emirate, with overnight and weekend slots for commercial clients.",
@@ -178,6 +178,25 @@ export const LOCATIONS: Location[] = [
   },
 ];
 
+/**
+ * "carpet cleaning <emirate> price/cost" is searched for every emirate, so each
+ * page answers it (without a figure: quotes depend on the carpet).
+ */
+function withPriceFaq(l: Location): Location {
+  if (l.faqs.some((f) => /\b(cost|price|pricing)\b/i.test(f.q))) return l;
+  return {
+    ...l,
+    faqs: [
+      {
+        q: `How much does carpet cleaning cost in ${l.name}?`,
+        a: `It depends on the carpet's size, its fibre (wool, silk or synthetic) and how stained or dusty it is. Send a photo and the rough size on WhatsApp and we reply with a free quote for your carpets in ${l.name}.`,
+      },
+      ...l.faqs,
+    ],
+  };
+}
+
 export function getLocation(slug: string): Location | undefined {
-  return LOCATIONS.find((l) => l.slug === slug);
+  const l = LOCATIONS.find((x) => x.slug === slug);
+  return l ? withPriceFaq(l) : undefined;
 }

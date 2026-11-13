@@ -32,7 +32,7 @@ export default function ServicesHub() {
             <span style={{ color: "var(--teal)" }}>Services</span>
           </nav>
           <p className="eyebrow teal">Our Services</p>
-          <h1 className="grad-text">Professional Carpet &amp; Upholstery Cleaning</h1>
+          <h1 className="grad-text">Carpet, Rug &amp; Upholstery Cleaning Services</h1>
           <p className="lead">
             Industry-leading equipment and eco-friendly solutions for homes and businesses across the UAE.
           </p>

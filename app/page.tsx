@@ -59,7 +59,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-col">
-          <h1 className="grad-text">Professional Carpet Cleaning Dubai</h1>
+          <h1 className="grad-text">Carpet Cleaning in Dubai &amp; the UAE</h1>
           <p className="hero-lead">
             Expert carpet, rug and upholstery cleaning across all 7 UAE Emirates. Deep shampoo extraction,
             stubborn stain removal, and odor treatment — fast drying, eco-friendly, and fully transparent pricing.
