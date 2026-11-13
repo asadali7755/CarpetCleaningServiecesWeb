@@ -1,10 +1,31 @@
+export interface BlogSection {
+  h2: string;
+  /** HTML items: one paragraph each, or a whole <h3>, <ul>, <ol> or <div> block. */
+  body: string[];
+}
+export interface BlogFaq {
+  q: string;
+  a: string;
+}
+export interface BlogLink {
+  label: string;
+  href: string;
+}
 export interface BlogPost {
   slug: string;
   title: string;
   description: string;
   kw: string[];
   date: string;
+  /** Plain paragraphs (hand-written posts). */
   body: string[];
+  /** Posts from the SEO agents: H1, intro and H2 sections, FAQs, related links. */
+  h1?: string;
+  intro?: string;
+  sections?: BlogSection[];
+  faqs?: BlogFaq[];
+  related?: BlogLink[];
+  readMins?: number;
 }
 
 import generatedPosts from './generated-blog-posts.json'

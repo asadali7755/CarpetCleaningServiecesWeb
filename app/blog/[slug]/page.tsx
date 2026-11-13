@@ -59,6 +59,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     datePublished: p.date,
     dateModified: p.date,
   };
+  const faqSchema = p.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: p.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+  const isBlock = (html: string) => /^<(h3|ul|ol|div)[\s>]/.test(html);
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -73,6 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <div className="page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
       <Nav />
 
       <main>
@@ -82,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <Link href="/blog">Blog</Link><span className="sep">/</span>
             <span style={{ color: "var(--green)" }}>{p.title.length > 40 ? p.title.slice(0, 40) + "…" : p.title}</span>
           </nav>
-          <h1>{p.title}</h1>
+          <h1>{p.h1 ?? p.title}</h1>
           <p className="lead">{p.description}</p>
           <time style={{ fontSize: 14, color: "var(--text-2)" }}>{p.date}</time>
         </section>
@@ -92,7 +105,47 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <Image src={BLOG_IMAGES[POSTS.findIndex((x) => x.slug === p.slug) % BLOG_IMAGES.length]} alt={`${p.title} — Al Haya Carpet Cleaning Dubai`} width={1280} height={520} loading="lazy" style={{ width: "100%", height: "auto" }} />
           </div>
           <div className="prose">
-            {p.body.map((para, i) => <p key={i}>{para}</p>)}
+            {p.sections ? (
+              <>
+                {p.intro && <p>{p.intro}</p>}
+                {p.sections.map((s, i) => (
+                  <div key={i}>
+                    <h2>{s.h2}</h2>
+                    {s.body.map((item, j) =>
+                      isBlock(item) ? (
+                        <div key={j} dangerouslySetInnerHTML={{ __html: item }} />
+                      ) : (
+                        <p key={j} dangerouslySetInnerHTML={{ __html: item }} />
+                      ),
+                    )}
+                  </div>
+                ))}
+                {p.faqs && p.faqs.length > 0 && (
+                  <div className="prose-faq">
+                    <h2>Frequently Asked Questions</h2>
+                    {p.faqs.map((f, i) => (
+                      <details key={i}>
+                        <summary>{f.q}</summary>
+                        <p>{f.a}</p>
+                      </details>
+                    ))}
+                  </div>
+                )}
+                {p.related && p.related.length > 0 && (
+                  <p className="prose-related">
+                    Related:{" "}
+                    {p.related.map((r, i) => (
+                      <span key={r.href}>
+                        {i > 0 && " · "}
+                        <Link href={r.href}>{r.label}</Link>
+                      </span>
+                    ))}
+                  </p>
+                )}
+              </>
+            ) : (
+              p.body.map((para, i) => <p key={i}>{para}</p>)
+            )}
           </div>
         </section>
 
