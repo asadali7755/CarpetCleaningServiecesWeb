@@ -15,9 +15,9 @@
     "@types/three": "^0.184.1",
     "@vercel/analytics": "^2.0.1",
     "motion": "^12.40.0",
-    "next": "16.2.6",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "next": "16.4.6",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
     "resend": "^6.19.0",
     "three": "^0.184.0"
   },
@@ -27,7 +27,7 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.2.6",
+    "eslint-config-next": "16.4.6",
     "typescript": "^5"
   }
 }
