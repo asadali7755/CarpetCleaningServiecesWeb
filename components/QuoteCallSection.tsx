@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRequestCall, useToast } from './RequestCallModal';
 import { sendEnquiry } from '@/lib/sendEmail';
+import SendFailNote from './SendFailNote';
 import { Icon } from './Icons';
 import { PHONE_DISPLAY, PHONE_TEL } from './constants';
 
@@ -20,15 +21,16 @@ export default function QuoteCallSection() {
   const [work, setWork] = useState('');
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!phone.trim()) return;
+    setFailed(false);
     setLoading(true);
-    try {
-      await sendEnquiry({ type: 'Free Quote Request', phone, name: name || '—', work: work || 'Carpet Cleaning' });
-    } catch {}
+    const ok = await sendEnquiry({ type: 'Free Quote Request', phone, name: name || '—', work: work || 'Carpet Cleaning' });
     setLoading(false);
+    if (!ok) { setFailed(true); return; }
     setSent(true);
     showToast('Quote request sent! We will contact you shortly.');
   };
@@ -142,6 +144,7 @@ export default function QuoteCallSection() {
                 <button type="submit" className="btn-green" disabled={loading} style={{ border: 'none', cursor: 'pointer', width: '100%', justifyContent: 'center' }}>
                   {loading ? 'Sending...' : 'Request Free Visit'}
                 </button>
+                {failed && <SendFailNote />}
                 <p style={{ color: 'var(--text-3)', fontSize: 12, textAlign: 'center', margin: 0 }}>
                   No spam. No obligation.{' '}
                   <a

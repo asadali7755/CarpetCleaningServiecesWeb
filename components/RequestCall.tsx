@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { SERVICES } from "@/lib/servicesData";
+import { sendEnquiry } from "@/lib/sendEmail";
+import SendFailNote from "./SendFailNote";
 
-type Step = "form" | "sending" | "done";
+type Step = "form" | "sending" | "done" | "error";
 
 export default function RequestCall({ className = "btn-book" }: { className?: string }) {
   const [open, setOpen] = useState(false);
@@ -29,24 +31,10 @@ export default function RequestCall({ className = "btn-book" }: { className?: st
     if (!name.trim() || !phone.trim()) return;
     setStep("sending");
 
-    // Same Resend route as the contact form, so callback requests reach the
-    // lead inbox without a separate Web3Forms key.
-    try {
-      await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "Callback Request",
-          name,
-          phone,
-          work: service,
-          time: new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" }),
-        }),
-      });
-    } catch {
-      /* show success anyway; the WhatsApp button stays available */
-    }
-    setStep("done");
+    // Same Resend route as the other forms. Only show success when the
+    // server confirmed the email went out.
+    const ok = await sendEnquiry({ type: "Callback Request", name, phone, work: service });
+    setStep(ok ? "done" : "error");
   };
 
   return (
@@ -115,6 +103,7 @@ export default function RequestCall({ className = "btn-book" }: { className?: st
                   <button type="submit" className="btn-green rc-submit" disabled={step === "sending"}>
                     {step === "sending" ? "Sending..." : "Send Request →"}
                   </button>
+                  {step === "error" && <SendFailNote />}
                 </form>
               </>
             )}

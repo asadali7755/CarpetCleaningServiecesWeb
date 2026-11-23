@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { SERVICES } from "@/lib/servicesData";
+import { sendEnquiry } from "@/lib/sendEmail";
+import SendFailNote from "./SendFailNote";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -14,34 +16,21 @@ export default function ContactForm() {
 
   const send = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() && !phone.trim()) return;
+    if (!phone.trim()) return;
 
     setStatus("sending");
-
-    try {
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "Contact Form",
-          name: name || "(not given)",
-          phone: phone || "(not given)",
-          work: `Service: ${service} | Message: ${msg || "(none)"}`,
-          time: new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" }),
-        }),
-      });
-      if (res.ok) {
-        setStatus("sent");
-        setName("");
-        setPhone("");
-        setService(SERVICES[0].name);
-        setMsg("");
-        return;
-      }
-      setStatus("error");
-    } catch {
-      setStatus("error");
-    }
+    const ok = await sendEnquiry({
+      type: "Contact Form",
+      name: name || "(not given)",
+      phone,
+      work: `Service: ${service} | Message: ${msg || "(none)"}`,
+    });
+    if (!ok) { setStatus("error"); return; }
+    setStatus("sent");
+    setName("");
+    setPhone("");
+    setService(SERVICES[0].name);
+    setMsg("");
   };
 
   if (status === "sent") {
@@ -73,7 +62,7 @@ export default function ContactForm() {
       </div>
       <div>
         <label htmlFor="cf-phone">Phone / WhatsApp</label>
-        <input id="cf-phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="05x xxx xxxx" />
+        <input id="cf-phone" type="tel" inputMode="tel" required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="05x xxx xxxx" />
       </div>
       <div>
         <label htmlFor="cf-service">Service needed</label>
@@ -85,9 +74,7 @@ export default function ContactForm() {
         <label htmlFor="cf-msg">Message</label>
         <textarea id="cf-msg" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Tell us about your carpets, rugs or sofas..." />
       </div>
-      {status === "error" && (
-        <p style={{ color: "red", fontSize: 14 }}>Something went wrong. Please try again.</p>
-      )}
+      {status === "error" && <SendFailNote />}
       <button type="submit" className="btn-green" style={{ alignSelf: "flex-start" }} disabled={status === "sending"}>
         {status === "sending" ? "Sending..." : "Send Email"}
       </button>

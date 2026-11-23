@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRequestCall, useToast } from './RequestCallModal';
 import { PHONE_TEL, waHref } from './constants';
 import { sendEnquiry } from '@/lib/sendEmail';
+import SendFailNote from './SendFailNote';
 
 const onDesktop = () => typeof window !== 'undefined' && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
@@ -14,15 +15,27 @@ export default function HeroEnquiryCard() {
   const [job, setJob] = useState('');
   const [err, setErr] = useState('');
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [desktop, setDesktop] = useState(false);
   useEffect(() => { setDesktop(onDesktop()); }, []);
 
   const submit = async () => {
     if (!number.trim()) { setErr('Please enter your phone number'); return; }
+    if (number.replace(/\D/g, '').length < 7) { setErr('Please enter a valid phone number'); return; }
     setErr('');
-    try { await sendEnquiry({ type: 'WhatsApp Quote (Hero)', phone: number, work: job, name: name || '—' }); } catch (e) { console.error('sendEnquiry:', e); }
-    setSent(true);
-    showToast('Enquiry sent! We\'ll be in touch shortly.');
+    setFailed(false);
+    setSending(true);
+    const ok = await sendEnquiry({ type: 'WhatsApp Quote (Hero)', phone: number, work: job, name: name || '—' });
+    setSending(false);
+    if (ok) {
+      setSent(true);
+      showToast('Enquiry sent! We\'ll be in touch shortly.');
+    } else {
+      // Keep what they typed; on desktop show WhatsApp / call links. On a
+      // phone the WhatsApp chat below still carries the details.
+      setFailed(true);
+    }
     if (!onDesktop()) {
       const msg = encodeURIComponent(`Hi, I need carpet cleaning services.\nWork: ${job || 'Carpet cleaning'}\nName: ${name}\nNumber: ${number}\n\n(Attaching photos of what needs cleaning for a free quote.)`);
       window.open(`https://wa.me/971551275545?text=${msg}`, '_blank');
@@ -54,12 +67,13 @@ export default function HeroEnquiryCard() {
         />
         {err && <span className="heq-err">{err}</span>}
         <div className="heq-btns">
-          <button className="heq-wa" onClick={submit} disabled={sent}>
+          <button className="heq-wa" onClick={submit} disabled={sent || sending}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            {sent ? 'Sent!' : desktop ? 'Send Enquiry' : 'WhatsApp'}
+            {sent ? 'Sent!' : sending ? 'Sending...' : desktop ? 'Send Enquiry' : 'WhatsApp'}
           </button>
           <button className="heq-call" onClick={open}>Request a Call</button>
         </div>
+        {failed && desktop && <SendFailNote />}
       </div>
     </div>
   );

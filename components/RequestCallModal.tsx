@@ -78,8 +78,14 @@ function RequestCallModal({ onClose, onSent }: { onClose: () => void; onSent: (m
     if (!phone.trim()) { setErr('Phone number is required'); return; }
     setErr('');
     setLoading(true);
-    try { await sendEnquiry({ type: 'Request a Call', phone, name: name || '—', work: work || 'Carpet Cleaning' }); } catch {}
+    const ok = await sendEnquiry({ type: 'Request a Call', phone, name: name || '—', work: work || 'Carpet Cleaning' });
     setLoading(false);
+    if (!ok) {
+      // Keep the modal open with what they typed; the WhatsApp and call
+      // links below still work.
+      setErr('Sorry, your request could not be sent. Please WhatsApp or call us below.');
+      return;
+    }
     onSent('We got your number! Expect a call back shortly.');
   };
 

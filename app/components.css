@@ -471,6 +471,13 @@
 .modal-alt a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px; border-radius: 10px; background: var(--surface-soft); border: 1px solid var(--border-2); color: var(--text); font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color 0.15s; }
 .modal-alt a:hover { border-color: var(--teal); }
 
+/* ---- Form send failure ---- */
+.send-fail { margin-top: 10px; padding: 12px 14px; border-radius: 10px; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; font-size: 13.5px; line-height: 1.5; text-align: left; }
+.send-fail p { margin: 0 0 8px; color: #991b1b; }
+.send-fail-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.send-fail-links a { display: inline-flex; padding: 7px 12px; border-radius: 8px; font-weight: 600; font-size: 13px; text-decoration: none; background: #15803d; color: #fff; }
+.send-fail-links a + a { background: #fff; color: #0e7490; border: 1.5px solid #0e7490; }
+
 /* ---- Success Toast ---- */
 .success-toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); z-index: 250; display: flex; align-items: center; gap: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 14px 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.25); animation: toastIn 0.3s ease; max-width: 420px; width: calc(100% - 40px); }
 @keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(16px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
