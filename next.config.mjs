@@ -10,11 +10,14 @@ const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self)" },
+  // One year, this host only (no includeSubDomains / preload).
+  { key: "Strict-Transport-Security", value: "max-age=31536000" },
 ];
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
+  poweredByHeader: false,
   // Hostinger shared hosting caps how many processes a build may start, so
   // keep the build to one worker.
   experimental: { cpus: 1 },

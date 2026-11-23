@@ -53,7 +53,7 @@
 .mbar a { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 14.5px; padding: 12px; border-radius: 10px; }
 .mbar a svg { width: 17px; height: 17px; }
 .mbar-call { background: var(--surface-soft); color: var(--text); border: 1px solid var(--border-2); }
-.mbar-wa { background: #25d366; color: #fff; }
+.mbar-wa { background: #15803d; color: #fff; }
 .mbar-req { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 14.5px; padding: 12px; border-radius: 10px; background: linear-gradient(135deg, var(--teal), var(--teal-2)); color: #fff; border: none; cursor: pointer; font-family: var(--sans); }
 .mbar-req svg { width: 17px; height: 17px; }
 
@@ -484,7 +484,7 @@
 /* ---- Hero Enquiry Card ---- */
 .hero-card-col { position: relative; display: flex; align-items: flex-start; justify-content: center; }
 .hero-enquiry-card { background: var(--bg); border: 1px solid var(--border); border-radius: 22px; padding: 28px 26px 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); width: 100%; max-width: 400px; }
-.heq-label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+.heq-label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-2); margin-bottom: 14px; }
 .heq-title { font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--text); line-height: 1.25; margin-bottom: 20px; }
 .heq-form { display: flex; flex-direction: column; gap: 12px; }
 .heq-form input { width: 100%; background: var(--surface-soft); border: 1px solid var(--border-2); border-radius: 11px; padding: 13px 15px; color: var(--text); font-family: var(--sans); font-size: 15px; transition: border-color 0.15s; }
@@ -492,11 +492,11 @@
 .heq-form input::placeholder { color: var(--text-3); }
 .heq-err { color: #e53e3e; font-size: 12px; margin-top: -4px; }
 .heq-btns { display: flex; gap: 10px; margin-top: 4px; }
-.heq-wa { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 12px; background: #25d366; color: #fff; font-family: var(--display); font-size: 14.5px; font-weight: 600; border: none; cursor: pointer; transition: opacity 0.15s; }
+.heq-wa { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 12px; background: #15803d; color: #fff; font-family: var(--display); font-size: 14.5px; font-weight: 600; border: none; cursor: pointer; transition: opacity 0.15s; }
 .heq-wa:hover { opacity: 0.9; }
 .heq-wa:disabled { opacity: 0.6; cursor: not-allowed; }
-.heq-call { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 13px 18px; border-radius: 12px; background: transparent; border: 1.5px solid var(--teal); color: var(--teal); font-family: var(--display); font-size: 14.5px; font-weight: 600; cursor: pointer; transition: background 0.18s, color 0.18s; }
-.heq-call:hover { background: var(--teal); color: #fff; }
+.heq-call { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 13px 18px; border-radius: 12px; background: transparent; border: 1.5px solid var(--teal-2); color: var(--teal-2); font-family: var(--display); font-size: 14.5px; font-weight: 600; cursor: pointer; transition: background 0.18s, color 0.18s; }
+.heq-call:hover { background: var(--teal-2); color: #fff; }
 
 @media (max-width: 880px) {
   .btn-req-call { display: none; }
