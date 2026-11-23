@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   keywords: [
     "carpet deep shampoo cleaning",
     "professional carpet cleaning UAE",
-    "best carpet shampooing services Dubai",
+    "carpet shampooing services Dubai",
     "residential and commercial carpet cleaning",
     "stubborn carpet stain removal UAE",
     "carpet odor removing",

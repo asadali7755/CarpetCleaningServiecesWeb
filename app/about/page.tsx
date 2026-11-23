@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const WHY = [
-  { t: "Trained & certified crew", d: "Uniformed, background-checked technicians using commercial-grade equipment." },
+  { t: "Trained & background-checked crew", d: "Trained, background-checked technicians who come to your home or office." },
   { t: "Eco-friendly & safe", d: "Non-toxic products that are safe for children, pets and sensitive skin." },
   { t: "Same-day service", d: "Book in the morning, enjoy fresh carpets the same evening across Dubai." },
   { t: "100% satisfaction", d: "Not happy with a spot? We re-clean it free — written guarantee on every job." },
@@ -48,7 +48,7 @@ export default function About() {
           </div>
           <div className="prose">
             <p>Carpets, rugs and upholstery trap dust, allergens and bacteria that ordinary vacuuming never reaches. We combine deep shampoo extraction, high-temperature steam sanitisation and careful stain treatment to restore your soft furnishings to a fresh, hygienic, like-new condition.</p>
-            <p>From a single rug to a full villa or a multi-floor office, our trained crew brings commercial-grade equipment and eco-friendly products to every job — with pickup-and-return for rugs and curtains, and convenient on-site service for carpets, sofas and mattresses.</p>
+            <p>From a single rug to a full villa or a multi-floor office, our trained crew brings professional cleaning equipment and eco-friendly products to every job — with pickup-and-return for rugs and curtains, and convenient on-site service for carpets, sofas and mattresses.</p>
           </div>
           <div className="about-split">
             <div className="about-split-img">

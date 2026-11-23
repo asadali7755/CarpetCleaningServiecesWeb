@@ -33,8 +33,8 @@ const GUIDE_SECTIONS = [
         a: `You can reach Al Haya Carpet Cleaning Services by phone or WhatsApp at ${PHONE_DISPLAY} (international: ${PHONE_TEL}), by email at ${EMAIL}, or through our website contact form at ${SITE_URL}/contact. We are available daily from 8:00 AM to 10:00 PM, seven days a week including weekends and public holidays. Same-day appointments are available across Dubai, Sharjah, and Ajman.`,
       },
       {
-        q: "Is Al Haya a licensed and insured cleaning company in the UAE?",
-        a: "Yes. Al Haya Carpet Cleaning Services is a fully licensed, insured, and registered cleaning company operating across the United Arab Emirates. All our technicians are trained, uniformed, and background-checked. We carry full liability insurance covering your property during every cleaning job.",
+        q: "Who comes to my home to clean the carpets?",
+        a: "A trained, background-checked Al Haya team comes to your home or office anywhere in the UAE. They bring the cleaning equipment and eco-friendly products that are safe for children and pets.",
       },
     ],
   },
@@ -45,11 +45,11 @@ const GUIDE_SECTIONS = [
     questions: [
       {
         q: "What carpet cleaning services does Al Haya offer in the UAE?",
-        a: "Al Haya Carpet Cleaning Services offers six core services across the UAE: (1) Carpet Deep Shampoo Cleaning — our signature service using industrial extraction with 2-4 hours dry time, (2) Professional Carpet Stain Removal — treating coffee, tea, Karak, ink, grease, cosmetics, and pet stains, (3) Deep Carpet Odor Removing — enzyme-based antimicrobial treatment that neutralizes odors at the molecular level, (4) Specialized Rug Care by Fabric Type — tailored cleaning for Persian, Oriental, wool, shaggy, and synthetic rugs, (5) Commercial and Office Carpet Cleaning — flexible after-hours scheduling for offices, hotels, clinics, and retail, (6) Sofa and Upholstery Cleaning — fabric and leather deep cleaning for sofas, armchairs, majlis seating, and dining chairs.",
+        a: "Al Haya Carpet Cleaning Services offers six core services across the UAE: (1) Carpet Deep Shampoo Cleaning — our main service, with 2-4 hours dry time, (2) Professional Carpet Stain Removal — treating coffee, tea, Karak, ink, grease, cosmetics, and pet stains, (3) Deep Carpet Odor Removing — enzyme-based antimicrobial treatment that neutralizes odors at the molecular level, (4) Specialized Rug Care by Fabric Type — tailored cleaning for Persian, Oriental, wool, shaggy, and synthetic rugs, (5) Commercial and Office Carpet Cleaning — flexible after-hours scheduling for offices, hotels, clinics, and retail, (6) Sofa and Upholstery Cleaning — fabric and leather deep cleaning for sofas, armchairs, majlis seating, and dining chairs.",
       },
       {
         q: "What is carpet deep shampoo cleaning and how does it work?",
-        a: "Carpet deep shampoo cleaning is Al Haya's signature service. The process involves applying a biodegradable, non-toxic deep cleaning shampoo to penetrate the carpet pile, breaking down compacted grime, dust mites, and allergens. Our advanced extraction technology then extracts 90% of water instantly during the rinse cycle. The full process includes: booking request, free inspection of fabric and stains, dust removal with high-power vacuum, deep shampoo application, enzyme stain treatment, high-heat steam sanitization, molecular odor neutralization, controlled air-drying, 30-point quality inspection, and delivery. Your carpet is fully dry, fresh, and ready to walk on within 2 to 4 hours.",
+        a: "Carpet deep shampoo cleaning is Al Haya's signature service. The process involves applying a biodegradable, non-toxic deep cleaning shampoo to penetrate the carpet pile, breaking down compacted grime, dust mites, and allergens. The extraction machine then rinses and vacuums at the same time, taking out the dirt and most of the water. The full process includes: booking request, free inspection of fabric and stains, dust removal with high-power vacuum, deep shampoo application, enzyme stain treatment, high-heat steam sanitization, molecular odor neutralization, controlled air-drying, a final quality check, and delivery. Your carpet is fully dry, fresh, and ready to walk on within 2 to 4 hours.",
       },
       {
         q: "Can you remove stubborn stains from carpets in Dubai?",
@@ -76,15 +76,15 @@ const GUIDE_SECTIONS = [
   {
     id: "process",
     eyebrow: "/ HOW IT WORKS",
-    title: "Our 11-Step Cleaning Process",
+    title: "Our Cleaning Process",
     questions: [
       {
         q: "What is the step-by-step carpet cleaning process at Al Haya?",
-        a: "Al Haya follows an 11-step professional carpet cleaning process: Step 1 — Booking Request: Book online, by phone, or WhatsApp in under a minute. Step 2 — Free Inspection: We assess fabric type, stains, and determine the best cleaning method at no cost. Step 3 — Pickup or On-Site: Doorstep collection or we clean in place, your choice. Step 4 — Dust Removal: High-power vacuum and beating extracts dry dirt and grit. Step 5 — Deep Shampoo: Industrial extraction shampoo loosens embedded grime. Step 6 — Stain Treatment: Enzyme spot-treatment targets stubborn marks individually. Step 7 — Steam Sanitization: High-heat steam kills bacteria, mites, and allergens. Step 8 — Odor Removal: Neutralizers eliminate odors at the molecular source. Step 9 — Drying Process: Controlled air-drying restores loft without shrinkage. Step 10 — Quality Inspection: Final check against our 30-point quality standard. Step 11 — Delivery/Done: Carpet returned fresh, sanitized, and ready to enjoy.",
+        a: "This is Al Haya's carpet cleaning process, step by step: Step 1 — Booking Request: Book online, by phone, or WhatsApp in under a minute. Step 2 — Free Inspection: We assess fabric type, stains, and determine the best cleaning method at no cost. Step 3 — Pickup or On-Site: Doorstep collection or we clean in place, your choice. Step 4 — Dust Removal: High-power vacuum and beating extracts dry dirt and grit. Step 5 — Deep Shampoo: Shampoo is worked into the pile to loosen embedded grime. Step 6 — Stain Treatment: Enzyme spot-treatment targets stubborn marks individually. Step 7 — Steam: Steam freshens the fibres after the shampoo. Step 8 — Odor Removal: Neutralizers eliminate odors at the molecular source. Step 9 — Drying Process: Controlled air-drying restores loft without shrinkage. Step 10 — Quality Check: We check every cleaned area with you before we leave. Step 11 — Delivery/Done: Carpet returned fresh, sanitized, and ready to enjoy.",
       },
       {
         q: "How long does it take for carpets to dry after cleaning?",
-        a: "After Al Haya's carpet deep shampoo cleaning, your carpet will be completely dry, fresh, and ready to walk on within 2 to 4 hours. Our high-power industrial extraction machinery extracts 90% of moisture instantly during the rinse cycle. The exact drying time depends on your indoor AC settings and room ventilation. This rapid dry time is a key advantage of our service — most competitors require 12 to 24 hours for carpets to dry.",
+        a: "After Al Haya's carpet deep shampoo cleaning, your carpet will be completely dry, fresh, and ready to walk on within 2 to 4 hours. Most of the water is taken out during the rinse. The exact drying time depends on your indoor AC settings and room ventilation.",
       },
       {
         q: "Does Al Haya offer a free carpet inspection before cleaning?",
@@ -111,7 +111,7 @@ const GUIDE_SECTIONS = [
       },
       {
         q: "Can Al Haya come to my home or office for carpet cleaning?",
-        a: "Yes. Al Haya offers both on-site cleaning and pickup-and-return service. For on-site cleaning, our team brings all commercial-grade equipment to your home, villa, apartment, or office and cleans carpets, rugs, sofas, and mattresses in place. For rug cleaning, we also offer doorstep collection — we pick up your rugs, clean them at our facility, and return them fresh and sanitized. The choice is entirely yours. Same-day appointments are available across Dubai, Sharjah, and Ajman.",
+        a: "Yes. Al Haya offers both on-site cleaning and pickup-and-return service. For on-site cleaning, our team brings all the cleaning equipment to your home, villa, apartment, or office and cleans carpets, rugs, sofas, and mattresses in place. For rug cleaning, we also offer doorstep collection — we pick up your rugs, clean them at our facility, and return them fresh and sanitized. The choice is entirely yours. Same-day appointments are available across Dubai, Sharjah, and Ajman.",
       },
     ],
   },
@@ -130,7 +130,7 @@ const GUIDE_SECTIONS = [
       },
       {
         q: "Does Al Haya offer a satisfaction guarantee for carpet cleaning?",
-        a: "Yes. Al Haya provides a 100% satisfaction guarantee on every carpet cleaning job. If you are not completely satisfied with any spot or area after our cleaning, we will re-clean it free of charge — this is a written guarantee included with every booking. Our 30-point quality inspection process ensures that every carpet meets our high standards before it is returned to you.",
+        a: "Yes. Al Haya provides a 100% satisfaction guarantee on every carpet cleaning job. If you are not completely satisfied with any spot or area after our cleaning, we will re-clean it free of charge — this is a written guarantee included with every booking.",
       },
       {
         q: "What payment methods does Al Haya accept?",
@@ -149,11 +149,11 @@ const GUIDE_SECTIONS = [
       },
       {
         q: "Does carpet cleaning help with allergies and indoor air quality?",
-        a: "Yes. Professional carpet deep cleaning significantly improves indoor air quality by removing trapped allergens including dust mites, pollen, pet dander, mold spores, and fine sand particles. In the UAE, where air conditioning runs continuously and windows are rarely opened, carpets act as large-scale air filters that accumulate these particles over time. Al Haya's high-heat steam sanitization kills bacteria, dust mites, and allergens, while our extraction process physically removes them from the carpet fibers. Regular professional cleaning every 6-12 months is recommended for allergy sufferers.",
+        a: "Yes. Professional carpet deep cleaning significantly improves indoor air quality by removing trapped allergens including dust mites, pollen, pet dander, mold spores, and fine sand particles. In the UAE, where air conditioning runs continuously and windows are rarely opened, carpets act as large-scale air filters that accumulate these particles over time. A deep shampoo and extraction physically removes much of this from the carpet fibres. Regular professional cleaning every 6-12 months is recommended for allergy sufferers.",
       },
       {
         q: "What equipment does Al Haya use for carpet cleaning?",
-        a: "Al Haya uses commercial-grade, industrial-strength carpet cleaning equipment including: high-power extraction machines that remove 90% of moisture instantly, industrial-grade deep shampoo units, high-temperature steam sanitization equipment (killing bacteria at 100°C+), specialized spot-treatment tools for individual stain removal, and high-velocity air movers for controlled drying. Our equipment is professional-grade — the same machines used by international hotel chains and commercial cleaning companies.",
+        a: "Our team brings portable carpet cleaning equipment to your home or office: a vacuum for dry dust and sand, shampoo and extraction machines that rinse and vacuum at the same time, spot-treatment tools for single stains, and air movers to help the carpet dry.",
       },
     ],
   },
@@ -172,11 +172,11 @@ const GUIDE_SECTIONS = [
       },
       {
         q: "What is the difference between carpet shampooing and steam cleaning?",
-        a: "Carpet shampooing and steam cleaning are two different but complementary methods. Carpet shampooing uses a biodegradable cleaning shampoo that is worked deep into the carpet pile to dissolve dirt, grime, and stains, then extracted using high-powered suction. Steam cleaning (hot water extraction) uses high-temperature water (100°C+) and powerful suction to sanitize and deep-clean the carpet, killing bacteria, dust mites, and allergens. Al Haya combines both methods in our 11-step process: we deep shampoo first to break down soiling, then follow with high-heat steam sanitization for thorough hygiene. This dual approach delivers superior results compared to either method alone.",
+        a: "Carpet shampooing and steam cleaning are two different but complementary methods. Carpet shampooing uses a biodegradable cleaning shampoo that is worked deep into the carpet pile to dissolve dirt, grime, and stains, then extracted using high-powered suction. Steam cleaning (hot water extraction) uses high-temperature water (100°C+) and powerful suction to sanitize and deep-clean the carpet, killing bacteria, dust mites, and allergens. Al Haya combines both methods: we deep shampoo first to break down soiling, then follow with steam to freshen the fibres.",
       },
       {
         q: "Can old, heavily soiled carpets be restored with professional cleaning?",
-        a: "In most cases, yes. Al Haya has successfully restored carpets that appeared beyond saving — heavily soiled with years of embedded dirt, multiple old stains, pet damage, and odor buildup. Our industrial-grade extraction and multi-step treatment process can remove the vast majority of soiling and staining. However, some permanent damage may occur from: bleach or chemical burns, color-fast dye transfer from clothing or furniture, severe sun fading, or long-term pet urine damage to the carpet backing. We always provide an honest assessment during our free inspection — we will tell you upfront what results to expect.",
+        a: "Often, yes. Carpets that look beyond saving — heavily soiled with years of embedded dirt, old stains, pet marks and odour — usually improve a lot with a deep shampoo and stain treatment. However, some permanent damage may occur from: bleach or chemical burns, color-fast dye transfer from clothing or furniture, severe sun fading, or long-term pet urine damage to the carpet backing. We always provide an honest assessment during our free inspection — we will tell you upfront what results to expect.",
       },
       {
         q: "Why is carpet cleaning important in the UAE desert climate?",
@@ -191,7 +191,7 @@ const GUIDE_SECTIONS = [
     questions: [
       {
         q: "What makes Al Haya different from other carpet cleaners in Dubai?",
-        a: "Al Haya stands apart from other carpet cleaning companies in Dubai and the UAE for several reasons: (1) Rapid 2-4 Hour Dry Time — our industrial extraction removes 90% of moisture instantly, while most competitors require 12-24 hours, (2) 11-Step Process — a thorough, multi-stage cleaning process including shampoo, stain treatment, steam sanitization, and odor removal, (3) All 7 Emirates — full UAE coverage from a single provider, (4) Fabric-Specific Care — different cleaning methods for Persian, wool, shaggy, and synthetic — not one-size-fits-all, (5) 100% Satisfaction Guarantee — written guarantee with free re-cleaning, (6) Eco-Friendly Products — non-toxic, biodegradable, child-safe and pet-safe, (7) Transparent Pricing — fixed quote before starting, no hidden charges, (8) Same-Day Service — available across Dubai, Sharjah, and Ajman.",
+        a: "What you get with Al Haya: (1) Quick Drying — carpets are usually dry in 2 to 4 hours, (2) A Thorough Process — shampoo, stain treatment, steam and odour removal in one visit, (3) All 7 Emirates — full UAE coverage from a single provider, (4) Fabric-Specific Care — different cleaning methods for Persian, wool, shaggy, and synthetic — not one-size-fits-all, (5) 100% Satisfaction Guarantee — written guarantee with free re-cleaning, (6) Eco-Friendly Products — non-toxic, biodegradable, child-safe and pet-safe, (7) Transparent Pricing — fixed quote before starting, no hidden charges, (8) Same-Day Service — available across Dubai, Sharjah, and Ajman.",
       },
       {
         q: "Does Al Haya offer same-day carpet cleaning service?",
@@ -213,7 +213,6 @@ export const metadata: Metadata = {
     "carpet cleaning guide Dubai",
     "carpet cleaning FAQ UAE",
     "how to clean carpets Dubai",
-    "best carpet cleaner UAE",
     "carpet cleaning tips Dubai",
     "professional carpet cleaning advice",
     "carpet stain removal guide",
@@ -225,7 +224,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Complete Carpet Cleaning Guide UAE — Al Haya",
     description:
-      "Expert carpet cleaning guide: services, 11-step process, pricing, fabric care tips, stain removal advice, and coverage across all 7 UAE Emirates.",
+      "Expert carpet cleaning guide: services, cleaning process, pricing, fabric care tips, stain removal advice, and coverage across all 7 UAE Emirates.",
     url: `${SITE_URL}/guides`,
   },
 };
@@ -336,10 +335,6 @@ export default function GuidesPage() {
               <div className="guide-fact">
                 <span className="guide-fact-label">Dry Time</span>
                 <span className="guide-fact-value">2 – 4 Hours</span>
-              </div>
-              <div className="guide-fact">
-                <span className="guide-fact-label">Water Extraction</span>
-                <span className="guide-fact-value">90% Instant</span>
               </div>
               <div className="guide-fact">
                 <span className="guide-fact-label">Guarantee</span>

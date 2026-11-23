@@ -34,7 +34,7 @@ export default function ServicesHub() {
           <p className="eyebrow teal">Our Services</p>
           <h1 className="grad-text">Carpet, Rug &amp; Upholstery Cleaning Services</h1>
           <p className="lead">
-            Industry-leading equipment and eco-friendly solutions for homes and businesses across the UAE.
+            Carpet, rug and upholstery cleaning at your home or office across the UAE, with eco-friendly products that are safe for kids and pets.
           </p>
           <div className="cta-row">
             <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp</a>

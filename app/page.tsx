@@ -22,7 +22,7 @@ const PRICES: Record<string, string> = {
 const ACCENTS = ["teal", "coral", "purple", "green"];
 
 const FAQS = [
-  { q: "How long does it take for the carpet to dry?", a: "Our high-power industrial extraction machinery vacuums out the vast majority of moisture instantly. Your carpet will be completely dry, fresh, and ready to walk on within a rapid 2 to 4 hours, depending on your indoor AC settings and room ventilation." },
+  { q: "How long does it take for the carpet to dry?", a: "Most of the water is taken out during the rinse, so your carpet will be dry, fresh, and ready to walk on within 2 to 4 hours, depending on your indoor AC settings and room ventilation." },
   { q: "Do you provide carpet cleaning services outside of Dubai?", a: "Yes, we provide comprehensive commercial and residential carpet cleaning services all over the UAE. Our mobile teams travel directly to your villa, apartment, or office building in Abu Dhabi, Sharjah, Ajman, Al Ain, Fujairah, and Ras Al Khaimah." },
   { q: "Are your cleaning chemicals safe for pets and children?", a: "Absolutely. At Alhaya Cleaning Services, we prioritize your family's health. All of our deep shampooing and carpet odor removing products are completely non-toxic, eco-friendly, and biodegradable." },
   { q: "What types of carpets and rugs can you clean?", a: "We handle all fabric types — Persian and Oriental rugs with pH-neutral hand wash, wool carpets with low-temperature extraction, shaggy deep pile rugs with deep agitation, and synthetic nylon/polyester carpets with high-pressure deep shampoo extraction." },
@@ -69,7 +69,7 @@ export default function Home() {
             <a className="btn-outline btn-teal" href={`tel:${PHONE_TEL}`}>Call Now</a>
           </div>
           <div className="hero-trust">
-            <span className="trust-green"><Icon name="check" /> Licensed &amp; Insured</span>
+            <span className="trust-green"><Icon name="check" /> Trained &amp; Background-Checked</span>
             <span className="trust-green"><Icon name="check" /> Eco-Friendly Products</span>
             <span className="trust-teal"><Icon name="check" /> Same-Day Available</span>
           </div>
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="inner">
           <div className="stat"><div className="stat-num">7</div><div className="stat-label">UAE Emirates Covered</div></div>
           <div className="stat"><div className="stat-num">2-4<small>hrs</small></div><div className="stat-label">Average Dry Time</div></div>
-          <div className="stat"><div className="stat-num">500+</div><div className="stat-label">Happy Customers</div></div>
+          <div className="stat"><div className="stat-num">Free</div><div className="stat-label">Quote on WhatsApp</div></div>
         </div>
       </section>
 
@@ -181,8 +181,8 @@ export default function Home() {
             </div>
             <div className="process-item">
               <div className="process-icon"><Icon name="shield" /></div>
-              <h3>Certified Professionals</h3>
-              <p>Trained, background-checked technicians who follow a consistent, quality-controlled cleaning process on every job.</p>
+              <h3>Trained, Checked Team</h3>
+              <p>Trained, background-checked technicians who come to your home or office and follow the same careful process on every job.</p>
             </div>
             <div className="process-item">
               <div className="process-icon"><Icon name="leaf" /></div>
@@ -238,7 +238,7 @@ export default function Home() {
           <div className="glow" />
           <div className="inner">
             <h2>Ready for a Spotless Carpet?</h2>
-            <p>Don&apos;t live with hidden sand, stubborn stains, or musty odors. Book the top-rated residential and commercial carpet cleaning specialists in the Emirates.</p>
+            <p>Don&apos;t live with hidden sand, stubborn stains, or musty odors. Book carpet cleaning at your home or office anywhere in the Emirates.</p>
             <div className="row">
               <a className="btn-cta" href={waHref()} target="_blank" rel="noopener">Get a Free Quote →</a>
               <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
