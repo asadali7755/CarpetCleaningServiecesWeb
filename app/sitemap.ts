@@ -18,7 +18,7 @@ const UPDATED = {
   about: "2026-11-23",
   contact: "2026-09-14",
   services: "2026-11-23", // lib/servicesData.ts
-  locations: "2026-11-13", // lib/locationsData.ts
+  locations: "2026-11-23", // lib/locationsData.ts
   guides: "2026-11-23", // lib/guidesData.ts
 };
 

@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     locale: "en_AE",
     url: SITE_URL,
     siteName: BRAND,
-    title: "Carpet Cleaning Dubai & UAE | Carpet Cleaning Services at Home",
+    title: "Carpet Cleaning Dubai & UAE | Home & Office Service",
     description:
       "Residential and commercial carpet deep shampoo cleaning with 2-4 hours dry time. Erase stubborn stains and eliminate odors across all UAE Emirates.",
     images: [
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Carpet Cleaning Dubai & UAE | Carpet Cleaning Services at Home",
+    title: "Carpet Cleaning Dubai & UAE | Home & Office Service",
     description:
       "Carpet deep shampoo cleaning with 2-4 hours dry time. Stubborn stain removal across all UAE Emirates.",
     images: [`${SITE_URL}/opengraph-image`],

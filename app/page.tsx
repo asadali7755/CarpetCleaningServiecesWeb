@@ -8,7 +8,7 @@ import HeroEnquiryCard from "@/components/HeroEnquiryCard";
 import { Icon } from "@/components/Icons";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL, BRAND, EMAIL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
-import { LOCATIONS } from "@/lib/locationsData";
+import { LOCATIONS, locationAnchor } from "@/lib/locationsData";
 
 const PRICES: Record<string, string> = {
   "carpet-cleaning": "25/sq meter",
@@ -204,10 +204,10 @@ export default function Home() {
             {LOCATIONS.map((l) => (
               <Link key={l.slug} href={`/locations/${l.slug}`} className="coverage-card">
                 <div className="coverage-card-img">
-                  <Image src={l.image} alt={`Carpet Cleaning ${l.name}`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+                  <Image src={l.image} alt={locationAnchor(l)} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
                 </div>
                 <div className="coverage-card-body">
-                  <h3>Carpet Cleaning {l.name}</h3>
+                  <h3>{locationAnchor(l)}</h3>
                   <span className="coverage-card-meta"><Icon name="pin" /> {l.resp} response · {l.cityCount}+ areas</span>
                 </div>
               </Link>

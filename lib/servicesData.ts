@@ -118,7 +118,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
   },
   {
-    num: "04", slug: "rug-cleaning", name: "Specialized Rug Care", h2: "Rug Cleaning Dubai — Persian, Wool & Silk Rugs",
+    num: "04", slug: "rug-cleaning", name: "Rug Cleaning", h2: "Rug Cleaning Dubai — Persian, Wool & Silk Rugs",
     metaDesc: "Rug cleaning in Dubai for Persian, wool, silk and shaggy rugs, with a method chosen for each fibre. Send a photo on WhatsApp for a free quote.",
     icon: "rug", kw: "Persian rug cleaning Dubai · wool carpet cleaning · shaggy rug cleaning UAE · oriental rug care",
     img: "/images/services/specialized-rug-care-service-dubai.webp",

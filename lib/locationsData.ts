@@ -16,16 +16,31 @@ export interface Location {
   resp: string;        // response-time line
   cityCount: number;
   faqs: Faq[];
+  // Link text used when other pages link here. Default: "Carpet Cleaning {name}".
+  // Dubai uses its own so "carpet cleaning dubai" stays with the home page.
+  anchor?: string;
+  // Extra internal links shown at the top of the page body.
+  seeAlso?: { before: string; label: string; href: string }[];
+}
+
+export function locationAnchor(l: Location): string {
+  return l.anchor ?? `Carpet Cleaning ${l.name}`;
 }
 
 export const LOCATIONS: Location[] = [
   {
     slug: "dubai", name: "Dubai", ar: "دبي", image: "/emirates/dubai.webp",
     metaDesc: "Carpet, rug and sofa cleaning at homes, villas and offices across Dubai: Marina, JLT, Jumeirah, Business Bay, Deira and more. Free quote on WhatsApp.",
-    h1: "Carpet Cleaning Dubai — Homes, Villas & Offices",
-    intro: "Al Haya is Dubai's trusted on-demand carpet cleaning service. From Marina towers to Jumeirah villas and Business Bay offices, we deep-clean, steam-sanitise and restore carpets, rugs, sofas and mattresses — with same-day pickup, clean and return anywhere in the city.",
+    h1: "Dubai Areas We Cover — Marina, JLT, Jumeirah, Deira & More",
+    anchor: "Dubai Areas We Cover",
+    seeAlso: [
+      { before: "For an overview of the service, see", label: "carpet cleaning in Dubai", href: "/" },
+      { before: "For Persian, wool and silk rugs, see", label: "rug cleaning in Dubai", href: "/services/rug-cleaning" },
+    ],
+    intro: "Our trained, background-checked team cleans carpets, rugs and sofas at homes, villas and offices in every part of Dubai, from Marina and JLT towers to Jumeirah villas, Business Bay offices and Deira apartments. Here is what each area usually needs.",
     body: [
-      "Dubai is our busiest service area, with multiple crews on the road daily. We cover carpet deep shampoo cleaning, rug cleaning, sofa and upholstery cleaning, mattress sanitisation, office carpet cleaning and curtain cleaning — all with eco-friendly, child-safe and pet-safe products. Same-day and emergency appointments are available across Dubai, with most central areas reached within 30 to 60 minutes.",
+      "Each part of Dubai brings its own carpet problems: closed windows and cooking smells in Marina and JLT towers, large rugs and majlis seating in Jumeirah and Al Barsha villas, heavy foot traffic in Business Bay offices, and sand and dust from building sites near Deira and Al Qusais. We plan each visit around the area and the home, and we use eco-friendly products that are safe for children and pets.",
+      "Newer communities such as JVC, Motor City, Silicon Oasis and The Springs have many family villas and townhouses, with fitted carpet in the bedrooms and rugs in the living room. Children and pets mean more spills and more dust, so we treat stains first and then deep shampoo the whole carpet.",
       "Dubai Marina and JBR tower apartments present specific carpet cleaning challenges. High-rise buildings mean carpets are rarely exposed to fresh air, trapping cooking odors and dust in the fibres over time. Compact apartment layouts mean furniture sits on carpets continuously, creating compression marks and hidden soiling underneath. Our technicians are experienced with tower apartment logistics — we bring all equipment in portable units and work efficiently in smaller spaces.",
       "Jumeirah, Al Barsha, and Arabian Ranches villas often have large statement rugs, wall-to-wall fitted carpets, and extensive majlis seating areas. Villa cleaning typically requires longer appointments and more equipment. We schedule villa jobs with dedicated time blocks to ensure every room receives thorough attention. For villas with Persian or handmade rugs, we offer specialized care including pickup, off-site cleaning, and delivery.",
       "Business Bay, DIFC, and Downtown Dubai offices are among the busiest commercial spaces in the UAE. High foot traffic, daily sand ingress, and regular coffee and food spills mean office carpets degrade faster than residential ones. We provide after-hours and weekend cleaning for commercial clients, ensuring zero business downtime. Regular maintenance contracts are available with monthly or quarterly scheduling.",

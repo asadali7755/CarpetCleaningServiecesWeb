@@ -9,7 +9,7 @@ import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, HOURS, waHref } from "@/components/constants";
 import QuoteCallSection from "@/components/QuoteCallSection";
 import { SERVICES } from "@/lib/servicesData";
-import { LOCATIONS } from "@/lib/locationsData";
+import { LOCATIONS, locationAnchor } from "@/lib/locationsData";
 import { GUIDES } from "@/lib/guidesData";
 
 /* ---------- Data ---------- */
@@ -423,7 +423,7 @@ export default function GuidesPage() {
             <div className="chips-row">
               {LOCATIONS.map((l) => (
                 <Link className="chip-link" key={l.slug} href={`/locations/${l.slug}`}>
-                  <Icon name="pin" /> Carpet Cleaning {l.name}
+                  <Icon name="pin" /> {locationAnchor(l)}
                 </Link>
               ))}
             </div>

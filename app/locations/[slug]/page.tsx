@@ -6,7 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
-import { LOCATIONS, getLocation } from "@/lib/locationsData";
+import { LOCATIONS, getLocation, locationAnchor } from "@/lib/locationsData";
 import { SERVICES } from "@/lib/servicesData";
 import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, waHref } from "@/components/constants";
@@ -107,6 +107,16 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
         <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
           <div className="prose">
+            {l.seeAlso && (
+              <p>
+                {l.seeAlso.map((s, i) => (
+                  <span key={s.href}>
+                    {i > 0 && " "}
+                    {s.before} <Link href={s.href}>{s.label}</Link>.
+                  </span>
+                ))}
+              </p>
+            )}
             {l.body.map((p, i) => (
               <div key={i}>
                 <p>{p}</p>
@@ -159,7 +169,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <h2 className="sec-title" style={{ fontSize: "clamp(20px,2.6vw,28px)" }}>Other emirates we serve</h2>
           <div className="chips-row">
             {others.map((o) => (
-              <Link key={o.slug} href={`/locations/${o.slug}`} className="chip-link"><Icon name="pin" /> Carpet Cleaning {o.name}</Link>
+              <Link key={o.slug} href={`/locations/${o.slug}`} className="chip-link"><Icon name="pin" /> {locationAnchor(o)}</Link>
             ))}
           </div>
         </section>
