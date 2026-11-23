@@ -33,11 +33,13 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Carpet Cleaning Dubai & UAE | Carpet Cleaning Services at Home",
-    template: "%s | Alhaya Cleaning Services",
+    default: "Carpet Cleaning Dubai & UAE | Home & Office Service",
+    // No brand suffix: it pushed 38 of 39 titles over 60 characters, and the
+    // brand name is still being decided. Keep each page title <= 60 chars.
+    template: "%s",
   },
   description:
-    "Carpet cleaning services in Dubai, Abu Dhabi, Sharjah and all UAE emirates: deep shampoo at your home or office, stain and odour removal, 2-4 hours dry time. Free quote on WhatsApp.",
+    "Carpet cleaning in Dubai, Abu Dhabi, Sharjah and all UAE emirates: deep shampoo at your home or office, stain and odour removal. Free quote on WhatsApp.",
   keywords: [
     "carpet deep shampoo cleaning",
     "professional carpet cleaning UAE",

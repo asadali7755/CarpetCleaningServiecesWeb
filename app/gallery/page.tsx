@@ -10,7 +10,7 @@ import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/
 export const metadata: Metadata = {
   title: "Gallery — Real Carpet Cleaning Results Dubai & UAE",
   description:
-    "Browse real carpet cleaning photos and videos from Alhaya Cleaning Services. See before-after results, deep shampoo cleaning, stain removal, rug care and sofa cleaning across Dubai and all UAE Emirates.",
+    "Photos and videos of our carpet, rug and sofa cleaning jobs in Dubai and across the UAE: deep shampoo, stain removal and rug care, before and after.",
   alternates: { canonical: `${SITE_URL}/gallery` },
   openGraph: {
     title: "Gallery — Real Carpet Cleaning Results | Alhaya Cleaning Services",

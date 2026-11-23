@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const s = getService(slug);
   if (!s) return {};
   const title = s.h2;
-  const description = `${s.intro} Free quote · ${PHONE_DISPLAY}.`.slice(0, 320);
+  const description = s.metaDesc;
   const url = `${SITE_URL}/services/${s.slug}`;
   return {
     title,

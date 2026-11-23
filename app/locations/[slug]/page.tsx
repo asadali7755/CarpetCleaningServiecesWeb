@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const l = getLocation(slug);
   if (!l) return {};
   const title = l.h1;
-  const description = `${l.intro}`.slice(0, 320);
+  const description = l.metaDesc;
   const url = `${SITE_URL}/locations/${l.slug}`;
   return {
     title,

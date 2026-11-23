@@ -23,9 +23,9 @@ const BLOG_THUMBS = [
 const BORDER_COLORS = ["#0891B2", "#F97316", "#7C3AED", "#10B981"];
 
 export const metadata: Metadata = {
-  title: "Carpet Cleaning Blog — Tips, Guides & Expert Advice | Al Haya",
+  title: "Carpet Cleaning Blog — Tips & Advice for UAE Homes",
   description:
-    "Expert carpet cleaning articles from Al Haya. Tips for maintaining carpets in the UAE climate, stain removal advice, move-in/move-out guides, and more.",
+    "Carpet care articles for UAE homes: sand, humidity, stains, odours, moving out and choosing the right carpet. Practical tips from the Al Haya team.",
   keywords: [
     "carpet cleaning blog",
     "carpet cleaning tips Dubai",

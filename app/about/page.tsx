@@ -9,8 +9,8 @@ import RequestCall from "@/components/RequestCall";
 import { SITE_URL, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 export const metadata: Metadata = {
-  title: "About Us — Trusted Carpet Cleaning in the UAE",
-  description: "Al Haya Carpet Services is a trusted, eco-friendly carpet, rug and upholstery cleaning company serving homes and businesses across all 7 emirates of the UAE.",
+  title: "About Us — Carpet Cleaning Team in the UAE",
+  description: "Al Haya cleans carpets, rugs and upholstery at homes and offices in all 7 UAE emirates, with a trained, background-checked team and eco-friendly products.",
   alternates: { canonical: `${SITE_URL}/about` },
 };
 

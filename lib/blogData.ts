@@ -34,7 +34,7 @@ const handWrittenPosts: BlogPost[] = [
   {
     slug: "why-carpets-get-dirty-fast-uae",
     title: "Why Carpets Get Dirty So Fast in the UAE",
-    description: "Understand the environmental factors that cause rapid carpet soiling in Dubai and across the UAE — from desert sand to AC humidity — and what you can do about it.",
+    description: "Why carpets get dirty so fast in Dubai and the UAE, from desert sand to AC humidity, and what you can do about it.",
     kw: ["why carpets get dirty UAE", "carpet soiling Dubai", "sand damage carpet", "UAE carpet problems"],
     date: "2026-06-21",
     body: [
@@ -49,8 +49,8 @@ const handWrittenPosts: BlogPost[] = [
   },
   {
     slug: "move-in-move-out-carpet-cleaning-dubai",
-    title: "Move-In / Move-Out Carpet Cleaning in Dubai — What You Need to Know",
-    description: "Everything tenants and landlords need to know about carpet cleaning when moving in or out of a Dubai rental. Learn what is expected, who pays, and how to protect your deposit.",
+    title: "Move-In / Move-Out Carpet Cleaning in Dubai: A Guide",
+    description: "Carpet cleaning when you move in or out of a Dubai rental: what landlords expect, who usually pays, and how to protect your deposit.",
     kw: ["move in carpet cleaning Dubai", "move out cleaning Dubai", "rental carpet cleaning UAE", "deposit carpet cleaning"],
     date: "2026-06-21",
     body: [
@@ -65,8 +65,8 @@ const handWrittenPosts: BlogPost[] = [
   },
   {
     slug: "carpet-vs-hard-floor-dubai-homes",
-    title: "Carpet vs Hard Flooring in Dubai Homes — Pros, Cons and Maintenance",
-    description: "Comparing carpet and hard flooring for Dubai homes. Learn the maintenance requirements, comfort trade-offs, and cleaning considerations for each option in the UAE climate.",
+    title: "Carpet vs Hard Flooring in Dubai Homes: Pros and Cons",
+    description: "Carpet or hard flooring for your Dubai home? Compare comfort, upkeep and cleaning needs for each in the UAE climate.",
     kw: ["carpet vs hard floor Dubai", "best flooring Dubai homes", "carpet maintenance UAE", "carpet or tile Dubai"],
     date: "2026-06-21",
     body: [
@@ -82,7 +82,7 @@ const handWrittenPosts: BlogPost[] = [
   {
     slug: "summer-carpet-cleaning-tips-uae",
     title: "Summer Carpet Cleaning Tips for UAE Residents",
-    description: "How to protect and maintain your carpets during the UAE's intense summer months. Practical tips for managing humidity, sand, and AC-related carpet issues from June to September.",
+    description: "How to look after carpets in the UAE summer: managing humidity, sand and AC-related problems from June to September.",
     kw: ["summer carpet cleaning UAE", "carpet care summer Dubai", "humidity carpet damage", "summer carpet tips"],
     date: "2026-06-21",
     body: [
@@ -98,7 +98,7 @@ const handWrittenPosts: BlogPost[] = [
   {
     slug: "remove-carpet-odor-dubai-apartment",
     title: "How to Get Rid of Carpet Odors in Dubai Apartments",
-    description: "Practical solutions for eliminating carpet odors in UAE apartments. Learn why carpets smell, what causes musty odors in Dubai, and when professional treatment is needed.",
+    description: "Why carpets smell in Dubai apartments, what causes musty odours, and when a professional clean is the right fix.",
     kw: ["carpet odor removal Dubai", "smelly carpet UAE", "musty carpet apartment", "carpet smell removal"],
     date: "2026-06-22",
     body: [
@@ -113,8 +113,8 @@ const handWrittenPosts: BlogPost[] = [
   },
   {
     slug: "pet-friendly-carpet-cleaning-uae",
-    title: "Pet-Friendly Carpet Cleaning in the UAE — Safe for Cats and Dogs",
-    description: "How to keep carpets clean and safe in UAE homes with pets. Learn about pet-safe cleaning products, stain removal, and professional cleaning options for pet owners.",
+    title: "Pet-Friendly Carpet Cleaning in the UAE: Cats and Dogs",
+    description: "Keeping carpets clean in UAE homes with pets: pet-safe products, how to treat accidents, and when to book a professional clean.",
     kw: ["pet friendly carpet cleaning Dubai", "pet stain carpet UAE", "carpet cleaning safe for dogs", "pet urine carpet removal"],
     date: "2026-06-22",
     body: [
@@ -130,7 +130,7 @@ const handWrittenPosts: BlogPost[] = [
   {
     slug: "best-carpet-types-dubai-climate",
     title: "Best Carpet Types for the Dubai Climate — A Buyer's Guide",
-    description: "Choosing the right carpet for Dubai and UAE homes. Compare wool, nylon, polyester, polypropylene and silk carpets for durability, comfort and cleanability in the Gulf climate.",
+    description: "Choosing a carpet for a Dubai or UAE home: wool, nylon, polyester, polypropylene and silk compared for wear, comfort and cleaning.",
     kw: ["best carpet Dubai", "carpet types UAE", "wool carpet Dubai", "nylon vs polyester carpet UAE"],
     date: "2026-06-22",
     body: [
@@ -145,8 +145,8 @@ const handWrittenPosts: BlogPost[] = [
   },
   {
     slug: "sofa-cleaning-dubai-complete-guide",
-    title: "Sofa Cleaning in Dubai — A Complete Guide for Every Fabric Type",
-    description: "Everything you need to know about professional sofa cleaning in Dubai. Covers fabric, leather, velvet, microfiber and majlis cleaning with care tips and pricing expectations.",
+    title: "Sofa Cleaning in Dubai: A Guide for Every Fabric Type",
+    description: "Sofa cleaning in Dubai for fabric, leather, velvet, microfiber and majlis seating, with care tips between professional cleans.",
     kw: ["sofa cleaning Dubai", "couch cleaning UAE", "leather sofa cleaning", "majlis cleaning Dubai"],
     date: "2026-06-22",
     body: [
@@ -161,8 +161,8 @@ const handWrittenPosts: BlogPost[] = [
   },
   {
     slug: "carpet-cleaning-before-ramadan-uae",
-    title: "Carpet Cleaning Before Ramadan — A UAE Tradition Worth Keeping",
-    description: "Why deep cleaning carpets before Ramadan is a long-standing UAE tradition. Learn the best timing, what to include, and how to prepare your home for the holy month.",
+    title: "Carpet Cleaning Before Ramadan: A UAE Tradition",
+    description: "Why many UAE families deep clean carpets before Ramadan, the best time to book, and what to include to get the home ready.",
     kw: ["carpet cleaning before Ramadan", "Ramadan cleaning Dubai", "pre Ramadan deep clean", "Ramadan home preparation UAE"],
     date: "2026-06-22",
     body: [

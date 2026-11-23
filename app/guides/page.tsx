@@ -206,9 +206,9 @@ const ALL_FAQS = GUIDE_SECTIONS.flatMap((s) => s.questions);
 /* ---------- Metadata ---------- */
 
 export const metadata: Metadata = {
-  title: "Complete Carpet Cleaning Guide UAE — FAQ, Tips & Expert Advice",
+  title: "Carpet Cleaning Guide UAE — FAQ, Tips & Advice",
   description:
-    "Everything you need to know about professional carpet cleaning in Dubai and the UAE. Comprehensive guide covering services, process, pricing, fabric care, stain removal, and expert tips from Al Haya Carpet Cleaning Services.",
+    "Answers to common carpet cleaning questions in Dubai and the UAE: services, process, fabric care, stains and how to get a free quote on WhatsApp.",
   keywords: [
     "carpet cleaning guide Dubai",
     "carpet cleaning FAQ UAE",

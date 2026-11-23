@@ -12,7 +12,7 @@ import QuoteCallSection from "@/components/QuoteCallSection";
 
 export const metadata: Metadata = {
   title: "Our Services — Carpet, Rug, Sofa & Mattress Cleaning",
-  description: "Professional carpet, rug, sofa & upholstery, mattress, office and curtain cleaning across Dubai, Sharjah, Ajman and the UAE. Eco-friendly, same-day service.",
+  description: "Carpet, rug, sofa and upholstery, mattress, office and curtain cleaning at your home or office in Dubai, Sharjah, Ajman and across the UAE. Free quote.",
   alternates: { canonical: `${SITE_URL}/services` },
 };
 

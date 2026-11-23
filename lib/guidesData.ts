@@ -13,7 +13,7 @@ export const GUIDES: Guide[] = [
     slug: "carpet-cleaning-cost-dubai",
     title: "Carpet Cleaning Cost Dubai — Pricing Guide 2026",
     h1: "How Much Does Carpet Cleaning Cost in Dubai and the UAE?",
-    description: "Complete guide to carpet cleaning prices in Dubai and across the UAE. Learn what affects cost, average pricing, and how to get a fair quote from Al Haya Cleaning Services.",
+    description: "What sets the price of carpet cleaning in Dubai and the UAE: size, fibre, stains and access. Send a photo on WhatsApp for a free quote.",
     kw: ["carpet cleaning cost Dubai", "carpet cleaning price UAE", "how much carpet cleaning Dubai", "carpet shampooing cost"],
     body: [
       "One of the most common questions we receive at Al Haya is about carpet cleaning pricing. The honest answer is that cost varies depending on several factors specific to your carpet and situation. Unlike some competitors who advertise misleadingly low starting prices, we believe in transparent, upfront quoting with no hidden charges.",
@@ -35,7 +35,7 @@ export const GUIDES: Guide[] = [
     slug: "how-often-clean-carpet-uae",
     title: "How Often to Clean Carpets in UAE — Expert Guide",
     h1: "How Often Should You Get Your Carpets Professionally Cleaned in the UAE?",
-    description: "Expert advice on carpet cleaning frequency for the UAE climate. Learn how often to deep clean carpets in Dubai homes, offices, and villas based on usage and conditions.",
+    description: "How often to deep clean carpets in Dubai homes, villas and offices, based on foot traffic, pets, sand and the UAE climate.",
     kw: ["how often clean carpet UAE", "carpet cleaning frequency Dubai", "when to clean carpet", "carpet maintenance schedule UAE"],
     body: [
       "The UAE's desert climate creates unique conditions that affect how quickly carpets accumulate dirt, allergens, and odors. Understanding these factors helps you determine the right professional cleaning schedule for your specific situation.",
@@ -57,7 +57,7 @@ export const GUIDES: Guide[] = [
     slug: "carpet-shampooing-vs-steam-cleaning",
     title: "Carpet Shampooing vs Steam Cleaning — Which Is Better?",
     h1: "Carpet Shampooing vs Steam Cleaning — Which Method Is Best for Your Carpet?",
-    description: "Understand the difference between carpet shampooing and steam cleaning. Learn which method works best for your carpet type and when to use each for the best results.",
+    description: "Carpet shampooing vs steam cleaning: how each method works, which suits your carpet type, and when to use both together.",
     kw: ["carpet shampooing vs steam cleaning", "carpet cleaning methods", "best carpet cleaning method", "shampoo or steam clean carpet"],
     body: [
       "Two of the most common professional carpet cleaning methods are shampooing and steam cleaning (also called hot water extraction). Both are effective, but they work differently and are suited to different situations. At Al Haya, we use both methods — often in combination — to deliver the best results.",
@@ -78,7 +78,7 @@ export const GUIDES: Guide[] = [
     slug: "remove-carpet-stains-guide",
     title: "How to Remove Carpet Stains — Dubai Expert Guide",
     h1: "Carpet Stain Removal Guide — From Fresh Spills to Set-In Marks",
-    description: "Expert guide to removing carpet stains in the UAE. Learn immediate response steps, which stains need professional treatment, and how Al Haya treats coffee, Karak, ink, and pet stains.",
+    description: "How to remove carpet stains in the UAE: first steps for fresh spills, what to avoid, and which stains need a professional clean.",
     kw: ["remove carpet stains Dubai", "carpet stain removal guide", "how to clean carpet stain", "coffee stain carpet UAE"],
     body: [
       "Stains are the number one reason homeowners in the UAE call for professional carpet cleaning. From morning Karak chai to evening red wine, daily life inevitably leaves its mark on your carpets. Understanding how to respond immediately and when to call a professional can mean the difference between a stain that disappears completely and one that becomes permanent.",
@@ -100,7 +100,7 @@ export const GUIDES: Guide[] = [
     slug: "carpet-care-tips-dubai",
     title: "Carpet Care Tips for Dubai — UAE Climate Guide",
     h1: "Essential Carpet Care Tips for the UAE Desert Climate",
-    description: "Practical carpet maintenance tips specifically for the UAE climate. Learn how to protect your carpets from sand damage, humidity, and sun fading in Dubai and across the Emirates.",
+    description: "Carpet care tips for the UAE climate: keep out sand, control humidity, avoid sun fading and make your carpets last longer.",
     kw: ["carpet care tips Dubai", "carpet maintenance UAE", "protect carpet sand damage", "carpet care desert climate"],
     body: [
       "Living in the UAE means your carpets face challenges that homeowners in temperate climates never encounter. The combination of fine desert sand, extreme heat, high humidity from coastal locations, continuous air conditioning, and intense sunlight creates conditions that can accelerate carpet wear if not managed properly. Here are practical tips to keep your carpets in excellent condition between professional cleanings.",
@@ -122,7 +122,7 @@ export const GUIDES: Guide[] = [
     slug: "persian-rug-cleaning-guide",
     title: "Persian Rug Cleaning Guide — Safe Care for Handmade Rugs",
     h1: "How to Safely Clean Persian and Oriental Rugs in the UAE",
-    description: "Expert guide to cleaning Persian, Oriental, and handmade rugs in Dubai. Learn proper care methods, what to avoid, and when to seek professional rug cleaning services.",
+    description: "How to clean Persian, Oriental and handmade rugs safely in Dubai: what to do, what to avoid, and when to call a professional.",
     kw: ["Persian rug cleaning Dubai", "Oriental rug care UAE", "handmade rug cleaning", "antique rug cleaning safe"],
     body: [
       "Persian and Oriental rugs are among the most valuable textile possessions in UAE homes. Many families own handmade pieces passed down through generations or purchased as significant investments. These rugs require fundamentally different care from machine-made synthetic carpets, and incorrect cleaning can cause irreversible damage to their colours, structure, and value.",
@@ -144,7 +144,7 @@ export const GUIDES: Guide[] = [
     slug: "commercial-carpet-cleaning-guide",
     title: "Commercial Carpet Cleaning Guide — UAE Businesses",
     h1: "Commercial Carpet Cleaning Guide for UAE Offices and Businesses",
-    description: "Complete guide to commercial carpet cleaning for UAE businesses. Learn scheduling strategies, maintenance frequencies, and how to keep office carpets professional-looking.",
+    description: "Commercial carpet cleaning for UAE offices and businesses: how often to clean, how to schedule it, and how to keep carpets looking good.",
     kw: ["commercial carpet cleaning UAE", "office carpet cleaning guide", "business carpet maintenance", "corporate carpet cleaning Dubai"],
     body: [
       "Commercial carpet maintenance is fundamentally different from residential cleaning. The volume of foot traffic, the types of soiling, the scheduling constraints, and the cost considerations all require a systematic approach that most residential cleaning methods cannot address. This guide covers what UAE businesses need to know about maintaining their carpet investment.",
@@ -166,7 +166,7 @@ export const GUIDES: Guide[] = [
     slug: "carpet-cleaning-safety-products",
     title: "Carpet Cleaning Product Safety — Children & Pets Guide",
     h1: "Are Carpet Cleaning Products Safe for Children and Pets?",
-    description: "Everything parents and pet owners need to know about carpet cleaning product safety. Learn what makes Al Haya's products safe and what chemicals to avoid in your home.",
+    description: "Are carpet cleaning products safe for children and pets? What to look for, which chemicals to avoid, and how to keep your home safe.",
     kw: ["carpet cleaning safe children", "pet safe carpet cleaning", "non-toxic carpet cleaning UAE", "eco-friendly carpet cleaning products"],
     body: [
       "For families with young children and pets in the UAE, carpet cleaning product safety is not a minor concern — it is a primary consideration. Children spend significant time on the floor, and pets are in constant contact with carpet surfaces. Any chemical residue left after cleaning can be absorbed through skin contact, inhaled as the carpet dries, or ingested by babies who put their hands in their mouths after touching the floor.",

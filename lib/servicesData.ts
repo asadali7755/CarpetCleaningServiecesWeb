@@ -16,6 +16,7 @@ export interface ServiceDetail {
   cardImg: string; // card thumbnail for grids
   images: string[]; // additional inline images for detail page
   intro: string;
+  metaDesc: string; // meta description, max 155 characters
   body: string[];
   feat: Feat[];
   faqs: Faq[];
@@ -26,6 +27,7 @@ export interface ServiceDetail {
 export const SERVICES: ServiceDetail[] = [
   {
     num: "01", slug: "carpet-cleaning", name: "Carpet Deep Shampoo", h2: "Carpet Deep Shampoo Cleaning Dubai & UAE",
+    metaDesc: "Carpet deep shampoo cleaning at your home or office in Dubai and across the UAE. Lifts sand, dust and grime from the pile. Free quote on WhatsApp.",
     icon: "carpet", kw: "carpet deep shampoo cleaning · carpet shampooing services Dubai · professional carpet cleaning UAE",
     img: "/images/gallery/professional-carpet-cleaning-technician-dubai.webp",
     cardImg: "/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp",
@@ -57,6 +59,7 @@ export const SERVICES: ServiceDetail[] = [
   },
   {
     num: "02", slug: "stain-removal", name: "Stain Removal", h2: "Professional Carpet Stain Removal UAE",
+    metaDesc: "Carpet stain removal in Dubai and the UAE: coffee, tea, karak, ink, grease and pet stains treated at your home or office. Free quote on WhatsApp.",
     icon: "spray", kw: "stubborn carpet stain removal UAE · carpet stain removing · coffee tea stain removal carpet",
     img: "/images/services/professional-stain-removal-service-dubai.webp",
     cardImg: "/images/services/professional-stain-removal-service-dubai.webp",
@@ -86,6 +89,7 @@ export const SERVICES: ServiceDetail[] = [
   },
   {
     num: "03", slug: "odor-removal", name: "Odor Removal", h2: "Deep Carpet Odor Removing Services Dubai",
+    metaDesc: "Carpet odour removal in Dubai: musty, damp, pet and food smells treated at the source, at your home or office. Eco-friendly products. Free quote.",
     icon: "wind", kw: "carpet odor removing · carpet smell removal Dubai · musty carpet cleaning UAE",
     img: "/images/services/carpet-odor-removal-service-dubai.webp",
     cardImg: "/images/services/carpet-odor-removal-service-dubai.webp",
@@ -115,6 +119,7 @@ export const SERVICES: ServiceDetail[] = [
   },
   {
     num: "04", slug: "rug-cleaning", name: "Specialized Rug Care", h2: "Rug Cleaning Dubai — Persian, Wool & Silk Rugs",
+    metaDesc: "Rug cleaning in Dubai for Persian, wool, silk and shaggy rugs, with a method chosen for each fibre. Send a photo on WhatsApp for a free quote.",
     icon: "rug", kw: "Persian rug cleaning Dubai · wool carpet cleaning · shaggy rug cleaning UAE · oriental rug care",
     img: "/images/services/specialized-rug-care-service-dubai.webp",
     cardImg: "/images/services/specialized-rug-care-service-dubai.webp",
@@ -145,6 +150,7 @@ export const SERVICES: ServiceDetail[] = [
   },
   {
     num: "05", slug: "commercial-carpet-cleaning", name: "Commercial Cleaning", h2: "Commercial & Office Carpet Cleaning UAE",
+    metaDesc: "Office and commercial carpet cleaning across the UAE: offices, shops, clinics and hotels, cleaned at times that suit your business. Free quote.",
     icon: "office", kw: "office carpet cleaning service UAE · commercial carpet cleaning · residential and commercial carpet cleaning",
     img: "/images/gallery/commercial-carpet-cleaning-technician-uae.webp",
     cardImg: "/images/carpet/commercial-office-carpet-cleaning-uae.webp",
@@ -174,6 +180,7 @@ export const SERVICES: ServiceDetail[] = [
   },
   {
     num: "06", slug: "sofa-upholstery-cleaning", name: "Sofa & Upholstery", h2: "Sofa & Upholstery Cleaning Dubai",
+    metaDesc: "Sofa and upholstery cleaning in Dubai and the UAE: fabric sofas, armchairs, majlis seating and dining chairs cleaned at your home. Free quote.",
     icon: "sofa", kw: "sofa cleaning Dubai · upholstery cleaning UAE · furniture deep cleaning",
     img: "/images/services/sofa-upholstery-cleaning-service-dubai.webp",
     cardImg: "/images/services/sofa-upholstery-cleaning-service-dubai.webp",
