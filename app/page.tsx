@@ -8,6 +8,7 @@ import HeroEnquiryCard from "@/components/HeroEnquiryCard";
 import AutoVideo from "@/components/AutoVideo";
 import BeforeAfter, { type BAPair } from "@/components/BeforeAfter";
 import PhotoStrip from "@/components/PhotoStrip";
+import CarpetBackdrop from "@/components/CarpetBackdrop";
 import { Icon } from "@/components/Icons";
 import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL, BRAND, EMAIL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
@@ -66,7 +67,8 @@ const faqSchema = {
 
 export default function Home() {
   return (
-    <div className="page rp">
+    <div className="page rp rp-home">
+      <CarpetBackdrop />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 

@@ -457,3 +457,47 @@ button, input, select, textarea, .cc-gbp-btn,
 }
 /* footer column titles (were h5; now plain text so heading order stays valid) */
 .ft-col .ft-h { font-family: var(--sans); font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-2); margin-bottom: 16px; }
+
+/* ---------- 4. Royal carpet backdrop (home page) ---------- */
+.rp-home { isolation: isolate; }
+.carpet-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; opacity: 0; animation: carpetIn 1.6s ease 1.2s forwards; }
+/* fade the carpet in after the first paint so the heading and text show first */
+@keyframes carpetIn { to { opacity: 1; } }
+@keyframes carpetDrift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-240px, -240px, 0); } }
+@keyframes carpetTurn { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes carpetGlow { 0%, 100% { opacity: 0.16; } 50% { opacity: 0.24; } }
+.carpet-field {
+  position: absolute; top: 0; left: 0; width: calc(100% + 240px); height: calc(100% + 240px);
+  background: url(/media/carpet-tile.svg) 0 0 / 240px 240px repeat;
+  opacity: 0.32; animation: carpetDrift 90s linear infinite; will-change: transform;
+}
+.carpet-medallion {
+  position: absolute; top: 50%; left: 50%; width: min(1100px, 130vw); aspect-ratio: 1;
+  background: url(/media/carpet-medallion.svg) center / contain no-repeat;
+  animation: carpetTurn 240s linear infinite, carpetGlow 9s ease-in-out infinite; will-change: transform;
+}
+.carpet-border { position: absolute; top: 0; bottom: 0; width: 64px; background: url(/media/carpet-border.svg) 0 0 / 64px 96px repeat-y; opacity: 0.55; }
+.carpet-border-l { left: 0; }
+.carpet-border-r { right: 0; transform: scaleX(-1); }
+/* the "shade": ivory veil, lighter at the edges so the carpet shows there */
+.carpet-shade {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(255, 251, 243, 0.62), rgba(255, 251, 243, 0.38) 70%, rgba(255, 251, 243, 0.18)),
+    linear-gradient(180deg, rgba(30, 58, 138, 0.04), rgba(201, 162, 39, 0.05));
+}
+/* let the carpet show through the section bands on the home page */
+.rp-home.page { background: var(--ivory); }
+.rp-home .rh-results { background: linear-gradient(180deg, transparent, rgba(238, 244, 255, 0.55) 18%, rgba(238, 244, 255, 0.55) 82%, transparent); }
+.rp-home .rh-services { background: linear-gradient(180deg, transparent, rgba(255, 246, 227, 0.55) 15%, rgba(255, 246, 227, 0.55) 85%, transparent); }
+.rp-home .rh-areas { background: linear-gradient(180deg, transparent, rgba(253, 241, 236, 0.55) 20%, rgba(253, 241, 236, 0.55) 80%, transparent); }
+.rp-home .rh-hero-glow { background: radial-gradient(600px 400px at 78% 20%, rgba(30, 58, 138, 0.10), transparent 65%), radial-gradient(500px 360px at 20% 90%, rgba(201, 162, 39, 0.14), transparent 70%); }
+@media (max-width: 720px) {
+  .carpet-border { width: 22px; background-size: 22px 33px; opacity: 0.45; }
+  .carpet-field { opacity: 0.16; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carpet-field, .carpet-medallion { animation: none !important; }
+  .carpet-bg { animation: none !important; opacity: 1; }
+  .carpet-medallion { transform: translate(-50%, -50%); }
+}
