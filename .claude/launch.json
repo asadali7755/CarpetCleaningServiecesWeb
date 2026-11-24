@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "carpet-dev",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd /d E:\\sheryar bhai projects\\carpetcleaningdubai && npx next dev --turbopack --port 3040"],
+      "port": 3040
+    },
+    {
+      "name": "carpet-prod",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd /d E:\\sheryar bhai projects\\carpetcleaningdubai && npx next start --port 3041"],
+      "port": 3041
+    }
+  ]
+}

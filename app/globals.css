@@ -1,57 +1,69 @@
 /* ============================================================
-   Al Haya Carpet Services — Multi-Color Light theme
-   Teal / Coral / Purple / Green accents on white/cream/mint/lavender.
-   Space Grotesk / Manrope / JetBrains Mono.
+   Al Haya Carpet Services — Royal Light theme (Nov 2026 redesign)
+   Ivory background, royal blue + gold, teal and coral accents.
+   Playfair Display (headings) / Manrope (text).
+   Old variable names are kept so every existing page picks up the
+   new palette: --teal = royal blue, --coral = gold, --purple = teal.
    ============================================================ */
 
 :root {
-  --teal: #0891B2;
-  --teal-2: #0e7490;
-  --coral: #F97316;
-  --coral-2: #ea580c;
-  --purple: #7C3AED;
-  --purple-2: #6d28d9;
-  --green: #10B981;
-  --green-2: #059669;
+  --royal: #1E3A8A;
+  --royal-2: #172F72;
+  --royal-ink: #14234F;
+  --gold: #C9A227;
+  --gold-2: #A8841A;
+  --gold-soft: #F3E6BF;
+  --ivory: #FFFBF3;
+
+  --teal: #1E3A8A;
+  --teal-2: #172F72;
+  --coral: #C9A227;
+  --coral-2: #A8841A;
+  --purple: #0E7490;
+  --purple-2: #0B5E75;
+  --green: #15803D;
+  --green-2: #116B33;
+  --sky: #0E7490;
+  --rose: #E8613C;
 
   /* backward-compat aliases */
-  --accent: #0891B2;
-  --accent-light: #22d3ee;
-  --accent-rgb: 8, 145, 178;
+  --accent: #1E3A8A;
+  --accent-light: #C9A227;
+  --accent-rgb: 30, 58, 138;
 
-  --page-glow-1: rgba(8, 145, 178, 0.07);
-  --page-glow-2: rgba(124, 58, 237, 0.05);
-  --proc-sec-bg: linear-gradient(180deg, #ffffff, #ECFDF5 16%, #ECFDF5 84%, #ffffff);
-  --svc-sec-bg: linear-gradient(180deg, #ffffff, #F5F3FF 16%, #F5F3FF 84%, #ffffff);
-  --cta-bg: linear-gradient(135deg, rgba(8, 145, 178, 0.10), rgba(124, 58, 237, 0.06));
-  --ft-bg: linear-gradient(135deg, #0f172a, #1e1b4b);
+  --page-glow-1: rgba(30, 58, 138, 0.06);
+  --page-glow-2: rgba(201, 162, 39, 0.08);
+  --proc-sec-bg: linear-gradient(180deg, #FFFBF3, #EEF4FF 16%, #EEF4FF 84%, #FFFBF3);
+  --svc-sec-bg: linear-gradient(180deg, #FFFBF3, #FFF6E3 16%, #FFF6E3 84%, #FFFBF3);
+  --cta-bg: linear-gradient(135deg, rgba(30, 58, 138, 0.08), rgba(201, 162, 39, 0.10));
+  --ft-bg: linear-gradient(180deg, #FBF3E1, #F5E9CC);
 
-  --bg: #ffffff;
-  --text: #0f172a;
-  --text-2: #475569;
-  --text-3: #94a3b8;
-  --border: #e2e8f0;
-  --border-2: #cbd5e1;
-  --surface-soft: #f1f5f9;
-  --surface-hover: #e2e8f0;
-  --nav-bg: rgba(255, 255, 255, 0.88);
-  --svc-card-grad: linear-gradient(160deg, #ffffff, #f8fafc);
-  --svc-card-border: #e2e8f0;
-  --cta-sec-bg: #ffffff;
-  --areas-bg: #ffffff;
-  --shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
+  --bg: #FFFBF3;
+  --text: #14234F;
+  --text-2: #4B5568;
+  --text-3: #8A93A6;
+  --border: #EADFC8;
+  --border-2: #DCCBA6;
+  --surface-soft: #FBF5E8;
+  --surface-hover: #F5ECD7;
+  --nav-bg: rgba(255, 251, 243, 0.9);
+  --svc-card-grad: linear-gradient(160deg, #ffffff, #FFFBF3);
+  --svc-card-border: #EADFC8;
+  --cta-sec-bg: transparent;
+  --areas-bg: #FFFBF3;
+  --shadow: 0 24px 60px rgba(20, 35, 79, 0.12);
 
   /* section background palette */
-  --sec-white: #ffffff;
-  --sec-cream: #FFF7ED;
-  --sec-mint: #ECFDF5;
-  --sec-lavender: #F5F3FF;
+  --sec-white: #FFFFFF;
+  --sec-cream: #FFF6E3;
+  --sec-mint: #EEF4FF;
+  --sec-lavender: #FDF1EC;
 
-  --display: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+  --display: var(--font-display), "Playfair Display", Georgia, serif;
   --sans: var(--font-sans), "Manrope", system-ui, sans-serif;
-  --mono: var(--font-mono), "JetBrains Mono", monospace;
-  --maxw: 1480px;
-  --pad: clamp(20px, 5vw, 72px);
+  --mono: var(--font-sans), "Manrope", system-ui, sans-serif;
+  --maxw: 1320px;
+  --pad: clamp(18px, 5vw, 64px);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }

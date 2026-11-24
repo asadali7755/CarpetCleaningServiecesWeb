@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 import "./components.css";
+import "./royal.css";
 import { Analytics } from "@vercel/analytics/next";
 import { ClientProviders } from "@/components/ClientProviders";
 import {
@@ -12,21 +13,16 @@ import {
   EMIRATE_NAMES,
 } from "@/components/constants";
 
-const spaceGrotesk = Space_Grotesk({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  // One weight only, to keep the font download small (headings are all 700).
+  weight: ["700"],
   variable: "--font-display",
   display: "swap",
 });
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-});
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -58,8 +54,8 @@ export const metadata: Metadata = {
   verification: { google: "_-vQKQOsCp1OneIzFkRapkrepu__SWvH520xZMzyi7k" },
   alternates: { canonical: SITE_URL },
   other: {
-    "theme-color": "#16a34a",
-    "msapplication-TileColor": "#16a34a",
+    "theme-color": "#1E3A8A",
+    "msapplication-TileColor": "#1E3A8A",
   },
   openGraph: {
     type: "website",
@@ -117,7 +113,7 @@ const localBusiness = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${manrope.variable} ${jetbrains.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${manrope.variable}`}>
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site info" />
         <script

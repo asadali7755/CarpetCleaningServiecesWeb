@@ -21,7 +21,8 @@ const nextConfig = {
   // Hostinger shared hosting caps how many processes a build may start, so
   // keep the build to one worker.
   experimental: { cpus: 1 },
-  images: {},
+  // Serve AVIF first (smallest), WebP as fallback.
+  images: { formats: ["image/avif", "image/webp"] },
   turbopack: {
     root: process.cwd(),
   },
