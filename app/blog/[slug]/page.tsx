@@ -144,7 +144,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 )}
               </>
             ) : (
-              p.body.map((para, i) => <p key={i}>{para}</p>)
+              <>
+                {p.body.map((para, i) => <p key={i}>{para}</p>)}
+                {p.related && p.related.length > 0 && (
+                  <p className="prose-related">
+                    Related:{" "}
+                    {p.related.map((r, i) => (
+                      <span key={r.href}>
+                        {i > 0 && " · "}
+                        <Link href={r.href}>{r.label}</Link>
+                      </span>
+                    ))}
+                  </p>
+                )}
+              </>
             )}
           </div>
         </section>

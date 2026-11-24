@@ -55,6 +55,7 @@ export const SERVICES: ServiceDetail[] = [
       { q: "Can you clean wall-to-wall fitted carpets?", a: "Yes, we clean wall-to-wall fitted carpets on-site using our portable extraction equipment. The process is the same as for loose carpets — pre-treatment, deep shampoo, extraction, and drying — all done in your home or office without removing the carpet." },
       { q: "Do I need to move furniture before the cleaning?", a: "We recommend clearing small items from the carpeted area. Our technicians can work around larger furniture if needed, though moving it allows for a more thorough clean. We do not charge extra for working around furniture." },
       { q: "What is the difference between carpet shampooing and steam cleaning?", a: "Carpet shampooing uses a cleaning solution agitated into the fibres followed by extraction, which is effective for heavy soiling and stain removal. Steam cleaning (hot water extraction) uses heated water under pressure. We use a combination of both techniques depending on the carpet type and condition for the best results." },
+      { q: "Is steam cleaning alone enough for a dirty carpet?", a: "For a lightly soiled carpet it can be. For a heavily soiled carpet, set-in stains, or a carpet that has not been professionally cleaned for over a year, a deep shampoo before the steam gives a much better result." },
     ],
   },
   {
@@ -85,6 +86,9 @@ export const SERVICES: ServiceDetail[] = [
       { q: "Will stain removal damage my carpet's colour?", a: "No. We use colour-safe, pH-neutral solutions and always test on a small hidden area first. Our technicians are trained to match the treatment to your carpet's dye type, whether it is a synthetic dye, vegetable dye, or natural colour. We never use bleach on carpets." },
       { q: "How much does carpet stain removal cost?", a: "Pricing depends on the number of stains, their size, and the type of carpet fibre. We provide a fixed quote before starting — no hidden charges. For a few spot stains, it is often more economical to combine stain treatment with a full carpet deep shampoo cleaning." },
       { q: "Should I try to clean a stain myself before calling you?", a: "We recommend blotting the spill immediately with a clean white cloth to absorb as much liquid as possible. Do not rub or scrub, as this pushes the stain deeper. Avoid using household bleach, vinegar, or hot water on the stain, as these can set it permanently. Call us as soon as possible — fresh stains have the highest success rate." },
+      { q: "What should I do in the first few minutes after a spill?", a: "Blot it straight away with a clean white cloth, working from the outside of the stain inwards so it does not spread. Use cold water only, and do not rub or scrub: hot water and rubbing push many stains deeper and can set them for good." },
+      { q: "Should I use a store-bought carpet stain remover?", a: "Be careful. Many shop products contain bleaching agents or strong chemicals that can fade carpet dyes or damage the fibres, which makes a professional clean harder afterwards. For a fresh spill, cold-water blotting is safer. For a set-in stain, send us a photo on WhatsApp first." },
+      { q: "Which carpet stains are hardest to remove?", a: "Karak and coffee (tannins plus milk and sugar), red wine, henna, turmeric and ink are the toughest, along with any stain that was already treated with bleach or a harsh cleaner. Old pet stains also leave crystals in the backing that keep smelling until they are treated." },
     ],
   },
   {
@@ -146,6 +150,9 @@ export const SERVICES: ServiceDetail[] = [
       { q: "Do you offer rug pickup and delivery?", a: "Yes. For rugs that benefit from off-site cleaning — such as heavily soiled rugs, delicate handmade pieces, or rugs needing extended drying time — we offer free pickup and delivery across Dubai, Sharjah, and Ajman. We wrap and transport your rug carefully to our cleaning facility and return it cleaned, dried, and ready to use." },
       { q: "How long does rug cleaning take?", a: "On-site cleaning for a standard rug takes 30 to 60 minutes plus 2 to 4 hours drying time. Off-site cleaning for delicate or heavily soiled rugs typically takes 3 to 5 days, including proper drying in controlled conditions. We give you an estimated timeline when we assess your rug." },
       { q: "Can you repair rug fringe or edges during cleaning?", a: "Minor fringe combing and straightening is included with every rug cleaning. For significant fringe damage, reweaving, or edge repair, we can recommend specialized rug repair services. We document any existing damage before cleaning so you have a clear record." },
+      { q: "Can I steam clean a Persian rug at home?", a: "No. Steam uses too much water and heat for handmade rugs with natural dyes: wool can felt (mat together for good) and the dyes can bleed. Persian and Oriental rugs need a low-moisture, pH-neutral hand clean after a dye test on a hidden corner." },
+      { q: "How often should a Persian rug be professionally cleaned?", a: "Every 12 to 24 months for a rug in daily use; a decorative rug that is rarely walked on can go longer. When the colours look dull or the pile feels packed down, dirt has built up in the fibres and it is time for a clean." },
+      { q: "What should I do if I spill something on a handmade rug?", a: "Blot it at once with a clean white cloth. Do not pour water on it, do not use any cleaning product and do not scrub. Then send us a photo on WhatsApp so we can tell you the safest next step." },
     ],
   },
   {
@@ -176,6 +183,7 @@ export const SERVICES: ServiceDetail[] = [
       { q: "Do you offer carpet cleaning contracts for businesses?", a: "Yes. We provide regular service agreements with monthly, bi-monthly, or quarterly cleaning schedules. Contract clients receive priority scheduling and volume-based pricing. We conduct a free site survey to recommend the right frequency for your space." },
       { q: "Can you clean carpets in a busy office without disrupting work?", a: "Yes. For large offices that cannot shut down entirely, we offer zone-by-zone cleaning. We clean one section at a time while the rest of the office remains in use. With our rapid dry time, cleaned areas are walkable within a few hours." },
       { q: "What commercial spaces do you service?", a: "We serve corporate offices, co-working spaces, hotel lobbies and corridors, retail showrooms, medical clinics, dental offices, nurseries, gyms, fitness studios, restaurants, and cafes across all seven UAE Emirates. Each environment receives a cleaning approach tailored to its specific carpet type and usage pattern." },
+      { q: "Which office areas need professional cleaning most often?", a: "Plan by foot traffic, not by how the carpet looks: reception and lobby areas about monthly, busy corridors and meeting rooms every two months, general office areas every three months, and quiet private offices every six months. Daily vacuuming should carry on in between." },
     ],
   },
   {
@@ -215,6 +223,8 @@ export const SERVICES: ServiceDetail[] = [
       { q: "Do you clean majlis seating?", a: "Yes. We have extensive experience cleaning traditional majlis cushions and seating. We use low-moisture methods that protect decorative fabrics, embroidery, and patterns while thoroughly removing dust and body oils. All majlis cleaning is done on-site." },
       { q: "Is sofa cleaning safe for my pets and children?", a: "Completely safe. Our cleaning solutions are non-toxic, biodegradable, and free from harsh chemicals. Once the upholstery is dry — typically within 2 to 4 hours — it is safe for children and pets to sit on." },
       { q: "Can you remove pet hair from sofas?", a: "Yes. Our pre-cleaning vacuum process uses upholstery-specific attachments that extract pet hair from fabric pores, crevices, and seams. This is followed by the deep cleaning process which removes any remaining hair along with dander and allergens." },
+      { q: "How should a velvet sofa be cleaned?", a: "Velvet needs a low-moisture clean and brushing in the direction of the pile, so it keeps its sheen and the pile is not crushed. We test a hidden area first and use gentle products." },
+      { q: "How often should a sofa be professionally cleaned?", a: "About once a year for a small household without pets. With children or pets, every six months is better, because spills, hair and body oils build up faster. Weekly vacuuming with an upholstery tool helps in between." },
     ],
   },
 ];

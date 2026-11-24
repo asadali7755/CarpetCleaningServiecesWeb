@@ -26,7 +26,7 @@ const FAQS = [
   { q: "Do you provide carpet cleaning services outside of Dubai?", a: "Yes, we provide comprehensive commercial and residential carpet cleaning services all over the UAE. Our mobile teams travel directly to your villa, apartment, or office building in Abu Dhabi, Sharjah, Ajman, Al Ain, Fujairah, and Ras Al Khaimah." },
   { q: "Are your cleaning chemicals safe for pets and children?", a: "Absolutely. At Alhaya Cleaning Services, we prioritize your family's health. All of our deep shampooing and carpet odor removing products are completely non-toxic, eco-friendly, and biodegradable." },
   { q: "What types of carpets and rugs can you clean?", a: "We handle all fabric types — Persian and Oriental rugs with pH-neutral hand wash, wool carpets with low-temperature extraction, shaggy deep pile rugs with deep agitation, and synthetic nylon/polyester carpets with high-pressure deep shampoo extraction." },
-  { q: "How much does carpet cleaning cost?", a: "Pricing depends on carpet size, fabric type, and level of soiling. We provide a transparent, fixed quote before starting — no hidden charges. Call or WhatsApp 0551275545 for a free estimate." },
+  { q: "How much does carpet cleaning cost?", a: "Pricing depends on carpet size, fabric type, and level of soiling. Synthetic carpets are the quickest to clean; wool needs wool-safe products and more time, and Persian, handmade and silk rugs need a slow, low-moisture hand clean. Heavy stains such as coffee, karak, oil or pet marks can need extra treatment. Combining carpet, rug and sofa cleaning in one visit also saves a second trip. We provide a transparent, fixed quote before starting — no hidden charges. Call or WhatsApp 0551275545 for a free estimate." },
 ];
 
 const serviceSchema = {

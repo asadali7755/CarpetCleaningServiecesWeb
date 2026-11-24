@@ -36,6 +36,18 @@ const nextConfig = {
         destination: "https://www.carpetcleaningdubai.com/:path*",
         permanent: true,
       },
+      // Old guides and posts merged into the page that targets the same
+      // search (Nov 2026 audit, step 7). Keep these redirects permanently.
+      ...[
+        ["/guides/carpet-cleaning-cost-dubai", "/"],
+        ["/guides/carpet-cleaning-safety-products", "/"],
+        ["/guides/carpet-shampooing-vs-steam-cleaning", "/services/carpet-cleaning"],
+        ["/guides/remove-carpet-stains-guide", "/services/stain-removal"],
+        ["/guides/persian-rug-cleaning-guide", "/services/rug-cleaning"],
+        ["/guides/commercial-carpet-cleaning-guide", "/services/commercial-carpet-cleaning"],
+        ["/guides/carpet-care-tips-dubai", "/guides/how-often-clean-carpet-uae"],
+        ["/blog/sofa-cleaning-dubai-complete-guide", "/services/sofa-upholstery-cleaning"],
+      ].map(([source, destination]) => ({ source, destination, statusCode: 301 })),
     ];
   },
 };
