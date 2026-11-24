@@ -5,12 +5,16 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
+import RevealInit from "@/components/RevealInit";
+import PageHero from "@/components/PageHero";
+import PhotoStrip from "@/components/PhotoStrip";
+import ProcessSteps from "@/components/ProcessSteps";
+import QuoteCallSection from "@/components/QuoteCallSection";
+import RequestCall from "@/components/RequestCall";
 import { Icon } from "@/components/Icons";
 import { LOCATIONS, getLocation, locationAnchor } from "@/lib/locationsData";
 import { SERVICES } from "@/lib/servicesData";
-import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, waHref } from "@/components/constants";
-import QuoteCallSection from "@/components/QuoteCallSection";
 
 export function generateStaticParams() {
   return LOCATIONS.map((l) => ({ slug: l.slug }));
@@ -73,104 +77,141 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="page">
+    <div className="page rp">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Nav />
 
       <main>
-        <div className="loc-hero">
-          <Image src={l.image} alt={`Carpet cleaning in ${l.name}`} fill sizes="100vw" priority className="loc-hero-bg" />
-          <div className="loc-hero-overlay" />
-          <section className="sub-hero">
-            <nav className="crumbs" aria-label="Breadcrumb">
-              <Link href="/">Home</Link><span className="sep">/</span>
-              <Link href="/locations">Service Areas</Link><span className="sep">/</span>
-              <span style={{ color: "var(--green)" }}>{l.name}</span>
-            </nav>
-            <h1>{l.h1}</h1>
-            <p className="lead">{l.intro}</p>
-            <div className="cta-row">
-              <a className="btn-green" href={waHref(`Hi Al Haya, I need carpet cleaning in ${l.name}.`)} target="_blank" rel="noopener">Book in {l.name} →</a>
-              <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-              <RequestCall className="btn-outline" />
+        <PageHero
+          variant="banner"
+          bg={l.image}
+          bgAlt={`Carpet cleaning in ${l.name}`}
+          crumbs={[{ label: "Home", href: "/" }, { label: "Service Areas", href: "/locations" }, { label: l.name }]}
+          eyebrow={`Service area · ${l.name}`}
+          title={l.h1}
+          lead={l.intro}
+          actions={
+            <>
+              <a className="rb-gold" href={waHref(`Hi Al Haya, I need carpet cleaning in ${l.name}.`)} target="_blank" rel="noopener"><Icon name="whatsapp" /> Book in {l.name}</a>
+              <a className="rb-line" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+              <RequestCall className="rb-line" />
+            </>
+          }
+          media={
+            <div className="lp-stats" data-stagger>
+              <div className="lp-stat"><b>{l.resp}</b><span>Avg. response</span></div>
+              <div className="lp-stat"><b>{l.cityCount}+</b><span>Areas covered</span></div>
+              <div className="lp-stat"><b>7 days</b><span>8 AM – 10 PM</span></div>
+              <div className="lp-stat"><b>100%</b><span>Guarantee</span></div>
             </div>
-            <div className="area-stats">
-              <div className="s"><b>{l.resp}</b><span>Avg. response</span></div>
-              <div className="s"><b>{l.cityCount}+</b><span>Areas covered</span></div>
-              <div className="s"><b>7 days</b><span>8 AM – 10 PM</span></div>
-              <div className="s"><b>100%</b><span>Guarantee</span></div>
-            </div>
-          </section>
-        </div>
+          }
+        />
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <div className="prose">
+        {/* Magazine-style text */}
+        <section className="rh-sec">
+          <div className="rh-wrap">
             {l.seeAlso && (
-              <p>
-                {l.seeAlso.map((s, i) => (
-                  <span key={s.href}>
-                    {i > 0 && " "}
-                    {s.before} <Link href={s.href}>{s.label}</Link>.
-                  </span>
+              <div className="lp-see" data-stagger>
+                {l.seeAlso.map((s) => (
+                  <Link key={s.href} href={s.href}>
+                    <Icon name="arrow" />
+                    <span><small>{s.before}</small>{s.label}</span>
+                  </Link>
                 ))}
-              </p>
-            )}
-            {l.body.map((p, i) => (
-              <div key={i}>
-                <p>{p}</p>
-                {i === 0 && (
-                  <div className="prose-img">
-                    <Image src="/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp" alt={`Professional carpet cleaning service in ${l.name}`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
-                  </div>
-                )}
               </div>
-            ))}
-          </div>
-          <h2 className="sec-title" style={{ fontSize: "clamp(20px,2.6vw,28px)", marginTop: 18 }}>Neighbourhoods we cover in {l.name}</h2>
-          <div className="chips-row">
-            {l.areas.map((a) => <span key={a} className="chip-link"><Icon name="pin" /> {a}</span>)}
+            )}
+            <div className="mg-grid">
+              {l.body.map((p, i) => (
+                <p key={i} data-reveal={i === 0 ? "flip" : "blur"}>{p}</p>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Frequently Asked Questions — {l.name}</h2>
-          {l.faqs.map((f) => (
-            <details className="faq-item" key={f.q}>
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
+        {/* Real work strip */}
+        <section className="rh-strip-sec" style={{ paddingBottom: 30 }}>
+          <p className="rh-strip-label"><span className="rh-dot" /> Real photos from our jobs</p>
+          <PhotoStrip />
         </section>
 
-        {/* Services offered here */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Our services in {l.name}</h2>
-          <div className="rel-grid rel-grid--img">
-            {SERVICES.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="rel-card rel-card--img">
-                <div className="rel-card-img">
-                  <Image src={s.cardImg} alt={`${s.name} in ${l.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+        {/* Neighbourhoods — pills pop in */}
+        <section className="rh-sec">
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">Neighbourhoods</p>
+              <h2 className="rh-h2">Neighbourhoods we cover in {l.name}</h2>
+            </div>
+            <ul className="nb-grid" data-stagger>
+              {l.areas.map((a) => <li key={a}><Icon name="pin" /> {a}</li>)}
+            </ul>
+          </div>
+        </section>
+
+        {/* Services in this emirate — tilt cards */}
+        <section className="rh-sec rh-services">
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">What we clean</p>
+              <h2 className="rh-h2">Our services in {l.name}</h2>
+            </div>
+            <div className="rh-svc-grid">
+              {SERVICES.map((s, i) => (
+                <Link className="rh-svc tilt" data-reveal="zoom" key={s.slug} href={`/services/${s.slug}`}>
+                  <div className="rh-svc-img">
+                    <Image src={s.cardImg} alt={`${s.name} in ${l.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:1000px) 50vw,33vw" />
+                    <span className="rh-svc-num">{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <div className="rh-svc-body">
+                    <h3>{s.name}</h3>
+                    <p>{s.intro}</p>
+                    <div className="rh-svc-foot"><span className="rh-more">Explore <Icon name="arrow" /></span></div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <ProcessSteps title={`Booking in ${l.name}`} />
+
+        {/* FAQ — question cards */}
+        <section className="rh-sec">
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">FAQ</p>
+              <h2 className="rh-h2">Frequently Asked Questions — {l.name}</h2>
+            </div>
+            <div className="fc-grid" data-stagger>
+              {l.faqs.map((f) => (
+                <div className="fc-card" key={f.q}>
+                  <h3>{f.q}</h3>
+                  <p>{f.a}</p>
                 </div>
-                <div className="rel-card-content">
-                  <div className="ic"><Icon name={s.icon} /></div>
-                  <h3>{s.name}</h3>
-                  <p>{s.intro.slice(0, 100)}…</p>
-                </div>
-              </Link>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Other emirates */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(20px,2.6vw,28px)" }}>Other emirates we serve</h2>
-          <div className="chips-row">
-            {others.map((o) => (
-              <Link key={o.slug} href={`/locations/${o.slug}`} className="chip-link"><Icon name="pin" /> {locationAnchor(o)}</Link>
-            ))}
+        {/* Other emirates — swipe row */}
+        <section className="rh-sec rh-areas">
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">Coverage</p>
+              <h2 className="rh-h2">Other emirates we serve</h2>
+            </div>
+            <div className="em-row">
+              {others.map((o) => (
+                <Link key={o.slug} href={`/locations/${o.slug}`} className="rh-area">
+                  <Image src={o.image} alt={locationAnchor(o)} fill sizes="260px" />
+                  <span className="rh-area-body">
+                    <b>{locationAnchor(o)}</b>
+                    <small><Icon name="pin" /> {o.resp} response</small>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -179,6 +220,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       <Footer />
       <Fab />
+      <RevealInit />
     </div>
   );
 }

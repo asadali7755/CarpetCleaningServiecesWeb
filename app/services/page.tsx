@@ -4,11 +4,16 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
+import RevealInit from "@/components/RevealInit";
+import PageHero from "@/components/PageHero";
+import AutoVideo from "@/components/AutoVideo";
+import ProcessSteps from "@/components/ProcessSteps";
+import QuoteCallSection from "@/components/QuoteCallSection";
+import RequestCall from "@/components/RequestCall";
 import { Icon } from "@/components/Icons";
 import { SERVICES } from "@/lib/servicesData";
-import RequestCall from "@/components/RequestCall";
-import { PHONE_DISPLAY, PHONE_TEL, waHref, SITE_URL } from "@/components/constants";
-import QuoteCallSection from "@/components/QuoteCallSection";
+import { CLIPS, FRAMES, PAIRS } from "@/lib/media";
+import { waHref, SITE_URL } from "@/components/constants";
 
 export const metadata: Metadata = {
   title: "Our Services — Carpet, Rug, Sofa & Mattress Cleaning",
@@ -16,60 +21,62 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/services` },
 };
 
-const borderColors = ["var(--teal)", "var(--coral)", "var(--purple)", "var(--green)"];
-
 export default function ServicesHub() {
   return (
-    <div className="page">
+    <div className="page rp">
       <Nav />
       <main>
-        <section
-          className="sub-hero"
-          style={{ background: "linear-gradient(180deg, #F5F3FF 0%, #FFFFFF 100%)" }}
-        >
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <span style={{ color: "var(--teal)" }}>Services</span>
-          </nav>
-          <p className="eyebrow teal">Our Services</p>
-          <h1 className="grad-text">Carpet, Rug &amp; Upholstery Cleaning Services</h1>
-          <p className="lead">
-            Carpet, rug and upholstery cleaning at your home or office across the UAE, with eco-friendly products that are safe for kids and pets.
-          </p>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp</a>
-            <RequestCall className="btn-outline" />
-            <Link className="btn-outline" href="/contact">Get a Quote</Link>
-          </div>
-        </section>
+        <PageHero
+          variant="center"
+          crumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
+          eyebrow="Our Services"
+          title="Carpet, Rug & Upholstery Cleaning Services"
+          lead="Carpet, rug and upholstery cleaning at your home or office across the UAE, with eco-friendly products that are safe for kids and pets."
+          actions={
+            <>
+              <a className="rb-gold" href={waHref()} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+              <RequestCall className="rb-line" />
+              <Link className="rb-line" href="/contact">Get a Quote</Link>
+            </>
+          }
+          media={
+            <div className="collage" data-stagger>
+              <div><AutoVideo src={CLIPS.rug.src} poster={CLIPS.rug.poster} label={CLIPS.rug.label} eager /></div>
+              <div><Image src={FRAMES.strip.src} alt={FRAMES.strip.alt} fill sizes="(max-width:720px) 50vw, 300px" /></div>
+              <div><Image src={PAIRS.shampoo.after} alt="Fitted carpet after deep shampoo by our team" fill sizes="(max-width:720px) 50vw, 400px" /></div>
+            </div>
+          }
+        />
 
-        <section className="inner sec-cream" style={{ padding: "60px var(--pad) 70px" }}>
-          <div className="rel-grid rel-grid--img" style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
+        {/* Zig-zag service rows */}
+        <section className="rh-sec">
+          <div className="rh-wrap zz">
             {SERVICES.map((s, i) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="rel-card rel-card--img"
-                style={{ borderTop: `4px solid ${borderColors[i % borderColors.length]}` }}
-              >
-                <div className="rel-card-img">
-                  <Image src={s.cardImg} alt={`${s.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
+              <div className="zz-row" key={s.slug}>
+                <Link href={`/services/${s.slug}`} className="zz-media" data-reveal={i % 2 ? "right" : "left"}>
+                  <Image src={s.cardImg} alt={`${s.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:1000px) 100vw, 600px" />
+                  <span className="zz-num">{s.num}</span>
+                </Link>
+                <div className="zz-copy" data-reveal={i % 2 ? "left" : "right"}>
+                  <span className="rh-ic"><Icon name={s.icon} /></span>
+                  <h2>{s.name}</h2>
+                  <p>{s.intro}</p>
+                  <div className="rh-cta">
+                    <Link className="rb-gold" href={`/services/${s.slug}`}>Learn More →</Link>
+                    <a className="rb-line" href={waHref(`Hello, I'd like a quote for ${s.name}.`)} target="_blank" rel="noopener"><Icon name="whatsapp" /> Quick quote</a>
+                  </div>
                 </div>
-                <div className="rel-card-content">
-                  <div className="ic"><Icon name={s.icon} /></div>
-                  <h3>{s.name}</h3>
-                  <p>{s.intro.slice(0, 120)}…</p>
-                  <span style={{ color: "var(--teal)", fontWeight: 600, fontSize: 14 }}>Learn More →</span>
-                </div>
-              </Link>
+              </div>
             ))}
           </div>
         </section>
 
+        <ProcessSteps />
         <QuoteCallSection />
       </main>
       <Footer />
       <Fab />
+      <RevealInit />
     </div>
   );
 }

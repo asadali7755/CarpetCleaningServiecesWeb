@@ -6,9 +6,11 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
+import RevealInit from "@/components/RevealInit";
+import PageHero from "@/components/PageHero";
+import CtaBand from "@/components/CtaBand";
 import { POSTS, getPost } from "@/lib/blogData";
-import RequestCall from "@/components/RequestCall";
-import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
+import { SITE_URL, BRAND } from "@/components/constants";
 
 const BLOG_IMAGES = [
   "/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp",
@@ -82,29 +84,32 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="page">
+    <div className="page rp">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
       <Nav />
 
       <main>
-        <section className="sub-hero">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <Link href="/blog">Blog</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>{p.title.length > 40 ? p.title.slice(0, 40) + "…" : p.title}</span>
-          </nav>
-          <h1>{p.h1 ?? p.title}</h1>
-          <p className="lead">{p.description}</p>
-          <time style={{ fontSize: 14, color: "var(--text-2)" }}>{p.date}</time>
-        </section>
+        <PageHero
+          variant="center"
+          crumbs={[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: p.title.length > 40 ? p.title.slice(0, 40) + "…" : p.title },
+          ]}
+          eyebrow="Article"
+          title={p.h1 ?? p.title}
+          lead={p.description}
+        >
+          <time className="post-date">{p.date}</time>
+        </PageHero>
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <div className="about-hero-img" style={{ marginBottom: 28 }}>
-            <Image src={BLOG_IMAGES[POSTS.findIndex((x) => x.slug === p.slug) % BLOG_IMAGES.length]} alt={`${p.title} — Al Haya Carpet Cleaning Dubai`} width={1280} height={520} loading="lazy" style={{ width: "100%", height: "auto" }} />
+        <section className="rh-wrap" style={{ paddingBottom: 40 }}>
+          <div className="post-cover" data-reveal="clip">
+            <Image src={BLOG_IMAGES[POSTS.findIndex((x) => x.slug === p.slug) % BLOG_IMAGES.length]} alt={`${p.title} — Al Haya Carpet Cleaning Dubai`} width={1280} height={520} loading="lazy" sizes="(max-width:1320px) 100vw, 1200px" />
           </div>
-          <div className="prose">
+          <div className="prose post-body">
             {p.sections ? (
               <>
                 {p.intro && <p>{p.intro}</p>}
@@ -162,31 +167,34 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </section>
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp</a>
-            <RequestCall className="btn-outline" />
-            <Link className="btn-outline" href="/contact">Get a Quote</Link>
-          </div>
-        </section>
+        <CtaBand />
 
         {/* Other posts */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>More Articles</h2>
-          <div className="rel-grid">
-            {others.map((r) => (
-              <Link key={r.slug} href={`/blog/${r.slug}`} className="rel-card">
-                <div className="ic"><Icon name="arrow" /></div>
-                <h3>{r.title}</h3>
-                <p>{r.description.slice(0, 120)}…</p>
-              </Link>
-            ))}
+        <section className="rh-sec" style={{ paddingTop: 10 }}>
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">Keep reading</p>
+              <h2 className="rh-h2">More Articles</h2>
+            </div>
+            <div className="rl-slider">
+              {others.map((r) => (
+                <Link key={r.slug} href={`/blog/${r.slug}`} className="rl-card tilt">
+                  <div className="rl-body">
+                    <span className="bl-meta">{r.date}</span>
+                    <h3>{r.title}</h3>
+                    <p>{r.description.slice(0, 120)}…</p>
+                    <span className="rh-more">Read <Icon name="arrow" /></span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </main>
 
       <Footer />
       <Fab />
+      <RevealInit />
     </div>
   );
 }

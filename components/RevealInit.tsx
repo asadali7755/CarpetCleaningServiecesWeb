@@ -21,6 +21,8 @@ export default function RevealInit() {
       el.style.transitionDelay = `${Math.min(i, 6) * 60}ms`;
       io.observe(el);
     });
+    // [data-stagger] containers: their children animate in one after another (CSS).
+    document.querySelectorAll<HTMLElement>("[data-stagger]").forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
   return null;

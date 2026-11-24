@@ -8,6 +8,8 @@ import { Icon } from "@/components/Icons";
 import RequestCall from "@/components/RequestCall";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, HOURS, waHref } from "@/components/constants";
 import QuoteCallSection from "@/components/QuoteCallSection";
+import PageHero from "@/components/PageHero";
+import RevealInit from "@/components/RevealInit";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS, locationAnchor } from "@/lib/locationsData";
 import { GUIDES } from "@/lib/guidesData";
@@ -267,7 +269,7 @@ const breadcrumbSchema = {
 
 export default function GuidesPage() {
   return (
-    <div className="page">
+    <div className="page rp">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -275,21 +277,20 @@ export default function GuidesPage() {
 
       <main>
         {/* Hero */}
-        <section className="sub-hero">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>Carpet Cleaning Guide</span>
-          </nav>
-          <h1>Complete Guide to Professional Carpet Cleaning in the UAE</h1>
-          <p className="lead">
-            Everything you need to know about carpet deep cleaning, stain removal, odor treatment, rug care, and maintaining healthy carpets in the UAE climate. Expert knowledge from Al Haya — trusted by homes and businesses across all seven Emirates.
-          </p>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
-          </div>
-        </section>
+        <PageHero
+          variant="center"
+          crumbs={[{ label: "Home", href: "/" }, { label: "Carpet Cleaning Guide" }]}
+          eyebrow="The guide"
+          title="Complete Guide to Professional Carpet Cleaning in the UAE"
+          lead="Everything you need to know about carpet deep cleaning, stain removal, odor treatment, rug care, and maintaining healthy carpets in the UAE climate. Expert knowledge from Al Haya — trusted by homes and businesses across all seven Emirates."
+          actions={
+            <>
+              <a className="rb-gold" href={waHref()} target="_blank" rel="noopener"><Icon name="whatsapp" /> Get a free quote</a>
+              <a className="rb-line" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+              <RequestCall className="rb-line" />
+            </>
+          }
+        />
 
         {/* Quick-nav TOC */}
         <section className="inner guide-toc-sec" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "0 var(--pad) 40px" }}>
@@ -450,6 +451,7 @@ export default function GuidesPage() {
 
       <Footer />
       <Fab />
+      <RevealInit />
     </div>
   );
 }

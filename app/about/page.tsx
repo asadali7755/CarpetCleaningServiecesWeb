@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
-import { Icon } from "@/components/Icons";
+import RevealInit from "@/components/RevealInit";
+import PageHero from "@/components/PageHero";
+import AutoVideo from "@/components/AutoVideo";
+import BeforeAfter from "@/components/BeforeAfter";
+import CtaBand from "@/components/CtaBand";
 import RequestCall from "@/components/RequestCall";
+import { Icon } from "@/components/Icons";
+import { CLIPS, FRAMES, ALL_PAIRS } from "@/lib/media";
 import { SITE_URL, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 export const metadata: Metadata = {
@@ -15,58 +20,92 @@ export const metadata: Metadata = {
 };
 
 const WHY = [
-  { t: "Trained & background-checked crew", d: "Trained, background-checked technicians who come to your home or office." },
-  { t: "Eco-friendly & safe", d: "Non-toxic products that are safe for children, pets and sensitive skin." },
-  { t: "Same-day service", d: "Book in the morning, enjoy fresh carpets the same evening across Dubai." },
-  { t: "100% satisfaction", d: "Not happy with a spot? We re-clean it free — written guarantee on every job." },
-  { t: "Transparent pricing", d: "Clear fixed quote before we start. No hidden charges, ever." },
-  { t: "All of the UAE", d: "Coverage across all seven emirates, residential and commercial." },
+  { t: "Trained & background-checked crew", d: "Trained, background-checked technicians who come to your home or office.", icon: "shield" },
+  { t: "Eco-friendly & safe", d: "Non-toxic products that are safe for children, pets and sensitive skin.", icon: "leaf" },
+  { t: "Same-day service", d: "Book in the morning, enjoy fresh carpets the same evening across Dubai.", icon: "clock" },
+  { t: "100% satisfaction", d: "Not happy with a spot? We re-clean it free — written guarantee on every job.", icon: "thumbup" },
+  { t: "Transparent pricing", d: "Clear fixed quote before we start. No hidden charges, ever.", icon: "clipboard" },
+  { t: "All of the UAE", d: "Coverage across all seven emirates, residential and commercial.", icon: "pin" },
 ];
 
 export default function About() {
   return (
-    <div className="page">
+    <div className="page rp">
       <Nav />
       <main>
-        <section className="sub-hero">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>About Us</span>
-          </nav>
-          <h1>Trusted carpet care, across the UAE</h1>
-          <p className="lead">Al Haya Carpet Services is an on-demand carpet, rug, sofa and mattress cleaning company built on one promise — spotless results and healthier homes, delivered fast and done right.</p>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
+        <PageHero
+          variant="split"
+          crumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
+          eyebrow="About Al Haya"
+          title="Trusted carpet care, across the UAE"
+          lead="Al Haya Carpet Services is an on-demand carpet, rug, sofa and mattress cleaning company built on one promise — spotless results and healthier homes, delivered fast and done right."
+          actions={
+            <>
+              <a className="rb-gold" href={waHref()} target="_blank" rel="noopener"><Icon name="whatsapp" /> Get a free quote</a>
+              <a className="rb-line" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+              <RequestCall className="rb-line" />
+            </>
+          }
+          media={
+            <div className="ab-stack">
+              <div className="ab-a"><AutoVideo src={CLIPS.rug.src} poster={CLIPS.rug.poster} label={CLIPS.rug.label} eager /></div>
+              <div className="ab-b"><Image src={FRAMES.strip.src} alt={FRAMES.strip.alt} fill sizes="240px" /></div>
+            </div>
+          }
+        />
+
+        {/* Story — big quote + two paragraphs */}
+        <section className="rh-sec ab-story">
+          <div className="rh-wrap">
+            <blockquote className="ab-quote" data-reveal="blur">
+              &ldquo;Spotless results and healthier homes, delivered fast and done right.&rdquo;
+            </blockquote>
+            <div className="mg-grid ab-text">
+              <p data-reveal="left">Carpets, rugs and upholstery trap dust, allergens and bacteria that ordinary vacuuming never reaches. We combine deep shampoo extraction, high-temperature steam sanitisation and careful stain treatment to restore your soft furnishings to a fresh, hygienic, like-new condition.</p>
+              <p data-reveal="right">From a single rug to a full villa or a multi-floor office, our trained crew brings professional cleaning equipment and eco-friendly products to every job — with pickup-and-return for rugs and curtains, and convenient on-site service for carpets, sofas and mattresses.</p>
+            </div>
           </div>
         </section>
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <div className="about-hero-img">
-            <Image src="/images/services/carpet-deep-shampoo-cleaning-card-dubai.webp" alt="Al Haya technician deep cleaning an oriental rug with extraction equipment in Dubai" width={1280} height={720} priority style={{ width: "100%", height: "auto" }} />
-          </div>
-          <div className="prose">
-            <p>Carpets, rugs and upholstery trap dust, allergens and bacteria that ordinary vacuuming never reaches. We combine deep shampoo extraction, high-temperature steam sanitisation and careful stain treatment to restore your soft furnishings to a fresh, hygienic, like-new condition.</p>
-            <p>From a single rug to a full villa or a multi-floor office, our trained crew brings professional cleaning equipment and eco-friendly products to every job — with pickup-and-return for rugs and curtains, and convenient on-site service for carpets, sofas and mattresses.</p>
-          </div>
-          <div className="about-split">
-            <div className="about-split-img">
-              <Image src="/images/gallery/professional-carpet-cleaning-team-dubai.webp" alt="Professional carpet cleaning team at Alhaya Cleaning Services providing residential and commercial cleaning across Dubai UAE" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
+        {/* Values — bento */}
+        <section className="rh-sec rh-services">
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">What you can expect</p>
+              <h2 className="rh-h2">Why families and offices choose us</h2>
             </div>
-            <div className="about-split-img">
-              <Image src="/images/services/carpet-deep-cleaning-process-uae.webp" alt="Industrial carpet deep cleaning machine in action performing rug deep shampoo extraction service across UAE" width={600} height={400} loading="lazy" style={{ width: "100%", height: "auto" }} />
-            </div>
+            <ul className="ab-bento" data-stagger>
+              {WHY.map((w) => (
+                <li key={w.t} className="ab-cell">
+                  <span className="rh-ic"><Icon name={w.icon} /></span>
+                  <b>{w.t}</b>
+                  <p>{w.d}</p>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="feat-list" style={{ gridTemplateColumns: "repeat(2,1fr)" }}>
-            {WHY.map((w) => (
-              <li key={w.t}><span className="ic"><Icon name="check" /></span><div><b>{w.t}</b><p>{w.d}</p></div></li>
-            ))}
-          </ul>
         </section>
+
+        {/* Real work */}
+        <section className="rh-sec rh-results">
+          <div className="rh-wrap rh-results-grid">
+            <div data-reveal="left">
+              <p className="rh-eyebrow">Our work</p>
+              <h2 className="rh-h2">See what our team does</h2>
+              <p className="rh-sub">Real before and after photos from our own jobs. Drag the handle to compare.</p>
+              <figure className="ab-frame">
+                <Image src={FRAMES.rug.src} alt={FRAMES.rug.alt} width={FRAMES.rug.w} height={FRAMES.rug.h} sizes="(max-width:1000px) 100vw, 480px" />
+              </figure>
+            </div>
+            <div data-reveal="right"><BeforeAfter pairs={ALL_PAIRS} /></div>
+          </div>
+        </section>
+
+        <CtaBand />
       </main>
       <Footer />
       <Fab />
+      <RevealInit />
     </div>
   );
 }

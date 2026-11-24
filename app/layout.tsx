@@ -3,6 +3,7 @@ import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 import "./components.css";
 import "./royal.css";
+import "./pages.css";
 import { Analytics } from "@vercel/analytics/next";
 import { ClientProviders } from "@/components/ClientProviders";
 import {

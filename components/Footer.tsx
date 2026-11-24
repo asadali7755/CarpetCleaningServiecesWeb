@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
 
           <div className="ft-col">
-            <h5>Quick Links</h5>
+            <p className="ft-h">Quick Links</p>
             <ul>
               <li><Link href="/">Home</Link></li>
               <li><Link href="/services">Services</Link></li>
@@ -43,14 +43,14 @@ export default function Footer() {
           </div>
 
           <div className="ft-col">
-            <h5>Services</h5>
+            <p className="ft-h">Services</p>
             <ul>
               {SERVICES.slice(0, 4).map((s) => <li key={s.slug}><Link href={`/services/${s.slug}`}>{s.name}</Link></li>)}
             </ul>
           </div>
 
           <div className="ft-col">
-            <h5>Get in touch</h5>
+            <p className="ft-h">Get in touch</p>
             <ul className="ft-contact">
               <li><Icon name="phone" /> <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a></li>
               <li><Icon name="mail" /> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>

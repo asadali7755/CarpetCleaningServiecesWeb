@@ -5,10 +5,17 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
+import RevealInit from "@/components/RevealInit";
+import PageHero from "@/components/PageHero";
+import AutoVideo from "@/components/AutoVideo";
+import BeforeAfter from "@/components/BeforeAfter";
+import ProcessSteps from "@/components/ProcessSteps";
+import CtaBand from "@/components/CtaBand";
+import RequestCall from "@/components/RequestCall";
 import { Icon } from "@/components/Icons";
 import { SERVICES, getService } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
-import RequestCall from "@/components/RequestCall";
+import { SERVICE_MEDIA, FRAMES } from "@/lib/media";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, waHref } from "@/components/constants";
 
 export function generateStaticParams() {
@@ -38,6 +45,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const url = `${SITE_URL}/services/${s.slug}`;
   const related = SERVICES.filter((x) => x.slug !== s.slug);
+  const media = SERVICE_MEDIA[s.slug] || {};
+  const pairs = media.pairs || (media.pair ? [media.pair] : []);
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -70,114 +79,200 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     ],
   };
 
+  // Hero media: a real job video when we have one, otherwise the service image.
+  const heroMedia = media.clip ? (
+    <div className="ph-frame ph-frame-video">
+      <AutoVideo src={media.clip.src} poster={media.clip.poster} label={media.clip.label} eager />
+      <span className="rh-live"><i /> Real job video</span>
+      <span className="ph-float-card"><Icon name="leaf" /> Eco-friendly, safe for kids &amp; pets</span>
+    </div>
+  ) : (
+    <div className="ph-frame ph-frame-img">
+      <Image src={s.img} alt={`${s.name} — ${BRAND} Dubai UAE`} fill priority sizes="(max-width:1000px) 100vw, 560px" className="kb" />
+      <span className="ph-float-card"><Icon name="leaf" /> Eco-friendly, safe for kids &amp; pets</span>
+    </div>
+  );
+
+  const half = Math.ceil(s.body.length / 2);
+
   return (
-    <div className="page">
+    <div className="page rp">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav />
 
       <main>
-        <section className="sub-hero">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <Link href="/services">Services</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>{s.name}</span>
-          </nav>
-          <h1>{s.h2}</h1>
-          <p className="lead">{s.intro}</p>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref(`Hello, I'd like a quote for ${s.name}.`)} target="_blank" rel="noopener">Get a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
+        <PageHero
+          variant="split"
+          crumbs={[{ label: "Home", href: "/" }, { label: "Services", href: "/services" }, { label: s.name }]}
+          eyebrow={`Service ${s.num}`}
+          title={s.h2}
+          lead={s.intro}
+          actions={
+            <>
+              <a className="rb-gold" href={waHref(`Hello, I'd like a quote for ${s.name}.`)} target="_blank" rel="noopener"><Icon name="whatsapp" /> Get a free quote</a>
+              <a className="rb-line" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+              <RequestCall className="rb-line" />
+            </>
+          }
+          chips={["Trained & background-checked", "At your home or office", "Same-day slots"]}
+          media={heroMedia}
+        />
+
+        {/* Highlights — glass cards that flip in one by one */}
+        <section className="hl">
+          <div className="rh-wrap">
+            <ul className="hl-grid" data-stagger>
+              {s.feat.map((f) => (
+                <li key={f.t} className="hl-card">
+                  <span className="rh-ic"><Icon name="check" /></span>
+                  <b>{f.t}</b>
+                  <p>{f.d}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <div className="svc-shot">
-            <Image src={s.img} alt={`${s.name} — ${BRAND} Dubai UAE`} width={1280} height={720} loading="lazy" style={{ width: "100%", height: "auto" }} />
-          </div>
-          <div className="prose">
-            {s.body.map((p, i) => (
-              <div key={i}>
-                <p>{p}</p>
-                {i === 1 && s.images[0] && (
-                  <div className="prose-img">
-                    <Image src={s.images[0]} alt={`${s.name} process — professional carpet cleaning UAE`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
-                  </div>
-                )}
-                {i === 4 && s.images[1] && (
-                  <div className="prose-img">
-                    <Image src={s.images[1]} alt={`${s.name} results — Al Haya Carpet Cleaning Dubai`} width={760} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
-                  </div>
-                )}
+        {/* Article with a sticky quote card */}
+        <section className="rh-sec ar">
+          <div className="rh-wrap ar-grid">
+            <article className="ar-body">
+              <p className="rh-eyebrow" data-reveal>About this service</p>
+              {s.body.slice(0, half).map((p, i) => (
+                <p key={i} className={i === 0 ? "ar-first" : undefined} data-reveal="blur">{p}</p>
+              ))}
+              {s.images[0] && (
+                <figure className="ar-img" data-reveal="clip">
+                  <Image src={s.images[0]} alt={`${s.name} — carpet cleaning in Dubai`} width={760} height={420} loading="lazy" sizes="(max-width:900px) 100vw, 720px" />
+                </figure>
+              )}
+              {s.body.slice(half).map((p, i) => (
+                <p key={i} data-reveal="blur">{p}</p>
+              ))}
+            </article>
+            <aside className="ar-side">
+              <div className="ar-card">
+                <div className="ar-card-img">
+                  <Image src={FRAMES.rug.src} alt={FRAMES.rug.alt} fill sizes="340px" />
+                </div>
+                <b>Free quote in minutes</b>
+                <p>Send a photo of your {s.name.toLowerCase()} job on WhatsApp and we reply with a quote.</p>
+                <a className="rb-gold" href={waHref(`Hello, I'd like a quote for ${s.name}.`)} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp us</a>
+                <a className="ar-call" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>
               </div>
-            ))}
+            </aside>
           </div>
-          <ul className="feat-list">
-            {s.feat.map((f) => (
-              <li key={f.t}>
-                <span className="ic"><Icon name="check" /></span>
-                <div><b>{f.t}</b><p>{f.d}</p></div>
-              </li>
-            ))}
-          </ul>
-          {s.specialist && (
-            <div className="faq-item" style={{ marginTop: 28, padding: "22px 24px" }}>
-              <p style={{ margin: "0 0 14px" }}>{s.specialist.lead}</p>
-              <div className="cta-row">
-                <a className="btn-green" href={s.specialist.href}>{s.specialist.label} →</a>
-                {s.specialist.links.map((l) => (
-                  <a key={l.href} className="btn-outline" href={l.href}>{l.label}</a>
-                ))}
+        </section>
+
+        {/* Real before / after */}
+        {pairs.length > 0 && (
+          <section className="rh-sec rh-results">
+            <div className="rh-wrap rh-results-grid">
+              <div data-reveal="left">
+                <p className="rh-eyebrow">Real result</p>
+                <h2 className="rh-h2">Before &amp; after from our own jobs</h2>
+                <p className="rh-sub">Drag the handle to compare. These are photos from our team&apos;s work, not stock images.</p>
+              </div>
+              <div data-reveal="right"><BeforeAfter pairs={pairs} /></div>
+            </div>
+          </section>
+        )}
+
+        <ProcessSteps />
+
+        {s.specialist && (
+          <section className="rh-sec sp">
+            <div className="rh-wrap">
+              <div className="sp-card" data-reveal="zoom">
+                <p>{s.specialist.lead}</p>
+                <div className="rh-cta">
+                  <a className="rb-gold" href={s.specialist.href}>{s.specialist.label} →</a>
+                  {s.specialist.links.map((l) => (
+                    <a key={l.href} className="rb-line" href={l.href}>{l.label}</a>
+                  ))}
+                </div>
               </div>
             </div>
-          )}
-        </section>
+          </section>
+        )}
 
-        {/* FAQ */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Frequently Asked Questions</h2>
-          {s.faqs.map((f) => (
-            <details className="faq-item" key={f.q}>
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
-        </section>
-
-        {/* Areas */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>{s.name} across the UAE</h2>
-          <div className="chips-row">
-            {LOCATIONS.map((l) => (
-              <Link key={l.slug} href={`/locations/${l.slug}`} className="chip-link"><Icon name="pin" /> {s.name} {l.name}</Link>
-            ))}
+        {/* FAQ — numbered accordion */}
+        <section className="rh-sec fq">
+          <div className="rh-wrap fq-grid">
+            <div className="fq-head" data-reveal="left">
+              <p className="rh-eyebrow">FAQ</p>
+              <h2 className="rh-h2">Frequently Asked Questions</h2>
+              <p className="rh-sub">Still unsure? Ask us on WhatsApp — we usually reply quickly.</p>
+            </div>
+            <div className="fq-list" data-stagger>
+              {s.faqs.map((f, i) => (
+                <details className="rh-qa fq-item" key={f.q}>
+                  <summary><span className="fq-n">{String(i + 1).padStart(2, "0")}</span>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Related */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Other services</h2>
-          <div className="rel-grid rel-grid--img">
-            {related.map((r) => (
-              <Link key={r.slug} href={`/services/${r.slug}`} className="rel-card rel-card--img">
-                <div className="rel-card-img">
-                  <Image src={r.cardImg} alt={`${r.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 100vw,(max-width:900px) 50vw,33vw" />
-                </div>
-                <div className="rel-card-content">
-                  <div className="ic"><Icon name={r.icon} /></div>
-                  <h3>{r.name}</h3>
-                  <p>{r.intro.slice(0, 100)}…</p>
-                </div>
-              </Link>
-            ))}
+        {/* Areas — moving pills */}
+        <section className="rh-sec ap">
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">Where we work</p>
+              <h2 className="rh-h2">{s.name} across the UAE</h2>
+            </div>
+          </div>
+          <div className="ap-rail">
+            <div className="ap-track">
+              {[...LOCATIONS, ...LOCATIONS].map((l, i) => (
+                <Link
+                  key={`${l.slug}-${i}`}
+                  href={`/locations/${l.slug}`}
+                  className="ap-pill"
+                  aria-hidden={i >= LOCATIONS.length ? "true" : undefined}
+                  tabIndex={i >= LOCATIONS.length ? -1 : undefined}
+                >
+                  <Icon name="pin" /> {s.name} {l.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
+
+        {/* Related — swipe slider */}
+        <section className="rh-sec rl">
+          <div className="rh-wrap">
+            <div className="rh-head" data-reveal>
+              <p className="rh-eyebrow">More services</p>
+              <h2 className="rh-h2">Other services</h2>
+            </div>
+            <div className="rl-slider">
+              {related.map((r) => (
+                <Link key={r.slug} href={`/services/${r.slug}`} className="rl-card tilt">
+                  <div className="rl-img">
+                    <Image src={r.cardImg} alt={`${r.name} — Al Haya Carpet Cleaning`} fill sizes="(max-width:600px) 80vw, 320px" />
+                  </div>
+                  <div className="rl-body">
+                    <span className="rh-ic"><Icon name={r.icon} /></span>
+                    <h3>{r.name}</h3>
+                    <p>{r.intro.slice(0, 100)}…</p>
+                    <span className="rh-more">Explore <Icon name="arrow" /></span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CtaBand msg={`Hello, I'd like a quote for ${s.name}.`} />
       </main>
 
       <Footer />
       <Fab />
+      <RevealInit />
     </div>
   );
 }

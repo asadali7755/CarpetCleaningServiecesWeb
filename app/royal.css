@@ -455,3 +455,5 @@ button, input, select, textarea, .cc-gbp-btn,
   .rb-gold::after, .btn-green::after, .btn-cta::after { animation: none !important; }
   [data-reveal] { transform: none !important; opacity: 1 !important; transition: none !important; }
 }
+/* footer column titles (were h5; now plain text so heading order stays valid) */
+.ft-col .ft-h { font-family: var(--sans); font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-2); margin-bottom: 16px; }

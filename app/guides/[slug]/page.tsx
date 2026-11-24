@@ -8,6 +8,9 @@ import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
 import { GUIDES, getGuide } from "@/lib/guidesData";
 import RequestCall from "@/components/RequestCall";
+import PageHero from "@/components/PageHero";
+import RevealInit from "@/components/RevealInit";
+import CtaBand from "@/components/CtaBand";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, waHref } from "@/components/constants";
 
 const GUIDE_IMAGES = [
@@ -78,80 +81,91 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   };
 
   return (
-    <div className="page">
+    <div className="page rp">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav />
 
       <main>
-        <section className="sub-hero">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span className="sep">/</span>
-            <Link href="/guides">Guides</Link><span className="sep">/</span>
-            <span style={{ color: "var(--green)" }}>{g.title.split("—")[0].trim()}</span>
-          </nav>
-          <h1>{g.h1}</h1>
-          <p className="lead">{g.description}</p>
-          <div className="cta-row">
-            <a className="btn-green" href={waHref()} target="_blank" rel="noopener">Get a free quote →</a>
-            <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-            <RequestCall className="btn-outline" />
-          </div>
-        </section>
+        <PageHero
+          variant="center"
+          crumbs={[
+            { label: "Home", href: "/" },
+            { label: "Guides", href: "/guides" },
+            { label: g.title.split("—")[0].trim() },
+          ]}
+          eyebrow="Guide"
+          title={g.h1}
+          lead={g.description}
+          actions={
+            <>
+              <a className="rb-gold" href={waHref()} target="_blank" rel="noopener"><Icon name="whatsapp" /> Get a free quote</a>
+              <a className="rb-line" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> Call {PHONE_DISPLAY}</a>
+              <RequestCall className="rb-line" />
+            </>
+          }
+        />
 
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <div className="about-hero-img" style={{ marginBottom: 28 }}>
-            <Image src={GUIDE_IMAGES[GUIDES.findIndex((x) => x.slug === g.slug) % GUIDE_IMAGES.length]} alt={`${g.title} — Al Haya Carpet Cleaning Dubai`} width={1280} height={520} loading="lazy" style={{ width: "100%", height: "auto" }} />
+        <section className="rh-wrap" style={{ paddingBottom: 30 }}>
+          <div className="post-cover" data-reveal="clip">
+            <Image src={GUIDE_IMAGES[GUIDES.findIndex((x) => x.slug === g.slug) % GUIDE_IMAGES.length]} alt={`${g.title} — Al Haya Carpet Cleaning Dubai`} width={1280} height={520} loading="lazy" sizes="(max-width:1320px) 100vw, 1200px" />
           </div>
-          <div className="prose">
-            {g.body.map((p, i) => <p key={i}>{p}</p>)}
+          <div className="prose post-body">
+            {g.body.map((p, i) => <p key={i} data-reveal="blur">{p}</p>)}
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 30px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>Frequently Asked Questions</h2>
-          {g.faqs.map((f) => (
-            <details className="faq-item" key={f.q}>
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
-        </section>
-
-        {/* Other guides */}
-        <section className="inner" style={{ maxWidth: "var(--maxw)", margin: "0 auto", padding: "10px var(--pad) 70px" }}>
-          <h2 className="sec-title" style={{ fontSize: "clamp(22px,3vw,32px)" }}>More Carpet Cleaning Guides</h2>
-          <div className="rel-grid">
-            {others.slice(0, 6).map((r) => (
-              <Link key={r.slug} href={`/guides/${r.slug}`} className="rel-card">
-                <div className="ic"><Icon name="arrow" /></div>
-                <h3>{r.title.split("—")[0].trim()}</h3>
-                <p>{r.description.slice(0, 120)}…</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="cta">
-          <div className="cta-card">
-            <div className="glow" />
-            <div className="inner">
-              <h2>Ready to get your carpets deep cleaned?</h2>
-              <p>Book a free inspection and get a no-obligation quote. Same-day service available across Dubai, Sharjah, and Ajman.</p>
-              <div className="row">
-                <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp us →</a>
-                <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>
-              </div>
+        <section className="rh-sec fq">
+          <div className="rh-wrap fq-grid">
+            <div className="fq-head" data-reveal="left">
+              <p className="rh-eyebrow">FAQ</p>
+              <h2 className="rh-h2">Frequently Asked Questions</h2>
+            </div>
+            <div className="fq-list" data-stagger>
+              {g.faqs.map((f, i) => (
+                <details className="rh-qa fq-item" key={f.q}>
+                  <summary><span className="fq-n">{String(i + 1).padStart(2, "0")}</span>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>
+
+        {/* Other guides */}
+        {others.length > 0 && (
+          <section className="rh-sec">
+            <div className="rh-wrap">
+              <div className="rh-head" data-reveal>
+                <p className="rh-eyebrow">Keep reading</p>
+                <h2 className="rh-h2">More Carpet Cleaning Guides</h2>
+              </div>
+              <div className="rl-slider">
+                {others.slice(0, 6).map((r) => (
+                  <Link key={r.slug} href={`/guides/${r.slug}`} className="rl-card tilt">
+                    <div className="rl-body">
+                      <h3>{r.title.split("—")[0].trim()}</h3>
+                      <p>{r.description.slice(0, 120)}…</p>
+                      <span className="rh-more">Read <Icon name="arrow" /></span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <CtaBand
+          title="Ready to get your carpets deep cleaned?"
+          text="Book a free inspection and get a no-obligation quote. Same-day service available across Dubai, Sharjah, and Ajman."
+        />
       </main>
 
       <Footer />
       <Fab />
+      <RevealInit />
     </div>
   );
 }
