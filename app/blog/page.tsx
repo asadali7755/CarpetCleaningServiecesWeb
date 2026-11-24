@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import CarpetBackdrop from "@/components/CarpetBackdrop";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import RevealInit from "@/components/RevealInit";
@@ -54,7 +55,8 @@ export default function BlogPage() {
   const [first, ...rest] = POSTS;
 
   return (
-    <div className="page rp">
+    <div className="page rp rp-carpet">
+      <CarpetBackdrop variant="vine" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav />
 

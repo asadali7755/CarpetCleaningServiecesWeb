@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import CarpetBackdrop from "@/components/CarpetBackdrop";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import RevealInit from "@/components/RevealInit";
@@ -77,7 +78,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="page rp">
+    <div className="page rp rp-carpet">
+      <CarpetBackdrop variant="mashrabiya" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import CarpetBackdrop from "@/components/CarpetBackdrop";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import { Icon } from "@/components/Icons";
@@ -269,7 +270,8 @@ const breadcrumbSchema = {
 
 export default function GuidesPage() {
   return (
-    <div className="page rp">
+    <div className="page rp rp-carpet">
+      <CarpetBackdrop variant="vine" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />

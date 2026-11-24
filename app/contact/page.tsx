@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import CarpetBackdrop from "@/components/CarpetBackdrop";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import RevealInit from "@/components/RevealInit";
@@ -22,7 +23,8 @@ const MAP_SRC =
 
 export default function Contact() {
   return (
-    <div className="page rp">
+    <div className="page rp rp-carpet">
+      <CarpetBackdrop variant="zellige" />
       <Nav />
       <main>
         <PageHero

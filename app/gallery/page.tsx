@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import CarpetBackdrop from "@/components/CarpetBackdrop";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import RevealInit from "@/components/RevealInit";
@@ -65,7 +66,8 @@ const TILES: Tile[] = [
 
 export default function GalleryPage() {
   return (
-    <div className="page rp">
+    <div className="page rp rp-carpet">
+      <CarpetBackdrop variant="paisley" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />
       <Nav />
       <main>

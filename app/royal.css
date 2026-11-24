@@ -501,3 +501,47 @@ button, input, select, textarea, .cc-gbp-btn,
   .carpet-bg { animation: none !important; opacity: 1; }
   .carpet-medallion { transform: translate(-50%, -50%); }
 }
+
+/* ---------- 5. Page-type backdrops (each page has its own pattern) ---------- */
+.rp-carpet { isolation: isolate; }
+.rp-carpet.page { background: var(--ivory); }
+/* section bands on inner pages become see-through so the pattern shows */
+.rp-carpet .rh-results { background: linear-gradient(180deg, transparent, rgba(238, 244, 255, 0.5) 18%, rgba(238, 244, 255, 0.5) 82%, transparent); }
+.rp-carpet .rh-services { background: linear-gradient(180deg, transparent, rgba(255, 246, 227, 0.5) 15%, rgba(255, 246, 227, 0.5) 85%, transparent); }
+.rp-carpet .rh-areas { background: linear-gradient(180deg, transparent, rgba(253, 241, 236, 0.5) 20%, rgba(253, 241, 236, 0.5) 80%, transparent); }
+.rp-carpet .ps { background: linear-gradient(180deg, transparent, rgba(238, 244, 255, 0.5) 20%, rgba(238, 244, 255, 0.5) 80%, transparent); }
+.rp-carpet .ph-pattern { opacity: 0.4; }
+
+@keyframes bdUp { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -200px, 0); } }
+@keyframes bdDown { from { transform: translate3d(0, -240px, 0) skewX(0deg); } 50% { transform: translate3d(0, -120px, 0) skewX(1.5deg); } to { transform: translate3d(0, 0, 0) skewX(0deg); } }
+@keyframes bdSide { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-220px, 0, 0); } }
+@keyframes bdDiag { from { transform: translate3d(-200px, 0, 0); } to { transform: translate3d(0, -200px, 0); } }
+@keyframes bdBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+@keyframes bdTurnBack { from { transform: translate(-50%, -50%) rotate(0deg) scale(1); } 50% { transform: translate(-50%, -50%) rotate(-180deg) scale(1.06); } to { transform: translate(-50%, -50%) rotate(-360deg) scale(1); } }
+
+/* services — kilim, rolling upwards */
+.carpet-bg[data-v="kilim"] .carpet-field { background: url(/media/pattern-kilim.svg) 0 0 / 200px 200px repeat; width: 100%; height: calc(100% + 200px); opacity: 0.3; animation: bdUp 60s linear infinite; }
+.carpet-bg[data-v="kilim"] .carpet-border { width: 56px; background: url(/media/border-kilim.svg) 0 0 / 56px 40px repeat-y; opacity: 0.6; animation: bdUp 30s linear infinite; height: calc(100% + 40px); }
+
+/* locations — mashrabiya lattice + counter-turning rosette */
+.carpet-bg[data-v="mashrabiya"] .carpet-field { background: url(/media/pattern-mashrabiya.svg) 0 0 / 200px 200px repeat; width: calc(100% + 200px); height: calc(100% + 200px); top: 0; left: 0; opacity: 0.32; animation: bdDiag 80s linear infinite; }
+.carpet-bg[data-v="mashrabiya"] .carpet-medallion { background-image: url(/media/focal-rosette.svg); width: min(1000px, 120vw); animation: bdTurnBack 180s linear infinite; opacity: 0.5; }
+
+/* contact — zellige tiles that breathe */
+.carpet-bg[data-v="zellige"] .carpet-field { background: url(/media/pattern-zellige.svg) 0 0 / 160px 160px repeat; inset: -5%; width: auto; height: auto; opacity: 0.3; animation: bdBreathe 14s ease-in-out infinite; transform-origin: 50% 40%; }
+
+/* gallery — paisley drifting sideways */
+.carpet-bg[data-v="paisley"] .carpet-field { background: url(/media/pattern-paisley.svg) 0 0 / 220px 220px repeat; width: calc(100% + 220px); height: 100%; opacity: 0.45; animation: bdSide 70s linear infinite; }
+
+/* blog + guides — floral vine drifting down with a gentle sway */
+.carpet-bg[data-v="vine"] .carpet-field { background: url(/media/pattern-vine.svg) 0 0 / 200px 240px repeat; width: 100%; height: calc(100% + 240px); opacity: 0.45; animation: bdDown 90s ease-in-out infinite; }
+
+/* about — mihrab arches gliding sideways */
+.carpet-bg[data-v="mihrab"] .carpet-field { background: url(/media/pattern-mihrab.svg) 0 0 / 160px 200px repeat; width: calc(100% + 160px); height: 100%; opacity: 0.34; animation: bdSide 100s linear infinite reverse; }
+
+@media (max-width: 720px) {
+  .carpet-bg[data-v="kilim"] .carpet-border { width: 20px; background-size: 20px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carpet-bg .carpet-field, .carpet-bg .carpet-medallion, .carpet-bg .carpet-border { animation: none !important; }
+}
