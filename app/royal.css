@@ -545,3 +545,7 @@ button, input, select, textarea, .cc-gbp-btn,
 @media (prefers-reduced-motion: reduce) {
   .carpet-bg .carpet-field, .carpet-bg .carpet-medallion, .carpet-bg .carpet-border { animation: none !important; }
 }
+
+/* in-text links (keyword anchors to related pages) */
+.rh-sub a, .ar-body a, .mg-grid a { color: var(--royal); font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.rh-sub a:hover, .ar-body a:hover, .mg-grid a:hover { color: var(--gold-2); }

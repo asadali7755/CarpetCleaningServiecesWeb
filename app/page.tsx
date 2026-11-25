@@ -24,6 +24,7 @@ const PRICES: Record<string, string> = {
 };
 
 const FAQS = [
+  { q: "Do you offer carpet cleaning at home in Dubai?", a: "Yes. Our trained, background-checked carpet cleaners come to your home or office anywhere in Dubai and the UAE and clean your carpets in place. Send a photo on WhatsApp first and we reply with a free quote; same-day slots are often available." },
   { q: "How long does it take for the carpet to dry?", a: "Most of the water is taken out during the rinse, so your carpet will be dry, fresh, and ready to walk on within 2 to 4 hours, depending on your indoor AC settings and room ventilation." },
   { q: "Do you provide carpet cleaning services outside of Dubai?", a: "Yes, we provide comprehensive commercial and residential carpet cleaning services all over the UAE. Our mobile teams travel directly to your villa, apartment, or office building in Abu Dhabi, Sharjah, Ajman, Al Ain, Fujairah, and Ras Al Khaimah." },
   { q: "Are your cleaning chemicals safe for pets and children?", a: "Absolutely. At Alhaya Cleaning Services, we prioritize your family's health. All of our deep shampooing and carpet odor removing products are completely non-toxic, eco-friendly, and biodegradable." },
@@ -82,8 +83,8 @@ export default function Home() {
             <p className="rh-kicker"><span className="rh-dot" /> Dubai · Sharjah · Ajman · all 7 emirates</p>
             <h1 className="rh-h1">Carpet Cleaning in <em>Dubai</em> &amp; the UAE</h1>
             <p className="rh-lead">
-              Expert carpet, rug and upholstery cleaning across all 7 UAE Emirates. Deep shampoo extraction,
-              stubborn stain removal, and odor treatment — fast drying, eco-friendly, and fully transparent pricing.
+              Professional carpet cleaning company in Dubai with home and office service across all 7 UAE Emirates.
+              Deep shampoo extraction, stubborn stain removal, and odor treatment — fast drying, eco-friendly, and fully transparent pricing.
             </p>
             <div className="rh-cta">
               <a className="rb-gold" href={waHref()} target="_blank" rel="noopener"><Icon name="whatsapp" /> Get Free Quote</a>
@@ -148,7 +149,7 @@ export default function Home() {
         <div className="rh-wrap rh-results-grid">
           <div className="rh-results-copy" data-reveal="left">
             <p className="rh-eyebrow">Results</p>
-            <h2 className="rh-h2">See The Difference</h2>
+            <h2 className="rh-h2">Professional Carpet Cleaning: See The Difference</h2>
             <p className="rh-sub">Real before and after photos from our own carpet cleaning jobs. Drag the handle to compare.</p>
             <ul className="rh-ticks">
               <li><Icon name="check" /> Sand, dust and grime lifted from the pile</li>
@@ -168,7 +169,7 @@ export default function Home() {
         <div className="rh-wrap">
           <div className="rh-head" data-reveal>
             <p className="rh-eyebrow">Watch us work</p>
-            <h2 className="rh-h2">Real jobs, filmed by our team</h2>
+            <h2 className="rh-h2">Carpet cleaning at home — real jobs, filmed by our team</h2>
           </div>
           <div className="rh-video-grid">
             {CLIPS.map((c) => (
@@ -186,7 +187,13 @@ export default function Home() {
         <div className="rh-wrap">
           <div className="rh-head" data-reveal>
             <p className="rh-eyebrow">Our services</p>
-            <h2 className="rh-h2">Specialist carpet care, done right.</h2>
+            <h2 className="rh-h2">Carpet cleaning services in Dubai, done right.</h2>
+            <p className="rh-sub">
+              From fitted carpets to Persian rugs, our carpet cleaners come to your home or office. Looking for something specific? See{" "}
+              <Link href="/services/carpet-cleaning">carpet washing and deep shampoo</Link>,{" "}
+              <Link href="/services/rug-cleaning">rug cleaning in Dubai</Link> or{" "}
+              <Link href="/services/sofa-upholstery-cleaning">sofa and carpet cleaning</Link>.
+            </p>
           </div>
           <div className="rh-svc-grid">
             {SERVICES.map((s, i) => (
@@ -218,7 +225,7 @@ export default function Home() {
           </div>
           <div data-reveal="right">
             <p className="rh-eyebrow">Why us</p>
-            <h2 className="rh-h2">Why Choose Al Haya</h2>
+            <h2 className="rh-h2">Why Choose Al Haya as Your Carpet Cleaning Company</h2>
             <div className="rh-why-list">
               <div className="rh-why-item">
                 <span className="rh-ic"><Icon name="clipboard" /></span>
@@ -242,7 +249,7 @@ export default function Home() {
         <div className="rh-wrap">
           <div className="rh-head" data-reveal>
             <p className="rh-eyebrow">Coverage</p>
-            <h2 className="rh-h2">Serving All 7 Emirates</h2>
+            <h2 className="rh-h2">Carpet Cleaning Across All 7 Emirates</h2>
           </div>
           <div className="rh-area-grid">
             {LOCATIONS.map((l) => (

@@ -9,10 +9,10 @@ import { POSTS } from "@/lib/blogData";
 // whenever you change that page's text, so Google sees which pages are new.
 // Do not use the build time: then every page looks changed on every deploy.
 const UPDATED = {
-  home: "2026-11-24",
+  home: "2026-11-25",
   servicesHub: "2026-11-23",
   locationsHub: "2026-09-15",
-  gallery: "2026-08-14",
+  gallery: "2026-11-24",
   guidesHub: "2026-11-23",
   blogHub: "2026-08-05",
   about: "2026-11-23",
