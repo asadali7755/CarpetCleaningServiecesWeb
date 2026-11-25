@@ -14,6 +14,7 @@ import QuoteCallSection from "@/components/QuoteCallSection";
 import RequestCall from "@/components/RequestCall";
 import { Icon } from "@/components/Icons";
 import { LOCATIONS, getLocation, locationAnchor } from "@/lib/locationsData";
+import { areasFor, areaPath } from "@/lib/areasData";
 import { SERVICES } from "@/lib/servicesData";
 import { SITE_URL, BRAND, PHONE_DISPLAY, PHONE_TEL, EMAIL, waHref } from "@/components/constants";
 
@@ -146,7 +147,13 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <h2 className="rh-h2">Neighbourhoods we cover in {l.name}</h2>
             </div>
             <ul className="nb-grid" data-stagger>
-              {l.areas.map((a) => <li key={a}><Icon name="pin" /> {a}</li>)}
+              {l.areas.map((a) => {
+                // Neighbourhoods with their own page link to it.
+                const page = areasFor(l.slug).find((x) => x.name === a);
+                return page
+                  ? <li key={a}><Link href={areaPath(page)}><Icon name="pin" /> Carpet cleaning {a}</Link></li>
+                  : <li key={a}><Icon name="pin" /> {a}</li>;
+              })}
             </ul>
           </div>
         </section>

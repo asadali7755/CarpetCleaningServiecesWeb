@@ -103,7 +103,10 @@ export const LOCATIONS: Location[] = [
   {
     slug: "abu-dhabi", name: "Abu Dhabi", ar: "أبوظبي", image: "/emirates/abu-dhabi.webp",
     metaDesc: "Carpet, rug and sofa cleaning in Abu Dhabi, from Khalifa City villas to Corniche flats and Mussafah offices. Free quote on WhatsApp.",
-    h1: "Carpet Cleaning Abu Dhabi & Mussafah — Homes & Offices",
+    h1: "Carpet Cleaning Abu Dhabi — Homes, Villas & Offices",
+    seeAlso: [
+      { before: "In Mussafah or Musaffah Shabiya? See", label: "carpet cleaning in Mussafah", href: "/locations/abu-dhabi/mussafah" },
+    ],
     intro: "Deep carpet, rug, sofa and mattress cleaning across Abu Dhabi — from Khalifa City villas to Corniche apartments and Mussafah commercial spaces. Eco-friendly products and reliable, scheduled service.",
     body: [
       "We run regular Abu Dhabi routes covering the full service range: carpet deep shampoo cleaning, rug cleaning, upholstery, mattress sanitisation and commercial carpet contracts. Bookings are typically scheduled within 48 hours, with priority slots available for urgent requests. Free on-site quote across the emirate, with overnight and weekend slots for commercial clients.",

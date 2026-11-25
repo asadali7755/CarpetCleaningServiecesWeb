@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/components/constants";
 import { SERVICES } from "@/lib/servicesData";
 import { LOCATIONS } from "@/lib/locationsData";
+import { AREAS, areaPath } from "@/lib/areasData";
 import { GUIDES } from "@/lib/guidesData";
 import { POSTS } from "@/lib/blogData";
 
@@ -18,7 +19,7 @@ const UPDATED = {
   about: "2026-11-23",
   contact: "2026-09-14",
   services: "2026-11-24", // lib/servicesData.ts
-  locations: "2026-11-23", // lib/locationsData.ts
+  locations: "2026-11-25", // lib/locationsData.ts
   guides: "2026-11-24", // lib/guidesData.ts
 };
 
@@ -54,6 +55,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: primary.has(l.slug) ? 0.8 : 0.6,
   }));
+  // Area pages carry their own date (lib/areasData.ts).
+  const areas = AREAS.map((a) => ({
+    url: `${SITE_URL}${areaPath(a)}`,
+    lastModified: d(a.updated),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
   const guides = GUIDES.map((g) => ({
     url: `${SITE_URL}/guides/${g.slug}`,
     lastModified: d(UPDATED.guides),
@@ -67,5 +75,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.5,
   }));
-  return [...pages, ...services, ...locations, ...guides, ...blog];
+  return [...pages, ...services, ...locations, ...areas, ...guides, ...blog];
 }
