@@ -56,7 +56,7 @@ export default function RequestCall({ className = "btn-book" }: { className?: st
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
                 </div>
                 <h3>Request Sent Successfully!</h3>
-                <p>Our team will contact you within 30 minutes.</p>
+                <p>Our team will contact you soon.</p>
                 <button className="btn-outline" style={{ marginTop: 16, fontSize: 14 }} onClick={close}>
                   Close
                 </button>
@@ -64,7 +64,7 @@ export default function RequestCall({ className = "btn-book" }: { className?: st
             ) : (
               <>
                 <h3 className="rc-title">Request a Call Back</h3>
-                <p className="rc-desc">Fill in your details and our team will call you within 30 minutes.</p>
+                <p className="rc-desc">Fill in your details and our team will call you back.</p>
                 <form className="rc-form" onSubmit={submit}>
                   <div>
                     <label htmlFor="rc-name">Name <span className="rc-req">*</span></label>

@@ -8,8 +8,8 @@ import { PHONE_DISPLAY, PHONE_TEL } from './constants';
 
 const BENEFITS = [
   { icon: 'clipboard', title: 'Free consultation', desc: 'Talk it through with a cleaning expert, no pressure.' },
-  { icon: 'shield', title: 'Honest pricing', desc: 'Transparent quotes — no hidden charges, ever.' },
-  { icon: 'clock', title: 'Fast callback', desc: 'We call you back within 30 minutes, same day.' },
+  { icon: 'shield', title: 'Trained, checked team', desc: 'Every cleaner is trained and background-checked.' },
+  { icon: 'clock', title: 'We call you back', desc: 'Leave your number and our team calls you to arrange the visit.' },
   { icon: 'calendar', title: '7 days a week', desc: 'Available 8 AM to 10 PM, every day of the week.' },
 ];
 
@@ -79,11 +79,11 @@ export default function QuoteCallSection() {
 
           {/* Get a Free Visit form side */}
           <div className="contact-card">
-            <p className="eyebrow teal">Quick Response</p>
-            <h3>Get a Free Visit</h3>
+            <p className="eyebrow teal">Free quote</p>
+            <h3>Get a Free Quote</h3>
             <p style={{ color: 'var(--text-2)', fontSize: 14, lineHeight: 1.6, marginBottom: 22 }}>
-              Fill in your details and we will get back to you within 30 minutes to arrange a
-              free visit.
+              Fill in your details and our team gets back to you with a free quote and a time
+              for the visit.
             </p>
 
             {sent ? (

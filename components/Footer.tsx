@@ -25,7 +25,7 @@ export default function Footer() {
                 <span className="brand-sub">CARPET CLEANING</span>
               </span>
             </div>
-            <p>Professional carpet deep shampoo cleaning with rapid 2-4 hours dry time. Residential and commercial carpet cleaning, stain removal, and odor elimination across Dubai, Abu Dhabi, Sharjah and all UAE Emirates.</p>
+            <p>Professional carpet deep shampoo cleaning at your home or office. Residential and commercial carpet cleaning, stain removal, and odor elimination across Dubai, Abu Dhabi, Sharjah and all UAE Emirates.</p>
             <div className="ft-social">
               <a href={FACEBOOK_URL} target="_blank" rel="noopener" aria-label="Facebook" className="ft-social-link"><Icon name="facebook" /></a>
               <a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn" className="ft-social-link"><Icon name="linkedin" /></a>

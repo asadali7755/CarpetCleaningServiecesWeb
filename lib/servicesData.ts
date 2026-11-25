@@ -162,7 +162,7 @@ export const SERVICES: ServiceDetail[] = [
     img: "/images/gallery/commercial-carpet-cleaning-technician-uae.webp",
     cardImg: "/images/carpet/commercial-office-carpet-cleaning-uae.webp",
     images: ["/images/gallery/industrial-carpet-cleaning-machine-dubai.webp", "/images/gallery/carpet-steam-extraction-cleaning-uae.webp"],
-    intro: "Designed for high-traffic environments including corporate offices, hotel corridors, retail showrooms, clinics, and nurseries. We offer flexible, after-hours or weekend scheduling to ensure zero business downtime.",
+    intro: "Designed for high-traffic environments including corporate offices, hotel corridors, retail showrooms, clinics, and nurseries. We agree the visit time with you so the cleaning fits around your working day.",
     body: [
       "Commercial carpets face a level of wear that residential carpets simply do not experience. Hundreds of shoes crossing the same paths daily grind sand and grit into the fibre base, creating visible traffic lanes and accelerating carpet aging. Our commercial carpet cleaning service is designed to reverse this damage and extend the useful life of your office or commercial carpeting.",
       "We understand that business operations cannot stop for carpet cleaning. That is why we offer flexible scheduling: after-hours cleaning (typically starting at 6 PM or later), weekend appointments, and phased zone-by-zone cleaning for large offices that need to maintain partial access. With our rapid 2-4 hour dry time, carpets cleaned on Friday evening are fully dry and ready for foot traffic by Saturday morning.",

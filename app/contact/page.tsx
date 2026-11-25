@@ -32,7 +32,7 @@ export default function Contact() {
           crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
           eyebrow="Contact Us"
           title="Get Your Free Quote Today"
-          lead="Reach out via phone, WhatsApp, email, or fill in the form below. We respond within 30 minutes during business hours."
+          lead="Reach out via phone, WhatsApp, email, or fill in the form below. We reply during business hours, daily 8 AM – 10 PM."
           actions={
             <>
               <a className="rb-gold" href={waHref()} target="_blank" rel="noopener"><Icon name="whatsapp" /> Get Free Quote</a>

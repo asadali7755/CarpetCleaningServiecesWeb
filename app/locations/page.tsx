@@ -53,7 +53,7 @@ export default function LocationsHub() {
                   <Image src={l.image} alt={`Carpet cleaning in ${l.name}`} fill sizes="(max-width:720px) 50vw, 33vw" />
                   <span className="rh-area-body">
                     <b>{l.name}</b>
-                    <small><Icon name="clock" /> {l.resp} response · {l.areas.slice(0, 3).join(", ")}</small>
+                    <small><Icon name="pin" /> {l.areas.slice(0, 3).join(", ")}</small>
                   </span>
                 </Link>
               ))}

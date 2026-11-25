@@ -104,10 +104,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           }
           media={
             <div className="lp-stats" data-stagger>
-              <div className="lp-stat"><b>{l.resp}</b><span>Avg. response</span></div>
               <div className="lp-stat"><b>{l.cityCount}+</b><span>Areas covered</span></div>
+              <div className="lp-stat"><b>Same day</b><span>Slots often free</span></div>
               <div className="lp-stat"><b>7 days</b><span>8 AM – 10 PM</span></div>
-              <div className="lp-stat"><b>100%</b><span>Guarantee</span></div>
+              <div className="lp-stat"><b>Free</b><span>Quote on WhatsApp</span></div>
             </div>
           }
         />
@@ -216,7 +216,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   <Image src={o.image} alt={locationAnchor(o)} fill sizes="260px" />
                   <span className="rh-area-body">
                     <b>{locationAnchor(o)}</b>
-                    <small><Icon name="pin" /> {o.resp} response</small>
+                    <small><Icon name="pin" /> {o.cityCount}+ areas covered</small>
                   </span>
                 </Link>
               ))}

@@ -257,7 +257,7 @@ export default function Home() {
                 <Image src={l.image} alt={locationAnchor(l)} fill sizes="(max-width:600px) 50vw,(max-width:1000px) 33vw,25vw" />
                 <span className="rh-area-body">
                   <b>{locationAnchor(l)}</b>
-                  <small><Icon name="pin" /> {l.resp} response · {l.cityCount}+ areas</small>
+                  <small><Icon name="pin" /> {l.cityCount}+ areas covered</small>
                 </span>
               </Link>
             ))}
