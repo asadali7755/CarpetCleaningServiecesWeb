@@ -35,6 +35,7 @@ export const LOCATIONS: Location[] = [
     seeAlso: [
       { before: "For an overview of the service, see", label: "carpet cleaning in Dubai", href: "/" },
       { before: "For Persian, wool and silk rugs, see", label: "rug cleaning in Dubai", href: "/services/rug-cleaning" },
+      { before: "In a Marina or JBR tower? See", label: "carpet cleaning in Dubai Marina", href: "/locations/dubai/dubai-marina" },
     ],
     intro: "Our trained, background-checked team cleans carpets, rugs and sofas at homes, villas and offices in every part of Dubai, from Marina and JLT towers to Jumeirah villas, Business Bay offices and Deira apartments. Here is what each area usually needs.",
     body: [

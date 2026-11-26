@@ -63,9 +63,6 @@ function rich(text: string): ReactNode[] {
 }
 const plain = (text: string) => text.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1");
 
-// A real job photo beside the first three chapters.
-const CHAPTER_FIGS = [FRAMES.strip, FRAMES.office, null, FRAMES.rug];
-
 export default async function AreaPage({ params }: { params: Params }) {
   const { slug, area } = await params;
   const a = getArea(slug, area);
@@ -138,7 +135,7 @@ export default async function AreaPage({ params }: { params: Params }) {
               <RequestCall className="rb-line" />
             </>
           }
-          chips={["Homes", "Offices & showrooms", "Staff accommodation", "Same-day slots"]}
+          chips={a.chips}
           media={
             <div className="ph-frame ph-frame-video">
               <AutoVideo src={clip.src} poster={clip.poster} label={clip.label} eager />
@@ -170,20 +167,22 @@ export default async function AreaPage({ params }: { params: Params }) {
                 <Icon name="arrow" />
                 <span><small>Elsewhere in the emirate, see</small>{locationAnchor(parent)}</span>
               </Link>
-              <Link href="/services/commercial-carpet-cleaning">
-                <Icon name="arrow" />
-                <span><small>For offices and warehouses, see</small>Commercial carpet cleaning</span>
-              </Link>
+              {a.seeAlso.map((l) => (
+                <Link key={l.href} href={l.href}>
+                  <Icon name="arrow" />
+                  <span><small>{l.before}</small>{l.label}</span>
+                </Link>
+              ))}
             </div>
             {a.sections.map((s, i) => {
-              const fig = CHAPTER_FIGS[i];
+              const fig = s.fig ? FRAMES[s.fig] : null;
               return (
                 <article className="ch-row" key={s.h2}>
                   <header className="ch-head" data-reveal="left">
                     <span className="ch-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                     <h2>{s.h2}</h2>
                   </header>
-                  <div className={`ch-body${fig && fig.w > fig.h ? " ch-wide" : ""}`}>
+                  <div className={`ch-body${fig && fig.h > fig.w ? "" : " ch-wide"}`}>
                     <div>
                       {s.paras.map((p, j) => <p key={j} data-reveal="blur">{rich(p)}</p>)}
                     </div>
