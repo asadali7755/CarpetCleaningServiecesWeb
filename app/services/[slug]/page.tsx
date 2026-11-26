@@ -159,7 +159,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="ar-card-img">
                   <Image src={FRAMES.rug.src} alt={FRAMES.rug.alt} fill sizes="340px" />
                 </div>
-                <b>Free quote in minutes</b>
+                <b>Free quote on WhatsApp</b>
                 <p>Send a photo of your {s.name.toLowerCase()} job on WhatsApp and we reply with a quote.</p>
                 <a className="rb-gold" href={waHref(`Hello, I'd like a quote for ${s.name}.`)} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp us</a>
                 <a className="ar-call" href={`tel:${PHONE_TEL}`}><Icon name="phone" /> {PHONE_DISPLAY}</a>

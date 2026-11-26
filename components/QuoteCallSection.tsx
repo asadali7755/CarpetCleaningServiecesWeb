@@ -77,7 +77,7 @@ export default function QuoteCallSection() {
             </div>
           </div>
 
-          {/* Get a Free Visit form side */}
+          {/* Free quote form side */}
           <div className="contact-card">
             <p className="eyebrow teal">Free quote</p>
             <h3>Get a Free Quote</h3>
@@ -142,7 +142,7 @@ export default function QuoteCallSection() {
                   </select>
                 </div>
                 <button type="submit" className="btn-green" disabled={loading} style={{ border: 'none', cursor: 'pointer', width: '100%', justifyContent: 'center' }}>
-                  {loading ? 'Sending...' : 'Request Free Visit'}
+                  {loading ? 'Sending...' : 'Request Free Quote'}
                 </button>
                 {failed && <SendFailNote />}
                 <p style={{ color: 'var(--text-3)', fontSize: 12, textAlign: 'center', margin: 0 }}>

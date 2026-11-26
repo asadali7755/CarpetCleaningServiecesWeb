@@ -109,7 +109,7 @@ export default function BlogPage() {
 
         <CtaBand
           title="Need professional carpet cleaning?"
-          text="Book a free inspection and get a no-obligation quote. Same-day service available across Dubai, Sharjah, and Ajman."
+          text="Send a photo on WhatsApp and get a free quote. Same-day slots are often available."
         />
       </main>
 

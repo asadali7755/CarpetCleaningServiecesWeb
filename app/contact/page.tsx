@@ -81,8 +81,8 @@ export default function Contact() {
               </div>
               <div className="ct-badges" data-stagger>
                 <div><b>7 Emirates</b><span>Full UAE Coverage</span></div>
-                <div><b>Same Day</b><span>Service Available</span></div>
-                <div><b>100%</b><span>Satisfaction Guarantee</span></div>
+                <div><b>Same Day</b><span>Slots Often Available</span></div>
+                <div><b>Free</b><span>Quote on WhatsApp</span></div>
               </div>
             </div>
           </div>

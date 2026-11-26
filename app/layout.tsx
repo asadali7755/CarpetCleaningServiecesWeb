@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     "stubborn carpet stain removal UAE",
     "carpet odor removing",
     "office carpet cleaning service UAE",
-    "2 to 4 hours dry time carpet cleaning",
+    "carpet cleaning at home Dubai",
   ],
   robots: {
     index: true,
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     siteName: BRAND,
     title: "Carpet Cleaning Dubai & UAE | Home & Office Service",
     description:
-      "Residential and commercial carpet deep shampoo cleaning with 2-4 hours dry time. Erase stubborn stains and eliminate odors across all UAE Emirates.",
+      "Carpet deep shampoo cleaning at your home or office, with stain and odour removal across all UAE Emirates. Free quote on WhatsApp.",
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Carpet Cleaning Dubai & UAE | Home & Office Service",
     description:
-      "Carpet deep shampoo cleaning with 2-4 hours dry time. Stubborn stain removal across all UAE Emirates.",
+      "Carpet deep shampoo cleaning at your home or office. Stain and odour removal across all UAE Emirates.",
     images: [`${SITE_URL}/opengraph-image`],
   },
 };
@@ -89,7 +89,7 @@ const localBusiness = {
   "@type": "LocalBusiness",
   name: BRAND,
   description:
-    "Professional carpet deep shampoo cleaning with rapid 2-4 hours dry time. Residential and commercial carpet cleaning, stubborn stain removal, and odor elimination across all UAE Emirates.",
+    "Professional carpet deep shampoo cleaning at your home or office. Residential and commercial carpet cleaning, stubborn stain removal and odour treatment across all UAE Emirates.",
   url: SITE_URL,
   telephone: PHONE_TEL,
   email: EMAIL,

@@ -10,16 +10,16 @@ import { POSTS } from "@/lib/blogData";
 // whenever you change that page's text, so Google sees which pages are new.
 // Do not use the build time: then every page looks changed on every deploy.
 const UPDATED = {
-  home: "2026-11-25",
+  home: "2026-11-26",
   servicesHub: "2026-11-23",
   locationsHub: "2026-09-15",
   gallery: "2026-11-24",
-  guidesHub: "2026-11-23",
+  guidesHub: "2026-11-26",
   blogHub: "2026-08-05",
-  about: "2026-11-23",
-  contact: "2026-09-14",
-  services: "2026-11-24", // lib/servicesData.ts
-  locations: "2026-11-25", // lib/locationsData.ts
+  about: "2026-11-26",
+  contact: "2026-11-26",
+  services: "2026-11-26", // lib/servicesData.ts
+  locations: "2026-11-26", // lib/locationsData.ts
   guides: "2026-11-24", // lib/guidesData.ts
 };
 

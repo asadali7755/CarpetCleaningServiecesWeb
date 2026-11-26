@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Alhaya Cleaning Services - Carpet Deep Cleaning UAE",
     short_name: "Alhaya Cleaning",
     description:
-      "Professional carpet deep shampoo cleaning with 2-4 hours dry time across all UAE Emirates.",
+      "Professional carpet deep shampoo cleaning at your home or office across all UAE Emirates.",
     start_url: "/",
     display: "standalone",
     background_color: "#0a0a0a",

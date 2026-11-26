@@ -25,11 +25,11 @@ const PRICES: Record<string, string> = {
 
 const FAQS = [
   { q: "Do you offer carpet cleaning at home in Dubai?", a: "Yes. Our trained, background-checked carpet cleaners come to your home or office anywhere in Dubai and the UAE and clean your carpets in place. Send a photo on WhatsApp first and we reply with a free quote; same-day slots are often available." },
-  { q: "How long does it take for the carpet to dry?", a: "Most of the water is taken out during the rinse, so your carpet will be dry, fresh, and ready to walk on within 2 to 4 hours, depending on your indoor AC settings and room ventilation." },
+  { q: "How long does it take for the carpet to dry?", a: "Most of the water is taken out during the rinse, so the carpet is left damp, not soaked. How long it takes to dry fully depends on the carpet and on the AC and airflow in the room; our team tells you on the day when the room can be used again." },
   { q: "Do you provide carpet cleaning services outside of Dubai?", a: "Yes, we provide comprehensive commercial and residential carpet cleaning services all over the UAE. Our mobile teams travel directly to your villa, apartment, or office building in Abu Dhabi, Sharjah, Ajman, Al Ain, Fujairah, and Ras Al Khaimah." },
-  { q: "Are your cleaning chemicals safe for pets and children?", a: "Absolutely. At Alhaya Cleaning Services, we prioritize your family's health. All of our deep shampooing and carpet odor removing products are completely non-toxic, eco-friendly, and biodegradable." },
+  { q: "Are your cleaning chemicals safe for pets and children?", a: "Yes. At Alhaya Cleaning Services, we use eco-friendly cleaning products that are safe for children and pets. Let the carpet dry fully before they use the room again." },
   { q: "What types of carpets and rugs can you clean?", a: "We handle all fabric types — Persian and Oriental rugs with pH-neutral hand wash, wool carpets with low-temperature extraction, shaggy deep pile rugs with deep agitation, and synthetic nylon/polyester carpets with high-pressure deep shampoo extraction." },
-  { q: "How much does carpet cleaning cost?", a: "Pricing depends on carpet size, fabric type, and level of soiling. Synthetic carpets are the quickest to clean; wool needs wool-safe products and more time, and Persian, handmade and silk rugs need a slow, low-moisture hand clean. Heavy stains such as coffee, karak, oil or pet marks can need extra treatment. Combining carpet, rug and sofa cleaning in one visit also saves a second trip. We provide a transparent, fixed quote before starting — no hidden charges. Call or WhatsApp 0551275545 for a free estimate." },
+  { q: "How much does carpet cleaning cost?", a: "Pricing depends on carpet size, fabric type, and level of soiling. Synthetic carpets are the quickest to clean; wool needs wool-safe products and more time, and Persian, handmade and silk rugs need a slow, low-moisture hand clean. Heavy stains such as coffee, karak, oil or pet marks can need extra treatment. Combining carpet, rug and sofa cleaning in one visit also saves a second trip. Send a photo on WhatsApp to 0551275545 for a free quote." },
 ];
 
 // Real job photos from the team (Madinat Alhaya / Al Haya), cropped from the
@@ -84,7 +84,7 @@ export default function Home() {
             <h1 className="rh-h1">Carpet Cleaning in <em>Dubai</em> &amp; the UAE</h1>
             <p className="rh-lead">
               Professional carpet cleaning company in Dubai with home and office service across all 7 UAE Emirates.
-              Deep shampoo extraction, stubborn stain removal, and odor treatment — fast drying, eco-friendly, and fully transparent pricing.
+              Deep shampoo extraction, stubborn stain removal, and odor treatment — at your home or office, with eco-friendly products and a free quote on WhatsApp.
             </p>
             <div className="rh-cta">
               <a className="rb-gold" href={waHref()} target="_blank" rel="noopener"><Icon name="whatsapp" /> Get Free Quote</a>
@@ -122,10 +122,10 @@ export default function Home() {
       {/* TRUST STRIP */}
       <section className="rh-trust">
         <div className="rh-wrap rh-trust-grid">
-          <div className="rh-trust-item"><span className="rh-ic"><Icon name="clock" /></span><span>Same Day Service<small>Book today, cleaned today</small></span></div>
+          <div className="rh-trust-item"><span className="rh-ic"><Icon name="clock" /></span><span>Same-Day Slots<small>Often available</small></span></div>
           <div className="rh-trust-item"><span className="rh-ic"><Icon name="leaf" /></span><span>Eco-Friendly<small>Safe for family &amp; pets</small></span></div>
           <div className="rh-trust-item"><span className="rh-ic"><Icon name="pin" /></span><span>7 Emirates<small>Complete UAE coverage</small></span></div>
-          <div className="rh-trust-item"><span className="rh-ic"><Icon name="check" /></span><span>Satisfaction Guaranteed<small>100% happiness promise</small></span></div>
+          <div className="rh-trust-item"><span className="rh-ic"><Icon name="check" /></span><span>Checked Team<small>Trained &amp; background-checked</small></span></div>
         </div>
       </section>
 
@@ -133,7 +133,7 @@ export default function Home() {
       <section className="rh-stats">
         <div className="rh-wrap rh-stats-grid">
           <div className="rh-stat"><b>7</b><span>UAE Emirates Covered</span></div>
-          <div className="rh-stat"><b>2-4<small>hrs</small></b><span>Average Dry Time</span></div>
+          <div className="rh-stat"><b>Same<small>day</small></b><span>Slots Often Available</span></div>
           <div className="rh-stat"><b>Free</b><span>Quote on WhatsApp</span></div>
         </div>
       </section>
@@ -229,7 +229,7 @@ export default function Home() {
             <div className="rh-why-list">
               <div className="rh-why-item">
                 <span className="rh-ic"><Icon name="clipboard" /></span>
-                <div><h3>Transparent Pricing</h3><p>Fixed, upfront quotes before we start — no hidden charges, no surprise fees after the job is done.</p></div>
+                <div><h3>Free Quote First</h3><p>Send a photo on WhatsApp and get a free quote before anything is booked.</p></div>
               </div>
               <div className="rh-why-item">
                 <span className="rh-ic"><Icon name="shield" /></span>
@@ -237,7 +237,7 @@ export default function Home() {
               </div>
               <div className="rh-why-item">
                 <span className="rh-ic"><Icon name="leaf" /></span>
-                <div><h3>Eco-Friendly Products</h3><p>Non-toxic, biodegradable, child-safe and pet-safe solutions used across every carpet, rug and upholstery service.</p></div>
+                <div><h3>Eco-Friendly Products</h3><p>Eco-friendly products that are safe for children and pets, used across every carpet, rug and upholstery service.</p></div>
               </div>
             </div>
           </div>

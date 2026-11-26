@@ -29,11 +29,11 @@ const GUIDE_SECTIONS = [
       },
       {
         q: "Where is Al Haya Carpet Cleaning located?",
-        a: "Al Haya Carpet Cleaning Services operates across all seven emirates of the UAE. Our primary service areas are Dubai (including Marina, Downtown, Jumeirah, Business Bay, Deira, Al Barsha, JBR, and Palm Jumeirah), Sharjah (Al Nahda, Al Majaz, Muwaileh, Al Taawun), and Ajman (Ajman City, Al Nuaimiya, Al Rashidiya). We also serve Abu Dhabi, Ras Al Khaimah, Umm Al Quwain, and Fujairah on regular scheduled routes.",
+        a: "Al Haya Carpet Cleaning Services operates across all seven emirates of the UAE. Our team comes to your home or office. Our main service areas are Dubai (including Marina, Downtown, Jumeirah, Business Bay, Deira, Al Barsha, JBR, and Palm Jumeirah), Sharjah (Al Nahda, Al Majaz, Muwaileh, Al Taawun), and Ajman (Ajman City, Al Nuaimiya, Al Rashidiya). We also serve Abu Dhabi, Ras Al Khaimah, Umm Al Quwain, and Fujairah .",
       },
       {
         q: "How do I contact Al Haya Carpet Cleaning Services?",
-        a: `You can reach Al Haya Carpet Cleaning Services by phone or WhatsApp at ${PHONE_DISPLAY} (international: ${PHONE_TEL}), by email at ${EMAIL}, or through our website contact form at ${SITE_URL}/contact. We are available daily from 8:00 AM to 10:00 PM, seven days a week including weekends and public holidays. Same-day appointments are available across Dubai, Sharjah, and Ajman.`,
+        a: `You can reach Al Haya Carpet Cleaning Services by phone or WhatsApp at ${PHONE_DISPLAY} (international: ${PHONE_TEL}), by email at ${EMAIL}, or through our website contact form at ${SITE_URL}/contact. We are available daily from 8:00 AM to 10:00 PM. Same-day slots are often available.`,
       },
       {
         q: "Who comes to my home to clean the carpets?",
@@ -48,11 +48,11 @@ const GUIDE_SECTIONS = [
     questions: [
       {
         q: "What carpet cleaning services does Al Haya offer in the UAE?",
-        a: "Al Haya Carpet Cleaning Services offers six core services across the UAE: (1) Carpet Deep Shampoo Cleaning — our main service, with 2-4 hours dry time, (2) Professional Carpet Stain Removal — treating coffee, tea, Karak, ink, grease, cosmetics, and pet stains, (3) Deep Carpet Odor Removing — enzyme-based antimicrobial treatment that neutralizes odors at the molecular level, (4) Specialized Rug Care by Fabric Type — tailored cleaning for Persian, Oriental, wool, shaggy, and synthetic rugs, (5) Commercial and Office Carpet Cleaning — flexible after-hours scheduling for offices, hotels, clinics, and retail, (6) Sofa and Upholstery Cleaning — fabric and leather deep cleaning for sofas, armchairs, majlis seating, and dining chairs.",
+        a: "Al Haya Carpet Cleaning Services offers six core services across the UAE: (1) Carpet Deep Shampoo Cleaning — our main service, (2) Professional Carpet Stain Removal — treating coffee, tea, Karak, ink, grease, cosmetics, and pet stains, (3) Deep Carpet Odor Removing — treatment that targets the source of the smell instead of masking it, (4) Specialized Rug Care by Fabric Type — tailored cleaning for Persian, Oriental, wool, shaggy, and synthetic rugs, (5) Commercial and Office Carpet Cleaning — for offices, hotels, clinics and shops, with the visit time agreed around your working day, (6) Sofa and Upholstery Cleaning — fabric and leather deep cleaning for sofas, armchairs, majlis seating, and dining chairs.",
       },
       {
         q: "What is carpet deep shampoo cleaning and how does it work?",
-        a: "Carpet deep shampoo cleaning is Al Haya's signature service. The process involves applying a biodegradable, non-toxic deep cleaning shampoo to penetrate the carpet pile, breaking down compacted grime, dust mites, and allergens. The extraction machine then rinses and vacuums at the same time, taking out the dirt and most of the water. The full process includes: booking request, free inspection of fabric and stains, dust removal with high-power vacuum, deep shampoo application, enzyme stain treatment, high-heat steam sanitization, molecular odor neutralization, controlled air-drying, a final quality check, and delivery. Your carpet is fully dry, fresh, and ready to walk on within 2 to 4 hours.",
+        a: "Carpet deep shampoo cleaning is Al Haya's main service. A cleaning shampoo is worked into the carpet pile to break down compacted grime, dust and allergens. The extraction machine then rinses and vacuums at the same time, taking out the dirt and most of the water. The visit covers: a check of the fabric and stains, dust removal with a vacuum, deep shampoo, stain treatment, odour treatment where needed, extraction, and a final check with you. Drying time depends on the carpet and on the AC and airflow in the room.",
       },
       {
         q: "Can you remove stubborn stains from carpets in Dubai?",
@@ -68,11 +68,11 @@ const GUIDE_SECTIONS = [
       },
       {
         q: "Does Al Haya offer commercial and office carpet cleaning?",
-        a: "Yes. Al Haya provides professional commercial carpet cleaning for corporate offices, hotel corridors, retail showrooms, medical clinics, nurseries, and any high-traffic commercial environment. We offer flexible scheduling including after-hours and weekend appointments to ensure zero business downtime — your workspace is pristine by Monday morning. Our commercial service includes deep shampoo extraction, stain treatment, sanitization, and optional ongoing maintenance contracts. We serve commercial clients across all seven emirates of the UAE.",
+        a: "Yes. Al Haya provides professional commercial carpet cleaning for corporate offices, hotel corridors, retail showrooms, medical clinics, nurseries, and any high-traffic commercial environment. We agree the visit time with you so the cleaning fits around your working day. The service includes deep shampoo extraction, stain treatment and odour treatment where needed, and we serve businesses across all seven emirates of the UAE.",
       },
       {
         q: "Does Al Haya clean sofas and upholstery?",
-        a: "Yes. Al Haya offers professional sofa and upholstery cleaning for sofas, armchairs, majlis seating, cushions, and dining chairs. We use fabric-specific methods including low-moisture extraction for delicate upholstery, steam sanitization for synthetic fabrics, and conditioning treatment for leather. Our service removes body oils, food spills, dust, and allergens that build up in soft furnishings. Available on-site at your home or office with same-day appointments across Dubai, Sharjah, and Ajman.",
+        a: "Yes. Al Haya offers professional sofa and upholstery cleaning for sofas, armchairs, majlis seating, cushions, and dining chairs. We use fabric-specific methods including low-moisture extraction for delicate upholstery, steam sanitization for synthetic fabrics, and conditioning treatment for leather. Our service removes body oils, food spills, dust, and allergens that build up in soft furnishings. Done on site at your home or office; same-day slots are often available.",
       },
     ],
   },
@@ -83,15 +83,15 @@ const GUIDE_SECTIONS = [
     questions: [
       {
         q: "What is the step-by-step carpet cleaning process at Al Haya?",
-        a: "This is Al Haya's carpet cleaning process, step by step: Step 1 — Booking Request: Book online, by phone, or WhatsApp in under a minute. Step 2 — Free Inspection: We assess fabric type, stains, and determine the best cleaning method at no cost. Step 3 — Pickup or On-Site: Doorstep collection or we clean in place, your choice. Step 4 — Dust Removal: High-power vacuum and beating extracts dry dirt and grit. Step 5 — Deep Shampoo: Shampoo is worked into the pile to loosen embedded grime. Step 6 — Stain Treatment: Enzyme spot-treatment targets stubborn marks individually. Step 7 — Steam: Steam freshens the fibres after the shampoo. Step 8 — Odor Removal: Neutralizers eliminate odors at the molecular source. Step 9 — Drying Process: Controlled air-drying restores loft without shrinkage. Step 10 — Quality Check: We check every cleaned area with you before we leave. Step 11 — Delivery/Done: Carpet returned fresh, sanitized, and ready to enjoy.",
+        a: "This is how a carpet cleaning job with Al Haya works: Step 1 — Send a photo: WhatsApp us a photo and the rough size of the carpet. Step 2 — Free quote: we reply with a free quote and a time for the visit; same-day slots are often available. Step 3 — Our team comes to you: a trained, background-checked team arrives at your home or office. Step 4 — Dust removal: a vacuum pulls out dry dust and sand. Step 5 — Deep shampoo: shampoo is worked into the pile to loosen embedded grime. Step 6 — Stain treatment: stubborn marks are treated one by one. Step 7 — Extraction: the machine rinses the carpet and takes out the dirty water. Step 8 — Final check: we check the cleaned areas with you before we leave.",
       },
       {
         q: "How long does it take for carpets to dry after cleaning?",
-        a: "After Al Haya's carpet deep shampoo cleaning, your carpet will be completely dry, fresh, and ready to walk on within 2 to 4 hours. Most of the water is taken out during the rinse. The exact drying time depends on your indoor AC settings and room ventilation.",
+        a: "Most of the water is taken out during the rinse, so the carpet is left damp, not soaked. How long it takes to dry fully depends on the carpet's thickness and fibre and on the AC and airflow in the room. Our team tells you on the day when the room can be used again.",
       },
       {
-        q: "Does Al Haya offer a free carpet inspection before cleaning?",
-        a: "Yes. Every Al Haya cleaning job starts with a free inspection where our technician assesses the carpet's fabric type, condition, existing stains, and determines the best cleaning method. There is no obligation or charge for this inspection. Based on the assessment, we provide a transparent, fixed-price quote before any work begins — no hidden charges or surprise fees.",
+        q: "Do I get a quote before the cleaning is booked?",
+        a: "Yes. Send a photo and the rough size of the carpet on WhatsApp and we reply with a free quote before anything is booked. On the day, our team also checks the fabric and the stains to choose the right cleaning method.",
       },
     ],
   },
@@ -102,42 +102,34 @@ const GUIDE_SECTIONS = [
     questions: [
       {
         q: "Which areas in Dubai does Al Haya cover for carpet cleaning?",
-        a: "Al Haya covers all areas of Dubai for carpet cleaning services including: Dubai Marina, Downtown Dubai, Jumeirah (including Jumeirah Beach Residence), Business Bay, Deira, Al Barsha, Palm Jumeirah, Arabian Ranches, Dubai Silicon Oasis, Dubai Sports City, Motor City, International City, Discovery Gardens, Al Quoz, Mirdif, Al Warqa, Bur Dubai, and all other Dubai communities. Same-day service is available across Dubai with response times of 30-60 minutes for most central areas.",
+        a: "Al Haya covers all areas of Dubai for carpet cleaning services including: Dubai Marina, Downtown Dubai, Jumeirah (including Jumeirah Beach Residence), Business Bay, Deira, Al Barsha, Palm Jumeirah, Arabian Ranches, Dubai Silicon Oasis, Dubai Sports City, Motor City, International City, Discovery Gardens, Al Quoz, Mirdif, Al Warqa, Bur Dubai, and all other Dubai communities. Same-day slots are often available across Dubai.",
       },
       {
         q: "Does Al Haya provide carpet cleaning in Sharjah?",
-        a: "Yes, Al Haya provides full carpet cleaning services across Sharjah including Al Nahda, Al Majaz, Al Qasimia, Muwaileh, Al Taawun, University City, Al Khan, and Khor Fakkan. All our services are available in Sharjah: carpet steam cleaning, rug cleaning, upholstery and mattress sanitisation, plus office and villa contracts. Same-day appointments are available with response times of 30-45 minutes.",
+        a: "Yes, Al Haya provides full carpet cleaning services across Sharjah including Al Nahda, Al Majaz, Al Qasimia, Muwaileh, Al Taawun, University City, Al Khan, and Khor Fakkan. All our services are available in Sharjah: carpet deep shampoo cleaning, rug cleaning, sofa and upholstery cleaning, and office carpet cleaning. Same-day slots are often available.",
       },
       {
         q: "Is carpet cleaning available in Ajman, Abu Dhabi, RAK, UAQ, and Fujairah?",
-        a: "Yes, Al Haya provides carpet cleaning services across all seven emirates of the UAE. In Ajman, we cover Ajman City, Al Nuaimiya, Al Rashidiya, Al Jurf, and surrounding areas. In Abu Dhabi, we serve Khalifa City, Al Ain, Mussafah, Saadiyat Island, Yas Island, and Al Reem Island. Ras Al Khaimah coverage includes RAK City, Al Hamra, Mina Al Arab, and Al Nakheel. In Umm Al Quwain, we serve UAQ City, Al Salamah, and Al Raas. Fujairah coverage includes Fujairah City, Dibba, Al Faseel, Khor Fakkan, and Kalba. Abu Dhabi, RAK, UAQ, and Fujairah are served on regular scheduled routes.",
+        a: "Yes, Al Haya provides carpet cleaning services across all seven emirates of the UAE. In Ajman, we cover Ajman City, Al Nuaimiya, Al Rashidiya, Al Jurf, and surrounding areas. In Abu Dhabi, we serve Khalifa City, Al Ain, Mussafah, Saadiyat Island, Yas Island, and Al Reem Island. Ras Al Khaimah coverage includes RAK City, Al Hamra, Mina Al Arab, and Al Nakheel. In Umm Al Quwain, we serve UAQ City, Al Salamah, and Al Raas. Fujairah coverage includes Fujairah City, Dibba, Al Faseel, Khor Fakkan, and Kalba.",
       },
       {
         q: "Can Al Haya come to my home or office for carpet cleaning?",
-        a: "Yes. Al Haya offers both on-site cleaning and pickup-and-return service. For on-site cleaning, our team brings all the cleaning equipment to your home, villa, apartment, or office and cleans carpets, rugs, sofas, and mattresses in place. For rug cleaning, we also offer doorstep collection — we pick up your rugs, clean them at our facility, and return them fresh and sanitized. The choice is entirely yours. Same-day appointments are available across Dubai, Sharjah, and Ajman.",
+        a: "Yes. Our team brings the cleaning equipment to your home, villa, apartment or office and cleans carpets, rugs and sofas in place, so you do not need to take anything anywhere. Same-day slots are often available.",
       },
     ],
   },
   {
     id: "pricing",
     eyebrow: "/ COST & BOOKING",
-    title: "Pricing, Booking & Guarantees",
+    title: "Pricing & Booking",
     questions: [
       {
         q: "How much does carpet cleaning cost in Dubai and the UAE?",
-        a: `Carpet cleaning pricing at Al Haya depends on three factors: carpet size (measured in square meters or feet), fabric type (Persian, wool, synthetic, shaggy, etc.), and level of soiling or staining. We provide a transparent, fixed-price quote before starting any work — no hidden charges, no surprise fees. For a free, no-obligation estimate, call or WhatsApp us at ${PHONE_DISPLAY}. We offer competitive pricing across all seven emirates with special rates for regular maintenance contracts and multi-item bookings.`,
+        a: `Carpet cleaning prices at Al Haya depend on three things: carpet size, fabric type (Persian, wool, synthetic, shaggy and so on) and how dirty or stained it is. For a free quote, send a photo and the rough size on WhatsApp to ${PHONE_DISPLAY}, or call us.`,
       },
       {
         q: "How do I book a carpet cleaning appointment with Al Haya?",
-        a: `Booking carpet cleaning with Al Haya is simple: (1) Call or WhatsApp us at ${PHONE_DISPLAY} — available daily 8 AM to 10 PM, (2) Send an email to ${EMAIL}, (3) Fill out the contact form at ${SITE_URL}/contact, or (4) Message us directly through our website chat. We aim to respond within the hour with a no-obligation quote. Same-day service is available across Dubai, Sharjah, and Ajman. For Abu Dhabi, RAK, UAQ, and Fujairah, bookings are typically scheduled within 48 hours on our regular routes.`,
-      },
-      {
-        q: "Does Al Haya offer a satisfaction guarantee for carpet cleaning?",
-        a: "Yes. Al Haya provides a 100% satisfaction guarantee on every carpet cleaning job. If you are not completely satisfied with any spot or area after our cleaning, we will re-clean it free of charge — this is a written guarantee included with every booking.",
-      },
-      {
-        q: "What payment methods does Al Haya accept?",
-        a: "Al Haya accepts multiple payment methods for your convenience: cash on completion, bank transfer, and digital payment. We do not require any advance payment — you pay only after the job is done and you are satisfied with the results. For commercial contracts and recurring maintenance, we offer monthly invoicing.",
+        a: `Booking carpet cleaning with Al Haya is simple: (1) Call or WhatsApp us at ${PHONE_DISPLAY} — available daily 8 AM to 10 PM, (2) Send an email to ${EMAIL}, or (3) Fill out the contact form at ${SITE_URL}/contact. Send a photo of the carpet and we reply with a free quote and the first free time. Same-day slots are often available.`,
       },
     ],
   },
@@ -148,7 +140,7 @@ const GUIDE_SECTIONS = [
     questions: [
       {
         q: "Are Al Haya's carpet cleaning products safe for children and pets?",
-        a: "Yes. All cleaning products used by Al Haya are completely non-toxic, eco-friendly, biodegradable, child-safe, and pet-safe. We never use harsh chemicals that could irritate skin, trigger allergies, or leave harmful residues on your carpets. Our products are specially formulated for the UAE environment where families with young children and pets need assurance that their soft furnishings are genuinely safe to sit, play, and sleep on after cleaning.",
+        a: "Yes. Al Haya uses eco-friendly cleaning products that are safe for children and pets. Let the carpet dry fully before children play on it again.",
       },
       {
         q: "Does carpet cleaning help with allergies and indoor air quality?",
@@ -175,11 +167,11 @@ const GUIDE_SECTIONS = [
       },
       {
         q: "What is the difference between carpet shampooing and steam cleaning?",
-        a: "Carpet shampooing and steam cleaning are two different but complementary methods. Carpet shampooing uses a biodegradable cleaning shampoo that is worked deep into the carpet pile to dissolve dirt, grime, and stains, then extracted using high-powered suction. Steam cleaning (hot water extraction) uses high-temperature water (100°C+) and powerful suction to sanitize and deep-clean the carpet, killing bacteria, dust mites, and allergens. Al Haya combines both methods: we deep shampoo first to break down soiling, then follow with steam to freshen the fibres.",
+        a: "Carpet shampooing and hot-water extraction (often called steam cleaning) work well together. Shampooing works a cleaning solution deep into the carpet pile to loosen dirt, grime and stains. Extraction then rinses the carpet with water and sucks the dirty water back out with strong suction. Al Haya combines both: we deep shampoo first to break down soiling, then rinse and extract.",
       },
       {
         q: "Can old, heavily soiled carpets be restored with professional cleaning?",
-        a: "Often, yes. Carpets that look beyond saving — heavily soiled with years of embedded dirt, old stains, pet marks and odour — usually improve a lot with a deep shampoo and stain treatment. However, some permanent damage may occur from: bleach or chemical burns, color-fast dye transfer from clothing or furniture, severe sun fading, or long-term pet urine damage to the carpet backing. We always provide an honest assessment during our free inspection — we will tell you upfront what results to expect.",
+        a: "Often, yes. Carpets that look beyond saving — heavily soiled with years of embedded dirt, old stains, pet marks and odour — usually improve a lot with a deep shampoo and stain treatment. However, some permanent damage may occur from: bleach or chemical burns, color-fast dye transfer from clothing or furniture, severe sun fading, or long-term pet urine damage to the carpet backing. Send photos on WhatsApp and we tell you honestly, before anything is booked, what results to expect.",
       },
       {
         q: "Why is carpet cleaning important in the UAE desert climate?",
@@ -194,11 +186,11 @@ const GUIDE_SECTIONS = [
     questions: [
       {
         q: "What makes Al Haya different from other carpet cleaners in Dubai?",
-        a: "What you get with Al Haya: (1) Quick Drying — carpets are usually dry in 2 to 4 hours, (2) A Thorough Process — shampoo, stain treatment, steam and odour removal in one visit, (3) All 7 Emirates — full UAE coverage from a single provider, (4) Fabric-Specific Care — different cleaning methods for Persian, wool, shaggy, and synthetic — not one-size-fits-all, (5) 100% Satisfaction Guarantee — written guarantee with free re-cleaning, (6) Eco-Friendly Products — non-toxic, biodegradable, child-safe and pet-safe, (7) Transparent Pricing — fixed quote before starting, no hidden charges, (8) Same-Day Service — available across Dubai, Sharjah, and Ajman.",
+        a: "What you get with Al Haya: (1) We come to you — carpets, rugs and sofas are cleaned at your home or office, (2) A trained, background-checked team, (3) A thorough process — shampoo, stain treatment and extraction in one visit, (4) All 7 Emirates — UAE coverage from a single provider, (5) Fabric-specific care — different methods for Persian, wool, shaggy and synthetic carpets, (6) Eco-friendly products that are safe for children and pets, (7) A free quote on WhatsApp before anything is booked, (8) Same-day slots, often available.",
       },
       {
         q: "Does Al Haya offer same-day carpet cleaning service?",
-        a: "Yes. Al Haya offers same-day carpet cleaning service across Dubai, Sharjah, and Ajman. Book in the morning, enjoy fresh carpets the same evening. For Abu Dhabi, Ras Al Khaimah, Umm Al Quwain, and Fujairah, bookings are typically scheduled within 48 hours on our regular emirate routes. Emergency and urgent carpet cleaning requests are accommodated whenever possible — call or WhatsApp us to check availability.",
+        a: "Yes. Same-day slots are often available. Message us on WhatsApp in the morning with a photo of the carpet and we tell you the first free time. For a large villa or office, booking a day or two ahead gives you more choice of times.",
       },
     ],
   },
@@ -336,12 +328,12 @@ export default function GuidesPage() {
                 <span className="guide-fact-value">All 7 UAE Emirates</span>
               </div>
               <div className="guide-fact">
-                <span className="guide-fact-label">Dry Time</span>
-                <span className="guide-fact-value">2 – 4 Hours</span>
+                <span className="guide-fact-label">Team</span>
+                <span className="guide-fact-value">Trained &amp; background-checked</span>
               </div>
               <div className="guide-fact">
-                <span className="guide-fact-label">Guarantee</span>
-                <span className="guide-fact-value">100% Satisfaction</span>
+                <span className="guide-fact-label">Quote</span>
+                <span className="guide-fact-value">Free on WhatsApp</span>
               </div>
             </div>
           </div>
@@ -439,7 +431,7 @@ export default function GuidesPage() {
             <div className="glow" />
             <div className="inner">
               <h2>Ready to get your carpets deep cleaned?</h2>
-              <p>Book a free inspection and get a no-obligation quote. Same-day service available across Dubai, Sharjah, and Ajman.</p>
+              <p>Send a photo on WhatsApp and get a free quote. Same-day slots are often available.</p>
               <div className="row">
                 <a className="btn-green" href={waHref()} target="_blank" rel="noopener">WhatsApp us →</a>
                 <a className="btn-outline" href={`tel:${PHONE_TEL}`}>Call {PHONE_DISPLAY}</a>

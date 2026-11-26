@@ -161,7 +161,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
         <CtaBand
           title="Ready to get your carpets deep cleaned?"
-          text="Book a free inspection and get a no-obligation quote. Same-day service available across Dubai, Sharjah, and Ajman."
+          text="Send a photo on WhatsApp and get a free quote. Same-day slots are often available."
         />
       </main>
 

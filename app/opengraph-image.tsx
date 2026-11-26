@@ -93,7 +93,7 @@ export default async function Image() {
             maxWidth: 700,
           }}
         >
-          Residential & Commercial | All 7 UAE Emirates | 2-4 Hours Dry Time
+          Residential & Commercial | All 7 UAE Emirates | Free Quote on WhatsApp
         </div>
 
         {/* Phone */}

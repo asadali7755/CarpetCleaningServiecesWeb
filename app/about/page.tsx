@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 
 const WHY = [
   { t: "Trained & background-checked crew", d: "Trained, background-checked technicians who come to your home or office.", icon: "shield" },
-  { t: "Eco-friendly & safe", d: "Non-toxic products that are safe for children, pets and sensitive skin.", icon: "leaf" },
-  { t: "Same-day service", d: "Book in the morning, enjoy fresh carpets the same evening across Dubai.", icon: "clock" },
-  { t: "100% satisfaction", d: "Not happy with a spot? We re-clean it free — written guarantee on every job.", icon: "thumbup" },
-  { t: "Transparent pricing", d: "Clear fixed quote before we start. No hidden charges, ever.", icon: "clipboard" },
+  { t: "Eco-friendly & safe", d: "Eco-friendly products that are safe for children and pets.", icon: "leaf" },
+  { t: "Same-day slots", d: "Same-day slots are often available — ask on WhatsApp in the morning.", icon: "clock" },
+  { t: "We come to you", d: "Carpets, rugs and sofas are cleaned on site at your home or office.", icon: "thumbup" },
+  { t: "Free quote", d: "Send a photo on WhatsApp and get a free quote before anything is booked.", icon: "clipboard" },
   { t: "All of the UAE", d: "Coverage across all seven emirates, residential and commercial.", icon: "pin" },
 ];
 
@@ -60,11 +60,11 @@ export default function About() {
         <section className="rh-sec ab-story">
           <div className="rh-wrap">
             <blockquote className="ab-quote" data-reveal="blur">
-              &ldquo;Spotless results and healthier homes, delivered fast and done right.&rdquo;
+              &ldquo;Cleaner carpets and healthier homes, done right at your door.&rdquo;
             </blockquote>
             <div className="mg-grid ab-text">
-              <p data-reveal="left">Carpets, rugs and upholstery trap dust, allergens and bacteria that ordinary vacuuming never reaches. We combine deep shampoo extraction, high-temperature steam sanitisation and careful stain treatment to restore your soft furnishings to a fresh, hygienic, like-new condition.</p>
-              <p data-reveal="right">From a single rug to a full villa or a multi-floor office, our trained crew brings professional cleaning equipment and eco-friendly products to every job — with pickup-and-return for rugs and curtains, and convenient on-site service for carpets, sofas and mattresses.</p>
+              <p data-reveal="left">Carpets, rugs and upholstery trap dust, allergens and bacteria that ordinary vacuuming never reaches. We combine deep shampoo, extraction and careful stain treatment to bring your soft furnishings back to a fresh, clean condition.</p>
+              <p data-reveal="right">From a single rug to a full villa or a multi-floor office, our trained, background-checked crew brings the cleaning equipment and eco-friendly products to you and cleans carpets, rugs and sofas on site.</p>
             </div>
           </div>
         </section>
